@@ -3,6 +3,24 @@ import "./globals.css";
 
 const siteUrl = "https://amm-data-solutions-website.vercel.app";
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "AMM Data Solutions",
+  url: siteUrl,
+  email: "bammdatasolutins229@gmail.com",
+  description:
+    "AMM Data Solutions helps businesses simplify repetitive work with practical AI automation, WhatsApp workflows, data systems, follow-up processes and creative digital services.",
+  knowsAbout: [
+    "AI automation",
+    "WhatsApp automation",
+    "Data and spreadsheet automation",
+    "Lead recovery and follow-up systems",
+    "Social media and advertising",
+    "Creative and AI video production",
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -52,7 +70,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
