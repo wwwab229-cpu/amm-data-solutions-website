@@ -10,7 +10,7 @@ const organizationSchema = {
   url: siteUrl,
   email: "bammdatasolutins229@gmail.com",
   description:
-    "AMM Data Solutions helps businesses simplify repetitive work with practical AI automation, WhatsApp workflows, data systems, follow-up processes and creative digital services.",
+    "AMM Data Solutions helps businesses improve workflows and online discovery with practical AI automation, Google SEO, AI search visibility, WhatsApp workflows, data systems, follow-up processes and creative digital services.",
   knowsAbout: [
     "AI automation",
     "WhatsApp automation",
@@ -18,6 +18,9 @@ const organizationSchema = {
     "Lead recovery and follow-up systems",
     "Social media and advertising",
     "Creative and AI video production",
+    "Google SEO and technical SEO",
+    "On-page SEO and Search Console monitoring",
+    "AI search visibility and answer engine optimization",
   ],
 };
 
@@ -52,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "AMM Data Solutions",
     title: "AMM Data Solutions | AI Automation & Digital Business Systems",
     description:
-      "Practical AI automation, business workflows, data systems and creative digital services for growing businesses.",
+      "Practical AI automation, Google SEO, AI search visibility, business workflows, data systems and creative digital services for growing businesses.",
     locale: "en_PK",
   },
   twitter: {
