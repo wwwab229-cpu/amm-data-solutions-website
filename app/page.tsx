@@ -3,93 +3,76 @@
 import { useState } from "react";
 
 const services = [
-  { number: "01", slug: "ai-automation-business-systems", title: "AI Automation & Business Systems", short: "Connect repetitive tasks, customer inquiries and team workflows into practical systems.", detail: "AI workflow integration, CRM setup, lead management, follow-up automation and WhatsApp business workflows.", tags: ["Workflow automation", "CRM & leads", "WhatsApp workflows"] },
-  { number: "02", slug: "website-ecommerce-solutions", title: "Website & E-commerce Solutions", short: "Build a clear, trustworthy digital home for your business and customers.", detail: "Business websites, landing pages, online stores, product catalogs and e-commerce integrations.", tags: ["Business websites", "Online stores", "Landing pages"] },
-  { number: "03", slug: "data-analytics-business-intelligence", title: "Data Analytics & Business Intelligence", short: "Turn scattered information into useful reports and clearer decisions.", detail: "Excel and Google Sheets automation, dashboards, business reports, market research and competitor analysis.", tags: ["Data automation", "Dashboards", "Business reports"] },
-  { number: "04", slug: "seo-ai-search-visibility", title: "SEO & AI Search Visibility", short: "Improve how search engines understand your website and business information.", detail: "Technical SEO, website audits, content optimization, search indexing checks and AI search visibility improvements.", tags: ["Technical SEO", "Content structure", "Indexing checks"] },
-  { number: "05", slug: "lead-generation-growth-systems", title: "Lead Generation & Growth Systems", short: "Help your team identify relevant prospects and manage sales opportunities.", detail: "B2B lead research, prospect lists, lead qualification, customer support assistants and sales follow-up systems.", tags: ["B2B research", "Lead qualification", "Sales follow-up"] },
-  { number: "06", slug: "digital-marketing-creative-solutions", title: "Digital Marketing & Creative Solutions", short: "Create a consistent digital presence with purposeful content and campaign support.", detail: "Social media management, advertising creatives, digital content and marketing performance reporting.", tags: ["Social media", "Ad creatives", "Campaign reporting"] },
+  { n: "01", slug: "ai-automation-business-systems", title: "AI Automation & Business Systems", plain: "Make repetitive work easier.", body: "Connect everyday tasks so your team spends less time copying information and chasing updates.", examples: ["Automated admin tasks", "Customer inquiry workflows", "CRM and follow-up setup"] },
+  { n: "02", slug: "website-ecommerce-solutions", title: "Website & E-commerce Solutions", plain: "Give your business a better website.", body: "Show customers what you offer and make it easy for them to contact you or browse your products.", examples: ["Business websites", "Online stores", "Landing pages and product catalogs"] },
+  { n: "03", slug: "data-analytics-business-intelligence", title: "Data Analytics & Business Intelligence", plain: "Make your information useful.", body: "Organize spreadsheets and reports so important business information is easier to understand.", examples: ["Excel and Sheets automation", "Simple dashboards", "Business and market reports"] },
+  { n: "04", slug: "seo-ai-search-visibility", title: "SEO & AI Search Visibility", plain: "Help people find your business online.", body: "Improve your website structure and content so search engines can better understand your business.", examples: ["Website SEO checks", "Page titles and content", "Search indexing support"] },
+  { n: "05", slug: "lead-generation-growth-systems", title: "Lead Generation & Growth Systems", plain: "Find and organize potential customers.", body: "Research relevant businesses and set up a clearer way to track prospects and next steps.", examples: ["B2B prospect research", "Organized lead lists", "Sales follow-up systems"] },
+  { n: "06", slug: "digital-marketing-creative-solutions", title: "Digital Marketing & Creative Solutions", plain: "Keep your brand active and consistent.", body: "Plan useful social content and create marketing materials that communicate your offer clearly.", examples: ["Social media content", "Ad and campaign designs", "Marketing activity reports"] },
 ];
 
-const steps = [
-  ["01", "Understand", "We learn about your goal, current tools and the work slowing you down."],
-  ["02", "Design", "We map a practical solution and agree on scope before implementation."],
-  ["03", "Build", "We create the agreed workflow, website or digital deliverable."],
-  ["04", "Verify", "We test key paths, review quality and address issues before handover."],
-  ["05", "Deliver", "You receive the agreed work, clear instructions and next steps."],
-];
-
-const faqs = [
-  ["What does AMM Data Solutions do?", "We help businesses improve operations and digital growth through six service areas: automation, websites, data intelligence, SEO, lead generation and digital marketing."],
-  ["Who do you work with?", "Our services are designed for small businesses, startups, agencies, e-commerce businesses and growing teams in Pakistan and international markets."],
-  ["Can you work with our existing tools?", "Often, yes. We review the tools and access available first, then confirm the practical scope and any platform limitations before work begins."],
-  ["Can you guarantee search rankings or AI citations?", "No. We can improve technical foundations, content clarity and indexing readiness, but search rankings and inclusion in AI-generated answers depend on systems outside our control."],
-  ["How do we start?", "Email us with your business type, the challenge you want to solve and any tools you already use. We will review the request and discuss a suitable next step."],
+const process = [
+  ["01", "Tell us your goal", "Explain what you want to improve and how you work today."],
+  ["02", "Agree on the plan", "We confirm the scope, deliverables, timeline and practical requirements."],
+  ["03", "Build and review", "We create the agreed solution, check the work and explain the handover."],
 ];
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const faqs = [
+    ["What does AMM Data Solutions do?", "We help businesses improve their websites, everyday workflows, business data, online visibility, lead handling and digital marketing."],
+    ["Do you work with businesses outside Pakistan?", "Yes. We welcome inquiries from Pakistan and international markets. The scope, timeline and working arrangements are confirmed for each project."],
+    ["How much does a project cost?", "Cost depends on the work and its requirements. Contact us with a short description and we can discuss a suitable scope before quoting."],
+  ];
+
   return <main>
     <nav className="nav" aria-label="Main navigation">
-      <a className="brand" href="/" aria-label="AMM Data Solutions home"><span>AMM</span><small>DATA SOLUTIONS</small></a>
-      <div className="navlinks"><a href="#solutions">Solutions</a><a href="#process">Our process</a><a href="#about">About</a><a href="#faq">FAQs</a></div>
-      <a className="navcta" href="#contact">Start a project <i>↗</i></a>
+      <a className="brand" href="/" aria-label="AMM Data Solutions home"><strong>AMM</strong><span>DATA SOLUTIONS</span></a>
+      <div className="navlinks"><a href="#services">Services</a><a href="#how">How it works</a><a href="#about">About</a></div>
+      <a className="navcta" href="#contact">Contact us <span>↗</span></a>
     </nav>
 
     <section className="hero">
-      <div className="orb orb1"/><div className="orb orb2"/><div className="heroGrid"/>
-      <div className="heroCopy">
-        <div className="eyebrow"><span/> AI AUTOMATION · DIGITAL GROWTH</div>
-        <h1>We make business<br/><em>work smarter.</em></h1>
-        <p>We build practical AI automation, connected business systems and digital solutions that help teams simplify work and move forward.</p>
-        <div className="heroActions"><a className="primary" href="#solutions">Explore our solutions <b>→</b></a><a className="secondary" href="#contact">Discuss your needs</a></div>
-        <div className="heroTrust"><span><i/> Practical by design</span><span><i/> Quality checked</span><span><i/> Pakistan + worldwide</span></div>
+      <div className="heroInner">
+        <div className="eyebrow"><span/> DIGITAL SOLUTIONS FOR GROWING BUSINESSES</div>
+        <h1>Make business<br/><em>work better.</em></h1>
+        <p className="heroText">From better websites to simpler workflows, we help businesses get everyday work organized and build a stronger online presence.</p>
+        <div className="heroActions"><a className="primary" href="#services">Explore our services <span>→</span></a><a className="textLink" href="#contact">Tell us what you need</a></div>
+        <div className="heroMeta"><span><i/> Clear, practical solutions</span><span><i/> Pakistan & worldwide</span></div>
       </div>
-      <div className="systemVisual" aria-label="Illustration of connected business systems">
-        <div className="visualOrbit orbitOuter"/><div className="visualOrbit orbitInner"/>
-        <div className="visualCore"><strong>AMM</strong><span>CONNECTED SYSTEMS</span><div className="corePulse"/></div>
-        <div className="node nodeA"><b>INQUIRY</b><small>Captured clearly</small><span className="nodeDot"/></div>
-        <div className="node nodeB"><b>BUSINESS DATA</b><small>Organized</small><span className="nodeDot"/></div>
-        <div className="node nodeC"><b>FOLLOW-UP</b><small>Workflow ready</small><span className="nodeDot"/></div>
-        <div className="node nodeD"><b>DIGITAL GROWTH</b><small>Measured</small><span className="nodeDot"/></div>
-        <div className="line l1"/><div className="line l2"/><div className="line l3"/><div className="line l4"/>
-        <div className="visualCaption"><span className="liveDot"/> DESIGNED AROUND YOUR WORKFLOW</div>
+      <div className="heroArt" aria-hidden="true">
+        <div className="artHalo"></div><div className="artCard artMain"><div className="artTop"><span>BUSINESS WORKSPACE</span><span className="artStatus">● READY</span></div><div className="artLogo">AMM<span>DATA SOLUTIONS</span></div><div className="artRule"></div><div className="artRows"><span>Website</span><b>Clear & useful</b><span>Workflows</span><b>Better organized</b><span>Business data</span><b>Easier to follow</b></div></div>
+        <div className="artChip chipOne"><span>↗</span> Digital presence</div><div className="artChip chipTwo"><span>✓</span> Organized systems</div><div className="artDot dotOne"></div><div className="artDot dotTwo"></div>
       </div>
-      <div className="heroBottom"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>PAKISTAN · INTERNATIONAL</span></div>
     </section>
 
     <section className="intro section">
-      <div className="sectionTag">01 / THE IDEA</div>
-      <div><h2>Less repetition.<br/><span>More momentum.</span></h2><p className="lead">Your team should spend less time repeating the same work and more time moving the business forward. We shape useful digital systems around your real goals, existing tools and day-to-day processes.</p></div>
+      <div className="eyebrow">A PRACTICAL APPROACH</div>
+      <h2>Good technology should make things <span>simpler.</span></h2>
+      <p>We start with the business problem, then recommend the right work — without unnecessary complexity or confusing jargon.</p>
     </section>
 
-    <section id="solutions" className="section solutions">
-      <div className="sectionHead"><div><div className="sectionTag">02 / OUR SERVICES</div><h2>Six ways to make<br/><span>work better.</span></h2></div><p>Clear services. Practical scope. Solutions built around what your business actually needs.</p></div>
-      <div className="serviceGrid">{services.map(s => <a className="service" href={`/services/${s.slug}`} key={s.number}>
-        <div className="serviceTop"><span>{s.number} / SERVICE</span><span className="servicePlus">↗</span></div>
-        <div className="serviceSymbol" aria-hidden="true">{["↗","⌘","▥","⌕","◎","✳"][Number(s.number)-1]}</div>
-        <h3>{s.title}</h3><p>{s.short}</p>
-        <div className="serviceTags">{s.tags.map(t => <span key={t}>{t}</span>)}</div>
-        <div className="serviceLearn">Explore service <span>→</span></div>
+    <section id="services" className="services section">
+      <div className="sectionHead"><div><div className="eyebrow">WHAT WE CAN HELP WITH</div><h2>Our services</h2></div><p>Six clear areas. Choose the one closest to what your business needs.</p></div>
+      <div className="serviceGrid">{services.map(s=><a className="serviceCard" href={`/services/${s.slug}`} key={s.n}>
+        <div className="serviceCardTop"><span>{s.n}</span><span className="arrow">↗</span></div>
+        <h3>{s.title}</h3><h4>{s.plain}</h4><p>{s.body}</p>
+        <ul>{s.examples.map(x=><li key={x}>{x}</li>)}</ul>
+        <div className="cardLink">See service details <span>→</span></div>
       </a>)}</div>
     </section>
 
-    <section className="demo section"><div className="sectionTag">03 / THE DIFFERENCE</div><div className="demoIntro"><h2>From scattered tasks<br/>to <span>connected workflows.</span></h2><p>We focus on making everyday work easier to follow, manage and improve.</p></div>
-      <div className="demoWrap">
-        <div className="demoPanel before"><label>BEFORE</label><h3>Disconnected process</h3>{["Requests arrive in different places","Information gets copied by hand","Follow-ups rely on memory","Progress is hard to track"].map((x,i)=><div className="task" key={x}><span>0{i+1}</span>{x}</div>)}</div>
-        <div className="transform">→<small>DESIGN · BUILD · VERIFY</small></div>
-        <div className="demoPanel after"><label>AFTER</label><h3>Clearer system</h3>{["Requests follow a clear path","Information stays organized","Next steps are visible","Teams can review progress"].map((x,i)=><div className="task activeTask" key={x}><span>0{i+1}</span>{x}<b>✓</b></div>)}</div>
-      </div><p className="disclaimer">Illustrative workflow example. Exact outcomes depend on the project scope, tools and implementation.</p>
+    <section id="how" className="how section">
+      <div className="howIntro"><div className="eyebrow">A CLEAR PROCESS</div><h2>From first conversation<br/>to finished work.</h2><p>You know what we are doing, what is included and what happens next.</p></div>
+      <div className="processList">{process.map(p=><div className="processItem" key={p[0]}><span className="processNumber">{p[0]}</span><div><h3>{p[1]}</h3><p>{p[2]}</p></div><span className="processArrow">↗</span></div>)}</div>
     </section>
 
-    <section id="process" className="section process"><div className="sectionTag">04 / HOW WE WORK</div><h2>Thoughtful planning.<br/><span>Careful delivery.</span></h2><p className="processLead">We agree on the goal first, test the work and keep the handover clear.</p><div className="steps">{steps.map(s=><div className="step" key={s[0]}><span>{s[0]}</span><div><h3>{s[1]}</h3><p>{s[2]}</p></div><b>↗</b></div>)}</div></section>
+    <section id="about" className="about section"><div className="aboutMark"><strong>AMM</strong><span>DATA SOLUTIONS</span></div><div className="aboutCopy"><div className="eyebrow">ABOUT AMM DATA SOLUTIONS</div><h2>Let’s make solutions.</h2><p>We help small businesses, startups, agencies and growing companies improve the way they work and show up online. Every project starts with understanding your needs and agreeing on a practical scope.</p><div className="aboutTags"><span>Pakistan</span><span>International clients</span><span>Quality-focused delivery</span></div></div></section>
 
-    <section id="about" className="about section"><div className="aboutCard"><div className="sectionTag">05 / ABOUT AMM</div><div className="aboutMark">AMM<span>DATA SOLUTIONS</span></div><h2>Let’s make solutions.</h2><p>We combine modern technology, practical planning and quality checks to help growing businesses improve their systems and digital presence.</p><div className="pillRow"><span>Practical</span><span>Modern</span><span>Reliable</span><span>Quality-focused</span></div></div><div className="aboutSide"><div className="miniLabel">WHAT WE AIM TO IMPROVE</div>{[["TIME","Less repetitive work"],["CLARITY","More organized processes"],["VISIBILITY","Clearer business information"],["CONTROL","Useful handovers and reporting"]].map(x=><div className="metric" key={x[0]}><strong>{x[0]}</strong><span>{x[1]}</span></div>)}</div></section>
+    <section id="contact" className="contact section"><div className="contactInner"><div className="eyebrow">HAVE A PROJECT IN MIND?</div><h2>Tell us what you<br/><em>want to improve.</em></h2><p>Send us a short description of your business and what you need help with. We’ll discuss the next practical step.</p><a className="primary" href="mailto:bammdatasolutins229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions">Discuss your project <span>↗</span></a><a className="contactEmail" href="mailto:bammdatasolutins229@gmail.com">bammdatasolutins229@gmail.com</a></div></section>
 
-    <section id="faq" className="section faq"><div className="sectionTag">06 / COMMON QUESTIONS</div><div className="faqHead"><h2>Clear answers.<br/><span>Before we begin.</span></h2><p>We believe in practical expectations, clear scope and honest communication.</p></div><div className="faqList">{faqs.map((faq,i)=><div className="faqItem" key={faq[0]}><button className="faqQuestion" aria-expanded={openFaq===i} onClick={()=>setOpenFaq(openFaq===i?null:i)}>{faq[0]}<span>{openFaq===i?"−":"+"}</span></button>{openFaq===i&&<p>{faq[1]}</p>}</div>)}</div></section>
+    <section className="faq section"><div><div className="eyebrow">GOOD TO KNOW</div><h2>Quick answers</h2></div><div className="faqList">{faqs.map((f,i)=><div className="faqItem" key={f[0]}><button className="faqQuestion" aria-expanded={openFaq===i} onClick={()=>setOpenFaq(openFaq===i?null:i)}>{f[0]}<span>{openFaq===i?"−":"+"}</span></button>{openFaq===i&&<p>{f[1]}</p>}</div>)}</div></section>
 
-    <section id="contact" className="contact section"><div className="contactGlow"/><div className="sectionTag">07 / START A CONVERSATION</div><div className="contactEyebrow">YOUR NEXT STEP STARTS HERE</div><h2>What could your business<br/><span>do with a better system?</span></h2><p>Tell us what you want to improve. We’ll review your needs and discuss a practical next step — without promising what we can’t verify.</p><a className="primary large" href="mailto:bammdatasolutins229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions">Discuss your project <b>↗</b></a><div className="contactEmail">bammdatasolutins229@gmail.com</div></section>
-
-    <footer><div className="footerTop"><a className="footerBrand" href="#"><strong>AMM</strong><span>DATA SOLUTIONS</span></a><a href="#solutions">Explore services ↑</a></div><p>AI Automation · Websites · Data Intelligence · SEO · Lead Generation · Digital Marketing</p><div className="footerBottom"><span>© 2026 AMM Data Solutions</span><span>Let’s Make Solutions</span><span>Pakistan · Worldwide</span></div></footer>
+    <footer><a className="brand footerBrand" href="/"><strong>AMM</strong><span>DATA SOLUTIONS</span></a><p>AI automation · Websites · Data · SEO · Lead generation · Digital marketing</p><div className="footerBottom"><span>© 2026 AMM Data Solutions</span><span>Let’s Make Solutions</span><span>Pakistan & worldwide</span></div></footer>
   </main>;
 }
