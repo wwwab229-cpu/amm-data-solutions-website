@@ -65,3 +65,70 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 
 /* Original public AMM PNG logo */
 .brand img{display:block;height:38px;width:auto;max-height:none;object-fit:contain}.aboutLogoFrame .ammAboutLogo{display:block;width:min(100%,340px);height:auto;object-fit:contain}.footerBrand img{height:38px;width:auto}@media(max-width:620px){.brand img{height:34px;width:auto}.footerBrand img{height:34px;width:auto}.aboutLogoFrame .ammAboutLogo{width:min(100%,300px)}}
+
+
+/* AMM positioning refresh: differentiated capability panels, deliberate depth, and restrained gold */
+:root{--ink:#0b1730;--muted:#5f6c82;--line:#dce3ed;--yellow:#ffc928;--yellowDeep:#dba900;--blue:#285ee8}
+.nav{background:rgba(255,255,255,.94);box-shadow:0 8px 30px rgba(11,23,48,.045)}
+.hero{background:radial-gradient(ellipse at 77% 38%,rgba(255,201,40,.18),transparent 23%),radial-gradient(ellipse at 80% 40%,rgba(57,106,226,.18),transparent 48%),linear-gradient(115deg,#fff 0%,#f8faff 48%,#edf2fb 100%)}
+.hero h1 span{color:#1d4ed8}
+.hero h1 span:after{background:var(--yellow);height:7px}
+.heroArt:after{content:"";position:absolute;inset:8% 2%;border:1px solid rgba(20,47,91,.08);border-radius:48% 52% 43% 57%;transform:rotate(-12deg);z-index:-2}
+.artCard{background:rgba(255,255,255,.88);border-color:rgba(255,255,255,.9);box-shadow:0 32px 85px rgba(18,40,81,.2),inset 0 0 0 1px rgba(20,47,91,.06)}
+.services{background:#f1f4f9;position:relative}
+.services:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#c8d2e2,transparent)}
+.serviceGrid{align-items:stretch;gap:20px}
+.serviceCard{border:1px solid #e0e6ef;border-radius:20px;padding:22px 23px 21px;min-height:410px;box-shadow:0 12px 30px rgba(11,23,48,.055);transition:transform .3s,box-shadow .3s,border-color .3s}
+.serviceCard:nth-child(2),.serviceCard:nth-child(5){background:#101d36;color:#f8faff;border-color:#101d36}
+.serviceCard:nth-child(2) p,.serviceCard:nth-child(5) p{color:#c0cbe0}
+.serviceCard:nth-child(2) h4,.serviceCard:nth-child(5) h4{color:#ffd34d}
+.serviceCard:nth-child(2) ul,.serviceCard:nth-child(5) ul{color:#d1daea}
+.serviceCard:nth-child(2) .serviceNumber,.serviceCard:nth-child(5) .serviceNumber{color:#a5b4cc}
+.serviceCard:nth-child(2) .cardLink,.serviceCard:nth-child(5) .cardLink{border-color:#34415a;color:#fff}
+.serviceCard:hover{transform:translateY(-6px);box-shadow:0 24px 55px rgba(11,23,48,.13);border-color:#e5b51d}
+.serviceCardTop{min-height:26px}
+.serviceNumber{font-size:9px;letter-spacing:.13em;font-weight:800;color:#7b879b}
+.serviceArrow{display:grid;place-items:center;width:31px;height:31px;border:1px solid #e2e8f1;border-radius:50%;color:#152746;font-size:15px}
+.serviceCard:nth-child(2) .serviceArrow,.serviceCard:nth-child(5) .serviceArrow{border-color:#40506b;color:#ffd34d}
+.serviceVisual{height:92px;margin:17px 0 2px;border-radius:13px;overflow:hidden;position:relative}
+.visualWorkflow{display:flex;align-items:center;justify-content:center;gap:8px;background:#e8efff;color:#243b69;padding:12px;font-size:8px;font-weight:900;letter-spacing:.08em}
+.visualWorkflow span,.visualWorkflow b{padding:9px 8px;border-radius:6px;background:#fff;box-shadow:0 4px 10px #15274610}
+.visualWorkflow i{font-style:normal;color:#b28b00;font-size:15px}
+.visualWeb{background:linear-gradient(135deg,#dce7ff,#f4f6ff);padding:12px 15px}
+.webBar{display:flex;gap:4px;margin-bottom:11px}.webBar i{width:5px;height:5px;background:#8ca4ce;border-radius:50%}
+.webHeroLine{height:6px;width:53%;border-radius:4px;background:#152746;margin:7px 0}.webHeroLine.short{width:34%;background:#8394b4}
+.webButton{height:9px;width:34px;background:#ffc928;border-radius:3px;margin-top:10px}
+.webBlocks{position:absolute;right:15px;bottom:12px;display:flex;gap:5px}.webBlocks i{display:block;width:25px;height:30px;border-radius:5px;background:#fff;box-shadow:0 4px 12px #15274614}.webBlocks i:nth-child(2){height:38px;background:#ffc928}.webBlocks i:nth-child(3){height:23px;background:#a9c3ff}
+.visualData{background:#111f38;color:white;padding:12px 15px;display:flex;justify-content:space-between;align-items:center}
+.dataMetric small,.dataMetric b{display:block}.dataMetric small{font-size:7px;letter-spacing:.15em;color:#a9bad8}.dataMetric b{font-size:12px;margin-top:8px}.dataBars{display:flex;align-items:end;gap:5px;height:54px}.dataBars i{width:9px;border-radius:3px 3px 0 0;background:linear-gradient(#ffe079,#e7b40c);height:32%}.dataBars i:nth-child(2){height:55%}.dataBars i:nth-child(3){height:43%}.dataBars i:nth-child(4){height:78%}.dataBars i:nth-child(5){height:62%}.dataBars i:nth-child(6){height:90%}.dataBars i:nth-child(7){height:100%}
+.visualSearch{background:#fff0bc;display:flex;align-items:center;gap:17px;padding:12px 19px;color:#182746}
+.searchRing{display:grid;place-items:center;width:55px;height:55px;border:2px solid #182746;border-radius:50%;font-size:34px;transform:rotate(-15deg)}
+.visualSearch div{flex:1}.visualSearch b{font-size:8px;letter-spacing:.1em;display:block;margin-bottom:9px}.visualSearch i{display:block;height:4px;border-radius:3px;background:#d5b65b;margin-top:5px;width:90%}.visualSearch i:nth-child(3){width:67%}.visualSearch i:nth-child(4){width:78%}
+.visualLeads{background:#dce9ff;padding:12px 15px;display:flex;flex-direction:column;justify-content:center;gap:7px;color:#223b66;font-size:9px;font-weight:700}
+.visualLeads div{display:flex;align-items:center;gap:8px}.visualLeads i{display:block;width:7px;height:7px;border-radius:50%;background:#2c65e8;box-shadow:0 0 0 3px #2c65e81b}
+.visualCreative{background:#151d32;display:flex;align-items:center;justify-content:center;gap:7px}
+.creativeTile{display:grid;place-items:center;width:68px;height:64px;border-radius:8px;font-weight:900;letter-spacing:-.05em}
+.creativeTile.one{background:#ffc928;color:#15213b;font-size:37px;transform:rotate(-8deg)}
+.creativeTile.two{background:#2d60e6;color:#fff;font-size:16px;transform:rotate(5deg)}
+.creativeTile.three{background:#f4f6fb;color:#15213b;font-size:9px;line-height:1.4;padding:7px;transform:rotate(-3deg)}
+.serviceCard h3{font-size:19px;line-height:1.3;margin:17px 0 7px}
+.serviceCard h4{font-size:13px;margin-bottom:10px}
+.serviceCard p{font-size:13px;line-height:1.7}
+.serviceCard ul{font-size:12px;line-height:1.85}
+.cardLink{border-top:0;padding-top:8px;color:var(--blue)}
+.cardLink span{background:transparent;border:1px solid #dce3ed;color:var(--ink)}
+.serviceCard:nth-child(2) .cardLink span,.serviceCard:nth-child(5) .cardLink span{border-color:#40506b;color:#ffd34d}
+.trustBand{padding:34px max(8vw,28px);background:#0b1730;color:#fff;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.trustBand>div{position:relative;padding:3px 12px 3px 0}
+.trustBand>div+div{border-left:1px solid #34415a;padding-left:28px}
+.trustBand span{display:block;font-size:10px;letter-spacing:.14em;color:#ffd34d;font-weight:800;margin-bottom:15px}
+.trustBand b{font-family:Manrope,sans-serif;font-size:17px;letter-spacing:-.025em}
+.trustBand p{font-size:12px;line-height:1.7;color:#c0cbe0;margin:8px 0 0;max-width:280px}
+.about{background:linear-gradient(115deg,#eaf0fb 0%,#fff 78%);border:0}
+.aboutLogoFrame{box-shadow:0 24px 55px rgba(11,23,48,.11);border-color:#fff}
+.aboutAccent{background:#ffc928}
+.contact{background:#08152b}
+.contact:before{background:radial-gradient(ellipse at 15% 80%,#285ee855,transparent 40%),radial-gradient(ellipse at 90% 20%,#ffc9282b,transparent 38%)}
+.contact .primary{box-shadow:0 10px 30px rgba(255,201,40,.18)}
+@media(max-width:900px){.serviceGrid{gap:14px}.serviceCard{padding:19px;min-height:420px}.trustBand{padding-left:6vw;padding-right:6vw}}
+@media(max-width:620px){.serviceCard{min-height:0;padding:20px}.serviceVisual{height:88px}.trustBand{grid-template-columns:1fr;gap:22px;padding:35px 22px}.trustBand>div+div{border-left:0;border-top:1px solid #34415a;padding:22px 0 0}.trustBand span{margin-bottom:8px}.trustBand b{font-size:16px}.trustBand p{font-size:13px}.heroArt:after{inset:6% -2%}}
