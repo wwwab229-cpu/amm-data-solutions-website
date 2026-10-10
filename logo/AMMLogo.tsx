@@ -1,43 +1,52 @@
-"use client";
+import React from 'react';
 
 type AMMLogoProps = {
   className?: string;
-  height?: number;
-  label?: string;
+  size?: number;
 };
 
-export default function AMMLogo({
-  className,
-  height = 48,
-  label = "AMM Data Solutions",
-}: AMMLogoProps) {
+export default function AMMLogo({ className = "", size = 132 }: AMMLogoProps) {
   return (
-    <svg
+    <div
       className={className}
-      width="132"
-      height={height}
-      viewBox="0 0 280 100"
-      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: size, height: size * 0.36 }}
       role="img"
-      aria-label={label}
-      focusable="false"
+      aria-label="AMM Data Solutions"
     >
-      {/* AMM - Pure Black */}
-      <text
-        x="50%"
-        y="60"
-        fontFamily="Arial Black, Inter, sans-serif"
-        fontWeight="900"
-        fontSize="78"
-        fill="#000000"
-        textAnchor="middle"
-        letterSpacing="-2"
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 280 100"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ display: 'block' }}
+        aria-hidden="true"
+        focusable="false"
       >
-        AMM
-      </text>
+        {/* AMM - Pure Black #000000 - Extra Bold */}
+        <text
+          x="50%"
+          y="62"
+          fontFamily="Arial Black, Inter, sans-serif"
+          fontWeight="900"
+          fontSize="80"
+          fill="#000000"
+          textAnchor="middle"
+          letterSpacing="-3"
+          dominantBaseline="middle"
+        >
+          AMM
+        </text>
 
-      {/* SINGLE Yellow Bar - Bright #FFC107 - Only ONE, no duplicate */}
-      <rect x="20" y="48" width="58" height="14" fill="#FFC107" />
-    </svg>
+        {/* SINGLE Bright Yellow Bar #FFC107 - ONLY ONE, No Duplicate */}
+        <rect
+          x="18"
+          y="48"
+          width="60"
+          height="14"
+          fill="#FFC107"
+          rx="1"
+        />
+      </svg>
+    </div>
   );
 }
