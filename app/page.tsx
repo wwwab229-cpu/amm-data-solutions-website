@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import AMMLogo from "../components/AMMLogo";
+import AMMLogo from "../logo/AMMLogo";
 
 const services = [
   { n:"01", slug:"ai-automation-business-systems", title:"AI Automation & Business Systems", plain:"Make repetitive work easier.", body:"Connect everyday tasks so your team spends less time copying information and chasing updates.", examples:["Automated admin tasks","Customer inquiry workflows","CRM and follow-up setup"], icon:"↗" },
