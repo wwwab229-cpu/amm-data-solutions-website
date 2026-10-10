@@ -46,7 +46,7 @@ export default function AMMLogo({
           top: 77 * scale,
           width: 54 * scale,
           height: 13 * scale,
-          background: "#FFE082",
+          background: "#FFD54F",
           borderRadius: 1,
           zIndex: 2,
           pointerEvents: "none",
