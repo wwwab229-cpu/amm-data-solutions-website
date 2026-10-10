@@ -13,8 +13,10 @@ export default function AMMLogo({
   height = 38,
   size,
 }: AMMLogoProps) {
+  // The source PNG is 462 × 163. Scale the overlay from that source's
+  // coordinate system so the yellow A-bar stays aligned at every size.
   const imageHeight = size ? (38 * size) / 132 : height;
-  const scale = imageHeight / 38;
+  const scale = imageHeight / 163;
 
   return (
     <div
@@ -22,17 +24,17 @@ export default function AMMLogo({
       role="img"
       aria-label="AMM Data Solutions"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        lineHeight: 1,
+        display: "inline-block",
         position: "relative",
         width: "fit-content",
         flexShrink: 0,
+        lineHeight: 0,
       }}
     >
       <img
         src="/amm-logo.png"
-        alt="AMM Data Solutions"
+        alt=""
+        aria-hidden="true"
         style={{
           height: imageHeight,
           width: "auto",
@@ -40,14 +42,14 @@ export default function AMMLogo({
           display: "block",
         }}
       />
-      <div
+      <span
         aria-hidden="true"
         style={{
           position: "absolute",
-          left: 2 * scale,
-          top: 16 * scale,
-          width: 32 * scale,
-          height: 7.5 * scale,
+          left: 18 * scale,
+          top: 44 * scale,
+          width: 54 * scale,
+          height: 13 * scale,
           background: "#FFC107",
           borderRadius: 1,
           zIndex: 2,
