@@ -11,8 +11,9 @@ export default function AMMLogo({
   height = 38,
   size,
 }: AMMLogoProps) {
-  const imageHeight = size ? (38 * size) / 132 : height;
-  const scale = imageHeight / 163;
+  const logoHeight = size ? (38 * size) / 132 : height;
+  const wordSize = logoHeight * 0.62;
+  const taglineSize = logoHeight * 0.19;
 
   return (
     <div
@@ -20,51 +21,63 @@ export default function AMMLogo({
       role="img"
       aria-label="AMM Data Solutions"
       style={{
-        display: "inline-block",
-        position: "relative",
-        width: "fit-content",
+        display: "inline-flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "center",
         flexShrink: 0,
-        lineHeight: 0,
+        lineHeight: 1,
+        color: "#000000",
+        fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
-      <img
-        src="/amm-logo.png"
-        alt=""
+      <div
         aria-hidden="true"
         style={{
-          height: imageHeight,
-          width: "auto",
-          objectFit: "contain",
-          display: "block",
+          display: "flex",
+          alignItems: "flex-end",
+          fontSize: wordSize,
+          fontWeight: 900,
+          letterSpacing: "-0.055em",
+          lineHeight: 0.88,
+          whiteSpace: "nowrap",
         }}
-      />
-      <span
-        aria-hidden="true"
+      >
+        <span
+          style={{
+            display: "inline-block",
+            position: "relative",
+            paddingBottom: logoHeight * 0.075,
+            marginRight: logoHeight * 0.025,
+          }}
+        >
+          A
+          <span
+            style={{
+              position: "absolute",
+              left: "8%",
+              right: "8%",
+              bottom: 0,
+              height: Math.max(1.5, logoHeight * 0.075),
+              background: "#FFD54F",
+              borderRadius: 1,
+            }}
+          />
+        </span>
+        <span>MM</span>
+      </div>
+      <div
         style={{
-          position: "absolute",
-          left: 18 * scale,
-          top: 44 * scale,
-          width: 54 * scale,
-          height: 13 * scale,
-          background: "#000000",
-          zIndex: 3,
-          pointerEvents: "none",
+          marginTop: logoHeight * 0.08,
+          fontSize: taglineSize,
+          fontWeight: 700,
+          letterSpacing: "0.12em",
+          lineHeight: 1,
+          whiteSpace: "nowrap",
         }}
-      />
-      <span
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          left: 18 * scale,
-          top: 77 * scale,
-          width: 54 * scale,
-          height: 13 * scale,
-          background: "#FFD54F",
-          borderRadius: 1,
-          zIndex: 2,
-          pointerEvents: "none",
-        }}
-      />
+      >
+        Data Solutions
+      </div>
     </div>
   );
 }
