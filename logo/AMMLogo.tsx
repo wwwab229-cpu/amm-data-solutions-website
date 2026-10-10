@@ -43,6 +43,19 @@ export default function AMMLogo({
         style={{
           position: "absolute",
           left: 18 * scale,
+          top: 44 * scale,
+          width: 54 * scale,
+          height: 13 * scale,
+          background: "#000000",
+          zIndex: 3,
+          pointerEvents: "none",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: 18 * scale,
           top: 77 * scale,
           width: 54 * scale,
           height: 13 * scale,
