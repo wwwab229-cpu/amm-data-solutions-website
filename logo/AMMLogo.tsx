@@ -9,44 +9,41 @@ export default function AMMLogo({ className = "", size = 132 }: AMMLogoProps) {
   return (
     <div
       className={className}
-      style={{ width: size, height: size * 0.36 }}
       role="img"
       aria-label="AMM Data Solutions"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        lineHeight: 1,
+        position: "relative",
+        width: "fit-content",
+      }}
     >
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 280 100"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ display: 'block' }}
-        aria-hidden="true"
-        focusable="false"
-      >
-        {/* AMM - Pure Black #000000 - Extra Bold */}
-        <text
-          x="50%"
-          y="62"
-          fontFamily="Arial Black, Inter, sans-serif"
-          fontWeight="900"
-          fontSize="80"
-          fill="#000000"
-          textAnchor="middle"
-          letterSpacing="-3"
-          dominantBaseline="middle"
-        >
-          AMM
-        </text>
+      <img
+        src="/amm-logo.png"
+        alt="AMM Data Solutions"
+        style={{
+          height: 38 * (size / 132),
+          width: "auto",
+          objectFit: "contain",
+          display: "block",
+        }}
+      />
 
-        {/* SINGLE Bright Yellow Bar #FFC107 - ONLY ONE, No Duplicate */}
-        <rect
-          x="18"
-          y="48"
-          width="60"
-          height="14"
-          fill="#FFC107"
-          rx="1"
-        />
-      </svg>
+      {/* Single bright yellow overlay bar to cover the dark double bar */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: 2 * (size / 132),
+          top: 16 * (size / 132),
+          width: 32 * (size / 132),
+          height: 7.5 * (size / 132),
+          background: "#FFC107",
+          borderRadius: 1,
+          zIndex: 2,
+        }}
+      />
     </div>
   );
 }
