@@ -7,7 +7,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "AMM Data Solutions",
   url: siteUrl,
-  email: "bammdatasolutins229@gmail.com",
+  email: "ammdatasolutions229@gmail.com",
   slogan: "Let's Make Solutions",
   description: "AMM Data Solutions helps businesses improve everyday workflows and online presence through business automation, websites, data reporting, SEO, lead generation and digital marketing.",
   areaServed: ["Pakistan", "Worldwide"],
