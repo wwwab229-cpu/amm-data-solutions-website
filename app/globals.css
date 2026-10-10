@@ -62,3 +62,6 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 
 /* Original AMM wordmark drawn directly in code (no external or dummy image asset) */
 .ammLogoVector{display:block;width:156px;height:auto;max-height:none;overflow:visible;color:#050505}.footerBrand .ammLogoVector{width:142px}.aboutLogoFrame .ammLogoVector{width:min(100%,340px);max-height:none;color:#050505}.aboutLogoFrame{display:flex;align-items:center;justify-content:center}.aboutLogoFrame .ammLogoVector text{font-synthesis:none}@media(max-width:620px){.brand .ammLogoVector{width:138px;max-height:none}.footerBrand .ammLogoVector{width:132px}.aboutLogoFrame .ammLogoVector{width:min(100%,300px)}}
+
+/* Original public AMM PNG logo */
+.brand img{display:block;height:38px;width:auto;max-height:none;object-fit:contain}.aboutLogoFrame .ammAboutLogo{display:block;width:min(100%,340px);height:auto;object-fit:contain}.footerBrand img{height:38px;width:auto}@media(max-width:620px){.brand img{height:34px;width:auto}.footerBrand img{height:34px;width:auto}.aboutLogoFrame .ammAboutLogo{width:min(100%,300px)}}
