@@ -12,6 +12,7 @@ export default function AMMLogo({
   size,
 }: AMMLogoProps) {
   const imageHeight = size ? (38 * size) / 132 : height;
+  const scale = imageHeight / 163;
 
   return (
     <div
@@ -41,12 +42,12 @@ export default function AMMLogo({
         aria-hidden="true"
         style={{
           position: "absolute",
-          left: 2 * (imageHeight / 38),
-          top: 16 * (imageHeight / 38),
-          width: 32 * (imageHeight / 38),
-          height: 7.5 * (imageHeight / 38),
-          background: "#FFC107",
-          borderRadius: 1,
+          left: 27 * scale,
+          top: 77 * scale,
+          width: 114 * scale,
+          height: 27 * scale,
+          clipPath: "polygon(10.5% 0, 90.4% 0, 100% 100%, 0 100%)",
+          background: "#FFE082",
           zIndex: 2,
           pointerEvents: "none",
         }}
