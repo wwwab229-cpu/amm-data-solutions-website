@@ -43,7 +43,7 @@ export default function AMMLogo({
         style={{
           position: "absolute",
           left: 18 * scale,
-          top: 44 * scale,
+          top: 77 * scale,
           width: 54 * scale,
           height: 13 * scale,
           background: "#FFE082",
