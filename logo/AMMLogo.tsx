@@ -11,18 +11,7 @@ export default function AMMLogo({
   height = 38,
   size,
 }: AMMLogoProps) {
-  const imageHeight = size ? (38 * size) / 132 : height;
-  const scale = imageHeight / 163;
-
-  const underline = {
-    position: "absolute" as const,
-    left: 27 * scale,
-    top: 77 * scale,
-    width: 114 * scale,
-    height: 27 * scale,
-    clipPath: "polygon(10.5% 0, 90.4% 0, 100% 100%, 0 100%)",
-    pointerEvents: "none" as const,
-  };
+  const fontSize = size ? (38 * size) / 132 : height;
 
   return (
     <div
@@ -30,46 +19,34 @@ export default function AMMLogo({
       role="img"
       aria-label="AMM Data Solutions"
       style={{
-        display: "flex",
-        flexDirection: "column",
+        display: "inline-flex",
+        alignItems: "baseline",
+        gap: fontSize * 0.22,
+        whiteSpace: "nowrap",
         lineHeight: 1,
-        position: "relative",
-        width: "fit-content",
         flexShrink: 0,
+        color: "#000000",
+        fontFamily: "Manrope, DM Sans, Arial, sans-serif",
       }}
     >
-      <img
-        src="/amm-logo.png"
-        alt="AMM Data Solutions"
+      <span
         style={{
-          height: imageHeight,
-          width: "auto",
-          objectFit: "contain",
-          display: "block",
+          fontSize,
+          fontWeight: 800,
+          letterSpacing: "-0.055em",
         }}
-      />
-      {/* First mask removes the original baked-in bar/shadow; second shape draws one clean underline. */}
-      <div
-        aria-hidden="true"
+      >
+        AMM
+      </span>
+      <span
         style={{
-          ...underline,
-          left: 24 * scale,
-          top: 74 * scale,
-          width: 120 * scale,
-          height: 33 * scale,
-          clipPath: "polygon(12.5% 0, 88.3% 0, 100% 100%, 0 100%)",
-          background: "#FFFFFF",
-          zIndex: 2,
+          fontSize: fontSize * 0.43,
+          fontWeight: 700,
+          letterSpacing: "-0.025em",
         }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          ...underline,
-          background: "#FFD329",
-          zIndex: 3,
-        }}
-      />
+      >
+        Data Solutions
+      </span>
     </div>
   );
 }
