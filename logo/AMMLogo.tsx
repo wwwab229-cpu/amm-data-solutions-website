@@ -20,8 +20,9 @@ export default function AMMLogo({
       aria-label="AMM Data Solutions"
       style={{
         display: "inline-flex",
-        alignItems: "baseline",
-        gap: fontSize * 0.22,
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: fontSize * 0.04,
         whiteSpace: "nowrap",
         lineHeight: 1,
         flexShrink: 0,
@@ -40,9 +41,9 @@ export default function AMMLogo({
       </span>
       <span
         style={{
-          fontSize: fontSize * 0.43,
+          fontSize: fontSize * 0.32,
           fontWeight: 700,
-          letterSpacing: "-0.025em",
+          letterSpacing: "0.01em",
         }}
       >
         Data Solutions
