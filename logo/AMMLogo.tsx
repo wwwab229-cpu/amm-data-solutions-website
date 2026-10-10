@@ -2,9 +2,7 @@ import React from "react";
 
 type AMMLogoProps = {
   className?: string;
-  /** Rendered image height in pixels; header uses 38px. */
   height?: number;
-  /** Legacy sizing option retained for compatibility. */
   size?: number;
 };
 
@@ -13,8 +11,6 @@ export default function AMMLogo({
   height = 38,
   size,
 }: AMMLogoProps) {
-  // The source PNG is 462 × 163. Scale the overlay from that source's
-  // coordinate system so the yellow A-bar stays aligned at every size.
   const imageHeight = size ? (38 * size) / 132 : height;
   const scale = imageHeight / 163;
 
@@ -50,7 +46,7 @@ export default function AMMLogo({
           top: 44 * scale,
           width: 54 * scale,
           height: 13 * scale,
-          background: "#FFC107",
+          background: "#FFE082",
           borderRadius: 1,
           zIndex: 2,
           pointerEvents: "none",
