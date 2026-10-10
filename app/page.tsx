@@ -44,9 +44,9 @@ export default function Home() {
         <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
         <div className="artCard artMain"><div className="artTop"><span>BUSINESS OVERVIEW</span><span className="artStatus"><i/> WORKSPACE READY</span></div>
           <div className="dashboardTitle">Everything in<br/><b>better order.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">↗</span><small>ONLINE PRESENCE</small><strong>Website</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">✳</span><small>WORKFLOW</small><strong>Automation</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS DATA</small><strong>Clear information. Better decisions.</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">↗</span><small>ONLINE PRESENCE</small><strong>Website</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">↻</span><small>WORKFLOW</small><strong>Automation</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS DATA</small><strong>Clear information. Better decisions.</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
         </div>
-        <div className="artChip chipOne"><span>✳</span> Smarter workflows</div><div className="artChip chipTwo"><span>↗</span> Digital growth</div><div className="artSpark sparkOne">✦</div><div className="artSpark sparkTwo">✳</div>
+        <div className="artChip chipOne"><span className="statusDot"></span> Workflows connected</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Digital presence</div>
       </div>
       <div className="heroBottomLine"><span>01 / DIGITAL SOLUTIONS</span><span>BUILT AROUND YOUR BUSINESS</span><span>SCROLL TO EXPLORE ↓</span></div>
     </section>
