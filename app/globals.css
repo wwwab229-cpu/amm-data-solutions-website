@@ -35,3 +35,27 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 
 .navlinks{font-size:14px}.navcta{border:0;cursor:pointer;font-family:inherit;font-size:14px}.eyebrow{font-size:11px}.heroText{font-size:18px}.heroMeta{font-size:12px}.primary,.textLink{font-size:14px}.sectionHead>p,.intro p{font-size:16px}.serviceCard h3{font-size:20px}.serviceCard h4{font-size:14px}.serviceCard p{font-size:14px}.serviceCard ul{font-size:13px}.cardLink{font-size:13px}.processItem h3{font-size:19px}.processItem p,.howIntro>p{font-size:15px}.aboutCopy>p{font-size:16px}.aboutTags span{font-size:12px}.contactInner>p{font-size:16px}.contactEmail{font-size:14px}.faqQuestion{font-size:15px}.faqItem>p{font-size:14px}.footerTop>p,.footerContact{font-size:13px}.footerBottom{font-size:11px}
 .contactModalBackdrop{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(8,24,52,.62);backdrop-filter:blur(9px)}.contactModal{position:relative;width:min(100%,480px);padding:34px;background:#fff;border:1px solid #e0e9f7;border-radius:24px;box-shadow:0 35px 100px #061a3d55}.modalClose{position:absolute;right:17px;top:13px;border:0;background:#f0f5ff;color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:25px;cursor:pointer}.contactModal h2{font-family:Manrope,sans-serif;font-size:clamp(26px,4vw,34px);line-height:1.12;letter-spacing:-.05em;margin:18px 30px 10px 0}.contactModal>p{font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:22px}.contactOption{display:flex;align-items:center;gap:13px;padding:15px 13px;border:1px solid var(--line);border-radius:14px;margin-top:10px;transition:transform .2s,border-color .2s}.contactOption:hover{transform:translateY(-2px);border-color:#a6c8ff}.contactOptionIcon{display:grid;place-items:center;flex:0 0 40px;height:40px;border-radius:12px;background:#edf4ff;color:var(--blue);font-weight:800;font-size:17px}.contactOption>span:nth-child(2){display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}.contactOption b{font-size:15px}.contactOption small{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.contactOption>strong{font-size:18px;color:var(--blue)}@media(max-width:620px){.heroText{font-size:16px}.sectionHead>p,.intro p{font-size:15px}.serviceCard h3{font-size:21px}.serviceCard p,.serviceCard ul{font-size:14px}.contactModal{padding:29px 20px 22px}}
+
+/* Premium workspace motion: purposeful, restrained, accessible */
+.heroArt{perspective:1200px}
+.artMain{animation:workspaceFloat 7s ease-in-out infinite;transform-origin:center;box-shadow:0 30px 90px rgba(16,45,95,.14),0 2px 0 rgba(255,255,255,.9) inset}
+.artHalo{animation:haloBreathe 8s ease-in-out infinite}
+.orbitA{animation:orbitDrift 24s linear infinite}
+.orbitB{animation:orbitDrift 32s linear infinite reverse}
+.dashTile{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s,border-color .28s}
+.dashTile:hover{transform:translateY(-5px);box-shadow:0 15px 34px rgba(25,69,130,.12);border-color:rgba(37,99,235,.3)}
+.miniBars i{transform-origin:bottom;animation:barPulse 2.4s ease-in-out infinite}
+.miniBars i:nth-child(2){animation-delay:.15s}.miniBars i:nth-child(3){animation-delay:.3s}.miniBars i:nth-child(4){animation-delay:.45s}.miniBars i:nth-child(5){animation-delay:.6s}.miniBars i:nth-child(6){animation-delay:.75s}
+.miniFlow b{animation:flowPulse 2s ease-in-out infinite}.miniFlow b:nth-of-type(2){animation-delay:.6s}
+.chartLine i{animation:chartPulse 3s ease-in-out infinite}.chartLine i:nth-child(2){animation-delay:.2s}.chartLine i:nth-child(3){animation-delay:.4s}.chartLine i:nth-child(4){animation-delay:.6s}.chartLine i:nth-child(5){animation-delay:.8s}
+.artChip{animation:chipFloat 6s ease-in-out infinite}.chipTwo{animation-delay:-3s}
+.statusDot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e8b800;box-shadow:0 0 0 4px rgba(255,203,35,.16);margin-right:7px}.statusDot.blue{background:#3980ff;box-shadow:0 0 0 4px rgba(57,128,255,.14)}
+.artSpark,.sparkOne,.sparkTwo{display:none!important}
+@keyframes workspaceFloat{0%,100%{transform:translateY(0) rotateX(0deg)}50%{transform:translateY(-8px) rotateX(.5deg)}}
+@keyframes haloBreathe{0%,100%{opacity:.55;transform:scale(.96)}50%{opacity:.9;transform:scale(1.04)}}
+@keyframes orbitDrift{to{transform:rotate(360deg)}}
+@keyframes barPulse{0%,100%{transform:scaleY(.84);opacity:.75}50%{transform:scaleY(1.06);opacity:1}}
+@keyframes flowPulse{0%,100%{opacity:.5;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes chartPulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){.artMain,.artHalo,.orbitA,.orbitB,.miniBars i,.miniFlow b,.chartLine i,.artChip{animation:none!important;transition:none!important}}
