@@ -132,3 +132,17 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 .contact .primary{box-shadow:0 10px 30px rgba(255,201,40,.18)}
 @media(max-width:900px){.serviceGrid{gap:14px}.serviceCard{padding:19px;min-height:420px}.trustBand{padding-left:6vw;padding-right:6vw}}
 @media(max-width:620px){.serviceCard{min-height:0;padding:20px}.serviceVisual{height:88px}.trustBand{grid-template-columns:1fr;gap:22px;padding:35px 22px}.trustBand>div+div{border-left:0;border-top:1px solid #34415a;padding:22px 0 0}.trustBand span{margin-bottom:8px}.trustBand b{font-size:16px}.trustBand p{font-size:13px}.heroArt:after{inset:6% -2%}}
+
+
+/* Performance marketing service card */
+.visualAds{background:linear-gradient(135deg,#101d36,#1c3154);padding:11px 13px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.adsTop{display:flex;align-items:center;justify-content:space-between;font-size:7px;letter-spacing:.12em;color:#c2d2f0;font-weight:900}
+.adsTop b{display:grid;place-items:center;width:22px;height:22px;border-radius:7px;background:#ffc928;color:#102650;font-size:13px}
+.adsMetrics{display:grid;grid-template-columns:.75fr 1.25fr;gap:12px;align-items:center}
+.adsMetrics small{display:block;font-size:6px;letter-spacing:.1em;color:#a8bddf;margin-bottom:7px}
+.adsMetrics i{display:block;height:4px;border-radius:3px;background:#ffc928;margin-top:5px;width:85%}
+.adsMetrics i:nth-of-type(2){width:65%;background:#6c9aff}.adsMetrics i:nth-of-type(3){width:75%;background:#9db9ff}
+.adsMetrics strong{display:block;font-size:11px;color:#fff}.adsMetrics span{display:block;font-size:7px;color:#b9c9e5;margin-top:5px}
+.adsPlatforms{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.adsPlatforms b,.adsPlatforms span{font-size:7px;padding:5px 7px;border-radius:5px;background:#ffffff14;border:1px solid #ffffff20;color:#f5f8ff}
+.adsPlatforms b:first-child{background:#ffc928;color:#102650;border-color:#ffc928}
