@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return { title: "Service not found" };
-  return { title: service.title, description: service.description, alternates: { canonical: `/services/${service.slug}` }, openGraph: { title: service.title, description: service.description, url: `${siteUrl}/services/${service.slug}`, siteName: "AMM Data Solutions", type: "website" } };
+  return { title: service.title, description: service.description, alternates: { canonical: `/services/${service.slug}` }, openGraph: { title: service.title, description: service.description, url: `${siteUrl}/services/${service.slug}`, siteName: "AMM Data Solutions", type: "website" }, twitter: { card: "summary", title: service.title, description: service.description } };
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
