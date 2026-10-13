@@ -319,3 +319,99 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
     animation:none!important;transition:none!important
   }
 }
+
+
+/* AMM Signature — custom geometric identity visual */
+.signatureArt{height:460px;min-width:0;overflow:visible;perspective:1200px}
+.signatureArt .signatureAura{position:absolute;width:340px;height:340px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(52,120,246,.14),rgba(130,180,255,.08) 42%,transparent 72%);filter:blur(5px);animation:signatureAura 7s ease-in-out infinite;z-index:-2}
+.signatureFrame{position:absolute;left:50%;top:50%;width:318px;height:318px;transform:translate(-50%,-50%) rotate(45deg);border:1px solid rgba(52,120,246,.13);border-radius:38px;box-shadow:0 0 0 16px rgba(52,120,246,.025),0 0 0 36px rgba(52,120,246,.018);z-index:-1}
+.signaturePaths{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sigPath{stroke-width:1.6;stroke-linecap:round;stroke-dasharray:7 8;animation:signatureFlow 16s linear infinite}
+.sigPathBlue{stroke:rgba(52,120,246,.42)}
+.sigPathYellow{stroke:rgba(232,185,0,.76);stroke-width:2}
+.sigTrace{stroke:rgba(52,120,246,.2);stroke-width:1.2;stroke-dasharray:3 6}
+.sigEndpoint{fill:#ffd329;stroke:#fff;stroke-width:2}
+.signatureCore{position:absolute;left:50%;top:50%;width:176px;height:176px;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(52,120,246,.2);border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(241,247,255,.94));box-shadow:0 24px 60px rgba(25,72,145,.13),inset 0 1px #fff;animation:signatureFloat 6s ease-in-out infinite;z-index:2}
+.signatureCore:before{content:"";position:absolute;inset:7px;border:1px solid rgba(52,120,246,.09);border-radius:23px;pointer-events:none}
+.signatureCoreTop{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.28em;font-weight:800;color:#102650}
+.signatureCoreTop span{width:15px;height:2px;background:#ffd329;border-radius:2px}
+.signatureGlyph{width:100px;height:63px;margin:5px 0 0;color:#173969;overflow:visible}
+.signatureCoreBottom{font-size:7px;letter-spacing:.16em;font-weight:800;color:#62718a}
+.signatureCoreSignal{display:flex;gap:4px;margin-top:10px}
+.signatureCoreSignal i{display:block;width:4px;height:4px;border-radius:50%;background:#3478f6;animation:signatureSignal 1.6s ease-in-out infinite}
+.signatureCoreSignal i:nth-child(2){animation-delay:.15s}.signatureCoreSignal i:nth-child(3){animation-delay:.3s}.signatureCoreSignal i:nth-child(4){animation-delay:.45s}.signatureCoreSignal i:nth-child(5){animation-delay:.6s}
+.signatureNode{position:absolute;display:flex;align-items:center;gap:9px;min-width:155px;padding:11px 12px;border:1px solid rgba(191,210,239,.85);border-radius:13px;background:rgba(255,255,255,.92);box-shadow:0 9px 24px rgba(21,59,111,.065);animation:signatureNodeIn .8s both;z-index:1}
+.signatureNode>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.signatureNode small{font-size:7px;line-height:1.25;letter-spacing:.1em;font-weight:800;color:#71819a;white-space:nowrap}
+.signatureNode b{font-size:11px;line-height:1.25;color:#102650;font-weight:800;white-space:nowrap}
+.sigNodeIcon{display:grid;place-items:center;width:27px;height:27px;flex:0 0 27px;border-radius:8px;background:#eef5ff;color:#3478f6;font-size:8px;font-weight:800}
+.signatureNode>i{position:absolute;width:5px;height:5px;border-radius:50%;background:#ffd329;box-shadow:0 0 0 4px rgba(255,211,41,.15)}
+.sigNodeOne{left:0;top:42px;animation-delay:.05s}.sigNodeOne>i{right:-3px;bottom:9px}
+.sigNodeTwo{left:0;top:calc(50% - 32px);animation-delay:.15s}.sigNodeTwo>i{right:-3px;top:12px}
+.sigNodeThree{left:0;bottom:42px;animation-delay:.25s}.sigNodeThree>i{right:-3px;top:9px}
+.sigNodeFour{right:0;top:42px;animation-delay:.35s}.sigNodeFour>i{left:-3px;bottom:9px}
+.sigNodeFive{right:0;top:calc(50% - 32px);animation-delay:.45s}.sigNodeFive>i{left:-3px;top:12px}
+.sigNodeSix{right:0;bottom:42px;animation-delay:.55s}.sigNodeSix>i{left:-3px;top:9px}
+.signatureCaption{position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:8px;letter-spacing:.12em;color:#71819a;font-weight:700}
+.signatureCaptionMark{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff7ce;color:#9a7b00;font-size:12px}
+.signatureCaption b{color:#173969;font-size:8px;letter-spacing:.1em}
+@keyframes signatureAura{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(.94)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+@keyframes signatureFlow{to{stroke-dashoffset:-240}}
+@keyframes signatureFloat{0%,100%{translate:0 0;box-shadow:0 24px 60px rgba(25,72,145,.13),inset 0 1px #fff}50%{translate:0 -5px;box-shadow:0 30px 65px rgba(25,72,145,.17),inset 0 1px #fff}}
+@keyframes signatureSignal{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes signatureNodeIn{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media(max-width:900px){.signatureArt{height:420px}.signatureNode{min-width:142px;padding:10px 9px}.signatureNode small{font-size:6.5px}.signatureNode b{font-size:10px}.signatureCore{width:158px;height:158px}.signatureFrame{width:280px;height:280px}}
+@media(max-width:620px){.signatureArt{height:330px;margin:0 -4px}.signatureArt .signatureAura{width:220px;height:220px}.signatureFrame{width:180px;height:180px;border-radius:25px;box-shadow:0 0 0 10px rgba(52,120,246,.025),0 0 0 22px rgba(52,120,246,.018)}.signatureCore{width:112px;height:112px;border-radius:21px}.signatureCore:before{inset:5px;border-radius:16px}.signatureCoreTop{font-size:7px;gap:4px;letter-spacing:.18em}.signatureCoreTop span{width:9px}.signatureGlyph{width:67px;height:42px;margin:2px 0 0}.signatureCoreBottom{font-size:5px;letter-spacing:.12em}.signatureCoreSignal{margin-top:5px;gap:3px}.signatureCoreSignal i{width:3px;height:3px}.signatureNode{min-width:0;width:128px;gap:6px;padding:7px 6px;border-radius:10px}.signatureNode small{font-size:5.5px;letter-spacing:.04em}.signatureNode b{font-size:8px}.sigNodeIcon{width:21px;height:21px;flex-basis:21px;font-size:6.5px;border-radius:6px}.sigNodeOne,.sigNodeFour{top:14px}.sigNodeThree,.sigNodeSix{bottom:22px}.sigNodeTwo,.sigNodeFive{top:calc(50% - 21px)}.signaturePaths{inset:2px;width:calc(100% - 4px);height:100%;opacity:.8}.signatureCaption{bottom:-3px;gap:5px;font-size:6px;letter-spacing:.05em}.signatureCaptionMark{width:15px;height:15px;font-size:9px}.signatureCaption b{font-size:6px;letter-spacing:.04em}}
+@media(max-width:360px){.signatureNode{width:112px}.signatureNode small{font-size:5px}.signatureNode b{font-size:7px}.signatureCore{width:100px;height:100px}.signatureFrame{width:160px;height:160px}}
+@media(prefers-reduced-motion:reduce){.signatureArt *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* AMM Intelligence Hub — connected capability command view */
+.intelligenceHub{height:460px;min-width:0;isolation:isolate;overflow:visible}
+.hubAtmosphere{position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(70,132,241,.13),rgba(194,220,255,.1) 42%,transparent 72%);filter:blur(7px);z-index:-3;animation:hubBreath 7s ease-in-out infinite}
+.hubOrbit{position:absolute;left:50%;top:50%;border:1px solid rgba(66,123,216,.15);border-radius:50%;transform:translate(-50%,-50%);z-index:-2}
+.hubOrbitOuter{width:410px;height:300px;transform:translate(-50%,-50%) rotate(-23deg);border-style:dashed;animation:hubRotate 50s linear infinite}
+.hubOrbitInner{width:320px;height:230px;transform:translate(-50%,-50%) rotate(32deg);border-color:rgba(255,211,41,.25)}
+.hubConnections{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:-1}
+.hubConnections path{stroke:rgba(52,120,246,.37);stroke-width:1.4;stroke-dasharray:5 7;animation:hubDash 18s linear infinite}
+.hubConnections .hubConnectionAccent{stroke:rgba(232,185,0,.78);stroke-width:2;stroke-dasharray:3 7}
+.hubConnections circle{fill:#ffd329;stroke:#fff;stroke-width:2}
+.hubPanel{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;gap:16px;width:290px;padding:10px 13px;border:1px solid #e1e9f5;border-radius:10px;background:rgba(255,255,255,.92);box-shadow:0 8px 22px rgba(26,64,118,.06);white-space:nowrap}
+.hubPanelTop{top:3px}.hubPanelBottom{bottom:1px}
+.hubTinyLabel{font-size:8px;letter-spacing:.13em;color:#657793;font-weight:800}
+.hubLive{display:flex;align-items:center;gap:5px;font-size:7px;letter-spacing:.08em;color:#3174d9;font-weight:800}
+.hubLive i,.hubPanelBottom>span i{display:inline-block;width:5px;height:5px;background:#40b887;border-radius:50%;box-shadow:0 0 0 3px rgba(64,184,135,.13)}
+.hubCore{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:194px;height:194px;border-radius:31px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#fff 4%,#f3f7ff 100%);border:1px solid rgba(112,157,224,.35);box-shadow:0 25px 65px rgba(24,64,125,.16),inset 0 1px 0 #fff;z-index:2;animation:hubCoreFloat 6s ease-in-out infinite}
+.hubCore:before{content:"";position:absolute;inset:7px;border:1px solid rgba(52,120,246,.1);border-radius:24px;pointer-events:none}
+.hubCoreHalo{position:absolute;inset:-9px;border:1px solid rgba(52,120,246,.13);border-radius:39px;animation:hubCoreHalo 3.5s ease-in-out infinite;pointer-events:none}
+.hubCoreBadge{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:900;letter-spacing:.24em;color:#183967}
+.hubCoreBadge span{height:2px;width:12px;background:#ffd329;border-radius:3px}
+.hubCoreMark{height:65px;display:flex;align-items:center;gap:5px;color:#173968;font-size:49px;line-height:1;font-family:Arial,sans-serif;font-weight:900;letter-spacing:-.13em;margin:2px 0 0;padding-right:6px}
+.hubCoreMark i{width:5px;height:34px;border-radius:3px;background:#ffd329;transform:rotate(22deg);margin:0 1px}
+.hubCore>strong{font-size:8px;letter-spacing:.18em;color:#3478f6;margin-top:3px}
+.hubCore>small{font-size:8px;color:#71819a;margin-top:5px}
+.hubPulseBars{display:flex;align-items:center;gap:4px;height:12px;margin-top:8px}
+.hubPulseBars i{width:3px;height:5px;border-radius:3px;background:#4c8cf4;animation:hubBars 1.2s ease-in-out infinite}
+.hubPulseBars i:nth-child(2),.hubPulseBars i:nth-child(6){height:8px;animation-delay:.1s}.hubPulseBars i:nth-child(3),.hubPulseBars i:nth-child(5){height:11px;animation-delay:.2s}.hubPulseBars i:nth-child(4){height:7px;animation-delay:.3s}
+.hubNode{position:absolute;display:flex;align-items:center;gap:9px;width:166px;min-height:66px;padding:9px 10px;border:1px solid rgba(202,218,241,.95);border-radius:13px;background:rgba(255,255,255,.96);box-shadow:0 11px 28px rgba(21,59,111,.075);animation:hubNodeEnter .7s both;z-index:1}
+.hubNode>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.hubNodeGlyph{width:28px;height:28px;flex:0 0 28px;border-radius:8px;display:grid;place-items:center;background:#edf4ff;color:#3478f6;font-size:15px;font-weight:800}
+.hubNode small{font-size:6.5px;letter-spacing:.08em;font-weight:900;color:#71819a;white-space:nowrap}
+.hubNode b{font-size:10px;line-height:1.2;color:#17345e;white-space:nowrap}
+.hubNode em{font-size:7px;color:#7888a0;font-style:normal;white-space:nowrap}
+.hubNodeStatus{position:absolute;right:9px;top:9px;width:4px;height:4px;background:#ffd329;border-radius:50%;box-shadow:0 0 0 3px rgba(255,211,41,.14)}
+.hubNodeA{left:0;top:54px;animation-delay:.05s}.hubNodeB{left:0;top:calc(50% - 33px);animation-delay:.15s}.hubNodeC{left:0;bottom:54px;animation-delay:.25s}
+.hubNodeD{right:0;top:54px;animation-delay:.35s}.hubNodeE{right:0;top:calc(50% - 33px);animation-delay:.45s}.hubNodeF{right:0;bottom:54px;animation-delay:.55s}
+.hubPanelBottom>span{display:flex;align-items:center;gap:7px;font-size:7px;letter-spacing:.1em;color:#667894;font-weight:800}
+.hubPanelBottom>b{font-size:7px;letter-spacing:.1em;color:#173968}
+@keyframes hubBreath{0%,100%{opacity:.65;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+@keyframes hubRotate{to{transform:translate(-50%,-50%) rotate(337deg)}}
+@keyframes hubDash{to{stroke-dashoffset:-240}}
+@keyframes hubCoreFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes hubCoreHalo{0%,100%{opacity:.35;transform:scale(.99)}50%{opacity:.8;transform:scale(1.025)}}
+@keyframes hubBars{0%,100%{opacity:.45;transform:scaleY(.75)}50%{opacity:1;transform:scaleY(1.15)}}
+@keyframes hubNodeEnter{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media(max-width:900px){.intelligenceHub{height:420px}.hubNode{width:148px;padding:8px;gap:7px}.hubNode small{font-size:6px}.hubNode b{font-size:9px}.hubNode em{font-size:6.5px}.hubCore{width:170px;height:170px}.hubOrbitOuter{width:370px;height:270px}.hubOrbitInner{width:290px;height:215px}}
+@media(max-width:620px){.intelligenceHub{height:330px;margin:0 -4px}.hubAtmosphere{inset:10% 0}.hubOrbitOuter{width:250px;height:205px}.hubOrbitInner{width:210px;height:160px}.hubPanel{width:228px;padding:7px 9px;gap:7px;border-radius:8px}.hubPanelTop{top:0}.hubPanelBottom{bottom:0}.hubTinyLabel{font-size:6px}.hubLive{font-size:5.5px}.hubPanelBottom>span,.hubPanelBottom>b{font-size:5.5px}.hubCore{width:116px;height:116px;border-radius:20px}.hubCore:before{inset:5px;border-radius:15px}.hubCoreHalo{inset:-5px;border-radius:25px}.hubCoreBadge{font-size:6px;letter-spacing:.16em;gap:3px}.hubCoreBadge span{width:7px}.hubCoreMark{height:39px;font-size:30px;gap:4px}.hubCoreMark i{height:22px;width:3px}.hubCore>strong{font-size:5px;letter-spacing:.1em}.hubCore>small{font-size:5px;margin-top:3px}.hubPulseBars{margin-top:4px;height:8px;gap:3px}.hubPulseBars i{width:2px;height:4px}.hubPulseBars i:nth-child(2),.hubPulseBars i:nth-child(6){height:5px}.hubPulseBars i:nth-child(3),.hubPulseBars i:nth-child(5){height:7px}.hubPulseBars i:nth-child(4){height:5px}.hubNode{width:119px;min-height:49px;padding:6px 5px;gap:5px;border-radius:9px}.hubNodeGlyph{width:21px;height:21px;flex-basis:21px;border-radius:6px;font-size:11px}.hubNode small{font-size:5px;letter-spacing:.02em}.hubNode b{font-size:7px}.hubNode em{font-size:5.5px}.hubNodeStatus{right:6px;top:6px;width:3px;height:3px}.hubNodeA,.hubNodeD{top:35px}.hubNodeC,.hubNodeF{bottom:31px}.hubNodeB,.hubNodeE{top:calc(50% - 24px)}.hubConnections{inset:0;width:100%;height:100%;opacity:.85}}
+@media(max-width:360px){.hubNode{width:108px;gap:4px}.hubNode small{font-size:4.5px}.hubNode b{font-size:6.5px}.hubNode em{font-size:5px}.hubPanel{width:210px}}
+@media(prefers-reduced-motion:reduce){.intelligenceHub *{animation:none!important;transition:none!important}}

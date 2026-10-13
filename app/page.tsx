@@ -50,13 +50,33 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
-        <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+      <div className="heroArt intelligenceHub" aria-label="AMM Intelligence Hub showing six connected business capabilities">
+        <div className="hubAtmosphere" aria-hidden="true"></div>
+        <div className="hubOrbit hubOrbitOuter" aria-hidden="true"></div>
+        <div className="hubOrbit hubOrbitInner" aria-hidden="true"></div>
+        <svg className="hubConnections" viewBox="0 0 560 440" fill="none" aria-hidden="true">
+          <path d="M90 92 C146 92 171 138 220 169"/><path d="M80 218 H205"/><path d="M90 348 C146 348 171 302 220 271"/>
+          <path d="M470 92 C414 92 389 138 340 169"/><path d="M480 218 H355"/><path d="M470 348 C414 348 389 302 340 271"/>
+          <path className="hubConnectionAccent" d="M90 218 H205 M355 218 H480"/>
+          <circle cx="90" cy="92" r="4"/><circle cx="80" cy="218" r="4"/><circle cx="90" cy="348" r="4"/>
+          <circle cx="470" cy="92" r="4"/><circle cx="480" cy="218" r="4"/><circle cx="470" cy="348" r="4"/>
+        </svg>
+        <div className="hubPanel hubPanelTop"><span className="hubTinyLabel">AMM INTELLIGENCE HUB</span><span className="hubLive"><i></i> SYSTEMS ALIGNED</span></div>
+        <div className="hubCore">
+          <div className="hubCoreHalo"></div>
+          <div className="hubCoreBadge"><span></span> AMM <span></span></div>
+          <div className="hubCoreMark"><b>A</b><i></i><b>M</b></div>
+          <strong>INTELLIGENCE</strong>
+          <small>One connected operating view</small>
+          <div className="hubPulseBars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
+        <div className="hubNode hubNodeA"><span className="hubNodeGlyph">↗</span><div><small>01 / AUTOMATE</small><b>Workflows</b><em>Less manual effort</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeB"><span className="hubNodeGlyph">⌘</span><div><small>02 / BUILD</small><b>Web &amp; commerce</b><em>Digital foundations</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeC"><span className="hubNodeGlyph">▥</span><div><small>03 / UNDERSTAND</small><b>Data &amp; insight</b><em>Clearer decisions</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeD"><span className="hubNodeGlyph">⌕</span><div><small>04 / DISCOVER</small><b>SEO &amp; AI search</b><em>Findable by design</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeE"><span className="hubNodeGlyph">◈</span><div><small>05 / GROW</small><b>Marketing</b><em>Purpose-led reach</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeF"><span className="hubNodeGlyph">✳</span><div><small>06 / EXPRESS</small><b>Creative systems</b><em>Consistent identity</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubPanel hubPanelBottom"><span><i></i> SIGNALS CONNECTED</span><b>LET’S MAKE SOLUTIONS</b></div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
