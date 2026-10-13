@@ -39,6 +39,7 @@ export default function Home() {
   const [serviceQuery,setServiceQuery]=useState("");
   const [activeExperience,setActiveExperience]=useState("");
   const [animationRun,setAnimationRun]=useState(0);
+  const [submittedQuery,setSubmittedQuery]=useState("");
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -58,10 +59,11 @@ export default function Home() {
         <div className="artCard artMain refinedSystemCard smartServiceCard">
           <div className="artTop"><span>AMM SMART SERVICE EXPERIENCE</span><span className="artStatus"><i/> LIVE DEMO</span></div>
           <div className="smartIntro"><div className="dashboardTitle">What would you like<br/><b>to make easier?</b></div><p>Tell us what your business needs. See how AMM could approach it.</p></div>
-          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setActiveExperience(kind);setAnimationRun(v=>v+1);}}>
-            <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
-            <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>setServiceQuery(e.target.value)} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
-          </form>
+          
+          {activeExperience && <div className="smartChatHistory" aria-live="polite">
+            <div className="smartChatUser"><span>{submittedQuery}</span></div>
+            <div className="smartChatReply"><span className="smartChatAvatar">AMM</span><div><b>AMM Data Solutions</b><p>{activeExperience==="seo"?"Here’s how Google SEO and AI search visibility can work together.":activeExperience==="web"?"Here’s a look at how a business website can take shape.":activeExperience==="data"?"Here’s how scattered data can move into a cleaner workflow.":"Here’s how repetitive business work can move through a connected workflow."}</p></div></div>
+          </div>}
           {!activeExperience ? <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Type a request above to see the delivery scene.</small></div></div> : <div className={`smartScene smartScene-${activeExperience}`} key={`${activeExperience}-${animationRun}`}>
             <div className="smartSceneHead"><span className="smartSceneLive"><i/> MATCHED EXPERIENCE</span><button type="button" className="smartReset" onClick={()=>{setActiveExperience("");setServiceQuery("");}}>Reset ↺</button></div>
             {activeExperience==="automation" && <><div className="smartSceneTitle">Manual work → Smart workflow</div><div className="smartFlowSteps"><div><span>✎</span><b>Tasks</b><small>Manual input</small></div><i>→</i><div><span>⌘</span><b>Connect</b><small>Automation</small></div><i>→</i><div><span>✓</span><b>Done</b><small>Clear output</small></div></div><div className="smartProgress"><i/></div><div className="smartSceneFoot">REPETITIVE TASKS, CONNECTED AND ORGANIZED</div></>}
@@ -69,6 +71,10 @@ export default function Home() {
             {activeExperience==="web" && <><div className="smartSceneTitle">From idea to live website</div><div className="smartBrowser"><div className="smartBrowserTop"><i/><i/><i/><span>yourbusiness.com</span></div><div className="smartBrowserBody"><div className="smartWebCopy"><i/><i/><b>YOUR BUSINESS<br/>ONLINE</b><span>Built around your goals</span><em>Explore</em></div><div className="smartWebPreview"><i/><i/><i/></div></div></div><div className="smartSceneFoot">DESIGN → BUILD → LAUNCH</div></>}
             {activeExperience==="data" && <><div className="smartSceneTitle">From manual entry to organized data</div><div className="smartDataFlow"><div className="smartSheet"><b>INPUT DATA</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div><span className="smartDataArrow">→</span><div className="smartCleanSheet"><b><span>✓</span> CLEAN OUTPUT</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div></div><div className="smartSceneFoot">CAPTURE → PROCESS → ORGANIZE</div></>}
           </div>}
+<form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setActiveExperience(kind);setAnimationRun(v=>v+1);}}>
+            <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
+            <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>setServiceQuery(e.target.value)} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
+          </form>
           <div className="smartBottom"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS <b>●</b></span></div>
         </div>
       </div>
