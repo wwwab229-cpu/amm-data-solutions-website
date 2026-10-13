@@ -45,8 +45,8 @@ export default function Home() {
     <section className="hero">
       <div className="heroInner">
         <div className="eyebrow"><span className="eyebrowLine"/> DIGITAL SYSTEMS. PRACTICAL EXECUTION.</div>
-        <h1>Make complex work<br/><span>feel effortless.</span></h1>
-        <p className="heroText">AMM Data Solutions builds the systems, digital experiences and creative assets that help organizations operate with greater clarity.</p>
+        <h1>Business Automation<br/><span>& Digital Solutions</span></h1>
+        <p className="heroText">AMM Data Solutions helps businesses in Pakistan and beyond improve workflows, build websites, organize business data and strengthen online visibility.</p>
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
