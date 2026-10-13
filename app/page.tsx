@@ -40,7 +40,7 @@ export default function Home() {
   const [activeExperience,setActiveExperience]=useState("");
   const [animationRun,setAnimationRun]=useState(0);
   const [submittedQuery,setSubmittedQuery]=useState("");
-  const [conversation,setConversation]=useState<Array<{id:number;query:string;reply:string}>>([]);
+  const [conversation,setConversation]=useState<Array<{id:number;query:string;reply:string;kind:string;run:number}>>([]);
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -65,25 +65,24 @@ export default function Home() {
           <div className="smartChatHistory" aria-live="polite">
             {conversation.map((message)=><div className="smartConversationTurn" key={message.id}>
               <div className="smartChatUser"><span>{message.query}</span></div>
-              <div className="smartChatReply"><span className="smartChatAvatar">AMM</span><div><b>AMM Data Solutions</b><p>{message.reply}</p></div></div>
-            </div>)}
-            {!activeExperience && conversation.length===0 && <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Send a question to watch AMM’s matching workflow in action.</small></div></div>}
-            {activeExperience && <div className="smartChatReply smartLiveReply">
-              <span className="smartChatAvatar">AMM</span>
-              <div className="smartLiveReplyBody">
-                <b>AMM Data Solutions <span className="smartLiveDot"/> Live walkthrough</b>
-                <p>Here’s a visual example of how this solution could work.</p>
-                <div className={`smartScene smartScene-${activeExperience}`} key={`${activeExperience}-${animationRun}`}>
-                  <div className="smartSceneHead"><span className="smartSceneLive"><i/> LIVE WORKFLOW</span><button type="button" className="smartReset" onClick={()=>{setActiveExperience("");setServiceQuery("");}}>Reset ↺</button></div>
-                  {activeExperience==="automation" && <><div className="smartSceneTitle">Manual work → Smart workflow</div><div className="smartFlowSteps"><div><span>✎</span><b>Tasks</b><small>Manual input</small></div><i>→</i><div><span>⌘</span><b>Connect</b><small>Automation</small></div><i>→</i><div><span>✓</span><b>Done</b><small>Clear output</small></div></div><div className="smartProgress"><i/></div><div className="smartSceneFoot">REPETITIVE TASKS, CONNECTED AND ORGANIZED</div></>}
-                  {activeExperience==="seo" && <><div className="smartSceneTitle">Be visible in Search and AI</div><div className="smartSeoSplit"><div><span className="smartSearchGlyph">⌕</span><b>Google Search</b><small>Organic visibility</small><div className="smartSearchLines"><i/><i/><i/></div></div><div><span className="smartAiGlyph">✳</span><b>AI Search</b><small>Answer visibility</small><div className="smartAiAnswer"><i/><i/></div></div></div><div className="smartConnectLine"><i/> ONE CONNECTED SEO STRATEGY <i/></div><div className="smartSceneFoot">ANALYZE → OPTIMIZE → MONITOR</div></>}
-                  {activeExperience==="web" && <><div className="smartSceneTitle">From idea to live website</div><div className="smartBrowser"><div className="smartBrowserTop"><i/><i/><i/><span>yourbusiness.com</span></div><div className="smartBrowserBody"><div className="smartWebCopy"><i/><i/><b>YOUR BUSINESS<br/>ONLINE</b><span>Built around your goals</span><em>Explore</em></div><div className="smartWebPreview"><i/><i/><i/></div></div></div><div className="smartSceneFoot">DESIGN → BUILD → LAUNCH</div></>}
-                  {activeExperience==="data" && <><div className="smartSceneTitle">From manual entry to organized data</div><div className="smartDataFlow"><div className="smartSheet"><b>INPUT DATA</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div><span className="smartDataArrow">→</span><div className="smartCleanSheet"><b><span>✓</span> CLEAN OUTPUT</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div></div><div className="smartSceneFoot">CAPTURE → PROCESS → ORGANIZE</div></>}
+              <div className="smartChatReply smartLiveReply">
+                <span className="smartChatAvatar">AMM</span>
+                <div className="smartLiveReplyBody">
+                  <b>AMM Data Solutions <span className="smartLiveDot"/> Live walkthrough</b>
+                  <p>{message.reply}</p>
+                  <div className={`smartScene smartScene-${message.kind}`} key={`${message.kind}-${message.run}`}>
+                    <div className="smartSceneHead"><span className="smartSceneLive"><i/> LIVE WORKFLOW</span></div>
+                    {message.kind==="automation" && <><div className="smartSceneTitle">Manual work → Smart workflow</div><div className="smartFlowSteps"><div><span>✎</span><b>Tasks</b><small>Manual input</small></div><i>→</i><div><span>⌘</span><b>Connect</b><small>Automation</small></div><i>→</i><div><span>✓</span><b>Done</b><small>Clear output</small></div></div><div className="smartProgress"><i/></div><div className="smartSceneFoot">REPETITIVE TASKS, CONNECTED AND ORGANIZED</div></>}
+                    {message.kind==="seo" && <><div className="smartSceneTitle">Be visible in Search and AI</div><div className="smartSeoSplit"><div><span className="smartSearchGlyph">⌕</span><b>Google Search</b><small>Organic visibility</small><div className="smartSearchLines"><i/><i/><i/></div></div><div><span className="smartAiGlyph">✳</span><b>AI Search</b><small>Answer visibility</small><div className="smartAiAnswer"><i/><i/></div></div></div><div className="smartConnectLine"><i/> ONE CONNECTED SEO STRATEGY <i/></div><div className="smartSceneFoot">ANALYZE → OPTIMIZE → MONITOR</div></>}
+                    {message.kind==="web" && <><div className="smartSceneTitle">From idea to live website</div><div className="smartBrowser"><div className="smartBrowserTop"><i/><i/><i/><span>yourbusiness.com</span></div><div className="smartBrowserBody"><div className="smartWebCopy"><i/><i/><b>YOUR BUSINESS<br/>ONLINE</b><span>Built around your goals</span><em>Explore</em></div><div className="smartWebPreview"><i/><i/><i/></div></div></div><div className="smartSceneFoot">DESIGN → BUILD → LAUNCH</div></>}
+                    {message.kind==="data" && <><div className="smartSceneTitle">From manual entry to organized data</div><div className="smartDataFlow"><div className="smartSheet"><b>INPUT DATA</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div><span className="smartDataArrow">→</span><div className="smartCleanSheet"><b><span>✓</span> CLEAN OUTPUT</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div></div><div className="smartSceneFoot">CAPTURE → PROCESS → ORGANIZE</div>}
+                  </div>
                 </div>
               </div>
-            </div>}
+            </div>)}
+            {!activeExperience && conversation.length===0 && <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Send a question to watch AMM’s matching workflow in action.</small></div></div>}
           </div>
-          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setSubmittedQuery(q);setConversation(items=>[...items,{id:Date.now(),query:q,reply:kind==="seo"?"I’ll show how Google SEO and AI search visibility fit together.":kind==="web"?"Here’s a visual walkthrough of a business website taking shape.":kind==="data"?"Here’s how data can move from manual input to an organized output.":"Here’s a visual walkthrough of a connected business workflow."}]);setActiveExperience(kind);setAnimationRun(v=>v+1);}}>
+          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setSubmittedQuery(q);setAnimationRun(v=>v+1);setConversation(items=>[...items,{id:Date.now(),query:q,kind,run:animationRun+1,reply:kind==="seo"?"I’ll show how Google SEO and AI search visibility fit together.":kind==="web"?"Here’s a visual walkthrough of a business website taking shape.":kind==="data"?"Here’s how data can move from manual input to an organized output.":"Here’s a visual walkthrough of a connected business workflow."}]);setActiveExperience(kind);}}>
             <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
             <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>setServiceQuery(e.target.value)} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
           </form>
