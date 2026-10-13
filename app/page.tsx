@@ -61,7 +61,6 @@ export default function Home() {
           <div className="artTop"><span>AMM SMART SERVICE EXPERIENCE</span><span className="artStatus"><i/> LIVE DEMO</span></div>
           <div className="smartIntro"><div className="dashboardTitle">What would you like<br/><b>to make easier?</b></div><p>Tell us what your business needs. See how AMM could approach it.</p></div>
           
-          {!activeExperience && conversation.length===0 && <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Type a request above to see the delivery scene.</small></div></div>}
           <div className="smartChatHistory" aria-live="polite">
             {conversation.map((message)=><div className="smartConversationTurn" key={message.id}>
               <div className="smartChatUser"><span>{message.query}</span></div>
