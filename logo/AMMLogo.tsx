@@ -6,48 +6,25 @@ type AMMLogoProps = {
   size?: number;
 };
 
+// Logo image lives in /public/amm-logo.png (transparent PNG, 900x470)
+const RATIO = 900 / 470;
+
 export default function AMMLogo({
   className = "",
   height = 38,
   size,
 }: AMMLogoProps) {
-  const fontSize = size ? (38 * size) / 132 : height;
+  const h = size ? Math.round((38 * size) / 132) : height;
 
   return (
-    <div
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       className={className}
-      role="img"
-      aria-label="AMM Data Solutions"
-      style={{
-        display: "inline-flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: fontSize * 0.04,
-        whiteSpace: "nowrap",
-        lineHeight: 1,
-        flexShrink: 0,
-        color: "#000000",
-        fontFamily: "Manrope, DM Sans, Arial, sans-serif",
-      }}
-    >
-      <span
-        style={{
-          fontSize,
-          fontWeight: 800,
-          letterSpacing: "-0.055em",
-        }}
-      >
-        AMM
-      </span>
-      <span
-        style={{
-          fontSize: fontSize * 0.32,
-          fontWeight: 700,
-          letterSpacing: "0.01em",
-        }}
-      >
-        Data Solutions
-      </span>
-    </div>
+      src="/amm-logo.png"
+      alt="AMM Data Solutions"
+      width={Math.round(h * RATIO)}
+      height={h}
+      decoding="async"
+    />
   );
 }
