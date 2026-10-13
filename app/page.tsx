@@ -50,13 +50,19 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
+      <div className="heroArt heroArtRefined" aria-label="AMM digital systems overview">
         <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+        <div className="artCard artMain refinedSystemCard">
+          <div className="artTop"><span>AMM INTELLIGENCE HUB</span><span className="artStatus"><i/> SYSTEM READY</span></div>
+          <div className="dashboardTitle">Make work flow.<br/><b>Make progress visible.</b></div>
+          <div className="refinedSignalRow"><span className="refinedSignalIcon">✳</span><div><strong>Connected business systems</strong><small>One clear view of the moving parts</small></div><span className="refinedSignalPulse"></span></div>
+          <div className="refinedModules">
+            <div className="refinedModule refinedModuleBlue"><span className="refinedModuleIcon">↗</span><small>01 / AUTOMATE</small><b>Less manual work</b><div className="refinedModuleTrack"><i/></div></div>
+            <div className="refinedModule refinedModuleYellow"><span className="refinedModuleIcon">⌘</span><small>02 / CONNECT</small><b>Better workflows</b><div className="refinedModuleTrack"><i/></div></div>
+            <div className="refinedModule refinedModuleWide"><div><small>03 / UNDERSTAND</small><b>Turn information into action</b></div><div className="refinedMiniChart"><i/><i/><i/><i/><i/><i/><i/></div></div>
+          </div>
+          <div className="refinedFlow"><span>PLAN</span><i></i><span>BUILD</span><i></i><span>IMPROVE</span><b>↗</b></div>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
