@@ -16,13 +16,13 @@ const organizationSchema = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "AMM Data Solutions | Business Automation & Digital Solutions", template: "%s | AMM Data Solutions" },
-  description: "Practical business automation, websites, data reporting, SEO, lead generation and digital marketing for growing businesses in Pakistan and worldwide.",
+  title: { default: "AMM Data Solutions | Automation & Digital Services in Pakistan", template: "%s | AMM Data Solutions" },
+  description: "AMM Data Solutions helps businesses in Pakistan with workflow automation, websites, data reporting, SEO and digital marketing. Discuss your project.",
   alternates: { canonical: "/" },
   verification: { google: "Jtom06he16CGnICLTI2Xngg9zlJ6K3rInR1hMhKzATQ" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  openGraph: { type: "website", url: siteUrl, siteName: "AMM Data Solutions", title: "AMM Data Solutions | Business Automation & Digital Solutions", description: "We help businesses make everyday work simpler and improve their online presence.", locale: "en_PK" },
-  twitter: { card: "summary_large_image", title: "AMM Data Solutions | Business Automation & Digital Solutions", description: "Practical business automation and digital services for businesses in Pakistan and worldwide." },
+  openGraph: { type: "website", url: siteUrl, siteName: "AMM Data Solutions", title: "AMM Data Solutions | Automation & Digital Services in Pakistan", description: "Workflow automation, websites, data reporting, SEO and digital marketing for businesses in Pakistan and beyond.", locale: "en_PK" },
+  twitter: { card: "summary", title: "AMM Data Solutions | Automation & Digital Services in Pakistan", description: "Workflow automation, websites, data reporting, SEO and digital marketing for businesses in Pakistan and beyond." },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
