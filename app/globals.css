@@ -150,3 +150,72 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 
 /* Compact white-label partnership highlight; service card layout remains intact */
 .whiteLabelStrip{display:inline-flex;align-items:center;align-self:flex-start;gap:7px;width:fit-content;max-width:100%;margin:4px 0 10px;padding:7px 10px;background:#fff9e7;border:1px solid #eadb9e;border-radius:999px;color:#725b12;font-size:9px;font-weight:800;letter-spacing:.045em;line-height:1.2;white-space:nowrap}.whiteLabelIcon{display:inline-grid;place-items:center;flex:0 0 auto;width:17px;height:17px;background:transparent;color:#111;font-size:12px;line-height:1}.whiteLabelStrip>span:nth-child(2){flex:0 1 auto}.whiteLabelArrow{font-size:12px;color:#8b7226;margin-left:1px}.serviceCard:nth-child(2) .whiteLabelStrip,.serviceCard:nth-child(5) .whiteLabelStrip{background:#fff9e7;border-color:#eadb9e;color:#725b12}.whiteLabelDetails{display:grid;grid-template-columns:70px 1fr;gap:24px;align-items:start;border-top:1px solid var(--line);background:linear-gradient(110deg,#fff9e5,#fff 75%)}.whiteLabelDetailsIcon{display:grid;place-items:center;width:60px;height:60px;border-radius:17px;background:#fff0b5;border:1px solid #ead078;color:#725600;font-size:30px}.whiteLabelDetails h2{font-family:Manrope,sans-serif;font-size:clamp(30px,3.5vw,42px);line-height:1.12;letter-spacing:-.055em;margin:12px 0}.whiteLabelDetails p{max-width:760px;color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:18px}.whiteLabelDetails .textLink{display:inline-flex;align-items:center}.whiteLabelDetails .eyebrow{color:#80671c}@media(max-width:620px){.whiteLabelStrip{font-size:10px;padding:9px}.whiteLabelDetails{grid-template-columns:1fr;gap:16px}.whiteLabelDetailsIcon{width:50px;height:50px;font-size:25px}.whiteLabelDetails p{font-size:14px}}
+
+
+/* Service cards: distinct, lightweight motion that explains each capability */
+.serviceCard{isolation:isolate;will-change:auto}
+.serviceCard:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.serviceCard:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(115deg,transparent 20%,rgba(40,94,232,.045) 48%,rgba(255,201,40,.08) 52%,transparent 78%);opacity:0;transform:translateX(-12%);transition:opacity .35s ease,transform .55s ease}
+.serviceCard:hover:after,.serviceCard:focus-visible:after{opacity:1;transform:translateX(0)}
+.serviceVisual{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+.serviceCard:hover .serviceVisual,.serviceCard:focus-visible .serviceVisual{box-shadow:0 10px 25px rgba(11,23,48,.12)}
+/* 01 — workflow nodes travel forward */
+.serviceCard-01:hover .visualWorkflow span,.serviceCard-01:focus-visible .visualWorkflow span{animation:workflowNode .45s ease both}
+.serviceCard-01:hover .visualWorkflow span:nth-of-type(2),.serviceCard-01:focus-visible .visualWorkflow span:nth-of-type(2){animation-delay:.09s}
+.serviceCard-01:hover .visualWorkflow b,.serviceCard-01:focus-visible .visualWorkflow b{animation:workflowResult .5s .18s ease both}
+.serviceCard-01:hover .visualWorkflow i,.serviceCard-01:focus-visible .visualWorkflow i{animation:flowArrow .45s .1s ease both}
+/* 02 — website layout assembles */
+.serviceCard-02:hover .webBlocks i,.serviceCard-02:focus-visible .webBlocks i{animation:webBlockIn .4s ease both}
+.serviceCard-02:hover .webBlocks i:nth-child(2),.serviceCard-02:focus-visible .webBlocks i:nth-child(2){animation-delay:.08s}
+.serviceCard-02:hover .webBlocks i:nth-child(3),.serviceCard-02:focus-visible .webBlocks i:nth-child(3){animation-delay:.16s}
+.serviceCard-02:hover .webButton,.serviceCard-02:focus-visible .webButton{animation:buttonGlow .7s ease both}
+/* 03 — data bars rise in sequence */
+.serviceCard-03:hover .dataBars i,.serviceCard-03:focus-visible .dataBars i{animation:dataRise .48s cubic-bezier(.2,.8,.2,1) both}
+.serviceCard-03:hover .dataBars i:nth-child(2),.serviceCard-03:focus-visible .dataBars i:nth-child(2){animation-delay:.05s}
+.serviceCard-03:hover .dataBars i:nth-child(3),.serviceCard-03:focus-visible .dataBars i:nth-child(3){animation-delay:.1s}
+.serviceCard-03:hover .dataBars i:nth-child(4),.serviceCard-03:focus-visible .dataBars i:nth-child(4){animation-delay:.15s}
+.serviceCard-03:hover .dataBars i:nth-child(5),.serviceCard-03:focus-visible .dataBars i:nth-child(5){animation-delay:.2s}
+.serviceCard-03:hover .dataBars i:nth-child(6),.serviceCard-03:focus-visible .dataBars i:nth-child(6){animation-delay:.25s}
+.serviceCard-03:hover .dataBars i:nth-child(7),.serviceCard-03:focus-visible .dataBars i:nth-child(7){animation-delay:.3s}
+/* 04 — search scan highlights discoverability */
+.serviceCard-04:hover .searchRing,.serviceCard-04:focus-visible .searchRing{animation:searchScan .6s ease both}
+.serviceCard-04:hover .visualSearch i,.serviceCard-04:focus-visible .visualSearch i{animation:searchLine .42s ease both}
+.serviceCard-04:hover .visualSearch i:nth-child(3),.serviceCard-04:focus-visible .visualSearch i:nth-child(3){animation-delay:.08s}
+.serviceCard-04:hover .visualSearch i:nth-child(4),.serviceCard-04:focus-visible .visualSearch i:nth-child(4){animation-delay:.16s}
+/* 05 — campaign signals and conversion bars */
+.serviceCard-05:hover .adsMetrics i,.serviceCard-05:focus-visible .adsMetrics i{animation:campaignBar .45s ease both}
+.serviceCard-05:hover .adsMetrics i:nth-of-type(2),.serviceCard-05:focus-visible .adsMetrics i:nth-of-type(2){animation-delay:.08s}
+.serviceCard-05:hover .adsMetrics i:nth-of-type(3),.serviceCard-05:focus-visible .adsMetrics i:nth-of-type(3){animation-delay:.16s}
+.serviceCard-05:hover .adsTop b,.serviceCard-05:focus-visible .adsTop b{animation:campaignArrow .5s ease both}
+/* 06 — creative tiles make a tidy, playful entrance */
+.serviceCard-06:hover .creativeTile,.serviceCard-06:focus-visible .creativeTile{animation:creativePop .48s cubic-bezier(.2,.8,.2,1) both}
+.serviceCard-06:hover .creativeTile.two,.serviceCard-06:focus-visible .creativeTile.two{animation-delay:.08s}
+.serviceCard-06:hover .creativeTile.three,.serviceCard-06:focus-visible .creativeTile.three{animation-delay:.16s}
+.serviceCard-01:hover .serviceArrow,.serviceCard-01:focus-visible .serviceArrow,
+.serviceCard-03:hover .serviceArrow,.serviceCard-03:focus-visible .serviceArrow,
+.serviceCard-05:hover .serviceArrow,.serviceCard-05:focus-visible .serviceArrow{color:var(--yellowDeep);transform:rotate(8deg)}
+.serviceCard-02:hover .serviceArrow,.serviceCard-02:focus-visible .serviceArrow,
+.serviceCard-04:hover .serviceArrow,.serviceCard-04:focus-visible .serviceArrow,
+.serviceCard-06:hover .serviceArrow,.serviceCard-06:focus-visible .serviceArrow{color:var(--blue);transform:translate(2px,-2px)}
+@keyframes workflowNode{from{transform:translateY(5px);opacity:.65}to{transform:translateY(0);opacity:1}}
+@keyframes workflowResult{from{transform:scale(.92);background:#fff}to{transform:scale(1);background:var(--yellow)}}
+@keyframes flowArrow{from{opacity:.35;transform:translateX(-3px)}to{opacity:1;transform:translateX(0)}}
+@keyframes webBlockIn{from{transform:translateY(7px) scale(.94);opacity:.65}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes buttonGlow{50%{box-shadow:0 0 0 4px rgba(255,201,40,.35)}}
+@keyframes dataRise{from{transform:scaleY(.55);transform-origin:bottom;opacity:.65}to{transform:scaleY(1);transform-origin:bottom;opacity:1}}
+@keyframes searchScan{50%{transform:rotate(8deg) scale(1.06);border-color:var(--blue)}}
+@keyframes searchLine{from{transform:scaleX(.55);transform-origin:left;opacity:.5}to{transform:scaleX(1);transform-origin:left;opacity:1}}
+@keyframes campaignBar{from{transform:scaleX(.6);transform-origin:left;opacity:.6}to{transform:scaleX(1);transform-origin:left;opacity:1}}
+@keyframes campaignArrow{50%{transform:translate(2px,-2px) rotate(8deg)}}
+@keyframes creativePop{from{transform:translateY(7px) rotate(0) scale(.9);opacity:.7}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+ .serviceCard:after,.serviceVisual{transition:none!important}
+ .serviceCard:hover .visualWorkflow span,.serviceCard:hover .visualWorkflow b,.serviceCard:hover .visualWorkflow i,
+ .serviceCard:hover .webBlocks i,.serviceCard:hover .webButton,.serviceCard:hover .dataBars i,
+ .serviceCard:hover .searchRing,.serviceCard:hover .visualSearch i,.serviceCard:hover .adsMetrics i,
+ .serviceCard:hover .adsTop b,.serviceCard:hover .creativeTile,
+ .serviceCard:focus-visible .visualWorkflow span,.serviceCard:focus-visible .visualWorkflow b,.serviceCard:focus-visible .visualWorkflow i,
+ .serviceCard:focus-visible .webBlocks i,.serviceCard:focus-visible .webButton,.serviceCard:focus-visible .dataBars i,
+ .serviceCard:focus-visible .searchRing,.serviceCard:focus-visible .visualSearch i,.serviceCard:focus-visible .adsMetrics i,
+ .serviceCard:focus-visible .adsTop b,.serviceCard:focus-visible .creativeTile{animation:none!important}
+}
