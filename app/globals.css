@@ -319,3 +319,52 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
     animation:none!important;transition:none!important
   }
 }
+
+
+/* AMM hero systems visual — connected capability map */
+.heroArtSystems{height:500px;min-width:0;overflow:visible;perspective:1000px}
+.heroArtSystems .systemsBackdrop{position:absolute;inset:7% 2%;border:1px solid rgba(67,116,192,.15);border-radius:30px;background:linear-gradient(145deg,rgba(9,21,44,.98),rgba(13,31,61,.97) 58%,rgba(7,18,38,.99));box-shadow:0 35px 85px rgba(12,37,79,.25),inset 0 1px rgba(255,255,255,.08);overflow:hidden}
+.heroArtSystems .systemsBackdrop:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(133,174,235,.065) 1px,transparent 1px),linear-gradient(90deg,rgba(133,174,235,.065) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(135deg,#000,transparent 85%)}
+.heroArtSystems .systemsBackdrop:after{content:"";position:absolute;width:320px;height:320px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(52,120,246,.25),rgba(52,120,246,.06) 45%,transparent 72%)}
+.heroArtSystems .systemsBackdrop>span{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffd329;box-shadow:0 0 12px #ffd329;animation:systemSpark 4s ease-in-out infinite}
+.heroArtSystems .systemsBackdrop>span:nth-child(1){top:18%;left:18%}.heroArtSystems .systemsBackdrop>span:nth-child(2){top:28%;right:15%;animation-delay:.6s}.heroArtSystems .systemsBackdrop>span:nth-child(3){bottom:19%;left:14%;animation-delay:1.2s}.heroArtSystems .systemsBackdrop>span:nth-child(4){bottom:15%;right:20%;animation-delay:1.8s}.heroArtSystems .systemsBackdrop>span:nth-child(5){top:52%;left:8%;animation-delay:2.4s}.heroArtSystems .systemsBackdrop>span:nth-child(6){top:46%;right:8%;animation-delay:3s}
+.heroArtSystems .systemsOrbit{position:absolute;z-index:1;left:50%;top:49%;width:300px;height:300px;border:1px solid rgba(103,158,245,.28);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.heroArtSystems .systemsOrbitOne{width:290px;height:290px;animation:systemsOrbit 28s linear infinite}
+.heroArtSystems .systemsOrbitTwo{width:360px;height:230px;border-color:rgba(255,211,41,.27);transform:translate(-50%,-50%) rotate(-35deg);animation:systemsOrbit 36s linear infinite reverse}
+.heroArtSystems .systemsConnector{position:absolute;z-index:1;left:50%;top:49%;height:1px;width:25%;transform-origin:left center;background:linear-gradient(90deg,rgba(91,151,255,.05),#4f91ff 55%,rgba(255,211,41,.8));opacity:.9}
+.heroArtSystems .systemsConnector:after{content:"";position:absolute;right:12%;top:-2px;width:5px;height:5px;background:#ffd329;border-radius:50%;box-shadow:0 0 12px #ffd329;animation:connectorTravel 2.8s ease-in-out infinite}
+.heroArtSystems .connectorTop{width:19%;transform:rotate(-90deg) translateX(-1px)}
+.heroArtSystems .connectorLeft{width:24%;transform:rotate(180deg)}
+.heroArtSystems .connectorRight{width:24%;transform:rotate(0deg)}
+.heroArtSystems .connectorBottom{width:19%;transform:rotate(90deg)}
+.heroArtSystems .systemsNode{position:absolute;z-index:3;width:150px;min-height:92px;padding:12px 13px;border-radius:13px;border:1px solid rgba(136,177,241,.35);background:linear-gradient(145deg,rgba(24,45,79,.94),rgba(10,24,47,.96));box-shadow:0 14px 30px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.06);color:#fff;display:flex;flex-direction:column;gap:4px;animation:systemNodeFloat 5s ease-in-out infinite;backdrop-filter:blur(12px)}
+.heroArtSystems .systemsNode small{font-size:8px;letter-spacing:.12em;font-weight:800;color:#91b9ff}
+.heroArtSystems .systemsNode b{font-size:12px;font-weight:700;letter-spacing:-.02em}
+.heroArtSystems .systemsNodeIcon{display:grid;place-items:center;width:24px;height:24px;margin-bottom:3px;border-radius:7px;background:rgba(52,120,246,.18);border:1px solid rgba(110,164,255,.35);color:#ffd329;font-size:16px}
+.heroArtSystems .nodeWeb{top:11%;left:calc(50% - 75px);animation-delay:-.5s}
+.heroArtSystems .nodeAutomation{top:37%;left:2%}
+.heroArtSystems .nodeData{top:37%;right:2%;animation-delay:-1.4s}
+.heroArtSystems .nodeCreative{bottom:10%;left:calc(50% - 75px);animation-delay:-2s}
+.heroArtSystems .systemsCore{position:absolute;z-index:4;left:50%;top:49%;width:172px;min-height:142px;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 12px;border:1px solid rgba(119,172,255,.72);border-radius:22px;background:linear-gradient(145deg,rgba(21,47,86,.98),rgba(6,17,36,.99));box-shadow:0 0 0 6px rgba(52,120,246,.08),0 0 40px rgba(52,120,246,.24),inset 0 1px rgba(255,255,255,.12);color:#fff}
+.heroArtSystems .systemsCoreLogo{font:800 39px/1 Manrope,sans-serif;letter-spacing:-.08em}.heroArtSystems .systemsCoreLogo span{color:#ffd329}
+.heroArtSystems .systemsCore>small{font-size:7px;letter-spacing:.16em;color:#a8c7f7;margin-top:7px;font-weight:800}
+.heroArtSystems .systemsCoreLine{font-size:7px;letter-spacing:.08em;font-weight:800;color:#ffd329;margin-top:12px;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.heroArtSystems .systemsCoreLine i{width:5px;height:5px;border-radius:50%;background:#45dfa7;box-shadow:0 0 8px #45dfa7}
+.heroArtSystems .systemsCoreRings{position:absolute;inset:-12px;border:1px solid rgba(52,120,246,.28);border-radius:28px;pointer-events:none;animation:coreRingPulse 3.6s ease-in-out infinite}
+.heroArtSystems .systemsCoreRings i{position:absolute;left:50%;top:-3px;width:6px;height:6px;border-radius:50%;background:#ffd329;box-shadow:0 0 10px #ffd329}
+.heroArtSystems .systemsCoreRings i:nth-child(2){left:auto;top:auto;right:-3px;bottom:22%}
+.heroArtSystems .systemsCoreRings i:nth-child(3){left:15%;top:auto;bottom:-3px;background:#7db7ff;box-shadow:0 0 10px #7db7ff}
+.heroArtSystems .systemsCaption{position:absolute;z-index:5;left:50%;bottom:2%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:8px;font-weight:800;letter-spacing:.14em;color:#d5e4ff}
+.heroArtSystems .systemsLiveDot{width:6px;height:6px;border-radius:50%;background:#44d7a1;box-shadow:0 0 10px #44d7a1}
+.heroArtSystems .systemsFloatingLabel{position:absolute;z-index:5;padding:8px 10px;border-radius:7px;border:1px solid rgba(145,182,239,.2);background:rgba(10,25,49,.85);color:#dbe8ff;font-size:8px;letter-spacing:.1em;font-weight:800;box-shadow:0 8px 18px rgba(9,22,45,.12)}
+.heroArtSystems .systemsFloatingLabel span{color:#ffd329;margin-right:6px}
+.heroArtSystems .labelTop{top:5%;right:3%}.heroArtSystems .labelBottom{bottom:7%;left:4%}
+@keyframes systemSpark{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.5)}}
+@keyframes systemsOrbit{to{rotate:360deg}}
+@keyframes connectorTravel{0%,100%{opacity:.35;transform:translateX(-12px)}50%{opacity:1;transform:translateX(4px)}}
+@keyframes systemNodeFloat{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes coreRingPulse{0%,100%{opacity:.55;scale:1}50%{opacity:1;scale:1.025}}
+@media(max-width:1050px){.heroArtSystems{height:450px}.heroArtSystems .systemsNode{width:138px}.heroArtSystems .systemsOrbitOne{width:260px;height:260px}.heroArtSystems .systemsOrbitTwo{width:320px;height:210px}}
+@media(max-width:760px){.heroArtSystems{height:430px;margin-top:12px}.heroArtSystems .systemsBackdrop{inset:5% 0;border-radius:23px}.heroArtSystems .systemsNode{width:126px;min-height:82px;padding:10px;border-radius:11px}.heroArtSystems .systemsNode b{font-size:11px}.heroArtSystems .systemsNode small{font-size:7px}.heroArtSystems .systemsNodeIcon{width:21px;height:21px}.heroArtSystems .nodeAutomation{left:0}.heroArtSystems .nodeData{right:0}.heroArtSystems .systemsCore{width:148px;min-height:130px}.heroArtSystems .systemsCoreLogo{font-size:34px}.heroArtSystems .systemsOrbitOne{width:230px;height:230px}.heroArtSystems .systemsOrbitTwo{width:285px;height:190px}.heroArtSystems .systemsConnector{width:19%}.heroArtSystems .connectorTop,.heroArtSystems .connectorBottom{width:15%}.heroArtSystems .systemsFloatingLabel{font-size:7px;padding:7px}.heroArtSystems .labelTop{right:1%}.heroArtSystems .labelBottom{left:1%}}
+@media(max-width:420px){.heroArtSystems{height:390px}.heroArtSystems .systemsNode{width:112px;padding:8px}.heroArtSystems .systemsNode b{font-size:10px}.heroArtSystems .systemsNode small{font-size:6px;letter-spacing:.08em}.heroArtSystems .nodeAutomation{top:38%}.heroArtSystems .nodeData{top:38%}.heroArtSystems .systemsCore{width:132px;min-height:118px}.heroArtSystems .systemsCoreLogo{font-size:30px}.heroArtSystems .systemsOrbitOne{width:200px;height:200px}.heroArtSystems .systemsOrbitTwo{width:245px;height:165px}.heroArtSystems .systemsCaption{font-size:7px;letter-spacing:.1em}.heroArtSystems .systemsFloatingLabel{display:none}}
+@media(prefers-reduced-motion:reduce){.heroArtSystems .systemsBackdrop>span,.heroArtSystems .systemsOrbitOne,.heroArtSystems .systemsOrbitTwo,.heroArtSystems .systemsConnector:after,.heroArtSystems .systemsNode,.heroArtSystems .systemsCoreRings{animation:none!important}}

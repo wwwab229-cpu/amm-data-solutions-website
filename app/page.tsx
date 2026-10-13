@@ -50,13 +50,27 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
-        <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+      <div className="heroArt heroArtSystems" aria-label="AMM connected business systems visualization">
+        <div className="systemsBackdrop" aria-hidden="true"><span/><span/><span/><span/><span/><span/></div>
+        <div className="systemsOrbit systemsOrbitOne" aria-hidden="true"/>
+        <div className="systemsOrbit systemsOrbitTwo" aria-hidden="true"/>
+        <div className="systemsConnector connectorTop" aria-hidden="true"/>
+        <div className="systemsConnector connectorLeft" aria-hidden="true"/>
+        <div className="systemsConnector connectorRight" aria-hidden="true"/>
+        <div className="systemsConnector connectorBottom" aria-hidden="true"/>
+        <div className="systemsNode nodeWeb"><span className="systemsNodeIcon">↗</span><small>WEB & SEO</small><b>Be discovered</b></div>
+        <div className="systemsNode nodeAutomation"><span className="systemsNodeIcon">⌘</span><small>AUTOMATION</small><b>Work flows</b></div>
+        <div className="systemsNode nodeData"><span className="systemsNodeIcon">▥</span><small>DATA & INSIGHTS</small><b>Decide clearly</b></div>
+        <div className="systemsNode nodeCreative"><span className="systemsNodeIcon">✳</span><small>CREATIVE</small><b>Stand out</b></div>
+        <div className="systemsCore">
+          <div className="systemsCoreRings" aria-hidden="true"><i/><i/><i/></div>
+          <div className="systemsCoreLogo">AMM<span>.</span></div>
+          <small>CONNECTED SYSTEMS</small>
+          <div className="systemsCoreLine"><i/> ONE CLEAR DIRECTION</div>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
+        <div className="systemsCaption"><span className="systemsLiveDot"/> DIGITAL WORK, CONNECTED</div>
+        <div className="systemsFloatingLabel labelTop"><span>01</span> CONNECT</div>
+        <div className="systemsFloatingLabel labelBottom"><span>02</span> SIMPLIFY</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
