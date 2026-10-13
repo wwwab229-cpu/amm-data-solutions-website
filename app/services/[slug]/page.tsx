@@ -13,12 +13,10 @@ const services = [
   { slug: "creative-brand-solutions", title: "Creative & Brand Solutions", simple: "Keep your brand clear and consistent.", description: "We create visual assets that communicate your offer across digital channels and business materials.", examples: ["Social media and advertising creatives", "Brand assets and marketing graphics", "Presentations and report design"], outcome: "Consistent, professional visual communication across the materials your business uses." },
 ];
 
-export function generateStaticParams() { return services.map(({ slug }) => ({ slug })); }
+export function generateStaticParams() { return [...services.map(({ slug }) => ({ slug })), { slug: "lead-generation-growth-systems" }, { slug: "performance-marketing-ai-advertising" }]; }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  if (slug === "lead-generation-growth-systems") redirect("/services/ai-automation-business-systems");
-  if (slug === "performance-marketing-ai-advertising") redirect("/services/digital-marketing-creative-solutions");
   const service = services.find((item) => item.slug === slug);
   if (!service) return { title: "Service not found" };
   return { title: service.title, description: service.description, alternates: { canonical: `/services/${service.slug}` }, openGraph: { title: service.title, description: service.description, url: `${siteUrl}/services/${service.slug}`, siteName: "AMM Data Solutions", type: "website" } };
@@ -26,6 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (slug === "lead-generation-growth-systems") redirect("/services/ai-automation-business-systems");
+  if (slug === "performance-marketing-ai-advertising") redirect("/services/digital-marketing-creative-solutions");
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
   const schema = { "@context": "https://schema.org", "@type": "Service", name: service.title, description: service.description, provider: { "@type": "Organization", name: "AMM Data Solutions", url: siteUrl }, areaServed: ["Pakistan", "Worldwide"], url: `${siteUrl}/services/${service.slug}` };
