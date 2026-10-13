@@ -424,3 +424,113 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 @media(max-width:1000px){.heroArtRefined{min-height:500px}.smartServiceCard{transform:none}}
 @media(max-width:620px){.heroArtRefined{min-height:0;height:auto;padding:14px 0 26px}.smartServiceCard{width:min(96%,390px);padding:15px;transform:none}.smartIntro .dashboardTitle{font-size:24px;margin:14px 0 7px}.smartQueryForm{padding:10px}.smartQueryInputWrap input{padding:10px 8px;font-size:10px}.smartQueryInputWrap button{padding:10px}.smartScene{padding:10px}.smartSceneTitle{font-size:11px}.smartFlowSteps{gap:3px;grid-template-columns:1fr 10px 1fr 10px 1fr}.smartFlowSteps>div{padding:8px 2px}.smartFlowSteps small{font-size:6px}.smartBottom{font-size:5px}}
 @media(prefers-reduced-motion:reduce){.smartServiceCard,.smartScene,.smartSceneLive i,.smartFlowSteps>div,.smartFlowSteps>i,.smartProgress i,.smartSeoSplit>div,.smartSearchLines i,.smartBrowser,.smartWebPreview:before,.smartDataArrow,.smartSheetGrid i{animation:none!important;transition:none!important}.smartProgress i{transform:none}}
+
+
+/* Center the query experience and make the service scenes visibly animated */
+.heroArtRefined{
+  width:100%;
+  min-width:0;
+  display:grid;
+  place-items:center;
+  justify-self:stretch;
+}
+.smartServiceCard{
+  margin-inline:auto;
+  transform:none;
+  animation:smartCardFloat 5.5s ease-in-out infinite;
+  transform-origin:center;
+}
+.smartScene{position:relative}
+.smartScene::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(110deg,transparent 18%,rgba(52,120,246,.075) 42%,rgba(255,211,41,.12) 50%,transparent 72%);
+  transform:translateX(-120%);
+  animation:smartSceneSweep 2.6s .35s ease-in-out both;
+}
+.smartFlowSteps>div{
+  position:relative;
+  overflow:hidden;
+  animation:smartStepLift .6s cubic-bezier(.2,.8,.2,1) both,smartStepGlow 2.4s .8s ease-in-out infinite;
+}
+.smartFlowSteps>div::after{
+  content:"";
+  position:absolute;
+  left:-120%;
+  top:0;
+  height:100%;
+  width:70%;
+  background:linear-gradient(90deg,transparent,rgba(130,180,255,.28),transparent);
+  animation:smartCardSweep 2.4s .7s ease-in-out infinite;
+}
+.smartFlowSteps>i{font-size:16px;animation:smartArrowTravel 1.15s ease-in-out infinite}
+.smartFlowSteps>i:nth-of-type(2){animation-delay:.25s}
+.smartProgress i{position:relative;animation:smartProgressRun 1.8s .2s ease-in-out both,smartProgressGlow 1.2s 2s ease-in-out infinite}
+.smartSeoSplit>div{animation:smartStepLift .6s cubic-bezier(.2,.8,.2,1) both,smartSeoGlow 2.8s 1s ease-in-out infinite}
+.smartSearchGlyph,.smartAiGlyph{animation:smartIconPop .65s cubic-bezier(.2,.8,.2,1) both,smartIconPulse 2s 1s ease-in-out infinite}
+.smartSearchLines i{transform-origin:left;animation:smartLineGrow .7s both,smartLineFlow 2.2s 1s ease-in-out infinite}
+.smartSearchLines i:nth-child(2){animation-delay:.12s,1.15s}
+.smartSearchLines i:nth-child(3){animation-delay:.24s,1.3s}
+.smartAiAnswer{animation:smartAnswerReveal .7s .4s both}
+.smartAiAnswer i{animation:smartLineFlow 2s 1s ease-in-out infinite}
+.smartConnectLine i{background:linear-gradient(90deg,#8cb9ff,#c4a8ff,#8cb9ff);background-size:200% 100%;animation:smartGradientTravel 1.8s linear infinite}
+.smartBrowser{animation:smartStepLift .6s cubic-bezier(.2,.8,.2,1) both,smartBrowserGlow 3s 1s ease-in-out infinite}
+.smartWebPreview{overflow:hidden}
+.smartWebPreview::after{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.72) 48%,transparent 60%);
+  transform:translateX(-100%);
+  animation:smartPreviewSweep 2.7s .8s ease-in-out infinite;
+}
+.smartDataFlow{position:relative}
+.smartSheet,.smartCleanSheet{animation:smartStepLift .6s cubic-bezier(.2,.8,.2,1) both,smartSheetPulse 2.5s 1s ease-in-out infinite}
+.smartCleanSheet{animation-delay:.18s,1.18s}
+.smartSheetGrid i{animation:smartCellIn .45s both,smartCellPulse 2.2s 1.2s ease-in-out infinite}
+.smartSheetGrid i:nth-child(2){animation-delay:.06s,1.26s}
+.smartSheetGrid i:nth-child(3){animation-delay:.12s,1.32s}
+.smartSheetGrid i:nth-child(4){animation-delay:.18s,1.38s}
+.smartSheetGrid i:nth-child(5){animation-delay:.24s,1.44s}
+.smartSheetGrid i:nth-child(6){animation-delay:.3s,1.5s}
+.smartSheetGrid i:nth-child(7){animation-delay:.36s,1.56s}
+.smartSheetGrid i:nth-child(8){animation-delay:.42s,1.62s}
+.smartSheetGrid i:nth-child(9){animation-delay:.48s,1.68s}
+.smartSheetGrid i:nth-child(10){animation-delay:.54s,1.74s}
+.smartSheetGrid i:nth-child(11){animation-delay:.6s,1.8s}
+.smartSheetGrid i:nth-child(12){animation-delay:.66s,1.86s}
+.smartDataArrow{font-size:21px;animation:smartArrowTravel 1.15s ease-in-out infinite}
+.smartSceneFoot{animation:smartFootReveal .7s .55s both}
+@keyframes smartCardFloat{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes smartSceneSweep{0%{transform:translateX(-120%)}65%,100%{transform:translateX(120%)}}
+@keyframes smartStepLift{from{opacity:0;transform:translateY(13px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes smartStepGlow{0%,100%{box-shadow:0 0 0 0 rgba(52,120,246,0)}50%{box-shadow:0 5px 17px rgba(52,120,246,.13)}}
+@keyframes smartCardSweep{0%,25%{left:-120%}65%,100%{left:150%}}
+@keyframes smartArrowTravel{0%,100%{opacity:.45;translate:0 0}50%{opacity:1;translate:3px 0}}
+@keyframes smartProgressGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
+@keyframes smartSeoGlow{0%,100%{box-shadow:0 0 0 0 rgba(121,85,217,0)}50%{box-shadow:0 6px 18px rgba(121,85,217,.12)}}
+@keyframes smartIconPop{from{opacity:0;scale:.55;rotate:-12deg}to{opacity:1;scale:1;rotate:0}}
+@keyframes smartIconPulse{0%,100%{box-shadow:0 0 0 0 rgba(52,120,246,0)}50%{box-shadow:0 0 0 5px rgba(52,120,246,.1)}}
+@keyframes smartLineFlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.28)}}
+@keyframes smartAnswerReveal{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes smartGradientTravel{to{background-position:200% 0}}
+@keyframes smartBrowserGlow{0%,100%{box-shadow:0 5px 15px #1c477b0d}50%{box-shadow:0 8px 24px rgba(52,120,246,.15)}}
+@keyframes smartPreviewSweep{0%,20%{transform:translateX(-100%)}70%,100%{transform:translateX(100%)}}
+@keyframes smartSheetPulse{0%,100%{box-shadow:0 0 0 0 rgba(50,180,125,0)}50%{box-shadow:0 5px 15px rgba(50,180,125,.11)}}
+@keyframes smartCellPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(.92)}}
+@keyframes smartFootReveal{from{opacity:0;letter-spacing:.02em}to{opacity:1;letter-spacing:.095em}}
+@media(max-width:1000px){.heroArtRefined{width:100%;min-width:0}.smartServiceCard{transform:none}}
+@media(max-width:620px){
+  .heroArtRefined{width:100%;align-self:stretch;justify-self:stretch;padding-inline:0}
+  .smartServiceCard{width:100%;max-width:390px;margin-inline:auto;transform:none}
+  .smartScene{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .smartServiceCard,.smartScene::before,.smartFlowSteps>div,.smartFlowSteps>div::after,.smartFlowSteps>i,.smartProgress i,
+  .smartSeoSplit>div,.smartSearchGlyph,.smartAiGlyph,.smartSearchLines i,.smartAiAnswer,.smartAiAnswer i,
+  .smartConnectLine i,.smartBrowser,.smartWebPreview::after,.smartSheet,.smartCleanSheet,.smartSheetGrid i,
+  .smartDataArrow,.smartSceneFoot{animation:none!important;transition:none!important}
+}
