@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AMMLogo from "../logo/AMMLogo";
 
 const services = [
@@ -41,6 +41,44 @@ export default function Home() {
   const [animationRun,setAnimationRun]=useState(0);
   const [submittedQuery,setSubmittedQuery]=useState("");
   const [conversation,setConversation]=useState<Array<{id:number;query:string;reply:string;kind:string;run:number}>>([]);
+  const [autoDemoPaused,setAutoDemoPaused]=useState(false);
+  useEffect(()=>{
+    if(autoDemoPaused) return;
+    let cancelled=false;
+    const timers: ReturnType<typeof setTimeout>[]=[];
+    const wait=(ms:number)=>new Promise<void>(resolve=>{const timer=setTimeout(resolve,ms);timers.push(timer);});
+    const samples=[
+      {query:"How can I automate customer inquiries and follow-ups?",kind:"automation",reply:"Here’s how a connected workflow can organize inquiries, prepare replies and support follow-ups."},
+      {query:"How can my business become more visible on Google and AI search?",kind:"seo",reply:"Here’s a walkthrough of technical SEO checks, search content and AI search visibility."},
+      {query:"Can you turn my Excel sales data into a clear dashboard?",kind:"data",reply:"Watch sample business data become an organized report with useful performance insights."},
+      {query:"Can you build a website for my business?",kind:"web",reply:"Here’s how a business website can take shape, from structure to a polished page."},
+      {query:"How would you plan a Facebook and Instagram ad campaign?",kind:"ads",reply:"Explore a sample campaign flow, creative direction and performance tracking."},
+      {query:"Can you create a consistent brand and social media designs?",kind:"creative",reply:"Here’s a visual walkthrough of a consistent brand identity and creative asset system."}
+    ];
+    const runDemo=async()=>{
+      await wait(900);
+      for(let index=0;index<samples.length&&!cancelled;index++){
+        const sample=samples[index];
+        setServiceQuery("");
+        for(let i=1;i<=sample.query.length&&!cancelled;i++){
+          setServiceQuery(sample.query.slice(0,i));
+          await wait(31);
+        }
+        if(cancelled) break;
+        await wait(420);
+        setAnimationRun(v=>v+1);
+        setSubmittedQuery(sample.query);
+        setActiveExperience(sample.kind);
+        setConversation(items=>[...items,{id:Date.now()+index,query:sample.query,kind:sample.kind,run:index+1,reply:sample.reply}]);
+        setServiceQuery("");
+        await wait(7200);
+      }
+      if(!cancelled) await wait(500);
+    };
+    void runDemo();
+    return ()=>{cancelled=true;timers.forEach(clearTimeout);};
+  },[autoDemoPaused]);
+
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -83,9 +121,9 @@ export default function Home() {
             </div>)}
             {!activeExperience && conversation.length===0 && <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Send a question to watch AMM’s matching workflow in action.</small></div></div>}
           </div>
-          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing|dashboard|analytics)/.test(t)?"data":/(advert|campaign|google ads|meta ads|facebook ads|instagram ads|marketing|promot|lead generation)/.test(t)?"ads":/(design|brand|branding|logo|social post|creative|graphics|visual identity)/.test(t)?"creative":"automation";setSubmittedQuery(q);setAnimationRun(v=>v+1);setConversation(items=>[...items,{id:Date.now(),query:q,kind,run:animationRun+1,reply:kind==="seo"?"I’ll show how Google SEO and AI search visibility fit together.":kind==="web"?"Here’s a visual walkthrough of a business website taking shape.":kind==="data"?"Here’s how data can move from manual input to an organized output.":kind==="ads"?"Here’s how campaign creative, audience signals and performance tracking connect.":kind==="creative"?"Here’s a visual direction for a consistent brand and creative asset system.":"Here’s a visual walkthrough of a connected business workflow."}]);setActiveExperience(kind);}}>
+          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();setAutoDemoPaused(true);const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing|dashboard|analytics)/.test(t)?"data":/(advert|campaign|google ads|meta ads|facebook ads|instagram ads|marketing|promot|lead generation)/.test(t)?"ads":/(design|brand|branding|logo|social post|creative|graphics|visual identity)/.test(t)?"creative":"automation";setSubmittedQuery(q);setAnimationRun(v=>v+1);setConversation(items=>[...items,{id:Date.now(),query:q,kind,run:animationRun+1,reply:kind==="seo"?"I’ll show how Google SEO and AI search visibility fit together.":kind==="web"?"Here’s a visual walkthrough of a business website taking shape.":kind==="data"?"Here’s how data can move from manual input to an organized output.":kind==="ads"?"Here’s how campaign creative, audience signals and performance tracking connect.":kind==="creative"?"Here’s a visual direction for a consistent brand and creative asset system.":"Here’s a visual walkthrough of a connected business workflow."}]);setActiveExperience(kind);}}>
             <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
-            <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>setServiceQuery(e.target.value)} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
+            <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>{setAutoDemoPaused(true);setServiceQuery(e.target.value)}} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
           </form>
           <div className="smartBottom"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS <b>●</b></span></div>
         </div>
