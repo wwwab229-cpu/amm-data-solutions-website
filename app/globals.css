@@ -587,3 +587,26 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .smartBottom{font-size:6px}
 }
 @media(prefers-reduced-motion:reduce){.smartServiceCard{animation:none!important}}
+
+
+/* Final chat-first layout: the composer stays at the bottom and each AMM reply contains its live-work scene */
+.smartServiceCard{display:flex;flex-direction:column;min-height:610px}
+.smartChatHistory{flex:1 1 auto;min-height:0;max-height:340px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#cad8ec transparent;padding:2px 4px 5px 0}
+.smartChatHistory::-webkit-scrollbar{width:4px}
+.smartChatHistory::-webkit-scrollbar-thumb{background:#cad8ec;border-radius:8px}
+.smartConversationTurn{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
+.smartLiveReply{margin-top:2px;animation:smartChatAppear .35s ease-out both}
+.smartLiveReplyBody{flex:1;min-width:0;padding:10px;border:1px solid #dce7f6;border-radius:3px 13px 13px 13px;background:linear-gradient(145deg,#fff,#f9fbff);box-shadow:0 5px 18px rgba(26,57,102,.05)}
+.smartLiveReplyBody>b{display:flex;align-items:center;gap:6px;color:#20395f;font-size:9px}
+.smartLiveDot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#2bc995;box-shadow:0 0 0 3px #2bc99520;animation:refinedPulse 1.6s infinite}
+.smartLiveReplyBody>p{margin:5px 0 9px;color:#71819b;font-size:9px;line-height:1.5}
+.smartLiveReplyBody .smartScene{width:100%;margin:0;padding:12px;border-radius:10px}
+.smartQueryForm{flex:0 0 auto;position:relative;z-index:2;margin-top:auto}
+.smartBottom{flex:0 0 auto}
+@media(max-width:620px){
+ .smartServiceCard{min-height:620px}
+ .smartChatHistory{max-height:350px}
+ .smartLiveReplyBody{padding:8px}
+ .smartLiveReplyBody .smartScene{padding:9px}
+}
+@media(prefers-reduced-motion:reduce){.smartLiveDot{animation:none!important}}
