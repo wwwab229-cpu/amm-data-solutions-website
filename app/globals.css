@@ -558,3 +558,32 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .smartQueryForm{margin-top:10px}
 }
 @media(prefers-reduced-motion:reduce){.smartChatHistory{animation:none}}
+
+
+/* Chat-first AMM hero: conversation above, composer anchored at the bottom */
+.heroArtRefined{align-items:center;min-height:650px}
+.smartServiceCard{min-height:610px;display:flex;flex-direction:column;gap:0;transform:none;animation:none}
+.smartIntro{padding-bottom:2px}
+.smartChatHistory{flex:0 0 auto}
+.smartScene{margin:8px 0 0 37px;box-shadow:0 8px 22px rgba(26,57,102,.055)}
+.smartIdle{margin-bottom:0}
+.smartQueryForm{flex:0 0 auto;margin-top:auto;padding:12px;background:rgba(248,250,255,.98);border:1px solid #d8e5f7;box-shadow:0 -7px 20px rgba(26,57,102,.045);position:relative}
+.smartQueryForm:before{content:"";position:absolute;left:12px;right:12px;top:0;height:1px;background:linear-gradient(90deg,transparent,#dce7f7,transparent)}
+.smartQueryLabel{font-size:8px}
+.smartQueryInputWrap input{font-size:12px;padding:13px 12px}
+.smartQueryInputWrap button{font-size:11px;padding:13px 14px}
+.smartBottom{flex:0 0 auto}
+@media(max-width:900px){.heroArtRefined{min-height:650px}.smartServiceCard{min-height:610px}}
+@media(max-width:620px){
+ .heroArtRefined{min-height:0;height:auto;padding:8px 0 14px}
+ .smartServiceCard{width:min(100%,390px);min-height:620px;padding:15px;border-radius:20px;transform:none}
+ .smartIntro .dashboardTitle{font-size:25px}
+ .smartScene{margin-left:0;padding:11px}
+ .smartChatUser span{max-width:92%}
+ .smartQueryForm{padding:10px;margin-top:auto;border-radius:13px}
+ .smartQueryInputWrap{gap:6px}
+ .smartQueryInputWrap input{font-size:12px;padding:13px 9px}
+ .smartQueryInputWrap button{gap:7px;padding:13px 11px}
+ .smartBottom{font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){.smartServiceCard{animation:none!important}}
