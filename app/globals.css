@@ -319,3 +319,39 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
     animation:none!important;transition:none!important
   }
 }
+
+
+/* Light-theme AMM connected systems visual */
+.heroArtLightSystems{height:430px;position:relative;isolation:isolate;perspective:1000px}
+.heroArtLightSystems .lightSystemsGlow{position:absolute;width:360px;height:360px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(76,139,255,.17),rgba(76,139,255,.07) 42%,transparent 72%);z-index:-2;animation:lightSystemsBreath 7s ease-in-out infinite}
+.heroArtLightSystems .lightSystemsGrid{position:absolute;inset:8% 3%;border-radius:26px;border:1px solid rgba(65,113,185,.12);background-image:linear-gradient(rgba(63,111,184,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(63,111,184,.045) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(135deg,#000 5%,transparent 92%);z-index:-2}
+.heroArtLightSystems .lightSystemsOrbit{position:absolute;left:50%;top:50%;width:320px;height:190px;transform:translate(-50%,-50%) rotate(-28deg);border:1px solid rgba(52,120,246,.2);border-radius:50%;z-index:-1;pointer-events:none}
+.heroArtLightSystems .lightOrbitTwo{width:370px;height:220px;transform:translate(-50%,-50%) rotate(34deg);border-color:rgba(255,193,7,.3)}
+.heroArtLightSystems .lightSystemsLink{position:absolute;z-index:0;left:50%;top:50%;width:23%;height:1px;transform-origin:left center;background:linear-gradient(90deg,rgba(52,120,246,.08),rgba(52,120,246,.48),rgba(255,193,7,.8))}
+.heroArtLightSystems .lightSystemsLink i{position:absolute;right:18%;top:-2px;width:5px;height:5px;border-radius:50%;background:#ffc107;box-shadow:0 0 0 4px rgba(255,193,7,.14);animation:lightLinkPulse 3.4s ease-in-out infinite}
+.heroArtLightSystems .lightLinkTop{transform:rotate(-90deg)}.heroArtLightSystems .lightLinkLeft{transform:rotate(180deg)}.heroArtLightSystems .lightLinkRight{transform:rotate(0)}.heroArtLightSystems .lightLinkBottom{transform:rotate(90deg)}
+.heroArtLightSystems .lightSystemModule{position:absolute;z-index:2;width:154px;min-height:94px;padding:13px 14px;border:1px solid rgba(197,214,239,.9);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(247,250,255,.94));box-shadow:0 12px 30px rgba(28,67,126,.09),inset 0 1px #fff;display:flex;flex-direction:column;align-items:flex-start;gap:4px;animation:lightModuleFloat 6s ease-in-out infinite;backdrop-filter:blur(10px)}
+.heroArtLightSystems .lightModuleIcon{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:#edf4ff;color:#286bd4;border:1px solid #dbe8ff;font-size:16px;margin-bottom:3px}
+.heroArtLightSystems .lightSystemModule small{font-size:7px;line-height:1.4;font-weight:800;letter-spacing:.08em;color:#7b8da9}
+.heroArtLightSystems .lightSystemModule strong{font-size:12px;line-height:1.3;font-weight:800;color:#172b49;letter-spacing:-.02em}
+.heroArtLightSystems .lightSystemModule em{font-size:9px;font-style:normal;color:#75849c}
+.heroArtLightSystems .lightModuleWeb{top:7%;left:calc(50% - 77px);animation-delay:-1s}
+.heroArtLightSystems .lightModuleAutomation{top:37%;left:0;animation-delay:-2.5s}
+.heroArtLightSystems .lightModuleData{top:37%;right:0;animation-delay:-.5s}
+.heroArtLightSystems .lightModuleCreative{bottom:6%;left:calc(50% - 77px);animation-delay:-3.5s}
+.heroArtLightSystems .lightSystemsCore{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:166px;min-height:126px;padding:17px 12px;border-radius:21px;border:1px solid #d3e2f8;background:linear-gradient(145deg,#fff,#f4f8ff);box-shadow:0 18px 45px rgba(33,82,157,.14),0 0 0 7px rgba(52,120,246,.045);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#142744}
+.heroArtLightSystems .lightCoreMark{font-family:Manrope,sans-serif;font-weight:850;font-size:38px;line-height:1;letter-spacing:-.09em;color:#101b2e}
+.heroArtLightSystems .lightCoreMark span{color:#ffc107}
+.heroArtLightSystems .lightCoreRule{height:3px;width:42px;border-radius:3px;background:linear-gradient(90deg,#3478f6 0 70%,#ffc107 70%);margin:10px 0}
+.heroArtLightSystems .lightSystemsCore strong{font-size:7px;line-height:1.5;letter-spacing:.09em;font-weight:850}
+.heroArtLightSystems .lightSystemsCore small{margin-top:6px;font-size:7px;letter-spacing:.08em;color:#7586a0;font-weight:800}
+.heroArtLightSystems .lightSystemsTag{position:absolute;z-index:4;padding:9px 12px;border-radius:9px;border:1px solid #e1e9f5;background:rgba(255,255,255,.92);box-shadow:0 8px 22px rgba(28,67,126,.07);font-size:8px;font-weight:850;letter-spacing:.1em;color:#637590;white-space:nowrap}
+.heroArtLightSystems .lightTagTop{top:3%;right:1%}.heroArtLightSystems .lightTagTop span{display:inline-block;width:6px;height:6px;border-radius:50%;background:#31bd8c;margin-right:7px;box-shadow:0 0 0 3px rgba(49,189,140,.12)}
+.heroArtLightSystems .lightTagBottom{bottom:1%;left:1%}.heroArtLightSystems .lightTagBottom b{color:#ffc107}
+@keyframes lightSystemsBreath{0%,100%{opacity:.7;scale:1}50%{opacity:1;scale:1.06}}
+@keyframes lightLinkPulse{0%,100%{opacity:.35;transform:translateX(-6px)}50%{opacity:1;transform:translateX(5px)}}
+@keyframes lightModuleFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media(max-width:1050px){.heroArtLightSystems{height:410px}.heroArtLightSystems .lightSystemModule{width:142px}.heroArtLightSystems .lightOrbitOne{width:280px}.heroArtLightSystems .lightOrbitTwo{width:330px}}
+@media(max-width:760px){.heroArtLightSystems{height:400px;margin-top:8px}.heroArtLightSystems .lightSystemsGrid{inset:6% 0;border-radius:20px}.heroArtLightSystems .lightSystemModule{width:130px;min-height:88px;padding:10px;border-radius:12px}.heroArtLightSystems .lightSystemModule strong{font-size:11px}.heroArtLightSystems .lightSystemModule small{font-size:6px}.heroArtLightSystems .lightSystemModule em{font-size:8px}.heroArtLightSystems .lightModuleAutomation{left:0;top:38%}.heroArtLightSystems .lightModuleData{right:0;top:38%}.heroArtLightSystems .lightSystemsCore{width:145px;min-height:116px}.heroArtLightSystems .lightCoreMark{font-size:33px}.heroArtLightSystems .lightOrbitOne{width:240px;height:160px}.heroArtLightSystems .lightOrbitTwo{width:280px;height:185px}.heroArtLightSystems .lightSystemsLink{width:19%}.heroArtLightSystems .lightLinkTop,.heroArtLightSystems .lightLinkBottom{width:15%}.heroArtLightSystems .lightSystemsTag{font-size:7px;padding:8px}}
+@media(max-width:420px){.heroArtLightSystems{height:375px}.heroArtLightSystems .lightSystemModule{width:112px;padding:8px}.heroArtLightSystems .lightSystemModule strong{font-size:10px}.heroArtLightSystems .lightSystemModule small{font-size:5.5px;letter-spacing:.05em}.heroArtLightSystems .lightModuleIcon{width:22px;height:22px}.heroArtLightSystems .lightSystemsCore{width:128px;min-height:108px}.heroArtLightSystems .lightCoreMark{font-size:30px}.heroArtLightSystems .lightSystemsTag{display:none}.heroArtLightSystems .lightOrbitOne{width:210px;height:140px}.heroArtLightSystems .lightOrbitTwo{width:250px;height:165px}}
+@media(prefers-reduced-motion:reduce){.heroArtLightSystems .lightSystemsGlow,.heroArtLightSystems .lightSystemsLink i,.heroArtLightSystems .lightSystemModule{animation:none!important}}
