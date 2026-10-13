@@ -61,13 +61,14 @@ export default function Home() {
           <div className="artTop"><span>AMM SMART SERVICE EXPERIENCE</span><span className="artStatus"><i/> LIVE DEMO</span></div>
           <div className="smartIntro"><div className="dashboardTitle">What would you like<br/><b>to make easier?</b></div><p>Tell us what your business needs. See how AMM could approach it.</p></div>
           
+          {!activeExperience && conversation.length===0 && <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Type a request above to see the delivery scene.</small></div></div>}
           {conversation.length>0 && <div className="smartChatHistory" aria-live="polite">
             {conversation.map((message,index)=><div className="smartConversationTurn" key={message.id}>
               <div className="smartChatUser"><span>{message.query}</span></div>
               <div className="smartChatReply"><span className="smartChatAvatar">AMM</span><div><b>AMM Data Solutions</b><p>{message.reply}</p></div></div>
             </div>)}
 
-          {conversation.length===0 && !activeExperience && (<div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Type a request above to see the delivery scene.</small></div></div>)}
+          
           {activeExperience && (<div className={`smartScene smartScene-${activeExperience}`} key={`${activeExperience}-${animationRun}`}>
             <div className="smartSceneHead"><span className="smartSceneLive"><i/> MATCHED EXPERIENCE</span><button type="button" className="smartReset" onClick={()=>{setActiveExperience("");setServiceQuery("");}}>Reset ↺</button></div>
             {activeExperience==="automation" && <><div className="smartSceneTitle">Manual work → Smart workflow</div><div className="smartFlowSteps"><div><span>✎</span><b>Tasks</b><small>Manual input</small></div><i>→</i><div><span>⌘</span><b>Connect</b><small>Automation</small></div><i>→</i><div><span>✓</span><b>Done</b><small>Clear output</small></div></div><div className="smartProgress"><i/></div><div className="smartSceneFoot">REPETITIVE TASKS, CONNECTED AND ORGANIZED</div></>}
