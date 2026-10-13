@@ -64,7 +64,7 @@ export default function Home() {
           <div className="refinedFlow"><span>PLAN</span><i></i><span>BUILD</span><i></i><span>IMPROVE</span><b>↗</b></div>
         </div>
       </div>
-      <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
+      <div className="heroBottomLine"><span>LET’S MAKE SOLUTIONS</span></div>
     </section>
     <section className="intro section"><div className="eyebrow">BUILT AROUND THE OBJECTIVE</div><div><h2>Technology is only useful when it <span>solves the right problem.</span></h2><p>We start with the outcome, shape a sensible scope, and deliver practical digital work without unnecessary complexity.</p></div></section>
     <section id="services" className="services section">
