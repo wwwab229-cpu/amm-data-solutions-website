@@ -50,13 +50,37 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
-        <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+      <div className="heroArt heroArtClarity" aria-label="Illustration showing scattered business tasks becoming one clear connected system">
+        <div className="clarityBackdrop" aria-hidden="true"/>
+        <div className="clarityEyebrow">COMPLEXITY <span>→</span> CLARITY</div>
+        <div className="clarityScatter" aria-hidden="true">
+          <i className="scatterTile scatterOne"/><i className="scatterTile scatterTwo"/><i className="scatterTile scatterThree"/>
+          <i className="scatterTile scatterFour"/><i className="scatterTile scatterFive"/><i className="scatterTile scatterSix"/>
+          <i className="scatterDot scatterDotOne"/><i className="scatterDot scatterDotTwo"/><i className="scatterDot scatterDotThree"/>
+          <i className="scatterDash scatterDashOne"/><i className="scatterDash scatterDashTwo"/><i className="scatterDash scatterDashThree"/>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
+        <svg className="clarityStreams" viewBox="0 0 520 350" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="clarityBlueStream" x1="70" y1="90" x2="370" y2="170" gradientUnits="userSpaceOnUse"><stop stopColor="#9EC5FF" stopOpacity=".12"/><stop offset=".52" stopColor="#3478F6" stopOpacity=".8"/><stop offset="1" stopColor="#3478F6" stopOpacity=".18"/></linearGradient>
+            <linearGradient id="clarityGoldStream" x1="55" y1="255" x2="390" y2="170" gradientUnits="userSpaceOnUse"><stop stopColor="#FFC107" stopOpacity=".1"/><stop offset=".58" stopColor="#FFC107" stopOpacity=".8"/><stop offset="1" stopColor="#3478F6" stopOpacity=".2"/></linearGradient>
+          </defs>
+          <path className="clarityStream clarityStreamBlue" d="M42 88 C125 20 166 130 248 156 S335 163 385 120" stroke="url(#clarityBlueStream)" strokeWidth="3" strokeLinecap="round"/>
+          <path className="clarityStream clarityStreamGold" d="M38 254 C124 310 173 211 248 183 S334 177 385 215" stroke="url(#clarityGoldStream)" strokeWidth="3" strokeLinecap="round"/>
+          <path className="clarityStream clarityStreamThin" d="M60 167 C139 150 176 166 248 170 S331 170 385 170" stroke="#7DAAFF" strokeOpacity=".42" strokeWidth="1.5" strokeDasharray="4 7"/>
+          <circle cx="248" cy="170" r="58" stroke="#3478F6" strokeOpacity=".13"/>
+          <circle cx="248" cy="170" r="73" stroke="#FFC107" strokeOpacity=".24" strokeDasharray="3 7"/>
+        </svg>
+        <div className="clarityCore">
+          <div className="clarityCoreHalo" aria-hidden="true"/>
+          <div className="clarityCoreMark">AMM<span>.</span></div>
+          <div className="clarityCoreLine"/>
+          <strong>MAKE IT WORK<br/>AS ONE.</strong>
+          <small>LET’S MAKE SOLUTIONS</small>
+        </div>
+        <div className="clarityOutput clarityOutputTop"><span className="clarityOutputIcon">↗</span><div><small>ONLINE PRESENCE</small><strong>Built to be found</strong></div><i>✓</i></div>
+        <div className="clarityOutput clarityOutputMid"><span className="clarityOutputIcon">⌘</span><div><small>SMART WORKFLOWS</small><strong>Less friction</strong></div><i>✓</i></div>
+        <div className="clarityOutput clarityOutputBottom"><span className="clarityOutputIcon">▥</span><div><small>BUSINESS INSIGHT</small><strong>Clear next steps</strong></div><i>✓</i></div>
+        <div className="clarityCaption">SCATTERED TASKS <span>→</span> CONNECTED SOLUTIONS</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
