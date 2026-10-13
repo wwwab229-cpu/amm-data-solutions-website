@@ -36,6 +36,11 @@ function ServiceVisual({ type }: { type: string }) {
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
+  const [serviceQuery,setServiceQuery]=useState("");
+  const [activeExperience,setActiveExperience]=useState("");
+  const [animationRun,setAnimationRun]=useState(0);
+  const [submittedQuery,setSubmittedQuery]=useState("");
+  const [conversation,setConversation]=useState<Array<{id:number;query:string;reply:string;kind:string;run:number}>>([]);
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -50,15 +55,40 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
+      <div className="heroArt heroArtRefined" aria-label="Interactive AMM service experience">
         <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+        <div className="artCard artMain refinedSystemCard smartServiceCard">
+          <div className="artTop"><span>AMM SMART SERVICE EXPERIENCE</span><span className="artStatus"><i/> LIVE DEMO</span></div>
+          <div className="smartIntro"><div className="dashboardTitle">What would you like<br/><b>to make easier?</b></div><p>Tell us what your business needs. See how AMM could approach it.</p></div>
+          
+          <div className="smartChatHistory" aria-live="polite">
+            {conversation.map((message)=><div className="smartConversationTurn" key={message.id}>
+              <div className="smartChatUser"><span>{message.query}</span></div>
+              <div className="smartChatReply smartLiveReply">
+                <span className="smartChatAvatar">AMM</span>
+                <div className="smartLiveReplyBody">
+                  <b>AMM Data Solutions <span className="smartLiveDot"/> Live walkthrough</b>
+                  <p>{message.reply}</p>
+                  <div className={`smartScene smartScene-${message.kind}`} key={`${message.kind}-${message.run}`}>
+                    <div className="smartSceneHead"><span className="smartSceneLive"><i/> LIVE WORKFLOW</span></div>
+                    {message.kind==="automation" && <><div className="smartSceneTitle">Manual work → Smart workflow</div><div className="smartFlowSteps"><div><span>✎</span><b>Tasks</b><small>Manual input</small></div><i>→</i><div><span>⌘</span><b>Connect</b><small>Automation</small></div><i>→</i><div><span>✓</span><b>Done</b><small>Clear output</small></div></div><div className="smartProgress"><i/></div><div className="smartSceneFoot">REPETITIVE TASKS, CONNECTED AND ORGANIZED</div></>}
+                    {message.kind==="seo" && <><div className="smartSceneTitle">Be visible in Search and AI</div><div className="smartSeoSplit"><div><span className="smartSearchGlyph">⌕</span><b>Google Search</b><small>Organic visibility</small><div className="smartSearchLines"><i/><i/><i/></div></div><div><span className="smartAiGlyph">✳</span><b>AI Search</b><small>Answer visibility</small><div className="smartAiAnswer"><i/><i/></div></div></div><div className="smartConnectLine"><i/> ONE CONNECTED SEO STRATEGY <i/></div><div className="smartSceneFoot">ANALYZE → OPTIMIZE → MONITOR</div></>}
+                    {message.kind==="web" && <><div className="smartSceneTitle">From idea to live website</div><div className="smartBrowser"><div className="smartBrowserTop"><i/><i/><i/><span>yourbusiness.com</span></div><div className="smartBrowserBody"><div className="smartWebCopy"><i/><i/><b>YOUR BUSINESS<br/>ONLINE</b><span>Built around your goals</span><em>Explore</em></div><div className="smartWebPreview"><i/><i/><i/></div></div></div><div className="smartSceneFoot">DESIGN → BUILD → LAUNCH</div></>}
+                    {message.kind==="data" && <><div className="smartSceneTitle">From manual entry to organized data</div><div className="smartDataFlow"><div className="smartSheet"><b>INPUT DATA</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div><span className="smartDataArrow">→</span><div className="smartCleanSheet"><b><span>✓</span> CLEAN OUTPUT</b><div className="smartSheetGrid">{Array.from({length:12},(_,i)=><i key={i}/>)}</div></div></div><div className="smartSceneFoot">CAPTURE → PROCESS → ORGANIZE</div>}
+                  </div>
+                </div>
+              </div>
+            </div>)}
+            {!activeExperience && conversation.length===0 && <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Send a question to watch AMM’s matching workflow in action.</small></div></div>}
+          </div>
+          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setSubmittedQuery(q);setAnimationRun(v=>v+1);setConversation(items=>[...items,{id:Date.now(),query:q,kind,run:animationRun+1,reply:kind==="seo"?"I’ll show how Google SEO and AI search visibility fit together.":kind==="web"?"Here’s a visual walkthrough of a business website taking shape.":kind==="data"?"Here’s how data can move from manual input to an organized output.":"Here’s a visual walkthrough of a connected business workflow."}]);setActiveExperience(kind);}}>
+            <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
+            <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>setServiceQuery(e.target.value)} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
+          </form>
+          <div className="smartBottom"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS <b>●</b></span></div>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
       </div>
-      <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
+      <div className="heroBottomLine"><span>LET’S MAKE SOLUTIONS</span></div>
     </section>
     <section className="intro section"><div className="eyebrow">BUILT AROUND THE OBJECTIVE</div><div><h2>Technology is only useful when it <span>solves the right problem.</span></h2><p>We start with the outcome, shape a sensible scope, and deliver practical digital work without unnecessary complexity.</p></div></section>
     <section id="services" className="services section">
