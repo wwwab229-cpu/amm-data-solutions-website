@@ -50,13 +50,37 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
-        <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+      <div className="heroArt signatureArt" aria-label="AMM signature visual connecting six digital capabilities">
+        <div className="signatureAura" aria-hidden="true"></div>
+        <div className="signatureFrame" aria-hidden="true"></div>
+        <svg className="signaturePaths" viewBox="0 0 560 440" fill="none" aria-hidden="true">
+          <path className="sigPath sigPathBlue" d="M62 91 C130 91 142 151 198 166 S244 184 280 220"/>
+          <path className="sigPath sigPathYellow" d="M62 220 C142 220 168 220 214 220 S248 220 280 220"/>
+          <path className="sigPath sigPathBlue" d="M62 349 C130 349 142 289 198 274 S244 256 280 220"/>
+          <path className="sigPath sigPathBlue" d="M498 91 C430 91 418 151 362 166 S316 184 280 220"/>
+          <path className="sigPath sigPathYellow" d="M498 220 C418 220 392 220 346 220 S312 220 280 220"/>
+          <path className="sigPath sigPathBlue" d="M498 349 C430 349 418 289 362 274 S316 256 280 220"/>
+          <path className="sigTrace" d="M280 63 L280 120 M280 320 L280 377 M123 220 L174 220 M386 220 L437 220"/>
+          <circle className="sigEndpoint" cx="62" cy="91" r="4"/><circle className="sigEndpoint" cx="62" cy="220" r="4"/><circle className="sigEndpoint" cx="62" cy="349" r="4"/>
+          <circle className="sigEndpoint" cx="498" cy="91" r="4"/><circle className="sigEndpoint" cx="498" cy="220" r="4"/><circle className="sigEndpoint" cx="498" cy="349" r="4"/>
+        </svg>
+        <div className="signatureCore">
+          <div className="signatureCoreTop"><span></span> AMM <span></span></div>
+          <svg className="signatureGlyph" viewBox="0 0 180 112" fill="none" aria-hidden="true">
+            <path d="M18 87 L52 22 L84 87" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M68 87 L96 35 L124 87 L151 35 L168 87" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M43 60 H65" stroke="#FFD329" strokeWidth="7" strokeLinecap="round"/>
+          </svg>
+          <div className="signatureCoreBottom">CONNECTED BY DESIGN</div>
+          <div className="signatureCoreSignal"><i></i><i></i><i></i><i></i><i></i></div>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
+        <div className="signatureNode sigNodeOne"><span className="sigNodeIcon">01</span><div><small>AI &amp; AUTOMATION</small><b>Workflows</b></div><i></i></div>
+        <div className="signatureNode sigNodeTwo"><span className="sigNodeIcon">02</span><div><small>WEB &amp; COMMERCE</small><b>Digital presence</b></div><i></i></div>
+        <div className="signatureNode sigNodeThree"><span className="sigNodeIcon">03</span><div><small>DATA &amp; REPORTING</small><b>Business insight</b></div><i></i></div>
+        <div className="signatureNode sigNodeFour"><span className="sigNodeIcon">04</span><div><small>SEO &amp; AI SEARCH</small><b>Search visibility</b></div><i></i></div>
+        <div className="signatureNode sigNodeFive"><span className="sigNodeIcon">05</span><div><small>MARKETING</small><b>Campaigns</b></div><i></i></div>
+        <div className="signatureNode sigNodeSix"><span className="sigNodeIcon">06</span><div><small>CREATIVE</small><b>Brand systems</b></div><i></i></div>
+        <div className="signatureCaption"><span className="signatureCaptionMark">✳</span><span>ONE CONNECTED SIGNATURE</span><b>LET’S MAKE SOLUTIONS</b></div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
