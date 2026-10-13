@@ -319,3 +319,37 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
     animation:none!important;transition:none!important
   }
 }
+
+
+/* Refined hero system card — same AMM visual language, cleaner focal point */
+.heroArtRefined{height:450px;overflow:visible}
+.refinedSystemCard{width:min(100%,430px);padding:23px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(246,250,255,.92));border:1px solid rgba(255,255,255,.98);box-shadow:0 30px 85px rgba(23,75,153,.22),inset 0 0 0 1px rgba(216,230,251,.95);transform:rotateY(-4deg) rotateX(2deg)}
+.refinedSystemCard .dashboardTitle{font-size:clamp(23px,2.1vw,29px);margin:20px 0 18px}
+.refinedSignalRow{display:flex;align-items:center;gap:11px;padding:12px 13px;margin-bottom:12px;border:1px solid #dfeafb;border-radius:13px;background:linear-gradient(110deg,#f7faff,#fff)}
+.refinedSignalIcon{display:grid;place-items:center;flex:0 0 35px;height:35px;border-radius:11px;background:#e5efff;color:#3478f6;font-size:19px}
+.refinedSignalRow strong,.refinedSignalRow small{display:block}
+.refinedSignalRow strong{font-size:11px;color:#18345e}
+.refinedSignalRow small{font-size:9px;color:#7c8ba4;margin-top:4px}
+.refinedSignalPulse{margin-left:auto;flex:0 0 8px;height:8px;border-radius:50%;background:#39c99a;box-shadow:0 0 0 5px #39c99a20;animation:refinedPulse 2.4s ease-in-out infinite}
+.refinedModules{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.refinedModule{position:relative;min-width:0;padding:13px;border:1px solid #e0e9f7;border-radius:13px;background:#fff;overflow:hidden}
+.refinedModuleIcon{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:#edf4ff;color:#3478f6;font-size:15px;margin-bottom:11px}
+.refinedModule small{display:block;font-size:7px;letter-spacing:.1em;color:#8091ad;font-weight:800}
+.refinedModule>b{display:block;font-size:11px;margin-top:6px;color:#20395f}
+.refinedModuleYellow .refinedModuleIcon{background:#fff5cf;color:#9c7800}
+.refinedModuleTrack{height:4px;margin-top:12px;background:#edf2fa;border-radius:8px;overflow:hidden}
+.refinedModuleTrack i{display:block;height:100%;width:74%;border-radius:8px;background:linear-gradient(90deg,#3478f6,#82b4ff);animation:refinedTrack 3.4s ease-in-out infinite alternate}
+.refinedModuleYellow .refinedModuleTrack i{width:86%;background:linear-gradient(90deg,#f0c21c,#ffe57a);animation-delay:-1.2s}
+.refinedModuleWide{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(115deg,#f8faff,#fff);padding:13px 15px}
+.refinedModuleWide b{display:block;font-size:11px;color:#20395f;margin-top:6px}
+.refinedMiniChart{height:34px;display:flex;align-items:end;gap:4px;flex:0 0 100px}
+.refinedMiniChart i{flex:1;min-width:4px;border-radius:4px 4px 1px 1px;background:linear-gradient(180deg,#82b4ff,#3478f6);animation:refinedBars 2.8s ease-in-out infinite alternate}
+.refinedMiniChart i:nth-child(1){height:32%}.refinedMiniChart i:nth-child(2){height:58%;animation-delay:-.4s}.refinedMiniChart i:nth-child(3){height:44%;animation-delay:-.8s}.refinedMiniChart i:nth-child(4){height:76%;animation-delay:-1.2s}.refinedMiniChart i:nth-child(5){height:56%;animation-delay:-1.6s}.refinedMiniChart i:nth-child(6){height:88%;animation-delay:-2s}.refinedMiniChart i:nth-child(7){height:100%;animation-delay:-2.4s}
+.refinedFlow{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid #e5edf8;color:#617391;font-size:8px;font-weight:800;letter-spacing:.09em}
+.refinedFlow i{height:1px;flex:1;background:linear-gradient(90deg,#a6c8ff,#ffd329)}
+.refinedFlow b{display:grid;place-items:center;width:23px;height:23px;margin-left:2px;border-radius:8px;background:#ffd329;color:#102650;font-size:13px}
+@keyframes refinedPulse{0%,100%{box-shadow:0 0 0 4px #39c99a18}50%{box-shadow:0 0 0 7px #39c99a08}}
+@keyframes refinedTrack{from{transform:translateX(-5%)}to{transform:translateX(8%)}}
+@keyframes refinedBars{from{filter:brightness(.92);transform:scaleY(.88);transform-origin:bottom}to{filter:brightness(1.12);transform:scaleY(1);transform-origin:bottom}}
+@media(max-width:620px){.heroArtRefined{height:360px}.refinedSystemCard{width:min(94%,370px);padding:16px;transform:none}.refinedSystemCard .dashboardTitle{font-size:23px;margin:16px 0 14px}.refinedSignalRow{padding:10px;gap:9px}.refinedSignalRow strong{font-size:10px}.refinedSignalRow small{font-size:8px}.refinedModule{padding:11px}.refinedModuleWide{padding:11px}.refinedFlow{gap:6px;font-size:7px}.refinedMiniChart{flex-basis:82px}}
+@media(prefers-reduced-motion:reduce){.refinedSignalPulse,.refinedModuleTrack i,.refinedMiniChart i{animation:none!important}}
