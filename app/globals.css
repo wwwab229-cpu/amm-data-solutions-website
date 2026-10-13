@@ -659,8 +659,8 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 
 /* Round AMM-only reply avatar: crop out the “Data Solutions” line. */
 .smartChatReply .smartChatAvatar{display:flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:42px;min-width:42px;padding:0;border-radius:50%;background:#fff!important;border:1px solid #dbe4f0;overflow:hidden;box-shadow:0 3px 9px rgba(16,38,80,.08)}
-.smartChatAvatarCrop{display:block;position:relative;width:32px;height:20px;overflow:hidden;flex:none}
-.smartChatReply .smartChatAvatarLogo{position:absolute;left:50%;top:0;transform:translateX(-50%);display:block;width:48px!important;height:auto!important;max-height:none;object-fit:contain;opacity:1;filter:none;background:#fff}
-.smartQueryInputWrap textarea{display:block;flex:1 1 auto;width:100%;min-width:0;min-height:38px;max-height:150px;resize:none;overflow-y:hidden;border:0;outline:0;background:transparent;padding:8px 7px;color:#142849;font:inherit;font-size:11px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}
+.smartChatAvatarCrop{display:block;position:relative;width:34px;height:17px;overflow:hidden;flex:none}
+.smartChatReply .smartChatAvatarLogo{position:absolute;left:50%;top:-1px;transform:translateX(-50%);display:block;width:50px!important;height:auto!important;max-height:none;object-fit:contain;opacity:1;filter:none;background:#fff}
+.smartQueryInputWrap textarea{display:block;flex:1 1 auto;width:100%;min-width:0;min-height:38px;max-height:220px;resize:none;overflow-y:hidden;border:0;outline:0;background:transparent;padding:8px 7px;color:#142849;font:inherit;font-size:11px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}
 .smartQueryInputWrap textarea::placeholder{color:#9ba8bb}
 @media(max-width:620px){.smartQueryInputWrap textarea{font-size:12px;min-height:38px;padding:8px 6px}}
