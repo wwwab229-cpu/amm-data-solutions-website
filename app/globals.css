@@ -319,3 +319,48 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
     animation:none!important;transition:none!important
   }
 }
+
+
+/* AMM Signature — custom geometric identity visual */
+.signatureArt{height:460px;min-width:0;overflow:visible;perspective:1200px}
+.signatureArt .signatureAura{position:absolute;width:340px;height:340px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(52,120,246,.14),rgba(130,180,255,.08) 42%,transparent 72%);filter:blur(5px);animation:signatureAura 7s ease-in-out infinite;z-index:-2}
+.signatureFrame{position:absolute;left:50%;top:50%;width:318px;height:318px;transform:translate(-50%,-50%) rotate(45deg);border:1px solid rgba(52,120,246,.13);border-radius:38px;box-shadow:0 0 0 16px rgba(52,120,246,.025),0 0 0 36px rgba(52,120,246,.018);z-index:-1}
+.signaturePaths{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sigPath{stroke-width:1.6;stroke-linecap:round;stroke-dasharray:7 8;animation:signatureFlow 16s linear infinite}
+.sigPathBlue{stroke:rgba(52,120,246,.42)}
+.sigPathYellow{stroke:rgba(232,185,0,.76);stroke-width:2}
+.sigTrace{stroke:rgba(52,120,246,.2);stroke-width:1.2;stroke-dasharray:3 6}
+.sigEndpoint{fill:#ffd329;stroke:#fff;stroke-width:2}
+.signatureCore{position:absolute;left:50%;top:50%;width:176px;height:176px;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(52,120,246,.2);border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(241,247,255,.94));box-shadow:0 24px 60px rgba(25,72,145,.13),inset 0 1px #fff;animation:signatureFloat 6s ease-in-out infinite;z-index:2}
+.signatureCore:before{content:"";position:absolute;inset:7px;border:1px solid rgba(52,120,246,.09);border-radius:23px;pointer-events:none}
+.signatureCoreTop{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.28em;font-weight:800;color:#102650}
+.signatureCoreTop span{width:15px;height:2px;background:#ffd329;border-radius:2px}
+.signatureGlyph{width:100px;height:63px;margin:5px 0 0;color:#173969;overflow:visible}
+.signatureCoreBottom{font-size:7px;letter-spacing:.16em;font-weight:800;color:#62718a}
+.signatureCoreSignal{display:flex;gap:4px;margin-top:10px}
+.signatureCoreSignal i{display:block;width:4px;height:4px;border-radius:50%;background:#3478f6;animation:signatureSignal 1.6s ease-in-out infinite}
+.signatureCoreSignal i:nth-child(2){animation-delay:.15s}.signatureCoreSignal i:nth-child(3){animation-delay:.3s}.signatureCoreSignal i:nth-child(4){animation-delay:.45s}.signatureCoreSignal i:nth-child(5){animation-delay:.6s}
+.signatureNode{position:absolute;display:flex;align-items:center;gap:9px;min-width:155px;padding:11px 12px;border:1px solid rgba(191,210,239,.85);border-radius:13px;background:rgba(255,255,255,.92);box-shadow:0 9px 24px rgba(21,59,111,.065);animation:signatureNodeIn .8s both;z-index:1}
+.signatureNode>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.signatureNode small{font-size:7px;line-height:1.25;letter-spacing:.1em;font-weight:800;color:#71819a;white-space:nowrap}
+.signatureNode b{font-size:11px;line-height:1.25;color:#102650;font-weight:800;white-space:nowrap}
+.sigNodeIcon{display:grid;place-items:center;width:27px;height:27px;flex:0 0 27px;border-radius:8px;background:#eef5ff;color:#3478f6;font-size:8px;font-weight:800}
+.signatureNode>i{position:absolute;width:5px;height:5px;border-radius:50%;background:#ffd329;box-shadow:0 0 0 4px rgba(255,211,41,.15)}
+.sigNodeOne{left:0;top:42px;animation-delay:.05s}.sigNodeOne>i{right:-3px;bottom:9px}
+.sigNodeTwo{left:0;top:calc(50% - 32px);animation-delay:.15s}.sigNodeTwo>i{right:-3px;top:12px}
+.sigNodeThree{left:0;bottom:42px;animation-delay:.25s}.sigNodeThree>i{right:-3px;top:9px}
+.sigNodeFour{right:0;top:42px;animation-delay:.35s}.sigNodeFour>i{left:-3px;bottom:9px}
+.sigNodeFive{right:0;top:calc(50% - 32px);animation-delay:.45s}.sigNodeFive>i{left:-3px;top:12px}
+.sigNodeSix{right:0;bottom:42px;animation-delay:.55s}.sigNodeSix>i{left:-3px;top:9px}
+.signatureCaption{position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:8px;letter-spacing:.12em;color:#71819a;font-weight:700}
+.signatureCaptionMark{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#fff7ce;color:#9a7b00;font-size:12px}
+.signatureCaption b{color:#173969;font-size:8px;letter-spacing:.1em}
+@keyframes signatureAura{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(.94)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+@keyframes signatureFlow{to{stroke-dashoffset:-240}}
+@keyframes signatureFloat{0%,100%{translate:0 0;box-shadow:0 24px 60px rgba(25,72,145,.13),inset 0 1px #fff}50%{translate:0 -5px;box-shadow:0 30px 65px rgba(25,72,145,.17),inset 0 1px #fff}}
+@keyframes signatureSignal{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes signatureNodeIn{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media(max-width:900px){.signatureArt{height:420px}.signatureNode{min-width:142px;padding:10px 9px}.signatureNode small{font-size:6.5px}.signatureNode b{font-size:10px}.signatureCore{width:158px;height:158px}.signatureFrame{width:280px;height:280px}}
+@media(max-width:620px){.signatureArt{height:330px;margin:0 -4px}.signatureArt .signatureAura{width:220px;height:220px}.signatureFrame{width:180px;height:180px;border-radius:25px;box-shadow:0 0 0 10px rgba(52,120,246,.025),0 0 0 22px rgba(52,120,246,.018)}.signatureCore{width:112px;height:112px;border-radius:21px}.signatureCore:before{inset:5px;border-radius:16px}.signatureCoreTop{font-size:7px;gap:4px;letter-spacing:.18em}.signatureCoreTop span{width:9px}.signatureGlyph{width:67px;height:42px;margin:2px 0 0}.signatureCoreBottom{font-size:5px;letter-spacing:.12em}.signatureCoreSignal{margin-top:5px;gap:3px}.signatureCoreSignal i{width:3px;height:3px}.signatureNode{min-width:0;width:128px;gap:6px;padding:7px 6px;border-radius:10px}.signatureNode small{font-size:5.5px;letter-spacing:.04em}.signatureNode b{font-size:8px}.sigNodeIcon{width:21px;height:21px;flex-basis:21px;font-size:6.5px;border-radius:6px}.sigNodeOne,.sigNodeFour{top:14px}.sigNodeThree,.sigNodeSix{bottom:22px}.sigNodeTwo,.sigNodeFive{top:calc(50% - 21px)}.signaturePaths{inset:2px;width:calc(100% - 4px);height:100%;opacity:.8}.signatureCaption{bottom:-3px;gap:5px;font-size:6px;letter-spacing:.05em}.signatureCaptionMark{width:15px;height:15px;font-size:9px}.signatureCaption b{font-size:6px;letter-spacing:.04em}}
+@media(max-width:360px){.signatureNode{width:112px}.signatureNode small{font-size:5px}.signatureNode b{font-size:7px}.signatureCore{width:100px;height:100px}.signatureFrame{width:160px;height:160px}}
+@media(prefers-reduced-motion:reduce){.signatureArt *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
