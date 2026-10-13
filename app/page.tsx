@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AMMLogo from "../logo/AMMLogo";
 
 const services = [
@@ -41,6 +41,8 @@ export default function Home() {
   const [animationRun,setAnimationRun]=useState(0);
   const [submittedQuery,setSubmittedQuery]=useState("");
   const [conversation,setConversation]=useState<Array<{id:number;query:string;reply:string;kind:string;run:number}>>([]);
+  const chatHistoryRef = useRef<HTMLDivElement|null>(null);
+  useEffect(()=>{const history=chatHistoryRef.current;if(!history)return;history.scrollTo({top:history.scrollHeight,behavior:"smooth"});},[conversation.length]);
   const [autoDemoPaused,setAutoDemoPaused]=useState(false);
   useEffect(()=>{
     if(autoDemoPaused) return;
@@ -99,11 +101,11 @@ export default function Home() {
           <div className="artTop"><span>AMM SMART SERVICE EXPERIENCE</span><span className="artStatus"><i/> LIVE DEMO</span></div>
           <div className="smartIntro"><div className="dashboardTitle">What would you like<br/><b>to make easier?</b></div><p>Tell us what your business needs. See how AMM could approach it.</p></div>
           
-          <div className="smartChatHistory" aria-live="polite">
+          <div className="smartChatHistory" ref={chatHistoryRef} aria-live="polite">
             {conversation.map((message)=><div className="smartConversationTurn" key={message.id}>
               <div className="smartChatUser"><span>{message.query}</span></div>
               <div className="smartChatReply smartLiveReply">
-                <span className="smartChatAvatar">AMM</span>
+                <span className="smartChatAvatar"><AMMLogo height={18} className="smartChatAvatarLogo"/></span>
                 <div className="smartLiveReplyBody">
                   <b>AMM Data Solutions <span className="smartLiveDot"/> Live walkthrough</b>
                   <p>{message.reply}</p>
