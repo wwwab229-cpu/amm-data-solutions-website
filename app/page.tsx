@@ -53,15 +53,15 @@ export default function Home() {
       <div className="heroArt intelligenceArt" aria-label="AMM Intelligence Hub showing connected business systems and actionable insights">
         <div className="hubGlow" aria-hidden="true"></div><div className="hubOrbit hubOrbitOne" aria-hidden="true"></div><div className="hubOrbit hubOrbitTwo" aria-hidden="true"></div>
         <div className="hubDashboard">
-          <div className="hubTopbar"><div className="hubBrandMark"><span></span><span></span><span></span></div><div className="hubTopTitle"><b>AMM</b><span>INTELLIGENCE HUB</span></div><div className="hubLive"><i></i> SYSTEMS READY</div></div>
+          <div className="hubTopbar"><div className="hubBrandMark"><span></span><span></span><span></span></div><div className="hubTopTitle"><b>AMM</b><span>INTELLIGENCE HUB</span></div><div className="hubLive"><i></i> CONCEPT PREVIEW</div></div>
           <div className="hubBody">
             <aside className="hubSidebar"><div className="hubSideActive"><span>⌘</span><b>Overview</b></div><div><span>↗</span><b>Workflows</b></div><div><span>▥</span><b>Business data</b></div><div><span>◎</span><b>Visibility</b></div><div className="hubSideBottom"><i></i><span>Connected systems</span></div></aside>
             <div className="hubMain">
               <div className="hubWelcome"><div><small>YOUR BUSINESS, IN FOCUS</small><h3>One clear view.<br/><em>Better next steps.</em></h3></div><div className="hubDate">AMM / 01</div></div>
               <div className="hubMetrics">
-                <div className="hubMetric"><span>WORKFLOWS</span><b>Connected</b><div className="hubMetricLine"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-                <div className="hubMetric"><span>BUSINESS DATA</span><b>Organized <strong>↗</strong></b><div className="hubMetricBars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-                <div className="hubMetric"><span>ONLINE VISIBILITY</span><b>In progress <strong>↗</strong></b><div className="hubMetricTrack"><i></i></div></div>
+                <div className="hubMetric"><span>AI AUTOMATION</span><b>Workflows</b><div className="hubMetricLine"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div className="hubMetric"><span>DATA INSIGHTS</span><b>Clear reports <strong>↗</strong></b><div className="hubMetricBars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div className="hubMetric"><span>SEO &amp; AI VISIBILITY</span><b>Search presence <strong>↗</strong></b><div className="hubMetricTrack"><i></i></div></div>
               </div>
               <div className="hubFlowPanel"><div className="hubPanelHeading"><b>How work connects</b><span>CONNECTED FLOW <i></i></span></div><div className="hubFlow"><div><span>01</span><b>Capture</b><small>Inputs</small></div><i></i><div><span>02</span><b>Organize</b><small>Systems</small></div><i></i><div className="hubFlowFinal"><span>03</span><b>Act</b><small>Outcomes</small></div></div></div>
               <div className="hubFooterLine"><span><i></i> AUTOMATION</span><span><i></i> DATA &amp; INSIGHTS</span><span><i></i> DIGITAL GROWTH</span></div>
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hubInsight hubInsightOne"><span className="hubInsightIcon">✳</span><div><small>INTELLIGENCE</small><b>Turn information<br/>into action.</b></div><i className="hubInsightPulse"></i></div>
-        <div className="hubInsight hubInsightTwo"><span className="hubCheck">✓</span><div><small>DELIVERY STATUS</small><b>Clear scope. Clear next step.</b></div></div>
+        <div className="hubInsight hubInsightTwo"><span className="hubCheck">✓</span><div><small>THE AMM APPROACH</small><b>Scope. Build. Review.</b></div></div>
         <div className="hubCaption"><span></span> SIX CAPABILITIES. ONE CONNECTED APPROACH</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
