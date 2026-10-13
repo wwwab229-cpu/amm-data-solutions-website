@@ -219,3 +219,103 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .serviceCard:focus-visible .searchRing,.serviceCard:focus-visible .visualSearch i,.serviceCard:focus-visible .adsMetrics i,
  .serviceCard:focus-visible .adsTop b,.serviceCard:focus-visible .creativeTile{animation:none!important}
 }
+
+/* Visible service motion pass — designed to be noticeable on touch and desktop */
+.services{
+  background:
+    radial-gradient(ellipse at 8% 18%,rgba(52,120,246,.07),transparent 30%),
+    radial-gradient(ellipse at 92% 66%,rgba(255,211,41,.10),transparent 27%),
+    linear-gradient(180deg,#f1f6ff 0%,#fff 42%,#f8faff 100%);
+}
+.serviceGrid{gap:22px}
+.serviceCard{
+  border-color:#d7e3f5;
+  background:linear-gradient(155deg,#fff 0%,#fff 58%,#f7faff 100%);
+  box-shadow:0 10px 30px rgba(16,38,80,.07),inset 0 1px 0 rgba(255,255,255,.95);
+  animation:ammCardEnter .7s cubic-bezier(.2,.8,.2,1) both;
+}
+.serviceCard:nth-child(2){animation-delay:.08s}
+.serviceCard:nth-child(3){animation-delay:.16s}
+.serviceCard:nth-child(4){animation-delay:.24s}
+.serviceCard:nth-child(5){animation-delay:.32s}
+.serviceCard:nth-child(6){animation-delay:.4s}
+.serviceCard:before{
+  height:4px;transform:scaleX(1);opacity:.48;
+  background:linear-gradient(90deg,var(--blue) 0%,#79aaff 45%,var(--yellow) 100%);
+}
+.serviceCard:hover:before,.serviceCard:focus-visible:before{opacity:1}
+.serviceCard:hover,.serviceCard:focus-visible{
+  border-color:#8eb8ff;
+  box-shadow:0 24px 55px rgba(24,73,151,.17),0 0 0 1px rgba(52,120,246,.08);
+}
+.serviceVisual{
+  overflow:hidden;
+  position:relative;
+  border:1px solid rgba(52,120,246,.10);
+  box-shadow:0 8px 20px rgba(16,38,80,.06);
+  transform:translateZ(0);
+}
+.serviceVisual:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.36) 48%,transparent 68%);
+  transform:translateX(-130%);
+  animation:ammVisualSweep 5.8s ease-in-out infinite;
+}
+.visualWorkflow span{animation:ammWorkflowPulse 3.8s ease-in-out infinite}
+.visualWorkflow span:nth-of-type(2){animation-delay:.65s}
+.visualWorkflow b{animation:ammResultPulse 3.8s ease-in-out infinite}
+.visualWeb .webBlocks i{animation:ammWebFloat 3.6s ease-in-out infinite}
+.visualWeb .webBlocks i:nth-child(2){animation-delay:.35s}
+.visualWeb .webBlocks i:nth-child(3){animation-delay:.7s}
+.visualWeb .webButton{animation:ammButtonPulse 3.2s ease-in-out infinite}
+.visualData .dataBars i{transform-origin:bottom;animation:ammBarPulse 2.7s ease-in-out infinite}
+.visualData .dataBars i:nth-child(2){animation-delay:.12s}
+.visualData .dataBars i:nth-child(3){animation-delay:.24s}
+.visualData .dataBars i:nth-child(4){animation-delay:.36s}
+.visualData .dataBars i:nth-child(5){animation-delay:.48s}
+.visualData .dataBars i:nth-child(6){animation-delay:.6s}
+.visualData .dataBars i:nth-child(7){animation-delay:.72s}
+.visualSearch .searchRing{animation:ammSearchPulse 4s ease-in-out infinite}
+.visualSearch div i{transform-origin:left;animation:ammSearchLine 3.6s ease-in-out infinite}
+.visualSearch div i:nth-child(2){animation-delay:.22s}
+.visualSearch div i:nth-child(3){animation-delay:.44s}
+.visualAds .adsMetrics i{transform-origin:left;animation:ammCampaignPulse 3.4s ease-in-out infinite}
+.visualAds .adsMetrics i:nth-of-type(2){animation-delay:.22s}
+.visualAds .adsMetrics i:nth-of-type(3){animation-delay:.44s}
+.visualAds .adsTop b{animation:ammCampaignArrow 3s ease-in-out infinite}
+.visualCreative .creativeTile{animation:ammTileFloat 3.8s ease-in-out infinite}
+.visualCreative .creativeTile.two{animation-delay:.45s}
+.visualCreative .creativeTile.three{animation-delay:.9s}
+.serviceCard-01 .serviceVisual{background-color:#f0f5ff}
+.serviceCard-02 .serviceVisual{background-color:#eaf1ff}
+.serviceCard-03 .serviceVisual{box-shadow:0 10px 25px rgba(17,31,56,.16)}
+.serviceCard-04 .serviceVisual{background-color:#fff3c6}
+.serviceCard-05 .serviceVisual{box-shadow:0 10px 25px rgba(17,31,56,.15)}
+.serviceCard-06 .serviceVisual{box-shadow:0 10px 25px rgba(17,31,56,.15)}
+@keyframes ammCardEnter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ammVisualSweep{0%,12%{transform:translateX(-130%)}42%,100%{transform:translateX(130%)}}
+@keyframes ammWorkflowPulse{0%,100%{box-shadow:0 4px 10px #15274610;transform:translateY(0)}50%{box-shadow:0 7px 18px rgba(52,120,246,.17);transform:translateY(-2px)}}
+@keyframes ammResultPulse{0%,100%{box-shadow:0 4px 10px #15274610}50%{box-shadow:0 0 0 4px rgba(255,211,41,.32),0 7px 18px rgba(16,38,80,.13)}}
+@keyframes ammWebFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes ammButtonPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,201,40,0)}50%{box-shadow:0 0 0 4px rgba(255,201,40,.26)}}
+@keyframes ammBarPulse{0%,100%{filter:brightness(1);transform:scaleY(1)}50%{filter:brightness(1.16);transform:scaleY(.9)}}
+@keyframes ammSearchPulse{0%,100%{box-shadow:0 0 0 0 rgba(52,120,246,0);border-color:#182746}50%{box-shadow:0 0 0 5px rgba(52,120,246,.12);border-color:var(--blue)}}
+@keyframes ammSearchLine{0%,100%{opacity:.8;transform:scaleX(1)}50%{opacity:1;transform:scaleX(.88)}}
+@keyframes ammCampaignPulse{0%,100%{filter:brightness(1);transform:scaleX(1)}50%{filter:brightness(1.25);transform:scaleX(.9)}}
+@keyframes ammCampaignArrow{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes ammTileFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media(hover:hover) and (pointer:fine){
+  .serviceCard:hover .serviceVisual{transform:translateY(-3px) scale(1.012)}
+}
+@media(max-width:620px){
+  .serviceGrid{gap:18px}
+  .serviceCard{box-shadow:0 12px 30px rgba(16,38,80,.08)}
+  .serviceVisual{box-shadow:0 8px 18px rgba(16,38,80,.08)}
+}
+@media(prefers-reduced-motion:reduce){
+  .serviceCard,.serviceVisual:after,.visualWorkflow span,.visualWorkflow b,.visualWeb .webBlocks i,
+  .visualWeb .webButton,.visualData .dataBars i,.visualSearch .searchRing,.visualSearch div i,
+  .visualAds .adsMetrics i,.visualAds .adsTop b,.visualCreative .creativeTile{
+    animation:none!important;transition:none!important
+  }
+}
