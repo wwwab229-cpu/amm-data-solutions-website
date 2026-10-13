@@ -50,13 +50,27 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
-        <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+      <div className="heroArt heroArtLightSystems" aria-label="AMM connected business capabilities illustration">
+        <div className="lightSystemsGlow" aria-hidden="true"/>
+        <div className="lightSystemsGrid" aria-hidden="true"/>
+        <div className="lightSystemsOrbit lightOrbitOne" aria-hidden="true"/>
+        <div className="lightSystemsOrbit lightOrbitTwo" aria-hidden="true"/>
+        <div className="lightSystemsLink lightLinkTop" aria-hidden="true"><i/></div>
+        <div className="lightSystemsLink lightLinkLeft" aria-hidden="true"><i/></div>
+        <div className="lightSystemsLink lightLinkRight" aria-hidden="true"><i/></div>
+        <div className="lightSystemsLink lightLinkBottom" aria-hidden="true"><i/></div>
+        <div className="lightSystemModule lightModuleWeb"><span className="lightModuleIcon">↗</span><small>01 / DIGITAL GROWTH</small><strong>Be discovered</strong><em>Websites · SEO</em></div>
+        <div className="lightSystemModule lightModuleAutomation"><span className="lightModuleIcon">⌘</span><small>02 / AUTOMATION</small><strong>Work, connected</strong><em>Tasks · Workflows</em></div>
+        <div className="lightSystemModule lightModuleData"><span className="lightModuleIcon">▥</span><small>03 / INTELLIGENCE</small><strong>Decide clearly</strong><em>Data · Reporting</em></div>
+        <div className="lightSystemModule lightModuleCreative"><span className="lightModuleIcon">✳</span><small>04 / CREATIVE</small><strong>Make it memorable</strong><em>Brand · Campaigns</em></div>
+        <div className="lightSystemsCore">
+          <div className="lightCoreMark">AMM<span>.</span></div>
+          <div className="lightCoreRule"/>
+          <strong>ONE CONNECTED APPROACH</strong>
+          <small>LET’S MAKE SOLUTIONS</small>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
+        <div className="lightSystemsTag lightTagTop"><span/> CLEAR BY DESIGN</div>
+        <div className="lightSystemsTag lightTagBottom">STRATEGY <b>·</b> SYSTEMS <b>·</b> DELIVERY</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
