@@ -50,37 +50,33 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt signatureArt" aria-label="AMM signature visual connecting six digital capabilities">
-        <div className="signatureAura" aria-hidden="true"></div>
-        <div className="signatureFrame" aria-hidden="true"></div>
-        <svg className="signaturePaths" viewBox="0 0 560 440" fill="none" aria-hidden="true">
-          <path className="sigPath sigPathBlue" d="M62 91 C130 91 142 151 198 166 S244 184 280 220"/>
-          <path className="sigPath sigPathYellow" d="M62 220 C142 220 168 220 214 220 S248 220 280 220"/>
-          <path className="sigPath sigPathBlue" d="M62 349 C130 349 142 289 198 274 S244 256 280 220"/>
-          <path className="sigPath sigPathBlue" d="M498 91 C430 91 418 151 362 166 S316 184 280 220"/>
-          <path className="sigPath sigPathYellow" d="M498 220 C418 220 392 220 346 220 S312 220 280 220"/>
-          <path className="sigPath sigPathBlue" d="M498 349 C430 349 418 289 362 274 S316 256 280 220"/>
-          <path className="sigTrace" d="M280 63 L280 120 M280 320 L280 377 M123 220 L174 220 M386 220 L437 220"/>
-          <circle className="sigEndpoint" cx="62" cy="91" r="4"/><circle className="sigEndpoint" cx="62" cy="220" r="4"/><circle className="sigEndpoint" cx="62" cy="349" r="4"/>
-          <circle className="sigEndpoint" cx="498" cy="91" r="4"/><circle className="sigEndpoint" cx="498" cy="220" r="4"/><circle className="sigEndpoint" cx="498" cy="349" r="4"/>
+      <div className="heroArt intelligenceHub" aria-label="AMM Intelligence Hub showing six connected business capabilities">
+        <div className="hubAtmosphere" aria-hidden="true"></div>
+        <div className="hubOrbit hubOrbitOuter" aria-hidden="true"></div>
+        <div className="hubOrbit hubOrbitInner" aria-hidden="true"></div>
+        <svg className="hubConnections" viewBox="0 0 560 440" fill="none" aria-hidden="true">
+          <path d="M90 92 C146 92 171 138 220 169"/><path d="M80 218 H205"/><path d="M90 348 C146 348 171 302 220 271"/>
+          <path d="M470 92 C414 92 389 138 340 169"/><path d="M480 218 H355"/><path d="M470 348 C414 348 389 302 340 271"/>
+          <path className="hubConnectionAccent" d="M90 218 H205 M355 218 H480"/>
+          <circle cx="90" cy="92" r="4"/><circle cx="80" cy="218" r="4"/><circle cx="90" cy="348" r="4"/>
+          <circle cx="470" cy="92" r="4"/><circle cx="480" cy="218" r="4"/><circle cx="470" cy="348" r="4"/>
         </svg>
-        <div className="signatureCore">
-          <div className="signatureCoreTop"><span></span> AMM <span></span></div>
-          <svg className="signatureGlyph" viewBox="0 0 180 112" fill="none" aria-hidden="true">
-            <path d="M18 87 L52 22 L84 87" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M68 87 L96 35 L124 87 L151 35 L168 87" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M43 60 H65" stroke="#FFD329" strokeWidth="7" strokeLinecap="round"/>
-          </svg>
-          <div className="signatureCoreBottom">CONNECTED BY DESIGN</div>
-          <div className="signatureCoreSignal"><i></i><i></i><i></i><i></i><i></i></div>
+        <div className="hubPanel hubPanelTop"><span className="hubTinyLabel">AMM INTELLIGENCE HUB</span><span className="hubLive"><i></i> SYSTEMS ALIGNED</span></div>
+        <div className="hubCore">
+          <div className="hubCoreHalo"></div>
+          <div className="hubCoreBadge"><span></span> AMM <span></span></div>
+          <div className="hubCoreMark"><b>A</b><i></i><b>M</b></div>
+          <strong>INTELLIGENCE</strong>
+          <small>One connected operating view</small>
+          <div className="hubPulseBars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
-        <div className="signatureNode sigNodeOne"><span className="sigNodeIcon">01</span><div><small>AI &amp; AUTOMATION</small><b>Workflows</b></div><i></i></div>
-        <div className="signatureNode sigNodeTwo"><span className="sigNodeIcon">02</span><div><small>WEB &amp; COMMERCE</small><b>Digital presence</b></div><i></i></div>
-        <div className="signatureNode sigNodeThree"><span className="sigNodeIcon">03</span><div><small>DATA &amp; REPORTING</small><b>Business insight</b></div><i></i></div>
-        <div className="signatureNode sigNodeFour"><span className="sigNodeIcon">04</span><div><small>SEO &amp; AI SEARCH</small><b>Search visibility</b></div><i></i></div>
-        <div className="signatureNode sigNodeFive"><span className="sigNodeIcon">05</span><div><small>MARKETING</small><b>Campaigns</b></div><i></i></div>
-        <div className="signatureNode sigNodeSix"><span className="sigNodeIcon">06</span><div><small>CREATIVE</small><b>Brand systems</b></div><i></i></div>
-        <div className="signatureCaption"><span className="signatureCaptionMark">✳</span><span>ONE CONNECTED SIGNATURE</span><b>LET’S MAKE SOLUTIONS</b></div>
+        <div className="hubNode hubNodeA"><span className="hubNodeGlyph">↗</span><div><small>01 / AUTOMATE</small><b>Workflows</b><em>Less manual effort</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeB"><span className="hubNodeGlyph">⌘</span><div><small>02 / BUILD</small><b>Web &amp; commerce</b><em>Digital foundations</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeC"><span className="hubNodeGlyph">▥</span><div><small>03 / UNDERSTAND</small><b>Data &amp; insight</b><em>Clearer decisions</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeD"><span className="hubNodeGlyph">⌕</span><div><small>04 / DISCOVER</small><b>SEO &amp; AI search</b><em>Findable by design</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeE"><span className="hubNodeGlyph">◈</span><div><small>05 / GROW</small><b>Marketing</b><em>Purpose-led reach</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubNode hubNodeF"><span className="hubNodeGlyph">✳</span><div><small>06 / EXPRESS</small><b>Creative systems</b><em>Consistent identity</em></div><span className="hubNodeStatus"></span></div>
+        <div className="hubPanel hubPanelBottom"><span><i></i> SIGNALS CONNECTED</span><b>LET’S MAKE SOLUTIONS</b></div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
