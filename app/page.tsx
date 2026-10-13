@@ -38,6 +38,7 @@ export default function Home() {
   const [contactOpen,setContactOpen]=useState(false);
   const [serviceQuery,setServiceQuery]=useState("");
   const [activeExperience,setActiveExperience]=useState("");
+  const [animationRun,setAnimationRun]=useState(0);
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -57,11 +58,11 @@ export default function Home() {
         <div className="artCard artMain refinedSystemCard smartServiceCard">
           <div className="artTop"><span>AMM SMART SERVICE EXPERIENCE</span><span className="artStatus"><i/> LIVE DEMO</span></div>
           <div className="smartIntro"><div className="dashboardTitle">What would you like<br/><b>to make easier?</b></div><p>Tell us what your business needs. See how AMM could approach it.</p></div>
-          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setActiveExperience(kind);}}>
+          <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing)/.test(t)?"data":"automation";setActiveExperience(kind);setAnimationRun(v=>v+1);}}>
             <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
             <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>setServiceQuery(e.target.value)} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
           </form>
-          {!activeExperience ? <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Type a request above to see the delivery scene.</small></div></div> : <div className={`smartScene smartScene-${activeExperience}`} key={activeExperience}>
+          {!activeExperience ? <div className="smartIdle"><span className="smartIdleIcon">✳</span><div><b>Your need. The matching solution.</b><small>Type a request above to see the delivery scene.</small></div></div> : <div className={`smartScene smartScene-${activeExperience}`} key={`${activeExperience}-${animationRun}`}>
             <div className="smartSceneHead"><span className="smartSceneLive"><i/> MATCHED EXPERIENCE</span><button type="button" className="smartReset" onClick={()=>{setActiveExperience("");setServiceQuery("");}}>Reset ↺</button></div>
             {activeExperience==="automation" && <><div className="smartSceneTitle">Manual work → Smart workflow</div><div className="smartFlowSteps"><div><span>✎</span><b>Tasks</b><small>Manual input</small></div><i>→</i><div><span>⌘</span><b>Connect</b><small>Automation</small></div><i>→</i><div><span>✓</span><b>Done</b><small>Clear output</small></div></div><div className="smartProgress"><i/></div><div className="smartSceneFoot">REPETITIVE TASKS, CONNECTED AND ORGANIZED</div></>}
             {activeExperience==="seo" && <><div className="smartSceneTitle">Be visible in Search and AI</div><div className="smartSeoSplit"><div><span className="smartSearchGlyph">⌕</span><b>Google Search</b><small>Organic visibility</small><div className="smartSearchLines"><i/><i/><i/></div></div><div><span className="smartAiGlyph">✳</span><b>AI Search</b><small>Answer visibility</small><div className="smartAiAnswer"><i/><i/></div></div></div><div className="smartConnectLine"><i/> ONE CONNECTED SEO STRATEGY <i/></div><div className="smartSceneFoot">ANALYZE → OPTIMIZE → MONITOR</div></>}
