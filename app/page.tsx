@@ -105,7 +105,7 @@ export default function Home() {
             {conversation.map((message)=><div className="smartConversationTurn" key={message.id}>
               <div className="smartChatUser"><span>{message.query}</span></div>
               <div className="smartChatReply smartLiveReply">
-                <span className="smartChatAvatar"><AMMLogo height={18} className="smartChatAvatarLogo"/></span>
+                <span className="smartChatAvatar"><span className="smartChatAvatarCrop"><AMMLogo height={30} className="smartChatAvatarLogo"/></span></span>
                 <div className="smartLiveReplyBody">
                   <b>AMM Data Solutions <span className="smartLiveDot"/> Live walkthrough</b>
                   <p>{message.reply}</p>
@@ -125,7 +125,7 @@ export default function Home() {
           </div>
           <form className="smartQueryForm" onSubmit={(e)=>{e.preventDefault();setAutoDemoPaused(true);const q=serviceQuery.trim();if(!q)return;const t=q.toLowerCase();const kind=/(seo|google|chatgpt|ai search|search result|search visibility|rank|discover online|find my business)/.test(t)?"seo":/(website|web site|e-commerce|ecommerce|online store|landing page|web design|web development)/.test(t)?"web":/(excel|spreadsheet|data entry|data-entry|google sheets|report|clean data|organize data|data processing|dashboard|analytics)/.test(t)?"data":/(advert|campaign|google ads|meta ads|facebook ads|instagram ads|marketing|promot|lead generation)/.test(t)?"ads":/(design|brand|branding|logo|social post|creative|graphics|visual identity)/.test(t)?"creative":"automation";setSubmittedQuery(q);setAnimationRun(v=>v+1);setConversation(items=>[...items,{id:Date.now(),query:q,kind,run:animationRun+1,reply:kind==="seo"?"I’ll show how Google SEO and AI search visibility fit together.":kind==="web"?"Here’s a visual walkthrough of a business website taking shape.":kind==="data"?"Here’s how data can move from manual input to an organized output.":kind==="ads"?"Here’s how campaign creative, audience signals and performance tracking connect.":kind==="creative"?"Here’s a visual direction for a consistent brand and creative asset system.":"Here’s a visual walkthrough of a connected business workflow."}]);setActiveExperience(kind);}}>
             <label className="smartQueryLabel" htmlFor="amm-service-query">YOUR BUSINESS NEED</label>
-            <div className="smartQueryInputWrap"><input id="amm-service-query" value={serviceQuery} onChange={e=>{setAutoDemoPaused(true);setServiceQuery(e.target.value)}} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
+            <div className="smartQueryInputWrap"><textarea id="amm-service-query" rows={1} value={serviceQuery} onChange={e=>{setAutoDemoPaused(true);setServiceQuery(e.target.value);e.currentTarget.style.height="auto";e.currentTarget.style.height=`${Math.min(e.currentTarget.scrollHeight,150)}px`;e.currentTarget.style.overflowY=e.currentTarget.scrollHeight>150?"auto":"hidden"}} placeholder="e.g. I want to get found on Google and AI" aria-label="Describe your business need"/><button type="submit" aria-label="Show matching service animation"><span>Send</span><b>↗</b></button></div>
           </form>
           <div className="smartBottom"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS <b>●</b></span></div>
         </div>
