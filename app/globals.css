@@ -544,6 +544,8 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 .smartChatUser span{display:block;max-width:88%;padding:10px 12px;border-radius:14px 14px 3px 14px;background:#e8f1ff;border:1px solid #d7e6ff;color:#18345e;font-size:10px;line-height:1.5;overflow-wrap:anywhere;box-shadow:0 3px 10px rgba(52,120,246,.06)}
 .smartChatReply{display:flex;align-items:flex-start;gap:8px;min-width:0}
 .smartChatAvatar{display:grid;place-items:center;flex:0 0 29px;height:29px;border-radius:9px;background:#102650;color:#ffd329;font-size:8px;font-weight:900;letter-spacing:-.03em;box-shadow:0 4px 10px rgba(16,38,80,.12)}
+.smartChatAvatar{flex-basis:40px;width:40px;background:#fff;border:1px solid #e1e9f5;overflow:hidden}
+.smartChatAvatarLogo{display:block;width:36px!important;height:auto!important;max-height:22px;object-fit:contain;object-position:center}
 .smartChatReply>div{min-width:0;flex:1;padding:9px 11px;border:1px solid #e2eaf6;border-radius:3px 13px 13px 13px;background:#fff}
 .smartChatReply b{display:block;color:#20395f;font-size:9px}
 .smartChatReply p{margin:4px 0 0;color:#71819b;font-size:9px;line-height:1.55}
