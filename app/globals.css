@@ -821,3 +821,79 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .demoAssistantReply .historyWorkPreview .creativeSwatches i{width:12px!important;height:12px!important}
 }
 @media(prefers-reduced-motion:reduce){.demoAssistantReply{animation:none!important}}
+
+/* Direction C: compact chat paired with a dedicated, interactive service canvas */
+.hero{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;gap:clamp(22px,2.4vw,38px)!important;padding-left:max(4.2vw,24px)!important;padding-right:max(4.2vw,24px)!important}
+.heroInner{max-width:570px!important;min-width:0}
+.hero h1{font-size:clamp(43px,4.6vw,68px)!important}
+.heroArt.heroChatArt{width:100%;min-width:0;min-height:0!important;height:auto!important;display:grid!important;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;align-items:stretch;gap:14px;padding:16px 0!important}
+.heroChatPreview{width:100%!important;max-width:none!important;min-width:0;padding:0 12px 12px!important;animation:none!important;border-radius:20px!important;box-shadow:0 20px 54px rgba(17,44,91,.15),0 0 0 1px rgba(52,120,246,.04)!important}
+.heroChatTop{gap:8px!important;padding:14px 0 12px!important}
+.heroChatAvatar{width:34px!important;height:34px!important;border-radius:10px!important;flex:0 0 34px}
+.heroChatIdentity strong{font-size:12px!important}.heroChatIdentity span{font-size:8px!important}
+.heroChatMessages{max-height:230px!important;min-height:210px!important;gap:9px!important}
+.heroChatBubble{font-size:10px!important;line-height:1.45!important;padding:8px 9px!important}
+.demoHistoryExchange{gap:5px!important}
+.historyWorkPreview{width:100%!important;flex-basis:108px!important;height:108px!important;min-height:108px!important;padding:8px!important;border-radius:12px!important}
+.historyWorkPreview .heroWorkHead{font-size:6px!important}
+.historyWorkPreview .workflowAnimation,.historyWorkPreview .botAnimation,.historyWorkPreview .dataAnimation,.historyWorkPreview .marketingAnimation,.historyWorkPreview .creativeAnimation{height:72px!important}
+.historyWorkPreview .workflowNode{font-size:6px!important}.historyWorkPreview .workflowNode b{width:23px!important;height:23px!important;font-size:10px!important}
+.historyWorkPreview .siteMockImage{height:24px!important}.historyWorkPreview .dataAnimationBars{height:42px!important}
+.historyWorkPreview .marketingOrbit{width:44px!important;height:44px!important}.historyWorkPreview .creativePoster{height:50px!important}
+.historyWorkPreview .creativePoster b{font-size:9px!important}
+.demoComposer{min-height:44px!important;padding:4px 5px 4px 10px!important}
+.demoComposerText{font-size:10px!important;min-height:28px!important}
+.demoSendButton{width:32px!important;height:32px!important;flex-basis:32px!important}
+.heroChatCaption{font-size:7px!important;letter-spacing:.06em!important}.heroChatFloat{display:none!important}
+.heroChatGlow{width:100%;opacity:.7}.heroChatOrbit{display:none}
+.heroServiceShowcase{position:relative;min-width:0;align-self:stretch;display:flex;flex-direction:column;gap:10px;padding:15px 12px 11px;border:1px solid rgba(255,255,255,.95);border-radius:22px;background:radial-gradient(ellipse at 82% 8%,rgba(74,139,255,.17),transparent 42%),linear-gradient(150deg,rgba(255,255,255,.97),rgba(242,247,255,.97));box-shadow:0 24px 64px rgba(17,44,91,.11),inset 0 1px #fff;overflow:hidden}
+.heroServiceShowcase:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(52,120,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(52,120,246,.045) 1px,transparent 1px);background-size:19px 19px;mask-image:linear-gradient(145deg,#000,transparent 82%)}
+.showcaseTopline,.showcaseHeading,.showcaseFoot,.showcaseServicePicker,.showcaseWorkPreview{position:relative;z-index:1}
+.showcaseTopline{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:7px;font-weight:850;letter-spacing:.13em;color:#6d82a2}
+.showcaseTopline>span{display:flex;align-items:center;gap:6px}
+.showcaseTopline i,.showcaseSignal{display:inline-block;width:6px;height:6px;border-radius:50%;background:#2bc58b;box-shadow:0 0 0 4px rgba(43,197,139,.12),0 0 14px rgba(43,197,139,.55)}
+.showcaseTopline>b{font-size:6px;letter-spacing:.08em;padding:5px 6px;border-radius:6px;background:#e7fbf2;color:#16865b}
+.showcaseHeading{display:grid;gap:5px}.showcaseHeading>span{font-size:7px;letter-spacing:.14em;font-weight:850;color:#3478f6}
+.showcaseHeading strong{font-size:clamp(12px,1.1vw,16px);line-height:1.2;letter-spacing:-.035em;color:#152e55}
+.showcaseHeading p{font-size:9px;line-height:1.4;color:#7285a2;margin:0}
+.showcaseWorkPreview{width:100%!important;flex:1 0 160px!important;height:160px!important;min-height:160px!important;margin:0!important;padding:11px!important;border-radius:15px!important;border-color:#d7e5f8!important;background:linear-gradient(145deg,#fff,#f0f6ff)!important;box-shadow:0 10px 25px rgba(31,73,135,.07),inset 0 1px #fff!important}
+.showcaseWorkPreview .heroWorkHead{font-size:7px!important}.showcaseWorkPreview .heroWorkSignal{font-size:6px!important}
+.showcaseWorkPreview .workflowAnimation,.showcaseWorkPreview .botAnimation,.showcaseWorkPreview .dataAnimation,.showcaseWorkPreview .marketingAnimation,.showcaseWorkPreview .creativeAnimation{height:108px!important}
+.showcaseWorkPreview .workflowNode{font-size:8px!important}.showcaseWorkPreview .workflowNode b{width:29px!important;height:29px!important}
+.showcaseWorkPreview .websiteAnimation{margin-top:9px!important}.showcaseWorkPreview .siteMockImage{height:32px!important}
+.showcaseWorkPreview .dataAnimationBars{height:60px!important}.showcaseWorkPreview .marketingOrbit{width:60px!important;height:60px!important}
+.showcaseWorkPreview .creativePoster{height:75px!important}.showcaseWorkPreview .creativePoster b{font-size:12px!important}
+.showcaseServicePicker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.showcaseServicePicker button{min-width:0;min-height:28px;padding:6px 7px;border:1px solid #dce7f7;border-radius:8px;background:rgba(255,255,255,.8);color:#5b6f8d;font:inherit;font-weight:700;font-size:7px;line-height:1.2;text-align:left;cursor:pointer;transition:transform .22s,border-color .22s,background .22s,color .22s,box-shadow .22s}
+.showcaseServicePicker button:hover{transform:translateY(-2px);border-color:#8bb6ff;background:#fff;box-shadow:0 5px 14px rgba(52,120,246,.12)}
+.showcaseServicePicker button.active{border-color:#3478f6;background:#edf4ff;color:#1f5bc0;box-shadow:inset 0 0 0 1px rgba(52,120,246,.1)}
+.showcaseFoot{display:flex;align-items:center;gap:7px;padding-top:8px;border-top:1px solid #e0eafa;color:#7185a3;font-size:6px;font-weight:850;letter-spacing:.1em}
+.showcaseFoot>span:last-child{margin-left:auto;color:#3478f6}.showcaseSignal{width:5px;height:5px}
+@media(max-width:1100px){
+ .hero{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)!important;gap:20px!important;padding-left:24px!important;padding-right:24px!important}
+ .heroArt.heroChatArt{gap:9px!important}.heroChatPreview{padding:0 9px 10px!important}
+ .heroChatMessages{min-height:190px!important;max-height:210px!important}.heroServiceShowcase{padding:12px 9px 9px!important}
+ .showcaseWorkPreview{flex-basis:145px!important;height:145px!important;min-height:145px!important;padding:8px!important}
+ .showcaseWorkPreview .workflowAnimation,.showcaseWorkPreview .botAnimation,.showcaseWorkPreview .dataAnimation,.showcaseWorkPreview .marketingAnimation,.showcaseWorkPreview .creativeAnimation{height:96px!important}
+}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr!important;gap:20px!important;padding-top:56px!important;padding-bottom:78px!important}
+ .heroInner{max-width:760px!important}.hero h1{font-size:clamp(44px,7vw,68px)!important}
+ .heroArt.heroChatArt{width:100%;max-width:760px;margin:0 auto!important;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;min-height:0!important}
+ .heroChatPreview{width:100%!important}.heroChatMessages{min-height:230px!important;max-height:280px!important}
+ .showcaseWorkPreview{flex-basis:170px!important;height:170px!important;min-height:170px!important}
+ .showcaseWorkPreview .workflowAnimation,.showcaseWorkPreview .botAnimation,.showcaseWorkPreview .dataAnimation,.showcaseWorkPreview .marketingAnimation,.showcaseWorkPreview .creativeAnimation{height:118px!important}
+}
+@media(max-width:560px){
+ .hero{padding:42px 16px 68px!important}.hero h1{font-size:clamp(38px,10vw,52px)!important}
+ .heroArt.heroChatArt{grid-template-columns:1fr!important;gap:14px!important;padding:8px 0!important}
+ .heroChatPreview{max-width:100%!important}.heroChatMessages{min-height:180px!important;max-height:230px!important}
+ .heroServiceShowcase{padding:15px 13px 12px!important}.showcaseHeading strong{font-size:16px!important}
+ .showcaseWorkPreview{flex-basis:175px!important;height:175px!important;min-height:175px!important}
+ .showcaseWorkPreview .workflowAnimation,.showcaseWorkPreview .botAnimation,.showcaseWorkPreview .dataAnimation,.showcaseWorkPreview .marketingAnimation,.showcaseWorkPreview .creativeAnimation{height:118px!important}
+ .showcaseServicePicker button{font-size:8px!important;min-height:32px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .heroServiceShowcase:before{background:none!important}.showcaseServicePicker button{transition:none!important}
+ .showcaseWorkPreview .workProgress i,.showcaseWorkPreview .botConversation i,.showcaseWorkPreview .siteMockImage i,.showcaseWorkPreview .dataBigNumber small i{animation:none!important}
+}
