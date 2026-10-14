@@ -134,9 +134,9 @@ export default function Home() {
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
           <div ref={demoMessagesRef} className="heroChatMessages visualOnlyMessages" aria-live="polite">
-            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><DemoWorkflow scene={item.scene} historical /></div>)}
+            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="demoAssistantReply"><div className="serviceReplyName"><span className="assistantReplyDot"/> {item.service}</div><DemoWorkflow scene={item.scene} historical /></div></div>)}
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
-            {demoSent && <DemoWorkflow scene={demoScene} historical />}
+            {demoSent && <div className="demoAssistantReply"><div className="serviceReplyName"><span className="assistantReplyDot"/> {demoService}</div><DemoWorkflow scene={demoScene} historical /></div>}
             {demoTyping && !demoMessage && <div className="heroAutoTyping"><i/><i/><i/><small>Preparing message…</small></div>}
           </div>
 
