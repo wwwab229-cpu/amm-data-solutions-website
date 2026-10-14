@@ -95,9 +95,10 @@ export default function Home() {
         setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);setDemoScene(flow.scene);setDemoService(flow.service);
         await wait(650);
         if(cancelled)return;
+        setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-2));
+        setDemoMessage("");setDemoSent(false);
         await wait(5200);
         if(cancelled)return;
-        setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-2));
         index++;
       }
     };
