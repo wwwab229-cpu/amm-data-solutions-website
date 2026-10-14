@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AMMChatWidget from "../components/AMMChatWidget";
 
 const siteUrl = "https://amm-data-solutions-website.vercel.app";
 const organizationSchema = {
@@ -26,5 +27,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c") }} />{children}</body></html>;
+  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c") }} />{children}<AMMChatWidget /></body></html>;
 }
