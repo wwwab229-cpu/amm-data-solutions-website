@@ -87,14 +87,18 @@ export async function POST(request: NextRequest) {
       });
       const publicMessage =
         response.status === 400
-          ? "The AI service rejected the request. Please try again shortly."
+          ? "Gemini rejected the request (HTTP 400). Check the request format and model settings."
           : response.status === 401 || response.status === 403
-            ? "The AI service key or permissions need attention. Please contact AMM by email while we fix this."
-            : response.status === 429
-              ? "The AI service is temporarily rate-limited. Please try again in a moment."
-              : "The AI assistant is temporarily unavailable. Please try again shortly.";
+            ? `Gemini access was denied (HTTP ${response.status}). Check that this API key is valid and permitted to use the Gemini API.`
+            : response.status === 404
+              ? "Gemini model or endpoint was not found (HTTP 404). Check the configured model name."
+              : response.status === 429
+                ? "Gemini rate limit or quota reached (HTTP 429). Check the API quota and try again later."
+                : response.status >= 500
+                  ? `Gemini service returned HTTP ${response.status}. Please retry shortly.`
+                  : `Gemini request failed with HTTP ${response.status}. Check Vercel Runtime Logs for the provider error.`;
       return NextResponse.json(
-        { error: publicMessage, code: "GEMINI_API_FAILURE" },
+        { error: publicMessage, code: "GEMINI_API_FAILURE", providerStatus: response.status },
         { status: 502 }
       );
     }
@@ -114,9 +118,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ reply });
   } catch (error) {
     console.error("AMM chat request error", error);
+    const timedOut = error instanceof Error && (error.name === "TimeoutError" || error.name === "AbortError");
     return NextResponse.json(
-      { error: "The assistant is temporarily unavailable. Please contact AMM by email." },
-      { status: 500 }
+      { error: timedOut
+          ? "The AI request timed out after 20 seconds. Please try again."
+          : "The chat server could not complete the AI request. Check Vercel Runtime Logs for details.",
+        code: timedOut ? "GEMINI_TIMEOUT" : "CHAT_SERVER_ERROR" },
+      { status: timedOut ? 504 : 500 }
     );
   }
 }
