@@ -1109,3 +1109,44 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 @media(prefers-reduced-motion:reduce){
  .showcaseWorkPreview.work-seo .seoSequenceHead b i,.showcaseWorkPreview.work-seo .seoAuditRow,.showcaseWorkPreview.work-seo .seoPreviewLabel,.showcaseWorkPreview.work-seo .seoResult,.showcaseWorkPreview.work-creative .creativeSequenceStep,.showcaseWorkPreview.work-creative .trackingGraph i{animation:none!important;opacity:1!important;transform:none!important}
 }
+
+
+/* AMM hero experience — reference-inspired single-column service demo */
+.hero{
+  display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;
+  gap:0!important;min-height:0;padding:48px 22px 36px!important;
+  background:radial-gradient(ellipse at 50% 15%,#e6efff 0%,rgba(238,244,255,.76) 28%,transparent 68%),linear-gradient(135deg,#f7f9ff 0%,#edf3ff 100%)!important;
+}
+.heroInner{
+  width:min(100%,790px);max-width:790px!important;margin:0 auto!important;
+  padding:34px 34px 18px;background:rgba(255,255,255,.94);
+  border:1px solid #e1e9f5;border-bottom:0;border-radius:30px 30px 0 0;
+  box-shadow:0 18px 55px rgba(31,69,130,.07);
+}
+.heroInner .eyebrow{font-size:11px;letter-spacing:.14em}
+.hero h1{font-size:clamp(36px,5.2vw,58px)!important;line-height:1.08!important;letter-spacing:-.055em!important;max-width:680px;margin:20px 0 14px!important}
+.heroText{font-size:clamp(16px,2vw,20px)!important;line-height:1.65!important;max-width:660px}
+.heroActions,.heroMeta{display:none!important}
+.heroArt{
+  width:min(100%,790px);max-width:790px!important;min-width:0!important;margin:0 auto!important;
+  padding:8px 34px 30px;background:rgba(255,255,255,.94);
+  border:1px solid #e1e9f5;border-top:0;border-radius:0 0 30px 30px;
+  box-shadow:0 24px 55px rgba(31,69,130,.09);display:flex!important;flex-direction:column;align-items:stretch;
+}
+.heroChatGlow,.heroChatOrbit,.heroChatFloat,.heroServiceShowcase{display:none!important}
+.heroChatPreview{width:100%!important;max-width:none!important;min-height:0!important;transform:none!important;box-shadow:none!important;border:0!important;background:transparent!important;border-radius:0!important;padding:0!important}
+.heroChatTop{padding:0 0 16px!important;border-bottom:1px solid #e6edf8!important}
+.heroChatMessages{max-height:420px!important;min-height:230px!important;padding:22px 0 16px!important}
+.heroChatComposer{margin-top:8px!important;border-radius:18px!important;border:1px solid #dce6f5!important;background:#fff!important;box-shadow:0 5px 18px rgba(29,63,116,.06)!important}
+.heroChatCaption{margin-top:16px!important}
+.heroBottomLine{width:min(100%,790px);margin:0 auto!important;padding:18px 4px 0!important;display:flex!important;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:9px!important;letter-spacing:.12em}
+@media(max-width:700px){
+ .hero{padding:26px 14px 24px!important}
+ .heroInner{padding:24px 20px 10px!important;border-radius:24px 24px 0 0}
+ .hero h1{font-size:clamp(32px,8.2vw,44px)!important;margin:18px 0 12px!important}
+ .heroText{font-size:16px!important;line-height:1.6!important}
+ .heroArt{padding:8px 20px 22px!important;border-radius:0 0 24px 24px}
+ .heroChatMessages{min-height:210px!important;max-height:390px!important}
+ .heroBottomLine{padding:14px 5px 0!important}
+ .heroBottomLine span:last-child{display:none}
+}
