@@ -49,6 +49,8 @@ export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
   const [demoMessage,setDemoMessage]=useState("");
+  const [demoDraft,setDemoDraft]=useState("");
+  const [demoSent,setDemoSent]=useState(false);
   const [demoScene,setDemoScene]=useState("idle");
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={idle:"READY",automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
@@ -61,16 +63,19 @@ export default function Home() {
       let index=0;
       while(!cancelled){
         const flow=demoFlows[index%demoFlows.length];
-        setDemoMessage("");setDemoTyping(true);
+        setDemoMessage("");setDemoDraft("");setDemoSent(false);setDemoTyping(true);
         await wait(500);
         for(let n=1;n<=flow.message.length;n++){
           if(cancelled)return;
-          setDemoMessage(flow.message.slice(0,n));
+          setDemoDraft(flow.message.slice(0,n));
           await wait(32);
         }
         if(cancelled)return;
         setDemoTyping(false);
-        await wait(450); // simulate the customer sending the completed message
+        await wait(450); // pause on the completed draft before the send animation
+        if(cancelled)return;
+        setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);
+        await wait(220); // show the message landing in the chat
         if(cancelled)return;
         setDemoScene(flow.scene); // start the matching service animation when the message is sent
         await wait(3900);
@@ -104,9 +109,9 @@ export default function Home() {
             <div className="heroChatIdentity"><strong>AMM Assistant</strong><span><i/> Interactive service preview</span></div>
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
-          <div className="heroChatContext"><span>CUSTOMER INQUIRY</span><span>{demoTyping?"TYPING…":"SENT ✓"}</span></div>
           <div className="heroChatMessages visualOnlyMessages" aria-live="polite">
-            <div className="heroChatBubble userBubble"><span className="bubbleName">CUSTOMER</span>{demoMessage}<span className="customerSentStatus">Sent ✓</span></div>
+            {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
+            {demoTyping && !demoMessage && <div className="heroAutoTyping"><i/><i/><i/><small>Preparing message…</small></div>}
           </div>
           <div className={`heroWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
             <div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{demoSceneLabel}</span></div>
@@ -119,6 +124,10 @@ export default function Home() {
             {demoScene === "creative" && <div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}
           </div>
 
+          <div className="heroChatComposer demoComposer" aria-label="Live demo message composer">
+            <div className="demoComposerText">{demoDraft || (demoSent ? "Message sent" : "Type a message…")}{demoTyping && demoDraft && <span className="demoCaret" aria-hidden="true"/>}</div>
+            <button type="button" className={demoSent ? "demoSendButton isSent" : "demoSendButton"} aria-label={demoSent ? "Message sent" : "Send message"} disabled={!demoDraft && !demoSent}><span>{demoSent ? "✓" : "➤"}</span></button>
+          </div>
           <div className="heroChatCaption"><span className="heroChatPulse"/> 7 AMM SERVICES <span>AUTO DEMO</span></div>
         </div>
         <div className="heroChatFloat floatTop"><span>✦</span> Animated workflows</div>
