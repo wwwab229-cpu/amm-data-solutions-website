@@ -494,3 +494,117 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 .assistantReplyTyping small{font-size:9px}
 .demoReplyCaret{display:inline-block;width:1px;height:1em;margin-left:2px;vertical-align:text-bottom;background:#3478f6;animation:demoCaretBlink .8s steps(2,start) infinite}
 @keyframes demoCaretBlink{to{visibility:hidden}}
+
+
+/* Premium hero messenger + richer service motion pass */
+.heroChatArt{min-height:820px;padding:24px 0 36px;align-items:center}
+.heroChatPreview{width:min(100%,520px);max-height:none;min-height:760px;padding:0 22px 18px;border-radius:26px;box-shadow:0 28px 90px rgba(17,44,91,.16),0 5px 18px rgba(17,44,91,.06);border:1px solid #dfe8f5;position:relative}
+.heroChatPreview:before{content:"";position:absolute;inset:0 0 auto;height:4px;border-radius:26px 26px 0 0;background:linear-gradient(90deg,#ffd329 0%,#3478f6 42%,#8cb9ff 75%,#ffd329 100%);background-size:220% 100%;animation:ammTopBeam 5s linear infinite}
+.heroChatTop{padding:22px 0 18px;border-bottom:1px solid #edf1f7;margin-bottom:14px;gap:12px}
+.heroChatIdentity strong{font-size:15px;letter-spacing:-.02em}
+.heroChatIdentity span{font-size:11px;margin-top:4px}
+.heroChatIdentity span i{box-shadow:0 0 0 4px rgba(42,197,138,.12)}
+.heroChatMore{font-size:17px;letter-spacing:2px;color:#9aaac0}
+.heroChatMessages{order:1;flex:1 1 auto;min-height:270px;max-height:350px;overflow-y:auto;justify-content:flex-start;gap:12px;padding:2px 5px 12px;scrollbar-width:thin;scrollbar-color:#c5d7f0 transparent;overscroll-behavior:contain}
+.demoHistoryExchange{display:flex;flex-direction:column;gap:8px;animation:exchangeReveal .45s cubic-bezier(.2,.8,.2,1) both}
+.heroChatBubble{font-size:12px;line-height:1.6;padding:12px 14px;border-radius:16px;max-width:88%;box-shadow:0 5px 16px rgba(18,44,86,.035)}
+.visualOnlyMessages .userBubble{align-self:flex-end;max-width:86%;padding:12px 14px;background:linear-gradient(135deg,#edf4ff,#e5efff);border:1px solid #d5e5ff;border-radius:16px 16px 5px 16px;color:#1d3b67}
+.visualOnlyMessages .userBubble .bubbleName{color:#4d78b8}
+.visualOnlyMessages .assistantBubble{align-self:flex-start}
+.visualOnlyMessages .demoAssistantReply{max-width:92%;padding:13px 15px;background:#fff;border:1px solid #e1e9f5;border-radius:5px 16px 16px 16px;box-shadow:0 8px 24px rgba(23,52,98,.06)}
+.bubbleName{font-size:8px;letter-spacing:.13em;margin-bottom:7px}
+.customerSentStatus{font-size:9px;margin-top:7px;color:#6481a7}
+.assistantMessageMeta{display:block;margin-top:8px;padding-top:7px;border-top:1px solid #edf1f7;color:#8998ad;font-size:9px}
+.assistantReplyTyping{padding:12px 14px;border-radius:5px 16px 16px 16px;box-shadow:0 8px 24px rgba(23,52,98,.05)}
+.assistantReplyTyping span{width:6px;height:6px}
+.assistantReplyTyping small{font-size:10px}
+.heroAutoTyping{padding:12px 14px}
+.heroWorkPreview{order:2;flex:0 0 205px;height:205px;min-height:205px;margin:12px 0 14px;padding:14px 15px;border-radius:18px;border:1px solid #dce8f8;background:radial-gradient(ellipse at 85% 8%,rgba(52,120,246,.09),transparent 38%),linear-gradient(145deg,#fff,#f5f9ff);box-shadow:0 10px 26px rgba(31,73,135,.05),inset 0 1px #fff;isolation:isolate}
+.heroWorkPreview:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(115deg,transparent 15%,rgba(255,255,255,.72) 48%,transparent 72%);transform:translateX(-120%);animation:workSheen 5.5s ease-in-out infinite}
+.heroWorkHead{font-size:8px;letter-spacing:.12em;color:#7c8da7}
+.heroWorkHead>span:last-child{padding:5px 8px;border-radius:999px;background:#eaf2ff;border:1px solid #d8e7ff;color:#2d68c8}
+.heroWorkLive i{width:6px;height:6px;box-shadow:0 0 0 4px rgba(42,197,138,.13),0 0 14px rgba(42,197,138,.45)}
+.workflowAnimation,.botAnimation,.dataAnimation,.marketingAnimation,.creativeAnimation{height:145px}
+.workflowNode{font-size:9px;gap:9px}
+.workflowNode b{width:43px;height:43px;border-radius:14px;box-shadow:0 7px 17px rgba(31,83,156,.08)}
+.workflowNode.activeNode b{box-shadow:0 0 0 5px rgba(52,120,246,.09),0 9px 20px rgba(52,120,246,.18)}
+.workflowConnector{height:3px;border-radius:4px;box-shadow:0 0 0 4px rgba(52,120,246,.045)}
+.botFace{width:70px;height:66px;border-radius:22px;box-shadow:0 12px 26px rgba(52,120,246,.15)}
+.botReplyLines{gap:9px}.botReplyLines i{height:9px;border-radius:8px}
+.botSpark{font-size:23px;filter:drop-shadow(0 2px 5px rgba(255,211,41,.35))}
+.websiteAnimation{margin-top:17px;border-radius:12px;box-shadow:0 10px 22px rgba(16,38,80,.08)}
+.siteMockTop{height:20px}.siteMockHero{padding:12px 14px}.siteMockImage{height:54px;border-radius:9px}
+.siteMockCards{padding:0 14px 12px;gap:8px}.siteMockCards i{height:18px;border-radius:6px}
+.dataAnimation{align-items:center}.dataBigNumber b{font-size:16px}.dataBigNumber span{font-size:9px}
+.dataAnimationBars{height:92px;gap:6px}
+.seoAnimation{padding-top:14px}.seoSearchBar{height:30px;border-radius:10px;padding:0 10px}
+.seoResult{gap:6px;margin-top:10px}.seoResult b{height:7px}.seoResult i{height:4px}
+.seoScan{font-size:7px;letter-spacing:.13em}
+.marketingCard{padding:13px;border-radius:13px;gap:7px;box-shadow:0 10px 25px rgba(16,38,80,.08)}
+.marketingCard span{font-size:7px}.marketingCard b{font-size:14px}.marketingCard i{height:5px}
+.marketingOrbit{width:92px;height:92px;border-style:dashed;box-shadow:0 0 0 8px rgba(52,120,246,.035)}
+.creativeAnimation{gap:20px}.creativePoster{width:122px;height:100px;padding:11px;border-radius:11px;box-shadow:0 12px 26px rgba(16,38,80,.16)}
+.creativePoster b{font-size:19px;margin-top:10px}.creativeSwatches{gap:8px}.creativeSwatches i{width:28px;height:28px;border-radius:9px}
+.demoComposer{order:3;min-height:58px;padding:8px 9px 8px 17px;border-radius:30px;box-shadow:0 5px 18px rgba(20,40,75,.06);transition:border-color .25s,box-shadow .25s}
+.demoComposer:focus-within{border-color:#a9c9ff;box-shadow:0 0 0 4px rgba(52,120,246,.08)}
+.demoComposerText{font-size:12px;min-height:32px}
+.demoSendButton{width:40px;height:40px;flex-basis:40px;transition:transform .2s,box-shadow .2s}
+.demoSendButton:not(:disabled){box-shadow:0 5px 13px rgba(52,120,246,.24);animation:sendReadyPulse 2.2s ease-in-out infinite}
+.heroChatCaption{font-size:8px;letter-spacing:.12em;margin-top:13px}
+@keyframes ammTopBeam{to{background-position:220% 0}}
+@keyframes workSheen{0%,15%{transform:translateX(-120%)}60%,100%{transform:translateX(120%)}}
+@keyframes exchangeReveal{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes sendReadyPulse{0%,100%{box-shadow:0 5px 13px rgba(52,120,246,.22)}50%{box-shadow:0 5px 20px rgba(52,120,246,.4)}}
+@keyframes dashboardScan{0%{transform:translateY(-60px);opacity:0}20%,80%{opacity:.7}100%{transform:translateY(150px);opacity:0}}
+/* Richer depth, active states and motion cues across each service visual */
+.heroWorkPreview[class*="work-"]:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#8ab8ff,transparent);opacity:.9}
+.work-automation .workflowNode:nth-of-type(3) b{animation:nodePulse 1.7s .5s infinite}
+.work-automation .workflowNode:nth-of-type(5) b{animation:nodePulse 1.7s 1s infinite}
+.work-automation .workflowConnector:nth-of-type(4):after{animation-delay:.8s}
+.work-chatbot .botFace{animation:botBob 2.2s ease-in-out infinite,botGlow 2.4s ease-in-out infinite}
+.work-chatbot .botReplyLines i{background:linear-gradient(90deg,#d8e6fb,#9fc5ff,#d8e6fb);background-size:200% 100%;animation:replyLine 1.7s ease-in-out infinite,replyShimmer 2.8s linear infinite}
+.work-website .siteMockImage{position:relative;overflow:hidden;box-shadow:0 0 0 4px rgba(52,120,246,.06),0 8px 18px rgba(52,120,246,.13)}
+.work-website .siteMockImage:after{content:"";display:block;width:35%;height:160%;background:rgba(255,255,255,.55);transform:rotate(25deg) translateX(-180%);animation:siteSweep 2.8s ease-in-out infinite}
+.work-data .dataAnimationBars i{box-shadow:0 0 12px rgba(52,120,246,.12);border-top:2px solid #a7ccff}
+.work-data .dataAnimationBars:after{content:"";position:absolute;left:0;right:0;height:2px;background:#ffd329;box-shadow:0 0 12px rgba(255,211,41,.8);animation:dashboardScan 3s ease-in-out infinite;pointer-events:none}
+.work-data .dataAnimationBars{position:relative;overflow:hidden}
+.work-seo .seoSearchBar{box-shadow:0 0 0 3px rgba(52,120,246,.05)}
+.work-seo .seoSearchBar:after{content:"";position:absolute;width:45%;height:2px;left:10%;top:0;background:#3478f6;box-shadow:0 0 12px #3478f6;animation:seoScanLine 2.4s ease-in-out infinite}
+.work-seo .seoResult{position:relative;padding:5px 7px;border-radius:7px;background:rgba(255,255,255,.75);animation:seoResultFocus 3s ease-in-out infinite}
+.work-seo .secondResult{animation-delay:1.5s}
+.work-marketing .marketingCard{animation:campaignLift 3s ease-in-out infinite}
+.work-marketing .marketingOrbit i{box-shadow:0 0 0 4px rgba(52,120,246,.06),0 3px 8px rgba(16,38,80,.14)}
+.work-creative .creativePoster{animation:posterLift 2.6s ease-in-out infinite;outline:1px solid rgba(52,120,246,.08);outline-offset:4px}
+.work-creative .creativeSwatches i{animation:swatchPop 2.4s ease-in-out infinite}
+.work-creative .creativeSwatches i:nth-child(2){animation-delay:.25s}.work-creative .creativeSwatches i:nth-child(3){animation-delay:.5s}
+@keyframes botGlow{0%,100%{box-shadow:0 10px 22px rgba(52,120,246,.12)}50%{box-shadow:0 12px 32px rgba(52,120,246,.28)}}
+@keyframes replyShimmer{to{background-position:200% 0}}
+@keyframes siteSweep{0%,15%{transform:rotate(25deg) translateX(-180%)}65%,100%{transform:rotate(25deg) translateX(360%)}}
+@keyframes seoScanLine{0%,100%{transform:translateY(0);opacity:0}20%,70%{opacity:1}80%{transform:translateY(100px);opacity:0}}
+@keyframes seoResultFocus{0%,100%{transform:translateX(0);box-shadow:0 0 0 0 rgba(52,120,246,0)}50%{transform:translateX(3px);box-shadow:0 0 0 2px rgba(52,120,246,.08)}}
+@keyframes campaignLift{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes swatchPop{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.05)}}
+@media(max-width:900px){
+ .heroChatArt{min-height:830px;padding:20px 0 32px}
+ .heroChatPreview{width:min(100%,540px);min-height:770px}
+}
+@media(max-width:560px){
+ .heroChatArt{min-height:800px;padding:16px 0 28px;margin:0}
+ .heroChatPreview{width:100%;min-height:760px;padding:0 13px 14px;border-radius:21px}
+ .heroChatTop{padding:18px 0 14px;margin-bottom:11px}
+ .heroChatMessages{min-height:245px;max-height:310px;gap:10px}
+ .heroChatBubble{font-size:11px;line-height:1.55;padding:10px 11px;max-width:94%}
+ .visualOnlyMessages .userBubble,.visualOnlyMessages .demoAssistantReply{max-width:94%}
+ .heroWorkPreview{flex-basis:190px;height:190px;min-height:190px;padding:12px;margin:10px 0 12px}
+ .workflowAnimation,.botAnimation,.dataAnimation,.marketingAnimation,.creativeAnimation{height:130px}
+ .demoComposer{min-height:52px;padding:6px 7px 6px 13px}
+ .demoComposerText{font-size:11px}
+ .demoSendButton{width:36px;height:36px;flex-basis:36px}
+ .heroChatCaption{font-size:7px;margin-top:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .heroChatPreview:before,.heroWorkPreview:after,.demoSendButton:not(:disabled),.demoHistoryExchange,
+ .work-chatbot .botFace,.work-chatbot .botReplyLines i,.work-website .siteMockImage:after,
+ .work-data .dataAnimationBars:after,.work-seo .seoSearchBar:after,.work-seo .seoResult,
+ .work-marketing .marketingCard,.work-creative .creativeSwatches i{animation:none!important}
+}
