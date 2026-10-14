@@ -126,7 +126,7 @@ export default function Home() {
           <div className="heroChatContext"><span>AMM SERVICE PREVIEW</span><span>{demoTyping?"TYPING…":"DEMO MODE"}</span></div>
           <div className="heroChatMessages" aria-live="polite">
             <div className="heroChatBubble assistantBubble"><span className="bubbleName">AMM ASSISTANT</span>Hi! What would you like to improve in your business?</div>
-            <div className="heroChatBubble userBubble" key={demoMessage}>{demoMessage}</div>
+            <div className="heroChatBubble userBubble">{demoMessage}</div>
             <div className="heroChatBubble assistantBubble answerBubble" key={demoReply}><span className="bubbleName">AMM ASSISTANT</span>{demoReply}</div>
           </div>
           <div className={`heroWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
