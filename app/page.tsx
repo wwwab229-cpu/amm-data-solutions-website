@@ -79,10 +79,9 @@ export default function Home() {
         setDemoTyping(false);
         await wait(850);
         if(cancelled)return;
-        setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);
+        setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);setDemoScene(flow.scene);setDemoService(flow.service);
         await wait(650);
         if(cancelled)return;
-        setDemoScene(flow.scene);setDemoService(flow.service);
         await wait(5200);
         if(cancelled)return;
         setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-2));
