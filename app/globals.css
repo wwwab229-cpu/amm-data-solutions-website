@@ -460,3 +460,28 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 @keyframes idlePulse{0%,100%{transform:scale(.8);opacity:.45}50%{transform:scale(1.25);opacity:1}}
 @keyframes idleLine{0%,100%{transform:scaleX(.55);opacity:.4}50%{transform:scaleX(1);opacity:1}}
 @media(max-width:560px){.heroChatPreview{border-radius:18px}.heroChatTop{padding:13px 0 11px}.heroChatMessages{min-height:70px}}
+
+
+/* Messenger-style demo: service preview above, composer anchored at the bottom */
+.heroChatPreview{display:flex;flex-direction:column}
+.heroChatMessages{order:1;min-height:68px;max-height:104px;overflow:hidden;justify-content:flex-end}
+.heroWorkPreview{order:2;flex:1 0 142px;margin:10px 0 12px}
+.demoComposer{order:3;flex:0 0 auto;display:flex;align-items:center;gap:9px;min-height:48px;padding:6px 7px 6px 14px;border:1px solid #e1e7f0;border-radius:24px;background:#fff;box-shadow:0 2px 8px rgba(20,40,75,.035)}
+.demoComposerText{flex:1;min-width:0;min-height:28px;display:flex;align-items:center;gap:2px;color:#253650;font-size:11px;line-height:1.45;overflow-wrap:anywhere}
+.demoComposerText:has(.demoCaret){color:#253650}
+.demoComposerText .demoCaret{display:inline-block;width:1.5px;height:14px;background:#3478f6;margin-left:1px;animation:demoCaretBlink .75s step-end infinite}
+.demoSendButton{width:34px;height:34px;flex:0 0 34px;border:0;border-radius:50%;display:grid;place-items:center;background:#3478f6;color:white;font-size:16px;line-height:1;box-shadow:0 3px 8px #3478f626}
+.demoSendButton span{display:block;transform:translate(-1px,0)}
+.demoSendButton:disabled{background:#d7e0ed;color:#fff;box-shadow:none}
+.demoSendButton.isSent{background:#26a66f}
+.heroChatCaption{order:4;margin-top:10px}
+@keyframes demoCaretBlink{50%{opacity:0}}
+@media(max-width:560px){
+ .heroChatPreview{gap:0}
+ .heroChatMessages{min-height:62px;max-height:92px}
+ .heroWorkPreview{flex-basis:132px;margin:8px 0 10px}
+ .demoComposer{min-height:46px;padding:5px 6px 5px 12px}
+ .demoComposerText{font-size:10px}
+ .demoSendButton{width:32px;height:32px;flex-basis:32px}
+}
+@media(prefers-reduced-motion:reduce){.demoComposerText .demoCaret{animation:none}}
