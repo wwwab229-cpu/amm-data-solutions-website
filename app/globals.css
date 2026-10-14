@@ -664,3 +664,16 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .heroChatCaption{margin-top:8px!important}
  .historyWorkPreview{flex-basis:108px!important;height:108px!important;min-height:108px!important}
 }
+
+
+/* Slightly roomier hero chat and larger in-chat workflow previews */
+.heroChatPreview{width:min(100%,440px)!important}
+.historyWorkPreview{width:94%;flex-basis:132px!important;height:132px!important;min-height:132px!important;padding:10px 12px!important}
+.historyWorkPreview .workflowAnimation,.historyWorkPreview .botAnimation,.historyWorkPreview .dataAnimation,.historyWorkPreview .marketingAnimation,.historyWorkPreview .creativeAnimation,.historyWorkPreview .websiteAnimation,.historyWorkPreview .seoAnimation{height:86px!important}
+.historyWorkPreview .workflowNode b{width:29px!important;height:29px!important}
+@media(max-width:900px){.heroChatPreview{width:min(100%,440px)!important}}
+@media(max-width:560px){
+ .heroChatPreview{width:100%!important}
+ .historyWorkPreview{flex-basis:116px!important;height:116px!important;min-height:116px!important;padding:8px 9px!important}
+ .historyWorkPreview .workflowAnimation,.historyWorkPreview .botAnimation,.historyWorkPreview .dataAnimation,.historyWorkPreview .marketingAnimation,.historyWorkPreview .creativeAnimation,.historyWorkPreview .websiteAnimation,.historyWorkPreview .seoAnimation{height:76px!important}
+}
