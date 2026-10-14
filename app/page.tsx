@@ -54,6 +54,7 @@ export default function Home() {
   const [demoReply,setDemoReply]=useState("");
   const [demoReplyDraft,setDemoReplyDraft]=useState("");
   const [demoReplyTyping,setDemoReplyTyping]=useState(false);
+  const [demoHistory,setDemoHistory]=useState<Array<{message:string;reply:string}>>([]);
   const [demoScene,setDemoScene]=useState("idle");
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={idle:"READY",automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
@@ -92,6 +93,7 @@ export default function Home() {
         }
         if(cancelled)return;
         setDemoReply(flow.reply);setDemoReplyDraft("");setDemoReplyTyping(false);
+        setDemoHistory(previous=>[...previous,{message:flow.message,reply:flow.reply}].slice(-2));
         await wait(3400);
         index++;
       }
@@ -124,6 +126,7 @@ export default function Home() {
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
           <div className="heroChatMessages visualOnlyMessages" aria-live="polite">
+            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM ASSISTANT</span>{item.reply}<span className="assistantMessageMeta">AMM · Service guidance</span></div></div>)}
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
             {demoReplyTyping && !demoReply && <div className="heroChatTyping assistantReplyTyping"><span/><span/><span/><small>AMM is replying…</small></div>}
             {(demoReply || demoReplyDraft) && <div className="heroChatBubble assistantBubble demoAssistantReply"><span className="bubbleName">AMM ASSISTANT</span>{demoReply || demoReplyDraft}{demoReplyDraft && <span className="demoReplyCaret" aria-hidden="true"/>}</div>}
