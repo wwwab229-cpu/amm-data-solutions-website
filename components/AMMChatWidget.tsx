@@ -44,13 +44,14 @@ export default function AMMChatWidget() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "The assistant is temporarily unavailable.");
       setMessages((current) => [...current, { role: "assistant", text: data.reply }]);
-    } catch {
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error && error.message
+          ? error.message
+          : "I’m unable to generate an AI reply right now. You can contact AMM at ammdatasolutions229@gmail.com and we’ll help with your inquiry.";
       setMessages((current) => [
         ...current,
-        {
-          role: "assistant",
-          text: "I’m unable to generate an AI reply right now. You can contact AMM at ammdatasolutions229@gmail.com and we’ll help with your inquiry.",
-        },
+        { role: "assistant", text: errorMessage },
       ]);
     } finally {
       setBusy(false);
