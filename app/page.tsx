@@ -36,13 +36,13 @@ function ServiceVisual({ type }: { type: string }) {
   return <div className="serviceVisual visualCreative"><div className="creativeTile one">A</div><div className="creativeTile two">AMM</div><div className="creativeTile three">IDEA<br/>→ IMPACT</div></div>;
 }
   const demoFlows=[
-    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:"Yes. AMM can map repetitive steps into a clearer workflow for lead capture, follow-ups and task tracking."},
-    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:"Yes. A website chatbot can answer common questions, guide visitors and help capture project inquiries."},
-    {scene:"website",message:"I need a professional business website.",reply:"We can shape a responsive website around your services, customer journey and business goals."},
-    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:"Yes. We can structure spreadsheets, automate recurring reports and make key information easier to review."},
-    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:"We can review technical SEO, content structure and useful signals that help search systems understand your business."},
-    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:"We can help plan goal-led campaigns, prepare creative assets and organize tracking and performance reviews."},
-    {scene:"creative",message:"I need branded social media and ad designs.",reply:"We can create consistent campaign graphics and social assets aligned with your brand and message."}
+    {scene:"automation",service:"AI AUTOMATION",message:"Can AMM automate repetitive business tasks?"},
+    {scene:"chatbot",service:"AI CHATBOTS",message:"Can you build an AI chatbot for my website?"},
+    {scene:"website",service:"WEBSITES & E-COMMERCE",message:"I need a professional business website."},
+    {scene:"data",service:"DATA & REPORTING",message:"Can you organize my spreadsheets and reports?"},
+    {scene:"seo",service:"GOOGLE + AI SEO",message:"How can my business improve search visibility?"},
+    {scene:"marketing",service:"DIGITAL ADVERTISING",message:"Can AMM help with Google and Meta ads?"},
+    {scene:"creative",service:"CREATIVE DESIGN",message:"I need branded social media designs."}
   ];
 
 export default function Home() {
@@ -51,16 +51,14 @@ export default function Home() {
   const [demoMessage,setDemoMessage]=useState("");
   const [demoDraft,setDemoDraft]=useState("");
   const [demoSent,setDemoSent]=useState(false);
-  const [demoReply,setDemoReply]=useState("");
-  const [demoReplyDraft,setDemoReplyDraft]=useState("");
-  const [demoReplyTyping,setDemoReplyTyping]=useState(false);
-  const [demoHistory,setDemoHistory]=useState<Array<{message:string;reply:string}>>([]);
+  const [demoService,setDemoService]=useState("AI AUTOMATION");
+  const [demoHistory,setDemoHistory]=useState<Array<{message:string;service:string;scene:string}>>([]);
   const demoMessagesRef=useRef<HTMLDivElement|null>(null);
   const [demoScene,setDemoScene]=useState("idle");
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={idle:"READY",automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
   const demoSceneLabel=demoSceneLabels[demoScene]||"WORKFLOW";
-  useEffect(()=>{const el=demoMessagesRef.current;if(el)el.scrollTop=el.scrollHeight;},[demoHistory,demoMessage,demoReply,demoReplyDraft,demoReplyTyping]);
+  useEffect(()=>{const el=demoMessagesRef.current;if(el)el.scrollTop=el.scrollHeight;},[demoHistory,demoMessage,demoDraft]);
   useEffect(()=>{
     let cancelled=false;
     let timer:ReturnType<typeof setTimeout>|undefined;
@@ -69,8 +67,7 @@ export default function Home() {
       let index=0;
       while(!cancelled){
         const flow=demoFlows[index%demoFlows.length];
-        setDemoMessage("");setDemoDraft("");setDemoSent(false);
-        setDemoReply("");setDemoReplyDraft("");setDemoReplyTyping(false);setDemoTyping(true);
+        setDemoMessage("");setDemoDraft("");setDemoSent(false);setDemoTyping(true);
         await wait(500);
         for(let n=1;n<=flow.message.length;n++){
           if(cancelled)return;
@@ -84,19 +81,9 @@ export default function Home() {
         setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);
         await wait(260);
         if(cancelled)return;
-        setDemoScene(flow.scene);
-        setDemoReplyTyping(true);
-        await wait(850);
-        if(cancelled)return;
-        for(let n=1;n<=flow.reply.length;n++){
-          if(cancelled)return;
-          setDemoReplyDraft(flow.reply.slice(0,n));
-          await wait(18);
-        }
-        if(cancelled)return;
-        setDemoReply(flow.reply);setDemoReplyDraft("");setDemoReplyTyping(false);
-        setDemoHistory(previous=>[...previous,{message:flow.message,reply:flow.reply}].slice(-2));
-        setDemoMessage("");setDemoSent(false);setDemoReply("");
+        setDemoScene(flow.scene);setDemoService(flow.service);
+        setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-3));
+        setDemoMessage("");setDemoSent(false);
         await wait(3400);
         index++;
       }
@@ -129,13 +116,12 @@ export default function Home() {
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
           <div ref={demoMessagesRef} className="heroChatMessages visualOnlyMessages" aria-live="polite">
-            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM ASSISTANT</span>{item.reply}<span className="assistantMessageMeta">AMM · Service guidance</span></div></div>)}
+            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{item.service}</span><span className="assistantMessageMeta">LIVE WORKFLOW PREVIEW</span></div><div className={`heroWorkPreview historyWorkPreview work-${item.scene}`}><div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{item.service}</span></div>{item.scene==="automation"&&<div className="workflowAnimation"><div className="workflowNode activeNode"><b>01</b><span>New lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>02</b><span>Auto follow-up</span></div><i className="workflowConnector"/><div className="workflowNode"><b>03</b><span>Track status</span></div></div>}{item.scene==="chatbot"&&<div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botReplyLines"><i/><i/><i/></div><div className="botSpark">✦</div></div>}{item.scene==="website"&&<div className="websiteAnimation"><div className="siteMockTop"><i/><i/><i/></div><div className="siteMockHero"><div><b/><i/><i/><span/></div><div className="siteMockImage"/></div><div className="siteMockCards"><i/><i/><i/></div></div>}{item.scene==="data"&&<div className="dataAnimation"><div className="dataBigNumber"><small>REPORT SNAPSHOT</small><b>Clearer insights</b><span>Updating dashboard…</span></div><div className="dataAnimationBars"><i/><i/><i/><i/><i/><i/><i/></div></div>}{item.scene==="seo"&&<div className="seoAnimation"><div className="seoSearchBar"><span>⌕</span><i/></div><div className="seoResult"><b/><i/><i/></div><div className="seoResult secondResult"><b/><i/><i/></div><span className="seoScan">SCANNING STRUCTURE</span></div>}{item.scene==="marketing"&&<div className="marketingAnimation"><div className="marketingCard"><span>CAMPAIGN</span><b>Right audience</b><i/><i/><small>Track · Learn · Improve</small></div><div className="marketingOrbit"><i/><i/><i/></div></div>}{item.scene==="creative"&&<div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}</div></div>)}
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
-            {demoReplyTyping && !demoReply && <div className="heroChatTyping assistantReplyTyping"><span/><span/><span/><small>AMM is replying…</small></div>}
-            {(demoReply || demoReplyDraft) && <div className="heroChatBubble assistantBubble demoAssistantReply"><span className="bubbleName">AMM ASSISTANT</span>{demoReply || demoReplyDraft}{demoReplyDraft && <span className="demoReplyCaret" aria-hidden="true"/>}</div>}
+            {demoSent && <div className="heroChatBubble assistantBubble demoAssistantReply"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{demoService}</span><span className="assistantMessageMeta">LIVE WORKFLOW PREVIEW</span></div>}
             {demoTyping && !demoMessage && <div className="heroAutoTyping"><i/><i/><i/><small>Preparing message…</small></div>}
           </div>
-          <div className={`heroWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
+          <div className={`heroWorkPreview currentWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
             <div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{demoSceneLabel}</span></div>
             {demoScene === "automation" && <div className="workflowAnimation"><div className="workflowNode activeNode"><b>01</b><span>New lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>02</b><span>Auto follow-up</span></div><i className="workflowConnector"/><div className="workflowNode"><b>03</b><span>Track status</span></div></div>}
             {demoScene === "chatbot" && <div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botReplyLines"><i/><i/><i/></div><div className="botSpark">✦</div></div>}
