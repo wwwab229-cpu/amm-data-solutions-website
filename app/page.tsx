@@ -52,13 +52,22 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt" aria-label="Illustration of an organized digital business system">
-        <div className="artHalo"></div><div className="orbit orbitA"></div><div className="orbit orbitB"></div>
-        <div className="artCard artMain"><div className="artTop"><span>AMM SYSTEMS VIEW</span><span className="artStatus"><i/> CONNECTED</span></div>
-          <div className="dashboardTitle">From scattered work<br/><b>to a clear system.</b></div>
-          <div className="dashboardGrid"><div className="dashTile"><span className="dashIcon">01</span><small>DIGITAL PRESENCE</small><strong>Built to communicate</strong><div className="miniBars"><i/><i/><i/><i/><i/><i/></div></div><div className="dashTile"><span className="dashIcon">02</span><small>WORKFLOW</small><strong>Steps that connect</strong><div className="miniFlow"><i/><b/><i/><b/><i/></div></div><div className="dashTile wide"><small>BUSINESS INTELLIGENCE</small><strong>Information → decisions → action</strong><div className="chartLine"><i/><i/><i/><i/><i/><i/><i/></div></div></div>
+      <div className="heroArt heroChatArt" aria-label="Animated preview of the AMM website assistant">
+        <div className="heroChatGlow"/>
+        <div className="heroChatOrbit heroChatOrbitOne"/>
+        <div className="heroChatOrbit heroChatOrbitTwo"/>
+        <div className="heroChatPreview">
+          <div className="heroChatTop"><div className="heroChatAvatar">A</div><div className="heroChatIdentity"><strong>AMM AI Assistant</strong><span><i/> Here to help</span></div><span className="heroChatMore">•••</span></div>
+          <div className="heroChatContext"><span>PROJECT SUPPORT</span><span>● ONLINE</span></div>
+          <div className="heroChatBubble assistantBubble">Hi! Welcome to AMM Data Solutions. What can I help you build today?</div>
+          <div className="heroChatBubble userBubble">I need an AI chatbot for my website.</div>
+          <div className="heroChatBubble assistantBubble answerBubble">Absolutely. We can help scope a website chatbot around your services, visitor questions and lead goals.</div>
+          <div className="heroChatTyping"><span/><span/><span/><small>Preparing a helpful reply</small></div>
+          <div className="heroChatInput"><span>Ask AMM a question...</span><b>↑</b></div>
+          <div className="heroChatCaption"><span className="heroChatPulse"/> CONVERSATION PREVIEW <span>ANIMATED UI</span></div>
         </div>
-        <div className="artChip chipOne"><span className="statusDot"></span> Clear process</div><div className="artChip chipTwo"><span className="statusDot blue"></span> Purpose-built delivery</div>
+        <div className="heroChatFloat floatTop"><span>✦</span> Helpful responses</div>
+        <div className="heroChatFloat floatBottom"><span>↗</span> From question to next step</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
