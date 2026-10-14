@@ -36,13 +36,13 @@ function ServiceVisual({ type }: { type: string }) {
   return <div className="serviceVisual visualCreative"><div className="creativeTile one">A</div><div className="creativeTile two">AMM</div><div className="creativeTile three">IDEA<br/>→ IMPACT</div></div>;
 }
   const demoFlows=[
-    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:""},
-    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:""},
-    {scene:"website",message:"I need a professional business website.",reply:""},
-    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:""},
-    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:""},
-    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:""},
-    {scene:"creative",message:"I need branded social media and ad designs.",reply:""}
+    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:"Yes. AMM can map repetitive steps into a clearer workflow for lead capture, follow-ups and task tracking."},
+    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:"Yes. A website chatbot can answer common questions, guide visitors and help capture project inquiries."},
+    {scene:"website",message:"I need a professional business website.",reply:"We can shape a responsive website around your services, customer journey and business goals."},
+    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:"Yes. We can structure spreadsheets, automate recurring reports and make key information easier to review."},
+    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:"We can review technical SEO, content structure and useful signals that help search systems understand your business."},
+    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:"We can help plan goal-led campaigns, prepare creative assets and organize tracking and performance reviews."},
+    {scene:"creative",message:"I need branded social media and ad designs.",reply:"We can create consistent campaign graphics and social assets aligned with your brand and message."}
   ];
 
 export default function Home() {
@@ -51,6 +51,9 @@ export default function Home() {
   const [demoMessage,setDemoMessage]=useState("");
   const [demoDraft,setDemoDraft]=useState("");
   const [demoSent,setDemoSent]=useState(false);
+  const [demoReply,setDemoReply]=useState("");
+  const [demoReplyDraft,setDemoReplyDraft]=useState("");
+  const [demoReplyTyping,setDemoReplyTyping]=useState(false);
   const [demoScene,setDemoScene]=useState("idle");
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={idle:"READY",automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
@@ -63,7 +66,8 @@ export default function Home() {
       let index=0;
       while(!cancelled){
         const flow=demoFlows[index%demoFlows.length];
-        setDemoMessage("");setDemoDraft("");setDemoSent(false);setDemoTyping(true);
+        setDemoMessage("");setDemoDraft("");setDemoSent(false);
+        setDemoReply("");setDemoReplyDraft("");setDemoReplyTyping(false);setDemoTyping(true);
         await wait(500);
         for(let n=1;n<=flow.message.length;n++){
           if(cancelled)return;
@@ -72,13 +76,23 @@ export default function Home() {
         }
         if(cancelled)return;
         setDemoTyping(false);
-        await wait(450); // pause on the completed draft before the send animation
+        await wait(450);
         if(cancelled)return;
         setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);
-        await wait(220); // show the message landing in the chat
+        await wait(260);
         if(cancelled)return;
-        setDemoScene(flow.scene); // start the matching service animation when the message is sent
-        await wait(3900);
+        setDemoScene(flow.scene);
+        setDemoReplyTyping(true);
+        await wait(850);
+        if(cancelled)return;
+        for(let n=1;n<=flow.reply.length;n++){
+          if(cancelled)return;
+          setDemoReplyDraft(flow.reply.slice(0,n));
+          await wait(18);
+        }
+        if(cancelled)return;
+        setDemoReply(flow.reply);setDemoReplyDraft("");setDemoReplyTyping(false);
+        await wait(3400);
         index++;
       }
     };
@@ -111,6 +125,8 @@ export default function Home() {
           </div>
           <div className="heroChatMessages visualOnlyMessages" aria-live="polite">
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
+            {demoReplyTyping && !demoReply && <div className="heroChatTyping assistantReplyTyping"><span/><span/><span/><small>AMM is replying…</small></div>}
+            {(demoReply || demoReplyDraft) && <div className="heroChatBubble assistantBubble demoAssistantReply"><span className="bubbleName">AMM ASSISTANT</span>{demoReply || demoReplyDraft}{demoReplyDraft && <span className="demoReplyCaret" aria-hidden="true"/>}</div>}
             {demoTyping && !demoMessage && <div className="heroAutoTyping"><i/><i/><i/><small>Preparing message…</small></div>}
           </div>
           <div className={`heroWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
