@@ -485,3 +485,12 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .demoSendButton{width:32px;height:32px;flex-basis:32px}
 }
 @media(prefers-reduced-motion:reduce){.demoComposerText .demoCaret{animation:none}}
+
+
+/* Hero demo: bring back the conversational reply alongside each service animation. */
+.visualOnlyMessages .demoAssistantReply{align-self:flex-start;max-width:100%;margin:0;background:#fff;border:1px solid #e2eaf5;color:#20324d;border-radius:13px;border-top-left-radius:5px;box-shadow:0 4px 12px rgba(16,38,80,.035);opacity:1;animation:heroMessageIn .35s ease both;white-space:normal}
+.visualOnlyMessages .demoAssistantReply .bubbleName{color:#3478f6}
+.assistantReplyTyping{align-self:flex-start;max-width:100%;margin:0 0 2px;padding:9px 11px;border:1px solid #e2eaf5;border-radius:13px;border-top-left-radius:5px;background:#fff}
+.assistantReplyTyping small{font-size:9px}
+.demoReplyCaret{display:inline-block;width:1px;height:1em;margin-left:2px;vertical-align:text-bottom;background:#3478f6;animation:demoCaretBlink .8s steps(2,start) infinite}
+@keyframes demoCaretBlink{to{visibility:hidden}}
