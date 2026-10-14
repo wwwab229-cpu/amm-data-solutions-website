@@ -75,7 +75,7 @@ export default function Home() {
       let index=0;
       while(!cancelled){
         const flow=demoFlows[index%demoFlows.length];
-        setDemoScene(flow.scene);setDemoMessage("");setDemoReply("");setDemoTyping(true);
+        setDemoMessage("");setDemoReply("");setDemoTyping(true);
         await wait(500);
         for(let n=1;n<=flow.message.length;n++){
           if(cancelled)return;
@@ -84,7 +84,9 @@ export default function Home() {
         }
         if(cancelled)return;
         setDemoTyping(false);
-        await wait(550);
+        await wait(450); // simulate the customer sending the completed message
+        if(cancelled)return;
+        setDemoScene(flow.scene); // start the matching service animation when AMM replies
         setDemoReply(flow.reply);
         await wait(3900);
         index++;
