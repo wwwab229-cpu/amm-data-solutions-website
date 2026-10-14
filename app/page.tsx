@@ -126,7 +126,7 @@ export default function Home() {
 
           <div className="heroChatComposer demoComposer" aria-label="Live demo message composer">
             <div className="demoComposerText">{demoDraft || (demoSent ? "Message sent" : "Type a message…")}{demoTyping && demoDraft && <span className="demoCaret" aria-hidden="true"/>}</div>
-            <button type="button" className={demoSent ? "demoSendButton isSent" : "demoSendButton"} aria-label={demoSent ? "Message sent" : "Send message"} disabled={!demoDraft && !demoSent}><span>{demoSent ? "✓" : "➤"}</span></button>
+            <button type="button" className="demoSendButton" aria-label="Send message" disabled={!demoDraft}><span>➤</span></button>
           </div>
           <div className="heroChatCaption"><span className="heroChatPulse"/> 7 AMM SERVICES <span>AUTO DEMO</span></div>
         </div>
