@@ -440,3 +440,23 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 .heroChatContext span:last-child{color:#3478f6}
 @media(max-width:560px){.heroChatAvatar{width:61px;height:39px;flex-basis:61px}.heroChatAvatar img{height:22px}.heroAutoTyping small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.heroAutoTyping,.heroAutoTyping i{animation:none!important}}
+
+
+/* Simplified white chat: the service animation is the visual response */
+.heroChatPreview{background:#fff;border:1px solid #e5ebf4;border-radius:20px;box-shadow:0 18px 55px rgba(16,38,80,.12);backdrop-filter:none;animation:none}
+.heroChatGlow,.heroChatOrbit,.heroChatFloat{display:none!important}
+.heroChatTop{padding:16px 0 13px}
+.heroChatAvatar{background:#fff;color:inherit;box-shadow:none;border:1px solid #e2eaf5}
+.heroChatContext{margin:13px 0 8px}
+.heroChatMessages{min-height:76px}
+.visualOnlyMessages .userBubble{max-width:100%;margin:0;background:#f3f6fb;border:1px solid #e7edf6;color:#20324d;border-radius:13px;box-shadow:none;opacity:1;animation:heroMessageIn .35s ease both}
+.visualOnlyMessages .bubbleName{display:block;margin-bottom:5px;font-size:8px;letter-spacing:.1em;color:#8190a8;font-weight:900}
+.customerSentStatus{display:block;text-align:right;font-size:8px;color:#7890b1;margin-top:5px}
+.heroWorkPreview{margin-top:12px;border-radius:14px;border-color:#e6edf7;background:linear-gradient(145deg,#fff,#f7faff);box-shadow:inset 0 1px 0 #fff}
+.heroVisualIdle{height:100px;display:flex;align-items:center;justify-content:center;gap:10px}
+.heroVisualIdle i{width:8px;height:8px;border-radius:50%;background:#d8e5f8;animation:idlePulse 1.4s ease-in-out infinite}
+.heroVisualIdle i:nth-child(2){animation-delay:.2s}.heroVisualIdle i:nth-child(3){animation-delay:.4s}
+.heroVisualIdle span{width:38px;height:2px;background:linear-gradient(90deg,#d8e5f8,#3478f6);border-radius:2px;animation:idleLine 1.8s ease-in-out infinite}
+@keyframes idlePulse{0%,100%{transform:scale(.8);opacity:.45}50%{transform:scale(1.25);opacity:1}}
+@keyframes idleLine{0%,100%{transform:scaleX(.55);opacity:.4}50%{transform:scaleX(1);opacity:1}}
+@media(max-width:560px){.heroChatPreview{border-radius:18px}.heroChatTop{padding:13px 0 11px}.heroChatMessages{min-height:70px}}
