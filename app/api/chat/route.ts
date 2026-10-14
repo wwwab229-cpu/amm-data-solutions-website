@@ -58,22 +58,38 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Please enter a message." }, { status: 400 });
     }
 
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": apiKey,
-        },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents: validMessages,
-          generationConfig: { maxOutputTokens: 500 },
-        }),
+    const endpoint =
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent";
+    const requestOptions: RequestInit = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": apiKey,
+      },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents: validMessages,
+        generationConfig: { maxOutputTokens: 500 },
+      }),
+    };
+
+    // Retry brief upstream outages (HTTP 500/503) twice with a short backoff.
+    // Each attempt has its own timeout; never retry authentication or quota errors.
+    let response: Response | undefined;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      response = await fetch(endpoint, {
+        ...requestOptions,
         signal: AbortSignal.timeout(20000),
+      });
+      if (response.ok || (response.status !== 500 && response.status !== 503) || attempt === 2) {
+        break;
       }
-    );
+      await new Promise((resolve) => setTimeout(resolve, 500 * (attempt + 1)));
+    }
+
+    if (!response) {
+      throw new Error("Gemini request did not return a response.");
+    }
 
     if (!response.ok) {
       let providerMessage = "";
