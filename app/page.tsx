@@ -63,6 +63,7 @@ export default function Home() {
   const [contactOpen,setContactOpen]=useState(false);
   const [demoMessage,setDemoMessage]=useState("");
   const [demoDraft,setDemoDraft]=useState("");
+  const [businessNeed,setBusinessNeed]=useState("");
   const [demoSent,setDemoSent]=useState(false);
   const [demoService,setDemoService]=useState("AI AUTOMATION");
   const [demoHistory,setDemoHistory]=useState<Array<{message:string;service:string;scene:string}>>([]);
@@ -109,6 +110,16 @@ export default function Home() {
     void cycle();
     return ()=>{cancelled=true;if(timer)clearTimeout(timer);};
   },[]);
+  const handleBusinessNeedSubmit=(event: React.FormEvent<HTMLFormElement>)=>{
+    event.preventDefault();
+    const message=businessNeed.trim();
+    if(!message)return;
+    const lower=message.toLowerCase();
+    const matched=lower.match(/seo|google|search|index|visibility/) ? demoFlows.find(x=>x.scene==="seo")! : lower.match(/ad|advert|campaign|marketing|social media/) ? demoFlows.find(x=>x.scene==="marketing")! : lower.match(/design|creative|brand|graphic|post/) ? demoFlows.find(x=>x.scene==="creative")! : lower.match(/website|web|store|e-commerce|shop/) ? demoFlows.find(x=>x.scene==="website")! : lower.match(/data|spreadsheet|excel|report|dashboard/) ? demoFlows.find(x=>x.scene==="data")! : lower.match(/chatbot|chat bot|assistant|faq|customer question/) ? demoFlows.find(x=>x.scene==="chatbot")! : demoFlows.find(x=>x.scene==="automation")!;
+    setDemoScene(matched.scene);setDemoService(matched.service);setDemoMessage(message);setDemoDraft("");setDemoTyping(false);setDemoSent(true);
+    setDemoHistory(previous=>[...previous,{message,service:matched.service,scene:matched.scene}].slice(-2));
+    setBusinessNeed("");
+  };
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -147,6 +158,10 @@ export default function Home() {
           </div>
           <div className="heroChatCaption"><span className="heroChatPulse"/> 7 AMM SERVICES <span>AUTO DEMO</span></div>
         </div>
+        <form className="heroNeedForm" onSubmit={handleBusinessNeedSubmit}>
+          <label htmlFor="amm-business-need">YOUR BUSINESS NEED</label>
+          <div className="heroNeedInputRow"><input id="amm-business-need" value={businessNeed} onChange={event=>setBusinessNeed(event.target.value)} placeholder="What would you like to make easier?" maxLength={500} /><button type="submit" disabled={!businessNeed.trim()}>Send <span aria-hidden="true">↗</span></button></div>
+        </form>
         <div className="heroChatFloat floatTop"><span>✦</span> Animated workflows</div>
         <div className="heroChatFloat floatBottom"><span>↗</span> From question to next step</div>
         <aside className="heroServiceShowcase" aria-label="Interactive AMM service workflow showcase">
