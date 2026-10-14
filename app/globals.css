@@ -677,3 +677,49 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .historyWorkPreview{flex-basis:116px!important;height:116px!important;min-height:116px!important;padding:8px 9px!important}
  .historyWorkPreview .workflowAnimation,.historyWorkPreview .botAnimation,.historyWorkPreview .dataAnimation,.historyWorkPreview .marketingAnimation,.historyWorkPreview .creativeAnimation,.historyWorkPreview .websiteAnimation,.historyWorkPreview .seoAnimation{height:76px!important}
 }
+
+
+/* Premium live-work hero pass: slightly larger messenger and more legible in-chat demos */
+.heroChatPreview{width:min(100%,468px)!important;box-shadow:0 24px 72px rgba(17,44,91,.14),0 4px 16px rgba(17,44,91,.05)!important}
+.heroChatMessages{max-height:430px!important;gap:13px!important}
+.demoHistoryExchange{gap:8px!important}
+.historyWorkPreview{width:96%!important;flex-basis:158px!important;height:158px!important;min-height:158px!important;padding:11px 13px!important;border-radius:17px!important;background:radial-gradient(ellipse at 85% 0%,rgba(52,120,246,.10),transparent 46%),linear-gradient(145deg,#fff,#f5f9ff)!important;box-shadow:0 10px 24px rgba(31,73,135,.075),inset 0 1px #fff!important}
+.historyWorkPreview .heroWorkHead{font-size:8px!important}
+.historyWorkPreview .workflowAnimation,.historyWorkPreview .botAnimation,.historyWorkPreview .dataAnimation,.historyWorkPreview .marketingAnimation,.historyWorkPreview .creativeAnimation{height:112px!important}
+.historyWorkPreview .websiteAnimation{margin-top:7px!important}
+.historyWorkPreview .workflowNode{font-size:8px!important;gap:6px!important}
+.historyWorkPreview .workflowNode b{width:29px!important;height:29px!important;border-radius:10px!important}
+.workMiniStatus{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:9px;padding:6px 8px;border:1px solid #e1ebfa;border-radius:8px;background:#fff;font-size:8px;color:#516987}
+.workMiniStatus span{display:flex;align-items:center;gap:5px}.workMiniStatus span i{width:6px;height:6px;border-radius:50%;background:#2ac58a;box-shadow:0 0 0 3px #2ac58a20}
+.workMiniStatus b,.liveTag{font-size:6px;letter-spacing:.08em;color:#17875c;background:#e6fbf2;padding:4px 5px;border-radius:5px}
+.workProgress{height:3px;background:#e5edf8;border-radius:4px;overflow:hidden;margin-top:-3px}.workProgress i{display:block;width:45%;height:100%;background:linear-gradient(90deg,#3478f6,#2ac58a);border-radius:4px;animation:workProgressRun 2.8s ease-in-out infinite}
+@keyframes workProgressRun{0%{transform:translateX(-110%)}100%{transform:translateX(245%)}}
+.botConversation{display:grid;gap:4px;width:57%;min-width:0}.botConversation>small{font-size:6px;letter-spacing:.1em;color:#8294ae;font-weight:800}.botConversation>small b{float:right;color:#17875c}.botIncoming{justify-self:start;background:#fff;border:1px solid #dce8f8;padding:5px 7px;border-radius:8px 8px 8px 2px;font-size:8px;color:#526783;box-shadow:0 3px 8px #10265008}
+.botReplyLines{width:100%!important;gap:5px!important;padding:5px 7px;background:#edf4ff;border-radius:8px 8px 2px 8px}.botReplyLines i{height:5px!important}
+.siteMockTop span{font-size:6px;color:#8193ad;margin-left:4px}.siteMockTop b{margin-left:auto;font-size:6px;color:#17875c;background:#e6fbf2;padding:3px 5px;border-radius:4px}
+.siteMockHero>div:first-child>small{font-size:5px;color:#3478f6;letter-spacing:.06em}.siteMockHero span{width:auto!important;height:auto!important;padding:4px 7px;color:#18345f;font-size:6px;line-height:1.3}
+.siteMockImage{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}.siteMockImage i{width:30%;height:2px;background:#fff;border-radius:3px;animation:replyLine 1.5s infinite}.siteMockImage b{font-size:7px;line-height:1.1;color:#fff;letter-spacing:.1em}
+.siteLiveFooter{display:flex;justify-content:space-between;padding:0 10px 8px;color:#6380a5;font-size:6px;gap:5px}
+.dataBigNumber small i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#2ac58a;animation:idlePulse 1.4s infinite}.dataBigNumber em{font-style:normal;color:#17875c;font-size:8px}.dataBigNumber em strong{font-size:10px}.dataBigNumber em small{font-size:6px;color:#8293ac}
+.seoSearchBar{position:relative}.seoSearchBar b{margin-left:auto;font-size:6px;color:#fff;background:#3478f6;border-radius:4px;padding:4px 5px;letter-spacing:.06em}
+.seoAuditRow{display:flex;justify-content:space-between;margin:7px 0 0 19px;padding:4px 6px;border-radius:6px;background:#e9fbf3;font-size:7px;color:#55748a}.seoAuditRow b{color:#16885c}
+.work-seo .seoResult{margin-left:19px!important;margin-top:5px!important}
+.campaignKpis{display:flex;gap:7px}.campaignKpis span{display:grid;gap:2px;flex:1;padding:5px 6px;background:#f4f8ff;border:1px solid #e4edfa;border-radius:6px}.campaignKpis small{font-size:5px;color:#8293ac;letter-spacing:.08em}.campaignKpis strong{font-size:10px;color:#234b83}
+.marketingCard .liveTag{font-size:5px!important;float:right}
+.creativeWorkBoard{width:38%;display:grid;gap:6px;padding:8px;border:1px solid #dce7f7;background:#fff;border-radius:9px;box-shadow:0 8px 18px #1026500b}
+.creativeWorkBoard>small{font-size:6px;letter-spacing:.08em;color:#7d90aa}.creativeWorkBoard>small b{float:right;color:#17875c}
+.creativeWorkBoard>span{height:4px;border-radius:5px;background:#e0eafa}.creativeWorkBoard>span:nth-last-child(1){width:65%}
+.creativePoster em{position:absolute;left:8px;bottom:7px;font-style:normal;font-size:5px;letter-spacing:.08em;color:#bcd4ff}
+.historyWorkPreview .creativeAnimation{gap:10px!important}.historyWorkPreview .creativePoster{width:42%!important;height:86px!important}.historyWorkPreview .creativePoster b{font-size:13px!important}
+.historyWorkPreview .creativeSwatches{display:flex!important;gap:4px!important}.historyWorkPreview .creativeSwatches i{width:14px!important;height:14px!important}
+@media(max-width:900px){.heroChatPreview{width:min(100%,468px)!important}}
+@media(max-width:560px){
+ .heroChatPreview{width:100%!important}
+ .heroChatMessages{max-height:350px!important}
+ .historyWorkPreview{width:98%!important;flex-basis:140px!important;height:140px!important;min-height:140px!important;padding:9px 10px!important}
+ .historyWorkPreview .workflowAnimation,.historyWorkPreview .botAnimation,.historyWorkPreview .dataAnimation,.historyWorkPreview .marketingAnimation,.historyWorkPreview .creativeAnimation{height:100px!important}
+ .historyWorkPreview .creativePoster{height:75px!important}
+ .heroChatBubble{max-width:94%!important}
+ .siteLiveFooter{font-size:5px!important}
+}
+@media(prefers-reduced-motion:reduce){.workProgress i,.botConversation i,.siteMockImage i,.dataBigNumber small i{animation:none!important}}
