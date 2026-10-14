@@ -1199,3 +1199,80 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 @media(max-width:900px){.hero.heroPremium{padding-top:52px!important}.heroPremiumInner{grid-template-columns:1fr;gap:36px}.heroPremium .heroInner{max-width:760px!important}.heroSystemVisual{width:min(100%,650px);height:410px;margin:0 auto}.heroPremium .heroInner h1{font-size:clamp(42px,7vw,62px)!important}}
 @media(max-width:560px){.hero.heroPremium{padding:35px 16px 24px!important;gap:26px!important}.heroPremium .heroInner h1{font-size:clamp(37px,10vw,48px)!important;line-height:1.06!important;margin:19px 0 17px!important}.heroPremium .heroText{font-size:15px!important;line-height:1.7!important}.heroPremium .heroActions{gap:15px}.heroPremium .heroMeta{gap:12px;margin-top:22px}.heroSystemVisual{height:360px;border-radius:23px}.systemVisualHead,.systemVisualFoot{left:13px;right:13px}.systemVisualHead{top:15px}.systemVisualHead>b{font-size:6px}.systemVisualFoot{bottom:13px}.systemCore{width:116px;height:116px}.systemCoreMark{font-size:19px}.systemCore>b{font-size:9px}.systemOrbit.orbitOne{width:225px;height:225px}.systemOrbit.orbitTwo{width:290px;height:205px}.systemNode{min-width:0;width:142px;padding:9px 8px;grid-template-columns:26px 1fr;column-gap:7px}.systemNodeIcon{width:25px;height:25px;border-radius:8px;font-size:15px}.systemNode b{font-size:9px}.systemNode>i{font-size:6px}.nodeInput{left:3%;top:23%}.nodeBuild{right:3%;top:24%}.nodeOutcome{bottom:14%;left:50%}.connectorOne{left:34%;top:38%;width:15%}.connectorTwo{left:64%;top:42%;width:14%}.heroPremium .heroBottomLine{font-size:7px!important;gap:8px}.heroPremium .heroBottomLine span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){.systemCore,.systemOrbit,.systemNode,.systemConnector span{animation:none!important}}
+
+
+/* Compact layout pass: reduce unnecessary vertical space across the homepage */
+.section{padding:clamp(48px,5.5vw,76px) max(6vw,22px)!important}
+.intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(24px,5vw,70px);align-items:start}
+.intro>.eyebrow{margin-top:8px}
+.intro h2,.section h2{margin-bottom:14px}
+.intro h2{font-size:clamp(30px,3.6vw,44px);line-height:1.12}
+.intro p,.sectionHead>p{font-size:14px;line-height:1.7}
+.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}
+.sectionHead>p{max-width:380px;margin:0}
+.sectionHead h2{font-size:clamp(30px,3.4vw,42px);line-height:1.12}
+.serviceGrid{gap:16px}
+.serviceCard{min-height:0!important;padding:22px!important;border-radius:18px}
+.serviceCard h3{font-size:19px;line-height:1.25;margin:15px 0 7px}
+.serviceCard h4{font-size:12px;margin-bottom:10px}
+.serviceCard>p{font-size:12px;line-height:1.65;margin-bottom:13px}
+.serviceCard ul{margin:0 0 14px;padding-left:17px}
+.serviceCard li{font-size:11px;line-height:1.55;margin:3px 0}
+.serviceVisual{height:94px}
+.whiteLabelStrip{margin-top:12px}
+.cardLink{margin-top:12px}
+.how{gap:clamp(32px,6vw,80px)}
+.processItem{padding:19px 0}
+.trustBand{padding-top:30px;padding-bottom:30px}
+.trustBand>div{padding-left:20px;padding-right:20px}
+.about{gap:clamp(30px,6vw,80px)}
+.aboutCopy p{font-size:14px;line-height:1.75}
+.aboutTags{margin-top:18px}
+.contact.section{padding-top:62px!important;padding-bottom:62px!important}
+.contactInner{max-width:650px}
+.contactInner h2{margin-bottom:14px}
+.contactInner>p{font-size:14px;line-height:1.75;margin-bottom:22px}
+.faq{gap:clamp(30px,6vw,80px)}
+.faqItem{padding:17px 0}
+.faqItem>p{font-size:13px;line-height:1.7}
+footer{padding-top:26px;padding-bottom:20px}
+.footerTop{padding-bottom:20px}
+.hero.heroPremium{min-height:0;padding:56px max(6vw,24px) 25px!important;gap:27px!important}
+.heroPremiumInner{gap:clamp(26px,4vw,58px)}
+.heroSystemVisual{height:400px}
+.heroPremium .heroInner h1{margin:19px 0 17px!important}
+.heroPremium .heroText{line-height:1.7!important;margin-bottom:22px}
+.heroPremium .heroMeta{margin-top:22px}
+@media(max-width:900px){
+ .section{padding:52px 24px!important}
+ .intro{grid-template-columns:1fr;gap:14px}
+ .intro>.eyebrow{margin:0}
+ .sectionHead{display:block;margin-bottom:22px}
+ .sectionHead>p{margin-top:12px}
+ .serviceGrid{gap:14px}
+ .serviceCard{padding:18px!important}
+ .hero.heroPremium{padding-top:42px!important}
+ .heroSystemVisual{height:390px}
+}
+@media(max-width:620px){
+ .section{padding:42px 18px!important}
+ .intro h2,.section h2,.sectionHead h2{font-size:29px;line-height:1.14}
+ .intro p,.sectionHead>p{font-size:13px}
+ .serviceGrid{grid-template-columns:1fr;gap:12px}
+ .serviceCard{padding:18px!important}
+ .serviceCard h3{font-size:18px}
+ .serviceVisual{height:84px}
+ .how,.about,.faq{gap:22px}
+ .processItem{grid-template-columns:34px 1fr 18px;gap:11px;padding:16px 0}
+ .trustBand{padding:27px 18px}
+ .aboutCopy p{font-size:13px}
+ .contact.section{padding-top:48px!important;padding-bottom:48px!important}
+ .hero.heroPremium{padding:30px 16px 20px!important;gap:22px!important}
+ .heroPremiumInner{gap:22px}
+ .heroPremium .heroInner h1{font-size:clamp(35px,9.4vw,46px)!important;margin:17px 0 14px!important}
+ .heroPremium .heroText{font-size:14px!important;line-height:1.65!important;margin-bottom:18px}
+ .heroPremium .heroMeta{display:none!important}
+ .heroSystemVisual{height:340px}
+ .heroPremium .heroBottomLine{padding-top:12px!important}
+}
+@media(prefers-reduced-motion:reduce){.heroSystemVisual *{animation:none!important}}
