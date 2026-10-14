@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AMMLogo from "../logo/AMMLogo";
 
 const services = [
@@ -55,10 +55,12 @@ export default function Home() {
   const [demoReplyDraft,setDemoReplyDraft]=useState("");
   const [demoReplyTyping,setDemoReplyTyping]=useState(false);
   const [demoHistory,setDemoHistory]=useState<Array<{message:string;reply:string}>>([]);
+  const demoMessagesRef=useRef<HTMLDivElement|null>(null);
   const [demoScene,setDemoScene]=useState("idle");
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={idle:"READY",automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
   const demoSceneLabel=demoSceneLabels[demoScene]||"WORKFLOW";
+  useEffect(()=>{const el=demoMessagesRef.current;if(el)el.scrollTop=el.scrollHeight;},[demoHistory,demoMessage,demoReply,demoReplyDraft,demoReplyTyping]);
   useEffect(()=>{
     let cancelled=false;
     let timer:ReturnType<typeof setTimeout>|undefined;
@@ -94,6 +96,7 @@ export default function Home() {
         if(cancelled)return;
         setDemoReply(flow.reply);setDemoReplyDraft("");setDemoReplyTyping(false);
         setDemoHistory(previous=>[...previous,{message:flow.message,reply:flow.reply}].slice(-2));
+        setDemoMessage("");setDemoSent(false);setDemoReply("");
         await wait(3400);
         index++;
       }
@@ -125,7 +128,7 @@ export default function Home() {
             <div className="heroChatIdentity"><strong>AMM Assistant</strong><span><i/> Interactive service preview</span></div>
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
-          <div className="heroChatMessages visualOnlyMessages" aria-live="polite">
+          <div ref={demoMessagesRef} className="heroChatMessages visualOnlyMessages" aria-live="polite">
             {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM ASSISTANT</span>{item.reply}<span className="assistantMessageMeta">AMM · Service guidance</span></div></div>)}
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
             {demoReplyTyping && !demoReply && <div className="heroChatTyping assistantReplyTyping"><span/><span/><span/><small>AMM is replying…</small></div>}
