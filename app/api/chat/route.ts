@@ -73,9 +73,28 @@ export async function POST(request: NextRequest) {
     );
 
     if (!response.ok) {
-      console.error("Gemini request failed with status", response.status);
+      let providerMessage = "";
+      try {
+        const providerError = await response.json();
+        providerMessage = String(providerError?.error?.message || "");
+      } catch {
+        providerMessage = "";
+      }
+      // Log only provider status/message; never log the API key or request URL.
+      console.error("Gemini API failure", {
+        status: response.status,
+        message: providerMessage.slice(0, 300),
+      });
+      const publicMessage =
+        response.status === 400
+          ? "The AI service rejected the request. Please try again shortly."
+          : response.status === 401 || response.status === 403
+            ? "The AI service key or permissions need attention. Please contact AMM by email while we fix this."
+            : response.status === 429
+              ? "The AI service is temporarily rate-limited. Please try again in a moment."
+              : "The AI assistant is temporarily unavailable. Please try again shortly.";
       return NextResponse.json(
-        { error: "The assistant is temporarily unavailable. Please contact AMM by email." },
+        { error: publicMessage, code: "GEMINI_API_FAILURE" },
         { status: 502 }
       );
     }
