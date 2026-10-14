@@ -4,7 +4,8 @@ import { useState } from "react";
 import AMMLogo from "../logo/AMMLogo";
 
 const services = [
-  { n:"01", slug:"ai-automation-business-systems", title:"AI Automation & Business Systems", plain:"Less busywork. More control.", body:"Connect repetitive tasks, AI website chatbots, lead tracking and customer workflows so work moves forward with fewer manual steps.", examples:["AI website chatbots and virtual assistants","FAQ-trained customer support assistants","Workflow automation and lead follow-up"], visual:"workflow" },
+  { n:"01", slug:"ai-automation-business-systems", title:"AI Automation & Business Systems", plain:"Less busywork. More control.", body:"Connect repetitive tasks, lead tracking and customer workflows so work moves forward with fewer manual steps.", examples:["Workflow automation","Lead capture and follow-up systems","Business process setup"], visual:"workflow" },
+  { n:"07", slug:"ai-chatbots-virtual-assistants", title:"AI Chatbots & Virtual Assistants", plain:"Helpful answers. More opportunities.", body:"Offer AI-powered assistants that answer business FAQs, guide website visitors, support shopping questions or help customers request appointments.", examples:["Website AI chatbots","Lead generation bots","E-commerce assistant bots","Appointment booking bots"], visual:"bots" },
   { n:"02", slug:"website-ecommerce-solutions", title:"Web & E-commerce Solutions", plain:"A stronger digital front door.", body:"Build a clear, credible online presence that helps customers understand your offer and take action.", examples:["Business websites","Online stores and product catalogs","Landing pages and integrations"], visual:"web" },
   { n:"03", slug:"data-analytics-business-intelligence", title:"Data Analytics & Reporting", plain:"Turn scattered data into clarity.", body:"Bring spreadsheets, reporting and business information into a format that supports better decisions.", examples:["Spreadsheet automation","Dashboards and recurring reports","Data cleaning and validation"], visual:"data" },
   { n:"04", slug:"seo-ai-search-visibility", title:"SEO & AI Search Visibility", plain:"Make your business easier to discover.", body:"Improve the structure and content that helps search platforms understand your business.", examples:["Technical SEO checks","Content and structured data","Indexing and search visibility monitoring"], visual:"search" },
@@ -26,6 +27,7 @@ function Brand({ footer=false }: { footer?: boolean }) {
 }
 function ServiceVisual({ type }: { type: string }) {
   if (type === "workflow") return <div className="serviceVisual visualWorkflow"><span>REQUEST</span><i>→</i><span>PROCESS</span><i>→</i><b>RESULT</b></div>;
+  if (type === "bots") return <div className="serviceVisual visualWorkflow"><span>ASK</span><i>→</i><span>AI BOT</span><i>→</i><b>NEXT STEP</b></div>;
   if (type === "web") return <div className="serviceVisual visualWeb"><div className="webBar"><i/><i/><i/></div><div className="webHeroLine"/><div className="webHeroLine short"/><div className="webButton"/><div className="webBlocks"><i/><i/><i/></div></div>;
   if (type === "data") return <div className="serviceVisual visualData"><div className="dataMetric"><small>OVERVIEW</small><b>Clearer signals</b></div><div className="dataBars"><i/><i/><i/><i/><i/><i/><i/></div></div>;
   if (type === "search") return <div className="serviceVisual visualSearch"><span className="searchRing">⌕</span><div><b>DISCOVERABILITY</b><i/><i/><i/></div></div>;
