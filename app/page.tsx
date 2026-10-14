@@ -38,6 +38,31 @@ function ServiceVisual({ type }: { type: string }) {
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
+  const [demoMessage,setDemoMessage]=useState("I need an AI chatbot for my website.");
+  const [demoDraft,setDemoDraft]=useState("");
+  const [demoScene,setDemoScene]=useState("chatbot");
+  const [demoReply,setDemoReply]=useState("We can map the right chatbot flow around visitor questions, useful answers and lead goals.");
+  const demoSceneLabels:Record<string,string>={automation:"AUTOMATION",chatbot:"AI CHATBOT",website:"WEB DESIGN",data:"DATA REPORTING",seo:"SEO VISIBILITY",marketing:"CAMPAIGN FLOW",creative:"CREATIVE STUDIO"};
+  const demoSceneLabel=demoSceneLabels[demoScene]||"WORKFLOW";
+  function runDemo(message:string,scene:string){
+    const replies:Record<string,string>={
+      automation:"We can map a workflow that captures a request, triggers follow-up and keeps the status organized.",
+      chatbot:"We can map the right chatbot flow around visitor questions, useful answers and lead goals.",
+      website:"We can shape a clear website journey that explains your offer and guides visitors to the next step.",
+      data:"We can turn scattered spreadsheet information into a cleaner dashboard and recurring report.",
+      seo:"We can review site structure, content and indexing signals to support search visibility.",
+      marketing:"We can connect campaign goals, creative, tracking and reporting into one clear process.",
+      creative:"We can create consistent campaign visuals and brand assets around your message."
+    };
+    setDemoMessage(message);setDemoScene(scene);setDemoReply(replies[scene]||replies.chatbot);setDemoDraft("");
+  }
+  function submitDemo(event:React.FormEvent<HTMLFormElement>){
+    event.preventDefault();
+    const message=demoDraft.trim();if(!message)return;
+    const lower=message.toLowerCase();
+    const scene=lower.includes("seo")||lower.includes("google search")||lower.includes("rank")?"seo":lower.includes("spreadsheet")||lower.includes("dashboard")||lower.includes("report")||lower.includes("data")?"data":lower.includes("website")||lower.includes("store")||lower.includes("landing page")?"website":lower.includes("chatbot")||lower.includes("assistant")||lower.includes("bot")?"chatbot":lower.includes("ad")||lower.includes("marketing")||lower.includes("campaign")?"marketing":lower.includes("design")||lower.includes("creative")||lower.includes("brand")?"creative":"automation";
+    runDemo(message,scene);
+  }
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -52,21 +77,44 @@ export default function Home() {
         <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
         <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
       </div>
-      <div className="heroArt heroChatArt" aria-label="Animated preview of the AMM website assistant">
+      <div className="heroArt heroChatArt" aria-label="Interactive animated preview of AMM's website assistant">
         <div className="heroChatGlow"/>
         <div className="heroChatOrbit heroChatOrbitOne"/>
         <div className="heroChatOrbit heroChatOrbitTwo"/>
         <div className="heroChatPreview">
-          <div className="heroChatTop"><div className="heroChatAvatar">A</div><div className="heroChatIdentity"><strong>AMM AI Assistant</strong><span><i/> Here to help</span></div><span className="heroChatMore">•••</span></div>
-          <div className="heroChatContext"><span>PROJECT SUPPORT</span><span>● ONLINE</span></div>
-          <div className="heroChatBubble assistantBubble">Hi! Welcome to AMM Data Solutions. What can I help you build today?</div>
-          <div className="heroChatBubble userBubble">I need an AI chatbot for my website.</div>
-          <div className="heroChatBubble assistantBubble answerBubble">Absolutely. We can help scope a website chatbot around your services, visitor questions and lead goals.</div>
-          <div className="heroChatTyping"><span/><span/><span/><small>Preparing a helpful reply</small></div>
-          <div className="heroChatInput"><span>Ask AMM a question...</span><b>↑</b></div>
-          <div className="heroChatCaption"><span className="heroChatPulse"/> CONVERSATION PREVIEW <span>ANIMATED UI</span></div>
+          <div className="heroChatTop">
+            <div className="heroChatAvatar" aria-label="AMM logo">AMM</div>
+            <div className="heroChatIdentity"><strong>AMM Assistant</strong><span><i/> Interactive service preview</span></div>
+            <span className="heroChatMore" aria-hidden="true">•••</span>
+          </div>
+          <div className="heroChatContext"><span>LIVE WORKFLOW DEMO</span><span>PREVIEW MODE</span></div>
+          <div className="heroChatMessages" aria-live="polite">
+            <div className="heroChatBubble assistantBubble"><span className="bubbleName">AMM ASSISTANT</span>Hi! What would you like to improve in your business?</div>
+            <div className="heroChatBubble userBubble" key={demoMessage}>{demoMessage}</div>
+            <div className="heroChatBubble assistantBubble answerBubble" key={demoReply}><span className="bubbleName">AMM ASSISTANT</span>{demoReply}</div>
+          </div>
+          <div className={`heroWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
+            <div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{demoSceneLabel}</span></div>
+            {demoScene === "automation" && <div className="workflowAnimation"><div className="workflowNode activeNode"><b>01</b><span>New lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>02</b><span>Auto follow-up</span></div><i className="workflowConnector"/><div className="workflowNode"><b>03</b><span>Track status</span></div></div>}
+            {demoScene === "chatbot" && <div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botReplyLines"><i/><i/><i/></div><div className="botSpark">✦</div></div>}
+            {demoScene === "website" && <div className="websiteAnimation"><div className="siteMockTop"><i/><i/><i/></div><div className="siteMockHero"><div><b/><i/><i/><span/></div><div className="siteMockImage"/></div><div className="siteMockCards"><i/><i/><i/></div></div>}
+            {demoScene === "data" && <div className="dataAnimation"><div className="dataBigNumber"><small>REPORT SNAPSHOT</small><b>Clearer insights</b><span>Updating dashboard…</span></div><div className="dataAnimationBars"><i/><i/><i/><i/><i/><i/><i/></div></div>}
+            {demoScene === "seo" && <div className="seoAnimation"><div className="seoSearchBar"><span>⌕</span><i/></div><div className="seoResult"><b/><i/><i/></div><div className="seoResult secondResult"><b/><i/><i/></div><span className="seoScan">SCANNING STRUCTURE</span></div>}
+            {demoScene === "marketing" && <div className="marketingAnimation"><div className="marketingCard"><span>CAMPAIGN</span><b>Right audience</b><i/><i/><small>Track · Learn · Improve</small></div><div className="marketingOrbit"><i/><i/><i/></div></div>}
+            {demoScene === "creative" && <div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}
+          </div>
+          <div className="heroDemoPrompts" aria-label="Try a demo question">
+            <button type="button" onClick={()=>runDemo("I need to automate repetitive tasks.","automation")}>Automate tasks</button>
+            <button type="button" onClick={()=>runDemo("I need an AI chatbot for my website.","chatbot")}>AI chatbot</button>
+            <button type="button" onClick={()=>runDemo("I want to improve my website.","website")}>Website</button>
+          </div>
+          <form className="heroChatComposer" onSubmit={submitDemo}>
+            <textarea value={demoDraft} onChange={e=>setDemoDraft(e.target.value)} rows={1} maxLength={220} placeholder="Ask about a business solution…" aria-label="Type a demo question" onInput={e=>{const el=e.currentTarget;el.style.height="auto";el.style.height=Math.min(el.scrollHeight,220)+"px";}}/>
+            <button type="submit" aria-label="Show demo reply" disabled={!demoDraft.trim()}><span>↑</span></button>
+          </form>
+          <div className="heroChatCaption"><span className="heroChatPulse"/> INTERACTIVE HERO PREVIEW <span>DEMO ONLY</span></div>
         </div>
-        <div className="heroChatFloat floatTop"><span>✦</span> Helpful responses</div>
+        <div className="heroChatFloat floatTop"><span>✦</span> Animated workflows</div>
         <div className="heroChatFloat floatBottom"><span>↗</span> From question to next step</div>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
