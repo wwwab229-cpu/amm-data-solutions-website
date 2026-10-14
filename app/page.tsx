@@ -45,6 +45,19 @@ function ServiceVisual({ type }: { type: string }) {
     {scene:"creative",service:"CREATIVE DESIGN",message:"I need branded social media designs."}
   ];
 
+function DemoWorkflow({ scene, historical=false }: { scene: string; historical?: boolean }) {
+  const labels:Record<string,string>={idle:"WORKFLOW",automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
+  return <div className={`heroWorkPreview historyWorkPreview work-${scene}`} aria-label={`${scene} workflow animation`}>
+    <div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span>{!historical&&<span>{labels[scene]||"WORKFLOW"}</span>}</div>
+    {scene==="automation"&&<div className="workflowAnimation"><div className="workflowNode activeNode"><b>01</b><span>New lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>02</b><span>Auto follow-up</span></div><i className="workflowConnector"/><div className="workflowNode"><b>03</b><span>Track status</span></div></div>}
+    {scene==="chatbot"&&<div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botReplyLines"><i/><i/><i/></div><div className="botSpark">✦</div></div>}
+    {scene==="website"&&<div className="websiteAnimation"><div className="siteMockTop"><i/><i/><i/></div><div className="siteMockHero"><div><b/><i/><i/><span/></div><div className="siteMockImage"/></div><div className="siteMockCards"><i/><i/><i/></div></div>}
+    {scene==="data"&&<div className="dataAnimation"><div className="dataBigNumber"><small>REPORT SNAPSHOT</small><b>Clearer insights</b><span>Updating dashboard…</span></div><div className="dataAnimationBars"><i/><i/><i/><i/><i/><i/><i/></div></div>}
+    {scene==="seo"&&<div className="seoAnimation"><div className="seoSearchBar"><span>⌕</span><i/></div><div className="seoResult"><b/><i/><i/></div><div className="seoResult secondResult"><b/><i/><i/></div><span className="seoScan">SCANNING STRUCTURE</span></div>}
+    {scene==="marketing"&&<div className="marketingAnimation"><div className="marketingCard"><span>CAMPAIGN</span><b>Right audience</b><i/><i/><small>Track · Learn · Improve</small></div><div className="marketingOrbit"><i/><i/><i/></div></div>}
+    {scene==="creative"&&<div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}
+  </div>;
+}
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
@@ -116,21 +129,12 @@ export default function Home() {
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
           <div ref={demoMessagesRef} className="heroChatMessages visualOnlyMessages" aria-live="polite">
-            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{item.service}</span></div></div>)}
+            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><DemoWorkflow scene={item.scene} historical /></div>)}
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
-            {demoSent && <div className="heroChatBubble assistantBubble demoAssistantReply"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{demoService}</span><span className="assistantMessageMeta">LIVE WORKFLOW PREVIEW</span></div>}
+            {demoSent && <DemoWorkflow scene={demoScene} historical />}
             {demoTyping && !demoMessage && <div className="heroAutoTyping"><i/><i/><i/><small>Preparing message…</small></div>}
           </div>
-          <div className={`heroWorkPreview currentWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
-            <div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{demoSceneLabel}</span></div>
-            {demoScene === "automation" && <div className="workflowAnimation"><div className="workflowNode activeNode"><b>01</b><span>New lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>02</b><span>Auto follow-up</span></div><i className="workflowConnector"/><div className="workflowNode"><b>03</b><span>Track status</span></div></div>}
-            {demoScene === "chatbot" && <div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botReplyLines"><i/><i/><i/></div><div className="botSpark">✦</div></div>}
-            {demoScene === "website" && <div className="websiteAnimation"><div className="siteMockTop"><i/><i/><i/></div><div className="siteMockHero"><div><b/><i/><i/><span/></div><div className="siteMockImage"/></div><div className="siteMockCards"><i/><i/><i/></div></div>}
-            {demoScene === "data" && <div className="dataAnimation"><div className="dataBigNumber"><small>REPORT SNAPSHOT</small><b>Clearer insights</b><span>Updating dashboard…</span></div><div className="dataAnimationBars"><i/><i/><i/><i/><i/><i/><i/></div></div>}
-            {demoScene === "seo" && <div className="seoAnimation"><div className="seoSearchBar"><span>⌕</span><i/></div><div className="seoResult"><b/><i/><i/></div><div className="seoResult secondResult"><b/><i/><i/></div><span className="seoScan">SCANNING STRUCTURE</span></div>}
-            {demoScene === "marketing" && <div className="marketingAnimation"><div className="marketingCard"><span>CAMPAIGN</span><b>Right audience</b><i/><i/><small>Track · Learn · Improve</small></div><div className="marketingOrbit"><i/><i/><i/></div></div>}
-            {demoScene === "creative" && <div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}
-          </div>
+
 
           <div className="heroChatComposer demoComposer" aria-label="Live demo message composer">
             <div className="demoComposerText">{demoDraft || (demoSent ? "Message sent" : "Type a message…")}{demoTyping && demoDraft && <span className="demoCaret" aria-hidden="true"/>}</div>
