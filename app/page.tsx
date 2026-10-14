@@ -36,37 +36,23 @@ function ServiceVisual({ type }: { type: string }) {
   return <div className="serviceVisual visualCreative"><div className="creativeTile one">A</div><div className="creativeTile two">AMM</div><div className="creativeTile three">IDEA<br/>→ IMPACT</div></div>;
 }
   const demoFlows=[
-    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:"Yes. We can connect routine steps, lead capture and follow-ups into a clearer workflow."},
-    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:"We can design a website assistant for FAQs, service questions, lead capture and customer guidance."},
-    {scene:"website",message:"I need a professional business website.",reply:"We can shape a mobile-friendly website with clear service pages, useful calls to action and a credible brand experience."},
-    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:"We can clean up business data and turn recurring spreadsheet work into clearer dashboards and reports."},
-    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:"We can review technical SEO, site structure, content and indexing signals for better search discoverability."},
-    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:"We can align campaign goals, ad creatives, tracking and reporting around your business objective."},
-    {scene:"creative",message:"I need branded social media and ad designs.",reply:"We can create consistent campaign graphics, brand assets and presentation visuals that communicate your offer."}
+    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:""},
+    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:""},
+    {scene:"website",message:"I need a professional business website.",reply:""},
+    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:""},
+    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:""},
+    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:""},
+    {scene:"creative",message:"I need branded social media and ad designs.",reply:""}
   ];
 
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
   const [demoMessage,setDemoMessage]=useState("");
-  const [demoDraft,setDemoDraft]=useState("");
   const [demoScene,setDemoScene]=useState("automation");
-  const [demoReply,setDemoReply]=useState("We can map a workflow that captures a request, triggers follow-up and keeps the status organized.");
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
   const demoSceneLabel=demoSceneLabels[demoScene]||"WORKFLOW";
-  function runDemo(message:string,scene:string){
-    const replies:Record<string,string>={
-      automation:"Yes. We can connect routine steps, lead capture and follow-ups into a clearer workflow.",
-      chatbot:"We can design a website assistant for FAQs, service questions, lead capture and customer guidance.",
-      website:"We can shape a mobile-friendly website with clear service pages, useful calls to action and a credible brand experience.",
-      data:"We can clean up business data and turn recurring spreadsheet work into clearer dashboards and reports.",
-      seo:"We can review technical SEO, site structure, content and indexing signals for better search discoverability.",
-      marketing:"We can align campaign goals, ad creatives, tracking and reporting around your business objective.",
-      creative:"We can create consistent campaign graphics, brand assets and presentation visuals that communicate your offer."
-    };
-    setDemoMessage(message);setDemoScene(scene);setDemoReply(replies[scene]||replies.automation);setDemoDraft("");setDemoTyping(false);
-  }
   useEffect(()=>{
     let cancelled=false;
     let timer:ReturnType<typeof setTimeout>|undefined;
@@ -75,7 +61,7 @@ export default function Home() {
       let index=0;
       while(!cancelled){
         const flow=demoFlows[index%demoFlows.length];
-        setDemoMessage("");setDemoReply("");setDemoTyping(true);
+        setDemoMessage("");setDemoTyping(true);
         await wait(500);
         for(let n=1;n<=flow.message.length;n++){
           if(cancelled)return;
@@ -86,8 +72,7 @@ export default function Home() {
         setDemoTyping(false);
         await wait(450); // simulate the customer sending the completed message
         if(cancelled)return;
-        setDemoScene(flow.scene); // start the matching service animation when AMM replies
-        setDemoReply(flow.reply);
+        setDemoScene(flow.scene); // start the matching service animation when the message is sent
         await wait(3900);
         index++;
       }
@@ -95,13 +80,6 @@ export default function Home() {
     void cycle();
     return ()=>{cancelled=true;if(timer)clearTimeout(timer);};
   },[]);
-  function submitDemo(event:React.FormEvent<HTMLFormElement>){
-    event.preventDefault();
-    const message=demoDraft.trim();if(!message)return;
-    const lower=message.toLowerCase();
-    const scene=lower.includes("seo")||lower.includes("google search")||lower.includes("rank")?"seo":lower.includes("spreadsheet")||lower.includes("dashboard")||lower.includes("report")||lower.includes("data")?"data":lower.includes("website")||lower.includes("store")||lower.includes("landing page")?"website":lower.includes("chatbot")||lower.includes("assistant")||lower.includes("bot")?"chatbot":lower.includes("ad")||lower.includes("marketing")||lower.includes("campaign")?"marketing":lower.includes("design")||lower.includes("creative")||lower.includes("brand")?"creative":"automation";
-    runDemo(message,scene);
-  }
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -126,11 +104,9 @@ export default function Home() {
             <div className="heroChatIdentity"><strong>AMM Assistant</strong><span><i/> Interactive service preview</span></div>
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
-          <div className="heroChatContext"><span>AMM SERVICE PREVIEW</span><span>{demoTyping?"TYPING…":"DEMO MODE"}</span></div>
-          <div className="heroChatMessages" aria-live="polite">
-            <div className="heroChatBubble assistantBubble"><span className="bubbleName">AMM ASSISTANT</span>Hi! What would you like to improve in your business?</div>
-            <div className="heroChatBubble userBubble">{demoMessage}</div>
-            <div className="heroChatBubble assistantBubble answerBubble" key={demoReply}><span className="bubbleName">AMM ASSISTANT</span>{demoReply}</div>
+          <div className="heroChatContext"><span>CUSTOMER INQUIRY</span><span>{demoTyping?"TYPING…":"SENT ✓"}</span></div>
+          <div className="heroChatMessages visualOnlyMessages" aria-live="polite">
+            <div className="heroChatBubble userBubble"><span className="bubbleName">CUSTOMER</span>{demoMessage}<span className="customerSentStatus">Sent ✓</span></div>
           </div>
           <div className={`heroWorkPreview work-${demoScene}`} key={demoScene} aria-label={`${demoScene} workflow animation`}>
             <div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{demoSceneLabel}</span></div>
@@ -142,15 +118,7 @@ export default function Home() {
             {demoScene === "marketing" && <div className="marketingAnimation"><div className="marketingCard"><span>CAMPAIGN</span><b>Right audience</b><i/><i/><small>Track · Learn · Improve</small></div><div className="marketingOrbit"><i/><i/><i/></div></div>}
             {demoScene === "creative" && <div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}
           </div>
-          <div className="heroDemoPrompts" aria-label="Try a demo question">
-            <button type="button" onClick={()=>runDemo("I need to automate repetitive tasks.","automation")}>Automate tasks</button>
-            <button type="button" onClick={()=>runDemo("I need an AI chatbot for my website.","chatbot")}>AI chatbot</button>
-            <button type="button" onClick={()=>runDemo("I want to improve my website.","website")}>Website</button>
-          </div>
-          <form className="heroChatComposer" onSubmit={submitDemo}>
-            <textarea value={demoDraft} onChange={e=>setDemoDraft(e.target.value)} rows={1} maxLength={220} placeholder="Ask about a business solution…" aria-label="Type a demo question" onInput={e=>{const el=e.currentTarget;el.style.height="auto";el.style.height=Math.min(el.scrollHeight,220)+"px";}}/>
-            <button type="submit" aria-label="Show demo reply" disabled={!demoDraft.trim()}><span>↑</span></button>
-          </form>
+
           <div className="heroChatCaption"><span className="heroChatPulse"/> 7 AMM SERVICES <span>AUTO DEMO</span></div>
         </div>
         <div className="heroChatFloat floatTop"><span>✦</span> Animated workflows</div>
