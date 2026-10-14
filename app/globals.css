@@ -1034,3 +1034,78 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
 @media(prefers-reduced-motion:reduce){
  .seoSequenceHead>b i,.seoScanSequence .seoAuditRow,.creativeSequenceStep,.creativeBuildStep .creativePoster,.trackingGraph i{animation:none!important}
 }
+
+
+/* Verified service-flow sequence layouts: SEO scan and creative-to-reporting */
+.showcaseWorkPreview.work-seo .seoScanSequence{display:flex!important;flex-direction:column;gap:5px!important;position:relative;overflow:hidden}
+.showcaseWorkPreview.work-seo .seoSequenceHead{display:flex;align-items:center;justify-content:space-between;gap:5px;font-size:6px;font-weight:900;letter-spacing:.08em;color:#6c82a2}
+.showcaseWorkPreview.work-seo .seoSequenceHead b{color:#238c68;font-size:6px;display:flex;align-items:center;gap:4px}
+.showcaseWorkPreview.work-seo .seoSequenceHead b i{width:5px;height:5px;border-radius:50%;background:#2bc58b;animation:ammSignalBlink 1.1s infinite}
+.showcaseWorkPreview.work-seo .seoSearchBar{height:21px;display:flex;align-items:center;gap:6px;padding:0 7px;border:1px solid #dce8f9;border-radius:7px;background:#fff;color:#3478f6;font-size:10px}
+.showcaseWorkPreview.work-seo .seoSearchBar>i{height:4px;flex:1;border-radius:4px;background:#dce7f7}
+.showcaseWorkPreview.work-seo .seoSearchBar>b{font-size:6px;letter-spacing:.08em}
+.showcaseWorkPreview.work-seo .seoSequenceSteps{display:grid;gap:4px}
+.showcaseWorkPreview.work-seo .seoAuditRow{display:flex;align-items:center;justify-content:space-between;gap:5px;padding:5px 6px;border:1px solid #e2ebf8;border-radius:6px;background:rgba(255,255,255,.9);font-size:7px;color:#49617f;animation:seoStepIn .7s ease both}
+.showcaseWorkPreview.work-seo .seoAuditRow:nth-child(2){animation-delay:.65s}
+.showcaseWorkPreview.work-seo .seoAuditRow:nth-child(3){animation-delay:1.3s}
+.showcaseWorkPreview.work-seo .seoAuditRow>span{display:flex;align-items:center;gap:5px}
+.showcaseWorkPreview.work-seo .seoAuditRow>span i{font-style:normal;font-size:6px;color:#3478f6;background:#edf4ff;border-radius:4px;padding:3px}
+.showcaseWorkPreview.work-seo .seoAuditRow>b{font-size:6px;color:#218b66;white-space:nowrap}
+.showcaseWorkPreview.work-seo .seoPreviewLabel{font-size:6px;font-weight:900;letter-spacing:.09em;color:#3478f6;margin-top:1px;animation:seoStepIn .6s ease 1.9s both}
+.showcaseWorkPreview.work-seo .seoResult{margin:0!important;padding:5px 6px;border:1px solid #e2ebf8;border-radius:5px;background:#fff;gap:4px;animation:seoStepIn .7s ease 2.2s both}
+.showcaseWorkPreview.work-seo .seoResult.secondResult{animation-delay:2.55s}
+.showcaseWorkPreview.work-seo .seoResult b{height:4px!important}
+.showcaseWorkPreview.work-seo .seoResult i{height:3px!important}
+.showcaseWorkPreview.work-seo .seoScan{font-size:5px!important;bottom:2px!important}
+@keyframes seoStepIn{from{opacity:.25;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* Creative + marketing: creative build → audience targeting → tracking/reporting */
+.showcaseWorkPreview.work-creative .creativeMarketingSequence{height:auto!important;min-height:0;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:6px!important;position:relative;padding-top:4px}
+.showcaseWorkPreview.work-creative .creativeSequenceStep{min-width:0;display:flex;flex-direction:column;gap:5px;opacity:0;animation:creativeStepReveal .65s ease forwards}
+.showcaseWorkPreview.work-creative .creativeBuildStep{animation-delay:.1s}
+.showcaseWorkPreview.work-creative .audienceTargetStep{animation-delay:.9s}
+.showcaseWorkPreview.work-creative .trackingReportStep{animation-delay:1.7s}
+.showcaseWorkPreview.work-creative .creativePoster{width:100%!important;height:75px!important;padding:7px!important;border-radius:7px!important;box-shadow:0 5px 14px rgba(16,38,80,.12)}
+.showcaseWorkPreview.work-creative .creativePoster span{font-size:5px!important}
+.showcaseWorkPreview.work-creative .creativePoster b{font-size:clamp(8px,1vw,12px)!important;margin-top:7px!important}
+.showcaseWorkPreview.work-creative .creativePoster i{width:32px;height:32px;border-width:5px;right:-9px;bottom:-12px}
+.showcaseWorkPreview.work-creative .creativePoster em{position:absolute;left:6px;bottom:5px;font-size:5px;font-style:normal;font-weight:900;letter-spacing:.05em;color:#8de3c3}
+.showcaseWorkPreview.work-creative .creativeStepCaption{display:flex;align-items:center;gap:3px;font-size:6px;color:#536b8b;line-height:1.2}
+.showcaseWorkPreview.work-creative .creativeStepCaption>b{color:#3478f6}
+.showcaseWorkPreview.work-creative .creativeStepCaption>i{font-style:normal;margin-left:auto;color:#238c68}
+.showcaseWorkPreview.work-creative .audiencePanel,.showcaseWorkPreview.work-creative .trackingPanel{height:100%;min-height:95px;padding:7px 6px;border:1px solid #dce8f9;border-radius:8px;background:rgba(255,255,255,.92);box-shadow:0 4px 12px rgba(20,56,110,.05)}
+.showcaseWorkPreview.work-creative .audiencePanel>small,.showcaseWorkPreview.work-creative .trackingPanel>small{display:flex;justify-content:space-between;gap:3px;font-size:5px;line-height:1.3;font-weight:900;letter-spacing:.035em;color:#6d82a2}
+.showcaseWorkPreview.work-creative .audiencePanel>small b,.showcaseWorkPreview.work-creative .trackingPanel>small b{color:#3478f6}
+.showcaseWorkPreview.work-creative .audienceTargetRow{display:flex;align-items:center;gap:4px;margin-top:9px;min-width:0}
+.showcaseWorkPreview.work-creative .audienceTargetRow>i{font-style:normal;display:grid;place-items:center;width:16px;height:16px;flex:0 0 16px;border-radius:5px;background:#edf4ff;color:#3478f6;font-size:10px}
+.showcaseWorkPreview.work-creative .audienceTargetRow>span{min-width:0;display:grid;gap:2px}
+.showcaseWorkPreview.work-creative .audienceTargetRow>span b{font-size:6px;color:#25466f}
+.showcaseWorkPreview.work-creative .audienceTargetRow>span em{font-size:5px;line-height:1.2;font-style:normal;color:#7d8ea7;overflow-wrap:anywhere}
+.showcaseWorkPreview.work-creative .audienceTargetRow>strong{font-size:7px;color:#238c68;margin-left:auto}
+.showcaseWorkPreview.work-creative .audienceTargetFoot{display:flex;align-items:center;gap:4px;margin-top:8px;font-size:5px;font-weight:800;color:#238c68}
+.showcaseWorkPreview.work-creative .audienceTargetFoot i{width:5px;height:5px;border-radius:50%;background:#2bc58b}
+.showcaseWorkPreview.work-creative .trackingKpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;margin-top:9px}
+.showcaseWorkPreview.work-creative .trackingKpis span{min-width:0;display:grid;gap:3px;padding:4px 2px;border-radius:4px;background:#f1f6ff}
+.showcaseWorkPreview.work-creative .trackingKpis em{font-style:normal;font-size:4px;letter-spacing:.02em;color:#7185a3}
+.showcaseWorkPreview.work-creative .trackingKpis b{font-size:6px;color:#24456f;overflow-wrap:anywhere}
+.showcaseWorkPreview.work-creative .trackingGraph{height:25px;display:flex;align-items:flex-end;gap:3px;margin-top:6px;padding:0 2px;border-bottom:1px solid #dce8f9}
+.showcaseWorkPreview.work-creative .trackingGraph i{flex:1;height:35%;border-radius:2px 2px 0 0;background:linear-gradient(#6ca1ff,#3478f6);animation:ammDataBar 1.6s ease-in-out infinite;transform-origin:bottom}
+.showcaseWorkPreview.work-creative .trackingGraph i:nth-child(2){height:55%;animation-delay:.12s}
+.showcaseWorkPreview.work-creative .trackingGraph i:nth-child(3){height:43%;animation-delay:.24s}
+.showcaseWorkPreview.work-creative .trackingGraph i:nth-child(4){height:76%;animation-delay:.36s}
+.showcaseWorkPreview.work-creative .trackingGraph i:nth-child(5){height:62%;animation-delay:.48s}
+.showcaseWorkPreview.work-creative .trackingGraph i:nth-child(6){height:88%;animation-delay:.6s}
+.showcaseWorkPreview.work-creative .trackingGraph i:nth-child(7){height:72%;animation-delay:.72s}
+.showcaseWorkPreview.work-creative .trackingReportFoot{margin-top:5px;font-size:5px;line-height:1.2;color:#3478f6;font-weight:800;overflow-wrap:anywhere}
+.showcaseWorkPreview.work-creative .creativeSequenceRail{position:absolute;top:38px;left:28%;right:28%;display:flex;justify-content:space-between;pointer-events:none}
+.showcaseWorkPreview.work-creative .creativeSequenceRail i{width:4px;height:4px;border-radius:50%;background:#3478f6;box-shadow:0 0 0 3px #edf4ff}
+@keyframes creativeStepReveal{from{opacity:.15;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){
+ .showcaseWorkPreview.work-creative .creativeMarketingSequence{gap:4px!important}
+ .showcaseWorkPreview.work-creative .creativePoster{height:70px!important}
+ .showcaseWorkPreview.work-creative .audiencePanel,.showcaseWorkPreview.work-creative .trackingPanel{padding:6px 4px;min-height:91px}
+ .showcaseWorkPreview.work-creative .creativeStepCaption{font-size:5px}
+}
+@media(prefers-reduced-motion:reduce){
+ .showcaseWorkPreview.work-seo .seoSequenceHead b i,.showcaseWorkPreview.work-seo .seoAuditRow,.showcaseWorkPreview.work-seo .seoPreviewLabel,.showcaseWorkPreview.work-seo .seoResult,.showcaseWorkPreview.work-creative .creativeSequenceStep,.showcaseWorkPreview.work-creative .trackingGraph i{animation:none!important;opacity:1!important;transform:none!important}
+}
