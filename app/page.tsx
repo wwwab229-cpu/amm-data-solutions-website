@@ -35,6 +35,16 @@ function ServiceVisual({ type }: { type: string }) {
   if (type === "ads") return <div className="serviceVisual visualAds"><div className="adsTop"><span>CAMPAIGN PERFORMANCE</span><b>↗</b></div><div className="adsMetrics"><div><small>REACH</small><i/><i/><i/></div><div><small>CONVERSIONS</small><strong>Goal-led</strong><span>Track · Learn · Improve</span></div></div><div className="adsPlatforms"><b>Google Ads</b><b>Meta Ads</b><span>AI-assisted</span></div></div>;
   return <div className="serviceVisual visualCreative"><div className="creativeTile one">A</div><div className="creativeTile two">AMM</div><div className="creativeTile three">IDEA<br/>→ IMPACT</div></div>;
 }
+  const demoFlows=[
+    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:"Yes. We can connect routine steps, lead capture and follow-ups into a clearer workflow."},
+    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:"We can design a website assistant for FAQs, service questions, lead capture and customer guidance."},
+    {scene:"website",message:"I need a professional business website.",reply:"We can shape a mobile-friendly website with clear service pages, useful calls to action and a credible brand experience."},
+    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:"We can clean up business data and turn recurring spreadsheet work into clearer dashboards and reports."},
+    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:"We can review technical SEO, site structure, content and indexing signals for better search discoverability."},
+    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:"We can align campaign goals, ad creatives, tracking and reporting around your business objective."},
+    {scene:"creative",message:"I need branded social media and ad designs.",reply:"We can create consistent campaign graphics, brand assets and presentation visuals that communicate your offer."}
+  ];
+
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
@@ -45,15 +55,6 @@ export default function Home() {
   const [demoTyping,setDemoTyping]=useState(true);
   const demoSceneLabels:Record<string,string>={automation:"AI AUTOMATION",chatbot:"AI CHATBOTS",website:"WEB & E-COMMERCE",data:"DATA & REPORTING",seo:"SEO + AI SEARCH",marketing:"DIGITAL ADS",creative:"CREATIVE & BRAND"};
   const demoSceneLabel=demoSceneLabels[demoScene]||"WORKFLOW";
-  const demoFlows=[
-    {scene:"automation",message:"Can AMM automate repetitive business tasks?",reply:"Yes. We can connect routine steps, lead capture and follow-ups into a clearer workflow."},
-    {scene:"chatbot",message:"Can you build an AI chatbot for my website?",reply:"We can design a website assistant for FAQs, service questions, lead capture and customer guidance."},
-    {scene:"website",message:"I need a professional business website.",reply:"We can shape a mobile-friendly website with clear service pages, useful calls to action and a credible brand experience."},
-    {scene:"data",message:"Can you organize my spreadsheets and reports?",reply:"We can clean up business data and turn recurring spreadsheet work into clearer dashboards and reports."},
-    {scene:"seo",message:"How can my business improve Google and AI search visibility?",reply:"We can review technical SEO, site structure, content and indexing signals for better search discoverability."},
-    {scene:"marketing",message:"Can AMM help manage Google and Meta ad campaigns?",reply:"We can align campaign goals, ad creatives, tracking and reporting around your business objective."},
-    {scene:"creative",message:"I need branded social media and ad designs.",reply:"We can create consistent campaign graphics, brand assets and presentation visuals that communicate your offer."}
-  ];
   function runDemo(message:string,scene:string){
     const replies:Record<string,string>={
       automation:"Yes. We can connect routine steps, lead capture and follow-ups into a clearer workflow.",
