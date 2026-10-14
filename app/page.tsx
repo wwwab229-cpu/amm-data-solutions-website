@@ -45,9 +45,9 @@ function ServiceVisual({ type }: { type: string }) {
     {scene:"creative",service:"CREATIVE & BRAND SOLUTIONS",messages:["Can you create consistent branded posts for our social media?","We need better visuals for a product campaign and its ads.","Could you design a professional presentation for our business?","Our brand graphics look inconsistent. Can you give them a clearer style?"]}
   ];
 
-function DemoWorkflow({ scene, historical=false }: { scene: string; historical?: boolean }) {
+function DemoWorkflow({ scene, historical=false, showcase=false }: { scene: string; historical?: boolean; showcase?: boolean }) {
   
-  return <div className={`heroWorkPreview historyWorkPreview work-${scene}`} aria-label={`${scene} workflow animation`}>
+  return <div className={`heroWorkPreview ${historical ? "historyWorkPreview" : ""} ${showcase ? "showcaseWorkPreview" : ""} work-${scene}`} aria-label={`${scene} workflow animation`}>
     <div className="heroWorkHead"><span className="heroWorkLive"><i/> LIVE WORKFLOW</span><span className="heroWorkSignal">PROCESS VIEW <i/></span></div>
     {scene==="automation"&&<><div className="workMiniStatus"><span><i/> New enquiry received</span><b>TRIGGERED</b></div><div className="workflowAnimation"><div className="workflowNode activeNode"><b>↳</b><span>Capture lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>⚙</b><span>Validate details</span></div><i className="workflowConnector"/><div className="workflowNode"><b>✓</b><span>Follow-up queued</span></div></div><div className="workProgress"><i/></div></>}
     {scene==="chatbot"&&<div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botConversation"><small>VISITOR QUESTION</small><div className="botIncoming">How can I get started?</div><small>FAQ MATCHED <b>READY</b></small><div className="botReplyLines"><i/><i/><i/></div><div className="botActionTags"><span>Answer drafted</span><span>Lead capture ready</span></div></div><div className="botSpark">✦</div></div>}
@@ -149,6 +149,15 @@ export default function Home() {
         </div>
         <div className="heroChatFloat floatTop"><span>✦</span> Animated workflows</div>
         <div className="heroChatFloat floatBottom"><span>↗</span> From question to next step</div>
+        <aside className="heroServiceShowcase" aria-label="Interactive AMM service workflow showcase">
+          <div className="showcaseTopline"><span><i/> SERVICE LAB</span><b>LIVE PREVIEW</b></div>
+          <div className="showcaseHeading"><span>SEE HOW IT WORKS</span><strong>{demoSceneLabels[demoScene] || "AI AUTOMATION"}</strong><p>Real service steps. No invented results.</p></div>
+          <DemoWorkflow scene={demoScene === "idle" ? "automation" : demoScene} showcase />
+          <div className="showcaseServicePicker" aria-label="Choose a service to preview">
+            {demoFlows.map(flow => <button type="button" key={flow.scene} className={demoScene === flow.scene ? "active" : ""} onClick={() => { setDemoScene(flow.scene); setDemoService(flow.service); setDemoMessage(""); setDemoDraft(""); setDemoSent(false); }}>{flow.service.split(" & ")[0]}</button>)}
+          </div>
+          <div className="showcaseFoot"><span className="showcaseSignal"/> ANIMATED SERVICE PREVIEW <span>01—07</span></div>
+        </aside>
       </div>
       <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
     </section>
