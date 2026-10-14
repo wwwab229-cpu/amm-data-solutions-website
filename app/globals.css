@@ -897,3 +897,78 @@ footer{padding:30px max(8vw,28px) 22px;background:#fff}.footerTop{display:flex;a
  .heroServiceShowcase:before{background:none!important}.showcaseServicePicker button{transition:none!important}
  .showcaseWorkPreview .workProgress i,.showcaseWorkPreview .botConversation i,.showcaseWorkPreview .siteMockImage i,.showcaseWorkPreview .dataBigNumber small i{animation:none!important}
 }
+
+/* Service-specific motion pass: each animation represents the real work of that service */
+@keyframes ammFlowPulse{0%,100%{transform:translateY(0);box-shadow:0 0 0 0 rgba(52,120,246,0)}50%{transform:translateY(-4px);box-shadow:0 0 0 6px rgba(52,120,246,.10),0 8px 20px rgba(52,120,246,.14)}}
+@keyframes ammConnectorRun{0%{transform:scaleX(.1);opacity:.15}50%{transform:scaleX(1);opacity:1}100%{transform:scaleX(.1);opacity:.2}}
+@keyframes ammBotThink{0%,100%{box-shadow:0 0 0 0 rgba(52,120,246,.12);transform:scale(1)}50%{box-shadow:0 0 0 8px rgba(52,120,246,.10);transform:scale(1.045)}}
+@keyframes ammBotTyping{0%,60%,100%{opacity:.28;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+@keyframes ammSiteSweep{0%{transform:translateX(-120%);opacity:0}20%{opacity:.8}75%{opacity:.55}100%{transform:translateX(220%);opacity:0}}
+@keyframes ammSiteCardLift{0%,100%{transform:translateY(0);box-shadow:0 2px 6px rgba(34,75,130,.04)}50%{transform:translateY(-4px);box-shadow:0 9px 18px rgba(34,75,130,.13)}}
+@keyframes ammDataBar{0%,100%{filter:saturate(.8);opacity:.72;transform:scaleY(.78)}50%{filter:saturate(1.3);opacity:1;transform:scaleY(1)}}
+@keyframes ammDataScan{0%{transform:translateX(-110%);opacity:0}20%{opacity:1}80%{opacity:.8}100%{transform:translateX(210%);opacity:0}}
+@keyframes ammSeoScan{0%{transform:translateY(-5px);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateY(80px);opacity:0}}
+@keyframes ammSeoCheck{0%,100%{box-shadow:0 0 0 0 rgba(43,197,139,0)}50%{box-shadow:0 0 0 5px rgba(43,197,139,.12)}}
+@keyframes ammOrbitSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes ammCampaignGlow{0%,100%{box-shadow:0 6px 20px rgba(45,102,202,.06);border-color:#dce8f9}50%{box-shadow:0 10px 28px rgba(45,102,202,.17);border-color:#9dc1ff}}
+@keyframes ammCreativeFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-6px) rotate(1deg)}}
+@keyframes ammCreativeShine{0%{transform:translateX(-140%);opacity:0}25%{opacity:.65}65%{opacity:.4}100%{transform:translateX(180%);opacity:0}}
+@keyframes ammSignalBlink{0%,100%{opacity:.4}50%{opacity:1;filter:drop-shadow(0 0 5px currentColor)}}
+/* Automation: connected steps activate in sequence */
+.showcaseWorkPreview.work-automation .workflowNode{animation:ammFlowPulse 2.8s ease-in-out infinite}
+.showcaseWorkPreview.work-automation .workflowNode:nth-of-type(1){animation-delay:0s}
+.showcaseWorkPreview.work-automation .workflowNode:nth-of-type(3){animation-delay:.45s}
+.showcaseWorkPreview.work-automation .workflowNode:nth-of-type(5){animation-delay:.9s}
+.showcaseWorkPreview.work-automation .workflowConnector{transform-origin:left center;animation:ammConnectorRun 2.4s ease-in-out infinite}
+.showcaseWorkPreview.work-automation .workflowConnector:nth-of-type(2){animation-delay:.35s}
+.showcaseWorkPreview.work-automation .workflowConnector:nth-of-type(4){animation-delay:.75s}
+.showcaseWorkPreview.work-automation .workMiniStatus>span i{animation:ammSignalBlink 1.4s ease-in-out infinite}
+/* Chatbots: assistant core pulses while response dots type */
+.showcaseWorkPreview.work-chatbot .botFace{animation:ammBotThink 2.3s ease-in-out infinite}
+.showcaseWorkPreview.work-chatbot .botReplyLines i{animation:ammBotTyping 1.35s ease-in-out infinite}
+.showcaseWorkPreview.work-chatbot .botReplyLines i:nth-child(2){animation-delay:.18s}
+.showcaseWorkPreview.work-chatbot .botReplyLines i:nth-child(3){animation-delay:.36s}
+.showcaseWorkPreview.work-chatbot .botActionTags span{animation:messengerReplyIn .5s ease-out both}
+.showcaseWorkPreview.work-chatbot .botActionTags span:nth-child(2){animation-delay:.22s}
+/* Web: browser sweep, responsive page blocks lift in a staggered sequence */
+.showcaseWorkPreview.work-website .siteMockTop{position:relative;overflow:hidden}
+.showcaseWorkPreview.work-website .siteMockTop:after{content:"";position:absolute;inset:0 auto 0 0;width:35%;background:linear-gradient(90deg,transparent,rgba(95,157,255,.3),transparent);animation:ammSiteSweep 3.6s ease-in-out infinite}
+.showcaseWorkPreview.work-website .siteMockImage{position:relative;overflow:hidden}
+.showcaseWorkPreview.work-website .siteMockImage:after{content:"";position:absolute;inset:0 auto 0 0;width:50%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);animation:ammSiteSweep 3.2s ease-in-out infinite .4s}
+.showcaseWorkPreview.work-website .siteMockCards i{animation:ammSiteCardLift 2.5s ease-in-out infinite}
+.showcaseWorkPreview.work-website .siteMockCards i:nth-child(2){animation-delay:.25s}
+.showcaseWorkPreview.work-website .siteMockCards i:nth-child(3){animation-delay:.5s}
+.showcaseWorkPreview.work-website .siteMockHero>div:first-child>span{animation:ammBotThink 2.4s ease-in-out infinite}
+/* Data: bars pulse independently like a refreshing report, with a moving validation scan */
+.showcaseWorkPreview.work-data .dataAnimationBars{position:relative;overflow:hidden}
+.showcaseWorkPreview.work-data .dataAnimationBars i{transform-origin:bottom center;animation:ammDataBar 1.8s ease-in-out infinite}
+.showcaseWorkPreview.work-data .dataAnimationBars i:nth-child(2){animation-delay:.15s}
+.showcaseWorkPreview.work-data .dataAnimationBars i:nth-child(3){animation-delay:.3s}
+.showcaseWorkPreview.work-data .dataAnimationBars i:nth-child(4){animation-delay:.45s}
+.showcaseWorkPreview.work-data .dataAnimationBars i:nth-child(5){animation-delay:.6s}
+.showcaseWorkPreview.work-data .dataAnimationBars i:nth-child(6){animation-delay:.75s}
+.showcaseWorkPreview.work-data .dataAnimationBars i:nth-child(7){animation-delay:.9s}
+.showcaseWorkPreview.work-data .dataAnimationBars:after{content:"";position:absolute;inset:0 auto 0 0;width:24%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:ammDataScan 2.9s ease-in-out infinite}
+/* SEO: technical audit rows receive a scan sweep and index-check pulse */
+.showcaseWorkPreview.work-seo .seoSearchBar{position:relative;overflow:hidden}
+.showcaseWorkPreview.work-seo .seoSearchBar:after{content:"";position:absolute;inset:0 auto 0 0;width:35%;background:linear-gradient(90deg,transparent,rgba(91,153,255,.32),transparent);animation:ammSiteSweep 2.8s ease-in-out infinite}
+.showcaseWorkPreview.work-seo .seoAuditRow b{animation:ammSeoCheck 1.8s ease-in-out infinite}
+.showcaseWorkPreview.work-seo .seoResult{position:relative;overflow:hidden;animation:ammCampaignGlow 3s ease-in-out infinite}
+.showcaseWorkPreview.work-seo .seoResult.secondResult{animation-delay:.55s}
+.showcaseWorkPreview.work-seo .seoScan{animation:ammSignalBlink 1.1s ease-in-out infinite}
+/* Digital ads: campaign card glows and audience orbit rotates continuously */
+.showcaseWorkPreview.work-marketing .marketingCard{animation:ammCampaignGlow 2.8s ease-in-out infinite}
+.showcaseWorkPreview.work-marketing .marketingOrbit{animation:ammOrbitSpin 12s linear infinite}
+.showcaseWorkPreview.work-marketing .marketingOrbit i{animation:ammBotThink 2.2s ease-in-out infinite}
+.showcaseWorkPreview.work-marketing .marketingOrbit i:nth-child(2){animation-delay:.4s}
+.showcaseWorkPreview.work-marketing .marketingOrbit i:nth-child(3){animation-delay:.8s}
+/* Creative: campaign artwork floats; visual swatches animate like an asset kit being assembled */
+.showcaseWorkPreview.work-creative .creativePoster{position:relative;overflow:hidden;animation:ammCreativeFloat 3.1s ease-in-out infinite}
+.showcaseWorkPreview.work-creative .creativePoster:after{content:"";position:absolute;inset:0 auto 0 0;width:42%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:ammCreativeShine 3.5s ease-in-out infinite}
+.showcaseWorkPreview.work-creative .creativeSwatches i{animation:ammBotThink 2.1s ease-in-out infinite}
+.showcaseWorkPreview.work-creative .creativeSwatches i:nth-child(2){animation-delay:.28s}
+.showcaseWorkPreview.work-creative .creativeSwatches i:nth-child(3){animation-delay:.56s}
+/* Reduced motion accessibility */
+@media(prefers-reduced-motion:reduce){
+ .showcaseWorkPreview.work-automation .workflowNode,.showcaseWorkPreview.work-automation .workflowConnector,.showcaseWorkPreview.work-chatbot .botFace,.showcaseWorkPreview.work-chatbot .botReplyLines i,.showcaseWorkPreview.work-website .siteMockTop:after,.showcaseWorkPreview.work-website .siteMockImage:after,.showcaseWorkPreview.work-website .siteMockCards i,.showcaseWorkPreview.work-website .siteMockHero>div:first-child>span,.showcaseWorkPreview.work-data .dataAnimationBars i,.showcaseWorkPreview.work-data .dataAnimationBars:after,.showcaseWorkPreview.work-seo .seoSearchBar:after,.showcaseWorkPreview.work-seo .seoAuditRow b,.showcaseWorkPreview.work-seo .seoResult,.showcaseWorkPreview.work-seo .seoScan,.showcaseWorkPreview.work-marketing .marketingCard,.showcaseWorkPreview.work-marketing .marketingOrbit,.showcaseWorkPreview.work-marketing .marketingOrbit i,.showcaseWorkPreview.work-creative .creativePoster,.showcaseWorkPreview.work-creative .creativePoster:after,.showcaseWorkPreview.work-creative .creativeSwatches i{animation:none!important}
+}
