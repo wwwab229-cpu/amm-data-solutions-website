@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
-      { error: "AI chat is not configured yet. Please contact AMM by email." },
+      { error: "AI configuration issue: GEMINI_API_KEY is missing from this deployment.", code: "MISSING_API_KEY" },
       { status: 503 }
     );
   }
