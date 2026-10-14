@@ -36,13 +36,13 @@ function ServiceVisual({ type }: { type: string }) {
   return <div className="serviceVisual visualCreative"><div className="creativeTile one">A</div><div className="creativeTile two">AMM</div><div className="creativeTile three">IDEA<br/>→ IMPACT</div></div>;
 }
   const demoFlows=[
-    {scene:"automation",service:"AI AUTOMATION",message:"Can AMM automate repetitive business tasks?"},
-    {scene:"chatbot",service:"AI CHATBOTS",message:"Can you build an AI chatbot for my website?"},
-    {scene:"website",service:"WEBSITES & E-COMMERCE",message:"I need a professional business website."},
-    {scene:"data",service:"DATA & REPORTING",message:"Can you organize my spreadsheets and reports?"},
-    {scene:"seo",service:"GOOGLE + AI SEO",message:"How can my business improve search visibility?"},
-    {scene:"marketing",service:"DIGITAL ADVERTISING",message:"Can AMM help with Google and Meta ads?"},
-    {scene:"creative",service:"CREATIVE DESIGN",message:"I need branded social media designs."}
+    {scene:"automation",service:"AI AUTOMATION",messages:["I spend too much time on repetitive tasks. Can this be automated?","Can you help us stop doing the same admin work every day?","We get lots of enquiries and need a better follow-up process.","Is there a simple way to keep our leads and tasks organised?"]},
+    {scene:"chatbot",service:"AI CHATBOTS",messages:["Could we add a chatbot to answer common customer questions?","Customers message us after hours too. What can we do?","Can a website assistant guide visitors to the right service?","We keep answering the same questions again and again."]},
+    {scene:"website",service:"WEBSITES & E-COMMERCE",messages:["We need a clean, professional website for our business.","Can you help us set up a website where customers can browse products?","Our current website feels outdated. Can it be improved?","I want a website that works properly on mobile as well."]},
+    {scene:"data",service:"DATA & REPORTING",messages:["Our spreadsheets are messy. Can you help organise them?","Is there a way to turn our data into a clearer report?","We update the same Excel files manually every week.","Can we make our business reports easier to understand?"]},
+    {scene:"seo",service:"GOOGLE + AI SEO",messages:["How can people find our business more easily on Google?","We want our website to show up in relevant searches.","Can you improve our website's SEO and AI search visibility?","Our website gets very little search traffic. Where do we start?"]},
+    {scene:"marketing",service:"DIGITAL ADVERTISING",messages:["Can you help us run ads without wasting our budget?","We want to reach the right customers on Google and Instagram.","How do we know if our ads are actually working?","We need a more organised approach to online advertising."]},
+    {scene:"creative",service:"CREATIVE DESIGN",messages:["Could you make our social posts look more consistent?","We need some fresh branded graphics for our business.","Can you help us make our product posts look more professional?","Our social media visuals need a bit of a refresh."]}
   ];
 
 function DemoWorkflow({ scene, historical=false }: { scene: string; historical?: boolean }) {
@@ -77,27 +77,31 @@ export default function Home() {
     let timer:ReturnType<typeof setTimeout>|undefined;
     const wait=(ms:number)=>new Promise<void>(resolve=>{timer=setTimeout(resolve,ms);});
     const cycle=async()=>{
+      let order=[...demoFlows.keys()].sort(()=>Math.random()-.5);
       let index=0;
       while(!cancelled){
-        const flow=demoFlows[index%demoFlows.length];
+        if(index>=order.length){order=[...demoFlows.keys()].sort(()=>Math.random()-.5);index=0;}
+        const flow=demoFlows[order[index]];
+        const message=flow.messages[Math.floor(Math.random()*flow.messages.length)];
         setDemoMessage("");setDemoDraft("");setDemoSent(false);setDemoTyping(false);
-        await wait(850);
+        await wait(700+Math.random()*900);
         setDemoTyping(true);
-        for(let n=1;n<=flow.message.length;n++){
+        for(let n=1;n<=message.length;n++){
           if(cancelled)return;
-          setDemoDraft(flow.message.slice(0,n));
-          await wait(58);
+          setDemoDraft(message.slice(0,n));
+          const char=message[n-1];
+          await wait((char===","||char==="."||char==="?"?150:char===" "?25:0)+(34+Math.random()*48));
         }
         if(cancelled)return;
         setDemoTyping(false);
-        await wait(850);
+        await wait(550+Math.random()*700);
         if(cancelled)return;
-        setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);setDemoScene(flow.scene);setDemoService(flow.service);
+        setDemoMessage(message);setDemoDraft("");setDemoSent(true);setDemoScene(flow.scene);setDemoService(flow.service);
         await wait(650);
         if(cancelled)return;
-        setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-2));
+        setDemoHistory(previous=>[...previous,{message,service:flow.service,scene:flow.scene}].slice(-2));
         setDemoMessage("");setDemoSent(false);
-        await wait(5200);
+        await wait(4800+Math.random()*1600);
         if(cancelled)return;
         index++;
       }
