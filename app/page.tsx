@@ -44,15 +44,27 @@ export default function Home() {
       <div className="navlinks"><a href="#services">Capabilities</a><a href="#how">Our approach</a><a href="#about">About AMM</a></div>
       <button className="navcta" type="button" onClick={()=>setContactOpen(true)}>Discuss a project <span>↗</span></button>
     </nav>
-    <section className="hero">
-      <div className="heroInner">
-        <div className="eyebrow"><span className="eyebrowLine"/> DIGITAL SYSTEMS. PRACTICAL EXECUTION.</div>
-        <h1>Business Automation<br/><span>& Digital Solutions</span></h1>
-        <p className="heroText">AMM Data Solutions helps businesses in Pakistan and beyond improve workflows, build websites, organize business data and strengthen online visibility.</p>
-        <div className="heroActions"><a className="primary" href="#services">Explore capabilities <span>↗</span></a><a className="textLink" href="#contact">Tell us your objective <span>→</span></a></div>
-        <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
+    <section className="hero heroPremium">
+      <div className="heroPremiumInner">
+        <div className="heroInner">
+          <div className="eyebrow"><span className="eyebrowLine"/> AMM DATA SOLUTIONS · LET’S MAKE SOLUTIONS</div>
+          <h1>We Turn Business Challenges Into <span>Smarter Digital Systems.</span></h1>
+          <p className="heroText">From AI automation and business data to websites, SEO and digital marketing — we build practical solutions that help businesses move forward.</p>
+          <div className="heroActions"><a className="primary" href="#services">Explore Our Solutions <span>↗</span></a><a className="textLink" href="#contact">Discuss a Project <span>→</span></a></div>
+          <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
+        </div>
+        <div className="heroSystemVisual" aria-label="Illustration of a business request moving through connected digital systems to a clear outcome">
+          <div className="systemVisualHead"><span><i/> AMM SYSTEMS OVERVIEW</span><b>CONNECTED WORKFLOW <em>●</em></b></div>
+          <div className="systemOrbit orbitOne"></div><div className="systemOrbit orbitTwo"></div>
+          <div className="systemCore"><div className="systemCoreMark">AMM<span>•</span></div><b>SMARTER<br/>SYSTEMS</b><small>CONNECTED BY PURPOSE</small></div>
+          <div className="systemNode nodeInput"><span className="systemNodeIcon">↳</span><small>01 / INPUT</small><b>Business need</b><i>Clear objective</i></div>
+          <div className="systemNode nodeBuild"><span className="systemNodeIcon">⌘</span><small>02 / BUILD</small><b>Digital tools</b><i>Connected workflow</i></div>
+          <div className="systemNode nodeOutcome"><span className="systemNodeIcon">↗</span><small>03 / OUTCOME</small><b>Useful results</b><i>Ready for review</i></div>
+          <div className="systemConnector connectorOne"><span/></div><div className="systemConnector connectorTwo"><span/></div>
+          <div className="systemVisualFoot"><span><i/> OBJECTIVE-LED</span><span>DESIGN <b>→</b> BUILD <b>→</b> REVIEW</span></div>
+        </div>
       </div>
-      <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>EXPLORE OUR CAPABILITIES ↓</span></div>
+      <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>BUILT AROUND YOUR OBJECTIVE ↓</span></div>
     </section>
     <section className="intro section"><div className="eyebrow">BUILT AROUND THE OBJECTIVE</div><div><h2>Technology is only useful when it <span>solves the right problem.</span></h2><p>We start with the outcome, shape a sensible scope, and deliver practical digital work without unnecessary complexity.</p></div></section>
     <section id="services" className="services section">
