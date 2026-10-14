@@ -67,24 +67,25 @@ export default function Home() {
       let index=0;
       while(!cancelled){
         const flow=demoFlows[index%demoFlows.length];
-        setDemoMessage("");setDemoDraft("");setDemoSent(false);setDemoTyping(true);
-        await wait(500);
+        setDemoMessage("");setDemoDraft("");setDemoSent(false);setDemoTyping(false);
+        await wait(850);
+        setDemoTyping(true);
         for(let n=1;n<=flow.message.length;n++){
           if(cancelled)return;
           setDemoDraft(flow.message.slice(0,n));
-          await wait(32);
+          await wait(58);
         }
         if(cancelled)return;
         setDemoTyping(false);
-        await wait(450);
+        await wait(850);
         if(cancelled)return;
         setDemoMessage(flow.message);setDemoDraft("");setDemoSent(true);
-        await wait(260);
+        await wait(650);
         if(cancelled)return;
         setDemoScene(flow.scene);setDemoService(flow.service);
-        setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-3));
-        setDemoMessage("");setDemoSent(false);
-        await wait(3400);
+        await wait(5200);
+        if(cancelled)return;
+        setDemoHistory(previous=>[...previous,{message:flow.message,service:flow.service,scene:flow.scene}].slice(-2));
         index++;
       }
     };
@@ -116,7 +117,7 @@ export default function Home() {
             <span className="heroChatMore" aria-hidden="true">•••</span>
           </div>
           <div ref={demoMessagesRef} className="heroChatMessages visualOnlyMessages" aria-live="polite">
-            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{item.service}</span><span className="assistantMessageMeta">LIVE WORKFLOW PREVIEW</span></div><div className={`heroWorkPreview historyWorkPreview work-${item.scene}`}><div className="heroWorkHead"><span className="heroWorkLive"><i/> WORKFLOW VISUAL</span><span>{item.service}</span></div>{item.scene==="automation"&&<div className="workflowAnimation"><div className="workflowNode activeNode"><b>01</b><span>New lead</span></div><i className="workflowConnector"/><div className="workflowNode"><b>02</b><span>Auto follow-up</span></div><i className="workflowConnector"/><div className="workflowNode"><b>03</b><span>Track status</span></div></div>}{item.scene==="chatbot"&&<div className="botAnimation"><div className="botFace"><span/><span/><i/></div><div className="botReplyLines"><i/><i/><i/></div><div className="botSpark">✦</div></div>}{item.scene==="website"&&<div className="websiteAnimation"><div className="siteMockTop"><i/><i/><i/></div><div className="siteMockHero"><div><b/><i/><i/><span/></div><div className="siteMockImage"/></div><div className="siteMockCards"><i/><i/><i/></div></div>}{item.scene==="data"&&<div className="dataAnimation"><div className="dataBigNumber"><small>REPORT SNAPSHOT</small><b>Clearer insights</b><span>Updating dashboard…</span></div><div className="dataAnimationBars"><i/><i/><i/><i/><i/><i/><i/></div></div>}{item.scene==="seo"&&<div className="seoAnimation"><div className="seoSearchBar"><span>⌕</span><i/></div><div className="seoResult"><b/><i/><i/></div><div className="seoResult secondResult"><b/><i/><i/></div><span className="seoScan">SCANNING STRUCTURE</span></div>}{item.scene==="marketing"&&<div className="marketingAnimation"><div className="marketingCard"><span>CAMPAIGN</span><b>Right audience</b><i/><i/><small>Track · Learn · Improve</small></div><div className="marketingOrbit"><i/><i/><i/></div></div>}{item.scene==="creative"&&<div className="creativeAnimation"><div className="creativePoster"><span>AMM / STUDIO</span><b>IDEA<br/>→ IMPACT</b><i/></div><div className="creativeSwatches"><i/><i/><i/></div></div>}</div></div>)}
+            {demoHistory.map((item,index)=><div className="demoHistoryExchange" key={`${index}-${item.message}`}><div className="heroChatBubble userBubble historyUserBubble"><span className="bubbleName">YOU</span>{item.message}<span className="customerSentStatus">Sent ✓</span></div><div className="heroChatBubble assistantBubble demoAssistantReply historyAssistantBubble"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{item.service}</span></div></div>)}
             {demoMessage && <div className="heroChatBubble userBubble"><span className="bubbleName">YOU</span>{demoMessage}{demoSent && <span className="customerSentStatus">Sent ✓</span>}</div>}
             {demoSent && <div className="heroChatBubble assistantBubble demoAssistantReply"><span className="bubbleName">AMM SERVICE</span><span className="serviceReplyName">{demoService}</span><span className="assistantMessageMeta">LIVE WORKFLOW PREVIEW</span></div>}
             {demoTyping && !demoMessage && <div className="heroAutoTyping"><i/><i/><i/><small>Preparing message…</small></div>}
