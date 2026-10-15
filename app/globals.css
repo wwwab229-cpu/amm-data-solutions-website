@@ -127,3 +127,374 @@ footer{padding:30px max(6vw,26px) 18px;background:#f7f9fd;border-top:1px solid #
 .sceneCore{transform:translate(calc(-50% + var(--core-x)),calc(-50% + var(--core-y)));transition:transform .22s ease-out}
 .sceneNode{transform:translate3d(var(--node-x),var(--node-y),0);transition:transform .28s ease-out,box-shadow .3s,border-color .3s}
 @media(hover:none){.sceneCore{transition:none}.sceneNode{transition:none}}
+
+
+
+/* ─────────────────────────────────────────────────────────────
+   AMM / VISUAL SYSTEM 02 — editorial cinema, monochrome + signal yellow
+   Intentional replacement of the former blue-glass SaaS visual language.
+   ───────────────────────────────────────────────────────────── */
+:root{--ink:#151613;--muted:#696b63;--line:#d9d9d0;--paper:#f7f7f2;--blue:#151613;--blueLight:#d9d9d0;--yellow:#f5cf24;--navy:#11130f;--navy2:#20231b;--ease:cubic-bezier(.16,1,.3,1)}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',Arial,sans-serif}
+::selection{background:#f5cf24;color:#151613}
+.ammSite{background:var(--paper);color:var(--ink)}
+.siteNav{height:76px;padding-inline:clamp(20px,5.5vw,88px);background:rgba(247,247,242,.91);border-bottom:1px solid #15161319;backdrop-filter:blur(18px)}
+.brand img{filter:grayscale(1) contrast(1.2)}
+.navLinks{color:#66685f;gap:clamp(18px,2.8vw,42px);font-size:11px;letter-spacing:.01em}
+.navLinks a:hover{color:#000}
+.navCta{background:#f5cf24;color:#151613;border-radius:3px;padding:14px 18px;box-shadow:none}
+.navCta:hover{transform:translateY(-2px);box-shadow:5px 5px 0 #151613}
+.cinemaHero{min-height:min(850px,calc(100svh - 76px));padding:clamp(44px,6vw,86px) clamp(20px,5.5vw,88px) 0;grid-template-columns:minmax(0,.93fr) minmax(430px,1.07fr);gap:clamp(12px,2.6vw,40px);background:var(--paper)}
+.heroAtmosphereOne{width:700px;height:700px;right:-130px;top:-100px;background:radial-gradient(circle,#e7e4d8 0%,#efeee7 34%,transparent 70%);opacity:.9}
+.heroAtmosphereTwo{width:360px;height:360px;left:30%;bottom:-180px;background:radial-gradient(circle,#f5cf2440,transparent 72%)}
+.heroCopy{padding-bottom:75px;max-width:690px}
+.overline{color:#686a60;font-size:9px;letter-spacing:.19em;gap:12px}
+.overlineSignal{width:21px;height:4px;border-radius:0;background:#f5cf24}
+.overline>i{background:#77796f}
+.heroCopy h1{font-family:'Manrope',sans-serif;font-size:clamp(64px,8vw,122px);letter-spacing:-.105em;line-height:.83;margin:34px 0 31px;color:#151613;font-weight:800}
+.heroCopy h1 span{color:#151613}
+.heroCopy h1 span:after{height:10px;bottom:-11px;left:3%;right:2%;border-radius:0;background:#f5cf24;transform:rotate(-1deg)}
+.heroCopy>p{max-width:420px;color:#686a60;font-size:14px;line-height:1.9;margin-bottom:31px}
+.heroButtons{gap:24px}
+.buttonPrimary{border-radius:3px;background:#f5cf24;color:#151613;box-shadow:none;padding:16px 19px;min-height:51px}
+.buttonPrimary:hover{background:#ffdf4e;box-shadow:5px 5px 0 #151613;transform:translate(-2px,-2px)}
+.buttonText{color:#3b3d36}
+.buttonText span{color:#151613}
+.heroProof{gap:13px 20px;color:#7a7b72;font-size:9px;letter-spacing:.01em}
+.heroProof i{width:5px;height:5px;background:#f5cf24;border-radius:0;box-shadow:none}
+.heroScene{height:clamp(430px,49vw,650px);max-height:690px;perspective:1400px}
+.sceneGrid{opacity:.22;background-image:linear-gradient(#171813 1px,transparent 1px),linear-gradient(90deg,#171813 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(ellipse at center,#000 0%,transparent 73%);transform:perspective(650px) rotateX(61deg) rotateZ(-19deg) scale(1.22)}
+.sceneAura{width:82%;left:9%;top:7%;background:radial-gradient(circle at 48% 48%,#f5cf2455 0%,#dfddd3 25%,#f7f7f200 70%);filter:blur(8px)}
+.sceneOrbit{border-color:#2729204d}
+.sceneOrbitA{width:91%;height:48%;border-color:#20221a70;transform:translate(-50%,-50%) rotate(-30deg) rotateX(58deg)}
+.sceneOrbitB{width:73%;height:73%;border-color:#f5cf24;border-width:2px;transform:translate(-50%,-50%) rotate(48deg) rotateX(57deg)}
+.sceneOrbitC{width:100%;height:32%;border-color:#77796d85;border-style:solid}
+.sceneRing{border-color:#1516139c}
+.ringFront{width:74%;height:43%;box-shadow:none}
+.ringBack{width:59%;height:59%;border-color:#f5cf24}
+.sceneCore{width:clamp(190px,21vw,265px);top:46%;filter:drop-shadow(20px 27px 18px #18191218)}
+.coreGlass{width:79%;height:79%;gap:15px;border-radius:4px;border:1px solid #fff;background:linear-gradient(140deg,#2a2c24 0%,#11130f 63%,#282a22 100%);box-shadow:0 0 0 1px #171813,inset 0 1px 0 #ffffff30,inset 0 -25px 40px #0008;transform:rotateX(8deg) rotateY(-12deg)}
+.coreGlass:before{inset:-13px;border:1px solid #f5cf24;border-radius:2px;transform:translateZ(-16px);box-shadow:14px 14px 0 #15161312}
+.coreGlass:after{inset:10px;border:1px solid #ffffff20;border-radius:1px}
+.coreGlass img{filter:grayscale(1) brightness(0) invert(1);width:auto;max-width:84%}
+.coreGlass>span{color:#f5cf24;font-size:7px;letter-spacing:.2em}
+.coreLight{background:#f5cf24;opacity:.4;filter:blur(18px)}
+.sceneNode{min-width:140px;padding:13px 14px;border:1px solid #d5d5ca;border-radius:3px;background:#fbfbf7;box-shadow:7px 7px 0 #1516130b;backdrop-filter:none;animation:nodeDrift 7s ease-in-out infinite}
+.sceneNode small{color:#85867c;letter-spacing:.15em}
+.sceneNode b{color:#151613;font-size:11px}
+.sceneNode>i{color:#77796f}
+.nodeIcon{border-radius:2px;background:#f5cf24;color:#151613}
+.sceneNodeTwo .nodeIcon,.sceneNodeThree .nodeIcon,.sceneNodeFour .nodeIcon{background:#e7e7dd;color:#151613}
+.scenePath{background:linear-gradient(90deg,#15161300,#151613,#f5cf24,#15161300);opacity:.8}
+.scenePath span{background:#f5cf24;box-shadow:0 0 0 4px #f5cf2433}
+.sceneTag{color:#67695f;font-size:7px;letter-spacing:.18em}
+.sceneTag b{color:#151613}
+.sceneTag i{color:#151613}
+.sceneIndex{color:#77796f}
+.sceneIndex strong{color:#151613}
+.heroFooterLine{margin-inline:calc(clamp(20px,5.5vw,88px) * -1);padding:18px clamp(20px,5.5vw,88px);border-top:1px solid #15161320;color:#73756a;background:transparent;font-size:8px;letter-spacing:.16em}
+.heroFooterLine a{color:#151613}
+.heroFooterLine b{color:#151613}
+.introBand{padding:40px clamp(20px,8vw,130px);background:#f5cf24;color:#151613;grid-template-columns:auto 1fr auto;gap:30px}
+.introMark{font-family:Manrope,sans-serif;font-size:43px;font-weight:800;letter-spacing:-.1em}
+.introMark span{color:#fff}
+.introBand p{color:#35362e;font-size:15px;line-height:1.6}
+.introBand p strong{color:#151613}
+.introBandIndex{color:#55564c;font-size:8px;letter-spacing:.16em}
+.introBandIndex i{color:#151613}
+.storySection{background:#11130f;color:#f7f7f2}
+.storySticky{background:radial-gradient(ellipse at 77% 43%,#303328 0%,#1b1d16 33%,#11130f 74%);padding-inline:clamp(20px,7vw,110px)}
+.storySticky:before{opacity:.24;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);mask-image:linear-gradient(90deg,transparent,#000)}
+.overlineLight{color:#b6b7ab}
+.storyProgress{color:#aaa99d}
+.storyProgress>div{background:#42443a}
+.storyProgress>div i{background:#f5cf24}
+.storyProgress>b{color:#f5cf24}
+.storyChapter h2{color:#f7f7f2;font-family:Manrope,sans-serif;letter-spacing:-.075em;font-size:clamp(42px,5.4vw,75px);line-height:.98}
+.chapterNumber{color:#f5cf24}
+.storyChapter p{color:#b9baaf;line-height:1.9}
+.chapterMini{color:#e5e5d9}
+.miniSignal{background:#f5cf24;border-radius:0}
+.storyVisual{background:#171912;border:1px solid #ffffff22;border-radius:3px;box-shadow:18px 18px 0 #08090670}
+.storyVisual:before{background:radial-gradient(circle at 50% 48%,#f5cf241c,transparent 53%)}
+.storyVisualTop,.storyVisualBottom{color:#aaa99c}
+.storyVisualTop i{background:#f5cf24;box-shadow:0 0 0 4px #f5cf2425}
+.storyVisualBottom b{color:#f5cf24}
+.storyUniverse{background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px)}
+.universeOrbit{border-color:#ffffff28}
+.uo2{border-color:#f5cf2480}
+.uo3{border-color:#ffffff1c}
+.universeCore{background:linear-gradient(145deg,#292b23,#10120e);border:1px solid #f5cf24;border-radius:3px;box-shadow:0 20px 55px #0008}
+.universeCore:after{border:1px solid #ffffff26;border-radius:1px}
+.universeCore img{filter:grayscale(1) brightness(0) invert(1)}
+.universeCore small{color:#f5cf24}
+.universeNode{background:#25271f;border:1px solid #ffffff26;border-radius:2px;box-shadow:6px 6px 0 #0003}
+.universeNode span{color:#f5cf24}
+.universeNode b{color:#f4f3eb}
+.universeNode>i{background:#f5cf24}
+.universeConnections path{stroke:#f5cf24;stroke-opacity:.5}
+.universeBeam{background:#f5cf24}
+.storyFooter{color:#88897d;border-color:#ffffff20}
+.capabilitiesSection{padding:clamp(65px,9vw,125px) clamp(20px,5.5vw,88px);background:#f7f7f2}
+.sectionHeading h2,.aboutCopy h2,.deliveryStrip h2,.faqIntro h2{font-family:Manrope,sans-serif;color:#151613;letter-spacing:-.09em}
+.sectionHeading h2{font-size:clamp(48px,7vw,94px);line-height:.91}
+.sectionHeading h2 span{color:#85867b}
+.sectionHeading>p{color:#6c6d63;line-height:1.9;max-width:350px}
+.serviceControls>span{color:#6f7066}
+.serviceControls>span i{background:#f5cf24}
+.serviceControls button{background:transparent;border:1px solid #bfc0b5;color:#151613;border-radius:2px}
+.serviceControls button:hover{background:#f5cf24;border-color:#f5cf24}
+.capabilityCard{border:1px solid #d8d9cf;border-radius:3px;background:#fbfbf7;box-shadow:0 5px 0 #15161306}
+.capabilityCard:before{background:linear-gradient(120deg,#f1f0e8,#e9e8df)}
+.capabilityCard:after{border:1px solid #fff8;border-radius:0}
+.capabilityCard:hover{border-color:#151613;box-shadow:9px 9px 0 #151613}
+.capabilityCard:hover:after{border-color:#f5cf24}
+.toneblue,.toneviolet,.tonemint,.tonesky,.toneamber,.tonerose{--card-accent:#f5cf24}
+.cardTopline{color:#75766c}
+.cardOpen{border-radius:2px;background:#f5cf24;color:#151613}
+.artwork{border-radius:2px;background:#e8e8de;overflow:hidden}
+.artwork:after{background:linear-gradient(135deg,#ffffff50,transparent 48%,#15161305)}
+.artworkAutomation{background:radial-gradient(circle at 50% 50%,#f5cf24 0%,#deded2 38%,#e8e8de 70%)}
+.autoRail{background:#151613}
+.autoNode{background:#fbfbf7;border:1px solid #151613;border-radius:2px;color:#151613;box-shadow:4px 4px 0 #15161315}
+.autoNode.a2{background:#151613;color:#f5cf24}
+.autoPulse{background:#f5cf24;border-color:#151613}
+.autoLabel{color:#5f6056}
+.artworkWeb{background:#e5e5da}
+.browserFrame{border:1px solid #151613;background:#f7f7f2;border-radius:2px;box-shadow:8px 8px 0 #15161315}
+.browserTop{background:#deded3;border-bottom:1px solid #15161320}
+.browserTop i{background:#8e8f84}
+.browserTop span{color:#6e6f65}
+.browserContent{background:#f7f7f2}
+.browserCopy b{color:#151613}
+.browserCopy i{background:#d6d6c9}
+.browserCopy em{background:#f5cf24;color:#151613;border-radius:1px}
+.browserShape{background:#d7d7ca}
+.browserShape span{background:#f5cf24}
+.browserShape b{background:#a4a597}
+.browserFoot{border-top:1px solid #d8d8cd}
+.browserFoot i{background:#c5c6b9}
+.floatChip{background:#151613;color:#f5cf24;border-radius:2px;box-shadow:4px 4px 0 #15161316}
+.artworkData{background:#dfe0d4}
+.dataOrb{background:radial-gradient(circle at 35% 35%,#fff,#c7c8b8 45%,#9d9f8e 75%);box-shadow:inset -18px -20px 28px #15161318}
+.dataPanel{background:#171912;border:1px solid #3a3c30;border-radius:2px;box-shadow:8px 8px 0 #15161315}
+.dataPanel small{color:#a4a595}
+.dataPanel>b{color:#f7f7f2}
+.dataChart i,.dataChart i:nth-child(2n){background:#f5cf24}
+.dataLegend{color:#b4b5a8}.dataLegend i{background:#f5cf24}.dataLegend span{color:#f5cf24}
+.dataFloat{background:#f5cf24;color:#151613;border-radius:1px}
+.artworkSearch{background:#e4e4d9}
+.searchPlanet{background:radial-gradient(circle at 30% 25%,#fdfdf6,#bdbfb0 70%,#7f8273);box-shadow:inset -15px -15px 28px #1516131c}
+.searchLens{color:#151613}
+.searchOrbit{border-color:#15161366}.so2{border-color:#f5cf24}
+.searchResults{background:#fbfbf7;border:1px solid #d0d1c5;border-radius:2px;box-shadow:6px 6px 0 #1516130c}
+.searchResults small,.searchResults b{color:#696b60}
+.searchResults>i{background:#d6d7cb}.searchResults>i:nth-of-type(2){background:#f5cf24}.searchResults>i:nth-of-type(3){background:#c1c2b5}
+.searchDot{background:#f5cf24;border:1px solid #151613}
+.artworkMarketing{background:#e6e3d7}
+.campaignCard{background:#151613;border:1px solid #34362b;border-radius:2px;box-shadow:8px 8px 0 #15161316}
+.campaignHead{color:#c2c3b7}.campaignHead b{color:#f5cf24}
+.campaignGraphic{background:#f5cf24}
+.campaignGraphic span{color:#151613}
+.campaignGraphic i{background:#f7f7f2}
+.campaignMetrics{border-color:#414339}
+.campaignMetrics small{color:#a7a89b}.campaignMetrics b{color:#f7f7f2}
+.campaignToken{background:#f7f7f2;color:#151613;border:1px solid #151613;border-radius:2px}
+.ct2{background:#f5cf24}
+.artworkCreative{background:#e5e5da}
+.creativePlane{border:1px solid #151613;border-radius:2px;box-shadow:8px 8px 0 #15161310}
+.cp1{background:#f5cf24;color:#151613}
+.cp2{background:#151613;color:#f7f7f2}
+.cp3{background:#f7f7f2;color:#151613}
+.creativeSpark{color:#151613}
+.creativeCaption{color:#62645a}
+.cardContent h3{color:#151613;font-family:Manrope,sans-serif;letter-spacing:-.045em}
+.cardContent h4{color:#55574d}
+.cardContent p{color:#717268;line-height:1.8}
+.cardTags span{background:#efefe7;border:1px solid #e1e1d7;border-radius:1px;color:#64665b}
+.cardBottom{border-color:#d8d9cf;color:#77786e}
+.cardBottom b{color:#151613}
+.capabilityFoot{color:#7b7c72;border-color:#d8d9cf}
+.capabilityFoot b{color:#151613}
+.aboutSection{background:#f7f7f2}
+.aboutVisual{background:#e6e6dc}
+.aboutBlueprint{background:#d9dace;border:1px solid #c4c5b8;border-radius:2px}
+.aboutBlueprint>span:first-child{color:#5e6056}
+.blueprintGrid{background-image:linear-gradient(#15161312 1px,transparent 1px),linear-gradient(90deg,#15161312 1px,transparent 1px)}
+.aboutLogoHalo{border-color:#1516134d}
+.aboutLogoHalo:before,.aboutLogoHalo:after{border-color:#15161325}
+.aboutLogoHalo>div{background:#151613;border:1px solid #f5cf24;border-radius:2px;box-shadow:12px 12px 0 #15161315}
+.aboutLogoHalo img{filter:grayscale(1) brightness(0) invert(1)}
+.blueprintAxis{background:#1516134d}
+.blueprintCoord{color:#55574d}
+.blueprintLabel{background:#f5cf24;color:#151613;border-radius:1px}
+.aboutCopy h2 span{color:#7d7f73}
+.aboutCopy>p{color:#696b61;line-height:1.9}
+.aboutValues{border-color:#d8d9cf}
+.aboutValues span{color:#33352e}
+.aboutValues b{color:#85867b}
+.deliveryStrip{background:#e8e8de;border-block:1px solid #d2d3c7}
+.deliveryStrip h2{font-size:clamp(35px,4.4vw,58px)}
+.deliverySteps>div{border-left:1px solid #c7c8bb}
+.deliverySteps>div>span{color:#77796d}
+.deliverySteps b{color:#151613}
+.deliverySteps small{color:#6b6d62}
+.deliverySteps>i{color:#151613}
+.contactSection{background:#11130f;color:#f7f7f2}
+.contactAtmosphere{background:radial-gradient(ellipse at 27% 50%,#45452b 0%,#24261c 30%,#11130f 67%)}
+.contactOrb{border-color:#f5cf2470}
+.orbLarge{box-shadow:inset 0 0 60px #f5cf2410,0 0 90px #f5cf2410}
+.orbSmall{background:radial-gradient(circle at 30% 25%,#f5cf24,#8e7917 70%,#343318);box-shadow:0 25px 55px #0008}
+.contactBrandCore{background:#1a1c15;border:1px solid #f5cf24;border-radius:3px;box-shadow:14px 14px 0 #0005}
+.contactBrandCore img{filter:grayscale(1) brightness(0) invert(1)}
+.contactBrandCore span{color:#f5cf24}
+.contactOrbitDot{background:#f5cf24;box-shadow:0 0 0 5px #f5cf2425}
+.contactCopy h2{font-family:Manrope,sans-serif;letter-spacing:-.09em;font-size:clamp(48px,6.4vw,82px)}
+.contactCopy h2 span{color:#f5cf24}
+.contactCopy>p{color:#bdbeb2;line-height:1.9}
+.contactFootnote{color:#9a9b8e}
+.faqSection{background:#f7f7f2}
+.faqIntro h2 span{color:#f5cf24}
+.faqIntro p{color:#6b6d62}
+.faqItem{border-color:#d9d9cf}
+.faqQuestion{color:#151613}
+.faqQuestion i{border:1px solid #c9cabe;border-radius:2px;color:#151613}
+.faqOpen .faqQuestion i{background:#f5cf24;border-color:#f5cf24}
+.faqItem>p{color:#6c6e63;line-height:1.85}
+.siteFooter{background:#e8e8de;border-top:1px solid #d2d3c7}
+.footerMain>div:first-child p{color:#66685e}
+.footerLinks a,.footerLinks button{color:#4f5147}
+.footerLinks a:hover,.footerLinks button:hover{color:#151613}
+.footerSlogan{color:#151613}
+.footerSlogan span{color:#77796d}
+.footerSlogan i{color:#f5cf24}
+.footerBase{border-color:#c9cabe;color:#77796e}
+.contactBackdrop{background:#11130fba;backdrop-filter:blur(9px)}
+.contactDialog{background:#f7f7f2;border:1px solid #d5d5ca;border-radius:3px;box-shadow:14px 14px 0 #0005}
+.dialogClose{background:#e8e8de;color:#151613;border-radius:2px}
+.contactDialog h2{color:#151613;font-family:Manrope,sans-serif;letter-spacing:-.06em}
+.contactDialog>p{color:#6b6d62}
+.dialogOption{border-color:#d5d5ca;border-radius:2px}
+.dialogOption:hover{border-color:#151613;background:#eeeee5}
+.dialogIcon{background:#f5cf24;color:#151613;border-radius:2px}
+.dialogOption b{color:#151613}.dialogOption small{color:#77796d}.dialogOption strong{color:#151613}
+
+/* Service detail routes inherit the new editorial system without changing their content. */
+.nav{background:rgba(247,247,242,.92);border-color:#15161319}
+.navlinks{color:#66685f}.navlinks a:hover{color:#151613}
+.navcta{background:#f5cf24;color:#151613;border-radius:3px}
+.detailHero{background:radial-gradient(ellipse at 85% 12%,#e8e8de 0%,transparent 43%),linear-gradient(120deg,#f7f7f2,#efefe7)}
+.detailHero h1,.detailBody h2,.whiteLabelDetails h2{color:#151613}
+.detailHero h2{color:#66685f}
+.detailHero>p,.detailItem p,.whiteLabelDetails p{color:#686a60}
+.primary{background:#f5cf24;color:#151613;border-radius:3px;box-shadow:none}
+.detailOutcome{background:#11130f}
+.detailOutcome h2{color:#f7f7f2}
+.detailOutcome>p{color:#bdbeb2}
+.whiteLabelDetails{background:#e8e8de}
+.whiteLabelDetailsIcon{background:#f7f7f2;border-color:#d2d3c7;border-radius:3px;color:#151613;box-shadow:none}
+.detailItem>span{background:#f5cf24;color:#151613;border-radius:2px}
+footer{background:#e8e8de;border-color:#d2d3c7}
+.footerBottom{border-color:#c9cabe;color:#77796e}
+
+/* Responsive art direction and motion accessibility. */
+@media(max-width:1000px){
+ .cinemaHero{grid-template-columns:minmax(0,.92fr) minmax(350px,1.08fr);padding-inline:28px}
+ .heroCopy h1{font-size:clamp(60px,8vw,90px)}
+ .sceneNode{min-width:120px;padding:11px}
+ .sceneNode b{font-size:10px}
+ .introBand{padding-inline:32px}
+ .storySticky{padding-inline:35px}
+ .capabilitiesSection{padding-inline:28px}
+}
+@media(max-width:760px){
+ .siteNav{height:68px;padding-inline:20px}
+ .cinemaHero{min-height:auto;grid-template-columns:1fr;padding:55px 22px 0;gap:0}
+ .heroCopy{padding-bottom:0;max-width:100%}
+ .heroCopy h1{font-size:clamp(63px,12vw,94px);margin:28px 0}
+ .heroCopy>p{font-size:13px;max-width:490px}
+ .heroScene{height:clamp(390px,108vw,520px);width:100%;max-width:590px;margin:0 auto}
+ .sceneCore{width:clamp(170px,39vw,225px)}
+ .sceneNode{min-width:122px}
+ .sceneNodeOne{left:0;top:18%}.sceneNodeTwo{right:0;top:18%}.sceneNodeThree{left:0;bottom:15%}.sceneNodeFour{right:0;bottom:15%}
+ .heroFooterLine{margin-inline:-22px;padding:15px 22px;gap:12px;font-size:7px}
+ .introBand{grid-template-columns:auto 1fr;padding:27px 23px;gap:18px}
+ .introMark{font-size:34px}.introBand p{font-size:12px;margin:0}.introBandIndex{grid-column:2}
+ .storySticky{padding:36px 22px 24px}
+ .storyChapter h2{font-size:clamp(42px,8vw,62px)}
+ .storyGrid{gap:25px}
+ .storyVisual{min-height:350px}
+ .sectionHeading h2{font-size:clamp(48px,10vw,72px)}
+ .capabilitiesSection{padding:66px 22px}
+ .aboutSection{grid-template-columns:1fr}
+ .aboutVisual{min-height:360px}
+ .deliveryStrip{padding:42px 22px}
+ .deliverySteps{gap:12px}
+ .contactSection{padding:55px 22px}
+ .faqSection{padding:65px 22px}
+ .siteFooter{padding-inline:22px}
+}
+@media(max-width:520px){
+ .navLinks{gap:12px;font-size:10px}
+ .navLinks a:nth-child(3){display:none}
+ .navCta{padding:11px 12px;font-size:10px}
+ .brand img{width:120px}
+ .cinemaHero{padding-inline:17px}
+ .heroCopy h1{font-size:clamp(58px,13vw,76px);letter-spacing:-.105em}
+ .heroCopy>p{font-size:12px;line-height:1.8}
+ .heroButtons{gap:15px}
+ .buttonPrimary,.buttonText{font-size:10px}
+ .heroProof{font-size:8px;gap:10px 13px}
+ .heroScene{height:390px;margin-top:4px}
+ .sceneNode{min-width:108px;padding:9px 10px;grid-template-columns:22px 1fr;column-gap:7px}
+ .sceneNode small{font-size:6px}.sceneNode b{font-size:9px}.sceneNode>i{font-size:7px}
+ .nodeIcon{width:22px;height:22px;font-size:12px}
+ .sceneCore{width:165px}
+ .coreGlass img{max-width:78%}.coreGlass>span{font-size:6px}
+ .sceneTag{font-size:6px}.sceneTagA{left:4%;top:6%}.sceneTagB{right:1%;bottom:6%}
+ .sceneIndex{left:2%;bottom:2%;font-size:6px}
+ .heroFooterLine{margin-inline:-17px;padding-inline:17px;letter-spacing:.08em}
+ .heroFooterLine span:nth-child(2){display:none}
+ .introBand{padding:24px 17px;gap:12px}
+ .introMark{font-size:30px}.introBand p{font-size:11px}
+ .storySticky{padding-inline:17px}
+ .storyHeader{gap:15px}
+ .storyProgress{gap:9px}
+ .storyProgress>span{font-size:7px}
+ .storyGrid{grid-template-columns:1fr}
+ .storyVisual{min-height:315px}
+ .storyVisualTop,.storyVisualBottom{font-size:7px}
+ .universeNode{min-width:100px;padding:9px}
+ .universeNode b{font-size:9px}
+ .sectionHeading h2{font-size:49px}
+ .sectionHeading>p{font-size:12px}
+ .capabilitiesSection{padding-inline:17px}
+ .serviceControls>span{font-size:7px}
+ .capabilityCard{width:min(82vw,330px);flex-basis:min(82vw,330px)}
+ .artwork{height:205px}
+ .cardContent h3{font-size:21px}
+ .cardContent p{font-size:11px}
+ .aboutVisual{min-height:300px}
+ .aboutCopy h2{font-size:39px}
+ .deliveryStrip{padding-inline:17px}
+ .deliverySteps{gap:7px}
+ .deliverySteps>div{padding-left:8px}
+ .deliverySteps b{font-size:11px}.deliverySteps small{font-size:9px}
+ .deliverySteps>i{font-size:12px}
+ .contactSection{padding-inline:17px}
+ .contactVisual{min-height:300px}
+ .contactCopy h2{font-size:48px}
+ .faqSection{padding-inline:17px}
+ .faqIntro h2{font-size:44px}
+ .siteFooter{padding-inline:17px}
+ .footerMain{gap:25px}
+ .footerSlogan{font-size:36px}
+ .footerBase{font-size:7px;gap:10px}
+ .contactDialog{padding:26px 20px}
+ .contactDialog h2{font-size:32px}
+}
+@media(prefers-reduced-motion:reduce){
+ .heroScene,.sceneAura,.sceneOrbit,.sceneCore,.sceneNode,.scenePath span{animation:none!important}
+ .sceneCore,.sceneNode{transition:none!important}
+}
