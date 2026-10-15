@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AMMLogo from "../logo/AMMLogo";
 
 const services = [
@@ -37,6 +37,26 @@ function ServiceVisual({ type }: { type: string }) {
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
+  const [carouselPaused,setCarouselPaused]=useState(false);
+  const carouselRef=useRef<HTMLDivElement|null>(null);
+  useEffect(()=>{
+    const track=carouselRef.current;
+    if(!track || carouselPaused) return;
+    const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduceMotion) return;
+    const timer=window.setInterval(()=>{
+      if(track.matches(":hover") || track.contains(document.activeElement)) return;
+      const loopPoint=track.scrollWidth/2;
+      if(track.scrollLeft>=loopPoint-2) track.scrollLeft=0;
+      else track.scrollLeft+=0.65;
+    },30);
+    return ()=>window.clearInterval(timer);
+  },[carouselPaused]);
+  const moveCarousel=(direction:number)=>{
+    const track=carouselRef.current;
+    if(!track) return;
+    track.scrollBy({left:direction*Math.min(track.clientWidth*.72,380),behavior:"smooth"});
+  };
   return <main>
     <nav className="nav" aria-label="Main navigation">
       <Brand />
@@ -55,7 +75,7 @@ export default function Home() {
         <div className="heroSystemVisual" aria-label="Illustration of a business request moving through connected digital systems to a clear outcome">
           <div className="systemVisualHead"><span><i/> AMM SYSTEMS OVERVIEW</span><b>CONNECTED WORKFLOW <em>●</em></b></div>
           <div className="systemOrbit orbitOne"></div><div className="systemOrbit orbitTwo"></div>
-          <div className="systemCore"><div className="systemCoreMark">AMM<span>•</span></div><b>SMARTER<br/>SYSTEMS</b><small>CONNECTED BY PURPOSE</small></div>
+          <div className="systemCore"><div className="systemCoreMark"><AMMLogo height={27} /></div><b>SMARTER<br/>SYSTEMS</b><small>CONNECTED BY PURPOSE</small></div>
           <div className="systemNode nodeInput"><span className="systemNodeIcon">↳</span><small>01 / INPUT</small><b>Business need</b><i>Clear objective</i></div>
           <div className="systemNode nodeBuild"><span className="systemNodeIcon">⌘</span><small>02 / BUILD</small><b>Digital tools</b><i>Connected workflow</i></div>
           <div className="systemNode nodeOutcome"><span className="systemNodeIcon">↗</span><small>03 / OUTCOME</small><b>Useful results</b><i>Ready for review</i></div>
@@ -67,7 +87,12 @@ export default function Home() {
     </section>
     <section id="services" className="services section">
       <div className="sectionHead"><div><div className="eyebrow">OUR CAPABILITIES</div><h2>Six capabilities. One practical approach<span className="yellowDot">.</span></h2></div><p>Practical solutions across automation, websites, data, search visibility, marketing and creative work.</p></div>
-      <div className="serviceGrid">{services.map(s=><a className={`serviceCard serviceCard-${s.n}`} href={`/services/${s.slug}`} key={s.n}><div className="serviceCardTop"><span className="serviceNumber">CAPABILITY / {s.n}</span><span className="serviceArrow">↗</span></div><ServiceVisual type={s.visual}/><h3>{s.title}</h3><h4>{s.plain}</h4><p>{s.body}</p><ul>{s.examples.map(x=><li key={x}>{x}</li>)}</ul><div className="whiteLabelStrip"><span className="whiteLabelIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m11 17 2 2a2 2 0 0 0 3-3"/><path d="m14 14 2.5 2.5a2 2 0 0 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a2 2 0 0 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a2 2 0 0 0 2 .1L21 3"/><path d="M3 3 2 14l6.5 6.5a2 2 0 0 0 3-3"/><path d="M3 3h8l3 3"/><path d="m8 13 4 4"/></svg></span><span>WHITE-LABEL PARTNERSHIPS</span><span className="whiteLabelArrow" aria-hidden="true">↗</span></div><div className="cardLink">View capability <span>↗</span></div></a>)}</div>
+      <div className="serviceCarouselShell">
+        <div className="carouselControls"><span className="carouselHint"><i/> DRAG OR SCROLL TO EXPLORE</span><div><button type="button" aria-label="Previous services" onClick={()=>moveCarousel(-1)}>←</button><button type="button" aria-label="Next services" onClick={()=>moveCarousel(1)}>→</button><button type="button" aria-label={carouselPaused?"Resume automatic service carousel":"Pause automatic service carousel"} onClick={()=>setCarouselPaused(!carouselPaused)}>{carouselPaused?"▶":"Ⅱ"}</button></div></div>
+        <div className="serviceCarousel" ref={carouselRef} onMouseEnter={()=>{}} onFocusCapture={()=>setCarouselPaused(true)} onBlurCapture={(e)=>{if(!e.currentTarget.contains(e.relatedTarget as Node|null))setCarouselPaused(false)}} aria-label="AMM service capabilities carousel">
+          <div className="serviceTrack">{[0,1].map(copy=><div className="serviceTrackSet" key={copy} aria-hidden={copy===1?true:undefined}>{services.map(s=><a className={`serviceCard serviceCard-${s.n}`} href={`/services/${s.slug}`} key={s.n} tabIndex={copy===1?-1:undefined}><div className="serviceCardTop"><span className="serviceNumber">CAPABILITY / {s.n}</span><span className="serviceArrow">↗</span></div><ServiceVisual type={s.visual}/><h3>{s.title}</h3><h4>{s.plain}</h4><p>{s.body}</p><ul>{s.examples.map(x=><li key={x}>{x}</li>)}</ul><div className="whiteLabelStrip"><span className="whiteLabelIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m11 17 2 2a2 2 0 0 0 3-3"/><path d="m14 14 2.5 2.5a2 2 0 0 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a2 2 0 0 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a2 2 0 0 0 2 .1L21 3"/><path d="M3 3 2 14l6.5 6.5a2 2 0 0 0 3-3"/><path d="M3 3h8l3 3"/><path d="m8 13 4 4"/></svg></span><span>WHITE-LABEL PARTNERSHIPS</span><span className="whiteLabelArrow" aria-hidden="true">↗</span></div><div className="cardLink">View capability <span>↗</span></div></a>)}</div>)}</div>
+        </div>
+      </div>
     </section>
     <section id="how" className="how section"><div className="howIntro"><div className="eyebrow">A CLEAR DELIVERY MODEL</div><h2>Defined scope.<br/><span>Thoughtful execution.</span></h2><p>Every engagement has a clear objective, an agreed scope and a review before handover.</p><a className="textLink" href="#contact">Discuss your requirements <span>→</span></a></div><div className="processList">{process.map(p=><div className="processItem" key={p[0]}><span className="processNumber">{p[0]}</span><div><h3>{p[1]}</h3><p>{p[2]}</p></div><span className="processArrow">↗</span></div>)}</div></section>
     <section id="about" className="about section"><div className="aboutVisual"><div className="aboutLogoFrame"><AMMLogo className="ammAboutLogo" height={72} /></div><div className="aboutAccent">LET’S MAKE SOLUTIONS<span>●</span></div></div><div className="aboutCopy"><div className="eyebrow">ABOUT AMM DATA SOLUTIONS</div><h2>Business-minded thinking.<br/><span>Digital execution.</span></h2><p>AMM Data Solutions brings automation, digital systems, business information and creative services together under one practical delivery approach. We work with organizations that value clear communication, thoughtful scope and useful outcomes.</p><div className="aboutTags"><span>Pakistan-based</span><span>International inquiries welcome</span><span>Scope-led delivery</span></div></div></section>
