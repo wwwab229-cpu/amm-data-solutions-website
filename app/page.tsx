@@ -4,77 +4,78 @@ import { useState } from "react";
 import AMMLogo from "../logo/AMMLogo";
 
 const services = [
-  { n:"01", slug:"ai-automation-business-systems", title:"AI Automation & Business Systems", plain:"Less busywork. More control.", body:"Connect repetitive tasks, lead tracking and customer workflows so work moves forward with fewer manual steps.", examples:["Workflow automation","Lead capture and follow-up systems","Business process setup"], visual:"workflow" },
-  { n:"07", slug:"ai-chatbots-virtual-assistants", title:"AI Chatbots & Virtual Assistants", plain:"Helpful answers. More opportunities.", body:"Offer AI-powered assistants that answer business FAQs, guide website visitors, support shopping questions or help customers request appointments.", examples:["Website AI chatbots","Lead generation bots","E-commerce assistant bots","Appointment booking bots"], visual:"bots" },
-  { n:"02", slug:"website-ecommerce-solutions", title:"Web & E-commerce Solutions", plain:"A stronger digital front door.", body:"Build a clear, credible online presence that helps customers understand your offer and take action.", examples:["Business websites","Online stores and product catalogs","Landing pages and integrations"], visual:"web" },
-  { n:"03", slug:"data-analytics-business-intelligence", title:"Data Analytics & Reporting", plain:"Turn scattered data into clarity.", body:"Bring spreadsheets, reporting and business information into a format that supports better decisions.", examples:["Spreadsheet automation","Dashboards and recurring reports","Data cleaning and validation"], visual:"data" },
-  { n:"04", slug:"seo-ai-search-visibility", title:"SEO & AI Search Visibility", plain:"Make your business easier to discover.", body:"Improve the structure and content that helps search platforms understand your business.", examples:["Technical SEO checks","Content and structured data","Indexing and search visibility monitoring"], visual:"search" },
-  { n:"05", slug:"digital-marketing-creative-solutions", title:"Digital Marketing & Advertising", plain:"Campaigns built around clear goals.", body:"Plan and manage digital campaigns with suitable creative, conversion tracking and performance reporting.", examples:["Google Ads and Meta Ads","Social media marketing","Campaign tracking and reporting"], visual:"ads" },
-  { n:"06", slug:"creative-brand-solutions", title:"Creative & Brand Solutions", plain:"Creative that supports business goals.", body:"Create consistent visual assets that communicate your offer clearly across digital channels.", examples:["Social media and ad creatives","Brand assets and marketing graphics","Presentations and report design"], visual:"creative" },
+  { n:"01", slug:"ai-automation-business-systems", title:"AI Automation & Business Systems", line:"Make everyday work flow.", body:"Connect repetitive tasks, lead tracking and customer workflows so work moves forward with fewer manual steps.", examples:["Workflow automation","Lead capture and follow-up systems","Business process setup"], visual:"automation", size:"large" },
+  { n:"07", slug:"ai-chatbots-virtual-assistants", title:"AI Chatbots & Virtual Assistants", line:"Give every question a next step.", body:"AI-powered assistants that answer FAQs, guide visitors and help customers request appointments.", examples:["Website AI chatbots","Lead generation bots","Appointment booking bots"], visual:"assistant", size:"small" },
+  { n:"02", slug:"website-ecommerce-solutions", title:"Web & E-commerce Solutions", line:"A clearer digital front door.", body:"Build a credible online presence that helps customers understand your offer and take action.", examples:["Business websites","Online stores and catalogs","Landing pages and integrations"], visual:"web", size:"small" },
+  { n:"03", slug:"data-analytics-business-intelligence", title:"Data Analytics & Reporting", line:"See what matters sooner.", body:"Bring spreadsheets, reporting and business information into a format that supports better decisions.", examples:["Spreadsheet automation","Dashboards and recurring reports","Data cleaning and validation"], visual:"data", size:"small" },
+  { n:"04", slug:"seo-ai-search-visibility", title:"SEO & AI Search Visibility", line:"Be easier to discover.", body:"Improve the structure and content that helps search platforms understand your business.", examples:["Technical SEO checks","Content and structured data","Indexing and visibility monitoring"], visual:"search", size:"large" },
+  { n:"05", slug:"digital-marketing-creative-solutions", title:"Digital Marketing & Advertising", line:"Every campaign has a purpose.", body:"Plan and manage digital campaigns with suitable creative, conversion tracking and performance reporting.", examples:["Google Ads and Meta Ads","Social media marketing","Campaign tracking and reporting"], visual:"marketing", size:"small" },
+  { n:"06", slug:"creative-brand-solutions", title:"Creative & Brand Solutions", line:"Make the message land.", body:"Create consistent visual assets that communicate your offer clearly across digital channels.", examples:["Social media and ad creatives","Brand assets and marketing graphics","Presentations and report design"], visual:"creative", size:"small" },
 ];
-const process = [
-  ["01","Understand the objective","We clarify the business goal, current process and what a useful result should look like."],
-  ["02","Scope the right solution","We agree on deliverables, tools, timeline and responsibilities before work begins."],
-  ["03","Build, review and hand over","We review the output with you and explain how to use the delivered solution."],
+
+const steps = [
+  { n:"01", title:"Understand", text:"We start with your business objective, current process and the outcome you need." },
+  { n:"02", title:"Shape the solution", text:"We agree the deliverables, tools, timeline and responsibilities before work begins." },
+  { n:"03", title:"Build & review", text:"We share progress, review the result with you and explain the handover." },
 ];
-const faqs = [
-  ["What does AMM Data Solutions do?","We deliver digital systems and creative services across AI chatbots, automation, websites, business data, search visibility, lead generation and marketing."],
-  ["Do you work with businesses outside Pakistan?","Yes. We welcome inquiries from Pakistan and international markets. Scope, timeline and working arrangements are agreed for each project."],
-  ["How much does a project cost?","Pricing depends on the scope and requirements. Share what you need and we can discuss a practical scope before quoting."],
-];
+
 function Brand({ footer=false }: { footer?: boolean }) {
-  return <a className={footer ? "brand footerBrand" : "brand"} href="/" aria-label="AMM Data Solutions home"><AMMLogo height={38} /></a>;
+  return <a className={footer ? "brand brandFooter" : "brand"} href="/" aria-label="AMM Data Solutions home"><AMMLogo height={38} /></a>;
 }
-function ServiceVisual({ type }: { type: string }) {
-  if (type === "workflow") return <div className="serviceVisual visualWorkflow"><span>REQUEST</span><i>→</i><span>PROCESS</span><i>→</i><b>RESULT</b></div>;
-  if (type === "bots") return <div className="serviceVisual visualWorkflow"><span>ASK</span><i>→</i><span>AI BOT</span><i>→</i><b>NEXT STEP</b></div>;
-  if (type === "web") return <div className="serviceVisual visualWeb"><div className="webBar"><i/><i/><i/></div><div className="webHeroLine"/><div className="webHeroLine short"/><div className="webButton"/><div className="webBlocks"><i/><i/><i/></div></div>;
-  if (type === "data") return <div className="serviceVisual visualData"><div className="dataMetric"><small>OVERVIEW</small><b>Clearer signals</b></div><div className="dataBars"><i/><i/><i/><i/><i/><i/><i/></div></div>;
-  if (type === "search") return <div className="serviceVisual visualSearch"><span className="searchRing">⌕</span><div><b>DISCOVERABILITY</b><i/><i/><i/></div></div>;
-  if (type === "leads") return <div className="serviceVisual visualLeads"><div><i/> Prospect identified</div><div><i/> Follow-up planned</div><div><i/> Next step tracked</div></div>;
-  if (type === "ads") return <div className="serviceVisual visualAds"><div className="adsTop"><span>CAMPAIGN PERFORMANCE</span><b>↗</b></div><div className="adsMetrics"><div><small>REACH</small><i/><i/><i/></div><div><small>CONVERSIONS</small><strong>Goal-led</strong><span>Track · Learn · Improve</span></div></div><div className="adsPlatforms"><b>Google Ads</b><b>Meta Ads</b><span>AI-assisted</span></div></div>;
-  return <div className="serviceVisual visualCreative"><div className="creativeTile one">A</div><div className="creativeTile two">AMM</div><div className="creativeTile three">IDEA<br/>→ IMPACT</div></div>;
+function ServiceArt({ type }: { type: string }) {
+  if(type==="automation") return <div className="art artAutomation" aria-hidden="true"><div className="automationLine lineA"/><div className="automationLine lineB"/><div className="automationNode nA"><span>01</span><b>INPUT</b></div><div className="automationNode nB"><span>02</span><b>PROCESS</b></div><div className="automationNode nC"><span>03</span><b>OUTCOME</b></div><div className="automationCore">AMM<i>↗</i></div><div className="artCaption">CONNECTED WORKFLOW <span>● LIVE CONCEPT</span></div></div>;
+  if(type==="assistant") return <div className="art artAssistant" aria-hidden="true"><div className="chatOrb">✳</div><div className="chatPill pillOne">How can I help?</div><div className="chatPill pillTwo">Find the right next step <b>↗</b></div><div className="chatDot"/></div>;
+  if(type==="web") return <div className="art artWeb" aria-hidden="true"><div className="browserFrame"><div className="browserTop"><i/><i/><i/><span>YOUR BUSINESS ONLINE</span></div><div className="browserContent"><div className="browserCopy"><b>Built for<br/>your next move.</b><i/><i/><em>EXPLORE ↗</em></div><div className="browserShape"><span/><b>AMM</b></div></div></div></div>;
+  if(type==="data") return <div className="art artData" aria-hidden="true"><div className="dataChartLabel">BUSINESS SNAPSHOT <span>↗</span></div><div className="dataBars">{[32,50,42,70,56,88,66,100].map((v,i)=><i key={i} style={{height:v+"%"}}/>)}</div><div className="dataBaseline"><span>INPUTS</span><b>→</b><span>INSIGHT</span><b>→</b><span>ACTION</span></div></div>;
+  if(type==="search") return <div className="art artSearch" aria-hidden="true"><div className="searchLens"><i/><i/><i/></div><div className="searchResult srOne"><b>YOUR BUSINESS</b><span>Clear, relevant information</span><em>VISIBLE</em></div><div className="searchResult srTwo"><b>AI SEARCH</b><span>Structured context</span><em>UNDERSTOOD</em></div><div className="searchOrbit"/></div>;
+  if(type==="marketing") return <div className="art artMarketing" aria-hidden="true"><div className="campaignCard"><span>CAMPAIGN / 01</span><b>Reach the<br/><i>right people.</i></b><div className="campaignMetrics"><div><small>CREATIVE</small><strong>01</strong></div><div><small>TRACKING</small><strong>↗</strong></div><div><small>LEARNING</small><strong>02</strong></div></div></div></div>;
+  return <div className="art artCreative" aria-hidden="true"><div className="creativeShape shapeOne">A</div><div className="creativeShape shapeTwo">IDEA<br/>→ IMPACT</div><div className="creativeShape shapeThree">AMM<span>®</span></div></div>;
 }
+
 export default function Home() {
-  const [openFaq,setOpenFaq]=useState<number|null>(null);
-  const [contactOpen,setContactOpen]=useState(false);
-  return <main>
-    <nav className="nav" aria-label="Main navigation">
-      <Brand />
-      <div className="navlinks"><a href="#services">Capabilities</a><a href="#how">Our approach</a><a href="#about">About AMM</a></div>
-      <button className="navcta" type="button" onClick={()=>setContactOpen(true)}>Discuss a project <span>↗</span></button>
-    </nav>
-    <section className="hero heroPremium">
-      <div className="heroPremiumInner">
-        <div className="heroInner">
-          <div className="eyebrow"><span className="eyebrowLine"/> AMM DATA SOLUTIONS · LET’S MAKE SOLUTIONS</div>
-          <h1>We Turn Business Challenges Into <span>Smarter Digital Systems.</span></h1>
-          <p className="heroText">From AI automation and business data to websites, SEO and digital marketing — we build practical solutions that help businesses move forward.</p>
-          <div className="heroActions"><a className="primary" href="#services">Explore Our Solutions <span>↗</span></a><a className="textLink" href="#contact">Discuss a Project <span>→</span></a></div>
-          <div className="heroMeta"><span><i/> Clear scope and deliverables</span><span><i/> Pakistan and international projects</span></div>
-        </div>
-        <div className="heroSystemVisual" aria-label="Illustration of a business request moving through connected digital systems to a clear outcome">
-          <div className="systemVisualHead"><span><i/> AMM SYSTEMS OVERVIEW</span><b>CONNECTED WORKFLOW <em>●</em></b></div>
-          <div className="systemOrbit orbitOne"></div><div className="systemOrbit orbitTwo"></div>
-          <div className="systemCore"><div className="systemCoreMark">AMM<span>•</span></div><b>SMARTER<br/>SYSTEMS</b><small>CONNECTED BY PURPOSE</small></div>
-          <div className="systemNode nodeInput"><span className="systemNodeIcon">↳</span><small>01 / INPUT</small><b>Business need</b><i>Clear objective</i></div>
-          <div className="systemNode nodeBuild"><span className="systemNodeIcon">⌘</span><small>02 / BUILD</small><b>Digital tools</b><i>Connected workflow</i></div>
-          <div className="systemNode nodeOutcome"><span className="systemNodeIcon">↗</span><small>03 / OUTCOME</small><b>Useful results</b><i>Ready for review</i></div>
-          <div className="systemConnector connectorOne"><span/></div><div className="systemConnector connectorTwo"><span/></div>
-          <div className="systemVisualFoot"><span><i/> OBJECTIVE-LED</span><span>DESIGN <b>→</b> BUILD <b>→</b> REVIEW</span></div>
-        </div>
-      </div>
-      <div className="heroBottomLine"><span>AMM DATA SOLUTIONS</span><span>LET’S MAKE SOLUTIONS</span><span>BUILT AROUND YOUR OBJECTIVE ↓</span></div>
-    </section>
-    <section id="services" className="services section">
-      <div className="sectionHead"><div><div className="eyebrow">OUR CAPABILITIES</div><h2>Seven capabilities. One practical approach<span className="yellowDot">.</span></h2></div><p>Practical solutions across automation, AI chatbots, websites, data, search visibility, marketing and creative work.</p></div>
-      <div className="serviceGrid">{services.map(s=><a className={`serviceCard serviceCard-${s.n}`} href={`/services/${s.slug}`} key={s.n}><div className="serviceCardTop"><span className="serviceNumber">CAPABILITY / {s.n}</span><span className="serviceArrow">↗</span></div><ServiceVisual type={s.visual}/><h3>{s.title}</h3><h4>{s.plain}</h4><p>{s.body}</p><ul>{s.examples.map(x=><li key={x}>{x}</li>)}</ul><div className="whiteLabelStrip"><span className="whiteLabelIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m11 17 2 2a2 2 0 0 0 3-3"/><path d="m14 14 2.5 2.5a2 2 0 0 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a2 2 0 0 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a2 2 0 0 0 2 .1L21 3"/><path d="M3 3 2 14l6.5 6.5a2 2 0 0 0 3-3"/><path d="M3 3h8l3 3"/><path d="m8 13 4 4"/></svg></span><span>WHITE-LABEL PARTNERSHIPS</span><span className="whiteLabelArrow" aria-hidden="true">↗</span></div><div className="cardLink">View capability <span>↗</span></div></a>)}</div>
-    </section>
-    <section id="how" className="how section"><div className="howIntro"><div className="eyebrow">A CLEAR DELIVERY MODEL</div><h2>Defined scope.<br/><span>Thoughtful execution.</span></h2><p>Every engagement has a clear objective, an agreed scope and a review before handover.</p><a className="textLink" href="#contact">Discuss your requirements <span>→</span></a></div><div className="processList">{process.map(p=><div className="processItem" key={p[0]}><span className="processNumber">{p[0]}</span><div><h3>{p[1]}</h3><p>{p[2]}</p></div><span className="processArrow">↗</span></div>)}</div></section>
-    <section id="about" className="about section"><div className="aboutVisual"><div className="aboutLogoFrame"><AMMLogo className="ammAboutLogo" height={72} /></div><div className="aboutAccent">LET’S MAKE SOLUTIONS<span>●</span></div></div><div className="aboutCopy"><div className="eyebrow">ABOUT AMM DATA SOLUTIONS</div><h2>Business-minded thinking.<br/><span>Digital execution.</span></h2><p>AMM Data Solutions brings automation, digital systems, business information and creative services together under one practical delivery approach. We work with organizations that value clear communication, thoughtful scope and useful outcomes.</p><div className="aboutTags"><span>Pakistan-based</span><span>International inquiries welcome</span><span>Scope-led delivery</span></div></div></section>
-    <section id="contact" className="contact section"><div className="contactGlow"></div><div className="contactInner"><div className="eyebrow"><span className="eyebrowLine"/> START WITH THE BUSINESS OBJECTIVE</div><h2>What needs to work<br/><span>better?</span></h2><p>Share the challenge, goal or idea. We’ll help clarify a sensible next step and the scope it may require.</p><a className="primary" href="mailto:ammdatasolutions229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions">Discuss your project <span>↗</span></a><a className="contactEmail" href="mailto:ammdatasolutions229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions">Email AMM Data Solutions</a></div></section>
-    <section className="faq section"><div><div className="eyebrow">GOOD TO KNOW</div><h2>Before we begin<span className="yellowDot">.</span></h2></div><div className="faqList">{faqs.map((f,i)=><div className="faqItem" key={f[0]}><button className="faqQuestion" aria-expanded={openFaq===i} onClick={()=>setOpenFaq(openFaq===i?null:i)}>{f[0]}<span>{openFaq===i?"−":"+"}</span></button>{openFaq===i&&<p>{f[1]}</p>}</div>)}</div></section>
-    <footer><div className="footerTop"><Brand footer/><p>Digital systems, business intelligence and creative execution.</p><a className="footerContact" href="#contact">Discuss a project ↗</a></div><div className="footerBottom"><span>© 2026 AMM Data Solutions</span><span>Automation · Websites · Data · SEO · Marketing · Creative</span><span>Pakistan and worldwide</span></div></footer>
-    {contactOpen && <div className="contactModalBackdrop" onClick={()=>setContactOpen(false)}><section className="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" onClick={e=>e.stopPropagation()}><button className="modalClose" type="button" aria-label="Close contact options" onClick={()=>setContactOpen(false)}>×</button><div className="eyebrow"><span className="eyebrowLine"/> GET IN TOUCH</div><h2 id="contactModalTitle">How would you like to connect?</h2><p>Choose the contact channel that works best for you.</p><a className="contactOption" href="mailto:ammdatasolutions229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions"><span className="contactOptionIcon">@</span><span><b>Email</b><small>Send a project inquiry directly</small></span><strong>→</strong></a><a className="contactOption" href="https://www.linkedin.com/in/abdullah-mumtaz-malik-975a93240/" target="_blank" rel="noreferrer"><span className="contactOptionIcon">in</span><span><b>LinkedIn</b><small>Connect professionally</small></span><strong>→</strong></a></section></div>}
-  </main>;
+ const [mobileOpen,setMobileOpen]=useState(false);
+ const [openStep,setOpenStep]=useState("01");
+ return <main className="newSite">
+  <a className="skipLink" href="#capabilities">Skip to capabilities</a>
+  <header className="siteHeader">
+   <Brand/>
+   <button className="menuToggle" aria-label={mobileOpen?"Close navigation":"Open navigation"} aria-expanded={mobileOpen} onClick={()=>setMobileOpen(!mobileOpen)}><span/><span/></button>
+   <nav className={mobileOpen?"siteNav navVisible": "siteNav"} aria-label="Main navigation">
+    <a href="#capabilities" onClick={()=>setMobileOpen(false)}>Capabilities</a><a href="#approach" onClick={()=>setMobileOpen(false)}>Approach</a><a href="#about" onClick={()=>setMobileOpen(false)}>About</a><a className="navContact" href="#contact" onClick={()=>setMobileOpen(false)}>Start a conversation <span>↗</span></a>
+   </nav>
+  </header>
+  <section className="newHero">
+   <div className="heroGridLines" aria-hidden="true"/>
+   <div className="heroCopy">
+    <div className="eyebrow"><span/> AMM DATA SOLUTIONS <b>—</b> LET’S MAKE SOLUTIONS</div>
+    <h1>Good ideas.<br/><span>Better systems.</span></h1>
+    <p>We turn repetitive business work into smart, organized and automated systems — and build the digital experiences around them.</p>
+    <div className="heroButtons"><a className="buttonPrimary" href="#capabilities">Explore what we do <span>↗</span></a><a className="buttonQuiet" href="#contact">Talk through a project <span>→</span></a></div>
+    <div className="heroFootnote"><span>01 / STRATEGY</span><span>02 / DIGITAL BUILD</span><span>03 / BETTER FLOW</span></div>
+   </div>
+   <div className="heroStage" aria-label="Abstract connected digital system concept">
+    <div className="stageTop"><span>AMM / SYSTEM MAP</span><span><i/> CONCEPT IN MOTION</span></div>
+    <div className="stageBackdrop"/><div className="stageRing ringA"/><div className="stageRing ringB"/><div className="stageRing ringC"/>
+    <div className="stagePlane planeBack"/><div className="stagePlane planeFront"/>
+    <div className="stageHub"><div className="hubLogo">AMM<span>.</span></div><small>DATA SOLUTIONS</small><b>Make work<br/>move forward.</b></div>
+    <div className="stageModule moduleA"><small>01 / INPUT</small><b>Business goal</b><span>Clear direction <i>↗</i></span></div>
+    <div className="stageModule moduleB"><small>02 / CONNECT</small><b>Smart workflow</b><span>Less friction <i>↗</i></span></div>
+    <div className="stageModule moduleC"><small>03 / OUTPUT</small><b>Useful outcome</b><span>Ready to review <i>↗</i></span></div>
+    <svg className="stageConnections" viewBox="0 0 600 540" fill="none" aria-hidden="true"><path d="M120 150 C180 150 170 235 255 245"/><path d="M470 150 C415 150 430 235 345 245"/><path d="M300 310 C300 365 225 375 180 420"/><path d="M300 310 C300 365 380 375 425 420"/><circle cx="120" cy="150" r="4"/><circle cx="470" cy="150" r="4"/><circle cx="180" cy="420" r="4"/><circle cx="425" cy="420" r="4"/></svg>
+    <div className="stageBottom"><span>OBJECTIVE-LED DELIVERY</span><span>DESIGN <b>→</b> BUILD <b>→</b> REVIEW</span></div>
+   </div>
+   <div className="heroSideLabel">DIGITAL SOLUTIONS / 2026</div>
+  </section>
+  <div className="trustRibbon"><span>BUILT AROUND REAL BUSINESS NEEDS</span><b>AI & AUTOMATION</b><i>✳</i><b>DATA & INSIGHT</b><i>✳</i><b>SEARCH & GROWTH</b><i>✳</i><b>CREATIVE EXECUTION</b></div>
+  <section className="introBand"><div className="introIndex">AMM / 001</div><p>Not more digital noise.<br/><span>Just solutions that make work clearer.</span></p><div className="introSide">PRACTICAL THINKING<br/>MEASURABLE PURPOSE</div></section>
+  <section id="capabilities" className="capabilitiesSection">
+   <div className="sectionHeading"><div><div className="eyebrow"><span/> WHAT WE BRING TO THE TABLE</div><h2>One partner.<br/><span>Connected capabilities.</span></h2></div><p>Choose a focused service or bring us a bigger challenge. We’ll shape the work around the goal, not the other way around.</p></div>
+   <div className="capabilityGrid">{services.map((s,i)=><a href={`/services/${s.slug}`} key={s.n} className={`capabilityCard card-${s.visual} ${s.size==="large"?"cardLarge":""}`}><div className="cardMeta"><span>CAPABILITY / {s.n}</span><span className="cardArrow">↗</span></div><ServiceArt type={s.visual}/><div className="cardCopy"><h3>{s.title}</h3><h4>{s.line}</h4><p>{s.body}</p><ul>{s.examples.map(x=><li key={x}>{x}</li>)}</ul><div className="cardBottom"><span>EXPLORE SERVICE</span><b>↗</b></div></div></a>)}</div>
+   <div className="partnerNote"><span className="partnerMark">↗</span><p><b>For agencies & delivery partners</b><br/>Ask us about white-label collaboration for suitable projects.</p><a href="#contact">Explore partnership <span>→</span></a></div>
+  </section>
+  <section id="approach" className="approachSection"><div className="approachHeader"><div><div className="eyebrow"><span/> HOW WE WORK</div><h2>Clear from the<br/><span>first conversation.</span></h2></div><p>No vague process or surprise scope. We agree what matters, build with purpose and review the result together.</p></div><div className="approachSteps">{steps.map(s=><button key={s.n} className={openStep===s.n?"approachStep stepOpen":"approachStep"} onClick={()=>setOpenStep(openStep===s.n?"":s.n)} aria-expanded={openStep===s.n}><span className="stepNumber">{s.n}</span><span className="stepContent"><b>{s.title}</b>{openStep===s.n&&<span className="stepDescription">{s.text}</span>}</span><span className="stepSymbol">{openStep===s.n?"−":"+"}</span></button>)}</div></section>
+  <section id="about" className="aboutSection"><div className="aboutIndex">AMM<br/><span>DATA SOLUTIONS</span></div><div className="aboutMain"><div className="eyebrow"><span/> THE THINKING BEHIND THE WORK</div><h2>Business-minded.<br/><span>Technology-enabled.</span></h2><p>AMM Data Solutions brings automation, business information, websites, search visibility and creative execution together under one practical delivery approach. We work with businesses in Pakistan and welcome international inquiries.</p><div className="aboutFacts"><div><b>01</b><span>Clear scope</span></div><div><b>02</b><span>Useful outcomes</span></div><div><b>03</b><span>Thoughtful handover</span></div></div></div><div className="aboutStamp"><AMMLogo height={58}/><span>LET’S MAKE SOLUTIONS</span></div></section>
+  <section id="contact" className="contactSection"><div className="contactPattern" aria-hidden="true"/><div className="contactLeft"><div className="eyebrow"><span/> YOUR NEXT STEP STARTS HERE</div><h2>What could work<br/><i>better?</i></h2></div><div className="contactRight"><p>Tell us the goal, the bottleneck or the idea you want to move forward. We’ll start with a clear conversation about scope and next steps.</p><a className="contactButton" href="mailto:ammdatasolutions229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions">Start a project conversation <span>↗</span></a><div className="contactChannels"><a href="mailto:ammdatasolutions229@gmail.com?subject=Project%20inquiry%20-%20AMM%20Data%20Solutions">Email AMM <span>↗</span></a><a href="https://www.linkedin.com/in/abdullah-mumtaz-malik-975a93240/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div></div></section>
+  <footer className="newFooter"><div className="footerTop"><Brand footer/><p>Smart systems. Clear communication. Creative execution.</p><a href="#top" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:"smooth"})}}>Back to top ↑</a></div><div className="footerBottom"><span>© 2026 AMM Data Solutions</span><span>Automation · Web · Data · SEO · Marketing · Creative</span><span>Pakistan / Worldwide</span></div></footer>
+ </main>;
 }
