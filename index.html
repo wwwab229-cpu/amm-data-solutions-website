@@ -224,6 +224,34 @@ body.motion-ready .content-panel.is-visible{opacity:1;transform:translateY(0) ro
 .site-footer{color:#9ba9b5;text-align:center;font-size:11px;padding:12px 0 8px}
 @media(max-width:720px){.site-content{padding:0 16px 36px}.service-grid{grid-template-columns:1fr 1fr;gap:10px}.service-option{padding:16px;min-height:175px}.service-option h3{font-size:14px}.service-detail{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.content-panel{border-radius:18px}}
 @media(max-width:420px){.service-grid{grid-template-columns:1fr}.service-option{min-height:unset}}
+
+.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.info-card{min-height:170px;border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:22px;background:linear-gradient(145deg,rgba(18,39,54,.72),rgba(4,10,18,.8));position:relative;overflow:hidden}
+.info-card:before{content:"";position:absolute;left:-20%;right:-20%;bottom:-55%;height:140px;background:radial-gradient(ellipse,rgba(93,227,243,.13),transparent 68%);pointer-events:none}
+.info-index{font-size:10px;letter-spacing:.16em;color:#ffc107}
+.info-card h3{font-size:17px;line-height:1.3;margin:17px 0 9px}
+.info-card p{font-size:12px;line-height:1.7;color:#bdc7d0}
+.capability-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.capability{border:1px solid rgba(93,227,243,.15);background:rgba(255,255,255,.025);border-radius:12px;padding:14px 16px;color:#d8e2e9;font-size:12px;line-height:1.6}
+.capability strong{display:block;color:#fff;font-size:13px;margin-bottom:4px}
+.faq-list{display:grid;gap:10px;margin-top:22px}
+.faq-item{border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(255,255,255,.025);padding:16px 18px}
+.faq-item summary{cursor:pointer;font-weight:600;font-size:13px;color:#fff}
+.faq-item p{font-size:12px;line-height:1.75;color:#bdc7d0;margin-top:10px;max-width:820px}
+.contact-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}
+.contact-points{display:grid;gap:10px;margin-top:18px}
+.contact-point{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px;background:rgba(255,255,255,.025)}
+.contact-point i{font-style:normal;color:#5de3f3;font-size:14px}
+.contact-point b{display:block;font-size:12px;margin-bottom:3px}
+.contact-point span{display:block;color:#bdc7d0;font-size:11px;line-height:1.6}
+.contact-actions{border:1px solid rgba(93,227,243,.2);border-radius:16px;padding:22px;background:linear-gradient(145deg,rgba(12,38,52,.65),rgba(4,10,18,.8))}
+.contact-actions h3{font-size:19px;line-height:1.35;margin-bottom:8px}
+.contact-actions p{font-size:12px;line-height:1.7;color:#bdc7d0}
+.content-cta.secondary{background:transparent;border:1px solid rgba(93,227,243,.42);color:#d9faff;margin-left:8px}
+.site-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 2px 8px;text-align:left}
+.site-footer a{color:#d9faff}
+@media(max-width:720px){.info-grid{grid-template-columns:1fr}.info-card{min-height:unset}.capability-list{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr}.site-footer{justify-content:center;text-align:center}}
+
 </style>
 <main class="site-content" id="services">
  <div class="content-wrap">
@@ -254,10 +282,53 @@ body.motion-ready .content-panel.is-visible{opacity:1;transform:translateY(0) ro
    <p class="section-copy">We start with the business need, shape a suitable solution, then review the approach with you before moving into implementation.</p>
    <div class="process-grid"><div class="process-step"><b>01 · Understand</b><span>Clarify the goal, current process and main bottleneck.</span></div><div class="process-step"><b>02 · Plan</b><span>Map a practical solution, scope and delivery approach.</span></div><div class="process-step"><b>03 · Build &amp; refine</b><span>Review the work together and refine the outcome against the agreed need.</span></div></div>
   </section>
-  <section class="content-panel" id="contact"><div class="section-kicker">Start a conversation</div><h2 class="section-title">Let’s find the right solution.</h2><p class="section-copy">Tell us what you want to improve. We’ll help identify a sensible next step for your business.</p><a class="content-cta" href="mailto:ammdatasolutions229@gmail.com">Let’s talk with AMM ↗</a></section>
-  <div class="site-footer">AMM Data Solutions · Let’s Make Solutions</div>
- </div>
-</main>
+
+  <section class="content-panel" id="benefits">
+   <div class="section-kicker">Designed for real work</div><h2 class="section-title">Useful systems, not extra complexity.</h2>
+   <p class="section-copy">AMM focuses on practical improvements that fit the way your business operates — connecting the right tools, simplifying repeat tasks and making digital work easier to manage.</p>
+   <div class="info-grid">
+    <article class="info-card"><span class="info-index">01 / CLARITY</span><h3>Less manual repetition</h3><p>Identify repeatable tasks and create more consistent workflows for everyday operations.</p></article>
+    <article class="info-card"><span class="info-index">02 / CONNECTION</span><h3>Better-connected tools</h3><p>Bring forms, spreadsheets, customer inquiries and reporting into a more organized process where appropriate.</p></article>
+    <article class="info-card"><span class="info-index">03 / VISIBILITY</span><h3>Clearer digital presence</h3><p>Strengthen your website, search foundations and customer-facing creative across key touchpoints.</p></article>
+   </div>
+  </section>
+  <section class="content-panel" id="visibility">
+   <div class="section-kicker">Search visibility</div><h2 class="section-title">Help customers discover your business.</h2>
+   <p class="section-copy">Search work starts with a strong website foundation, then improves how your pages are understood by search engines and AI-powered discovery experiences. Results depend on competition, site condition and ongoing work; no rankings are guaranteed.</p>
+   <div class="capability-list">
+    <div class="capability"><strong>Google SEO</strong>Technical checks, page structure, titles, metadata and on-page improvements.</div>
+    <div class="capability"><strong>Technical SEO</strong>Indexing, crawlability, internal links, mobile usability and structured data checks.</div>
+    <div class="capability"><strong>AI search visibility</strong>Clear, useful content designed to be understandable across evolving AI-assisted search experiences.</div>
+    <div class="capability"><strong>SEO reporting</strong>Track relevant search visibility and identify practical next steps as data becomes available.</div>
+   </div><a class="content-cta" href="mailto:ammdatasolutions229@gmail.com?subject=Search%20Visibility%20Inquiry">Discuss SEO &amp; AI search ↗</a>
+  </section>
+  <section class="content-panel" id="fit">
+   <div class="section-kicker">Who we support</div><h2 class="section-title">Solutions shaped around your stage of growth.</h2>
+   <p class="section-copy">AMM works toward practical digital and operational improvements for businesses that want to get more organized, improve customer touchpoints or build a stronger online presence.</p>
+   <div class="info-grid">
+    <article class="info-card"><span class="info-index">SMALL BUSINESS</span><h3>Organize everyday operations</h3><p>Reduce avoidable manual work and create repeatable processes.</p></article>
+    <article class="info-card"><span class="info-index">STARTUPS &amp; AGENCIES</span><h3>Build a reliable foundation</h3><p>Connect digital touchpoints, reporting and workflows as needs grow.</p></article>
+    <article class="info-card"><span class="info-index">E-COMMERCE &amp; SERVICES</span><h3>Improve customer journeys</h3><p>Support discovery, inquiries, marketing and consistent brand communication.</p></article>
+   </div>
+  </section>
+  <section class="content-panel" id="faqs">
+   <div class="section-kicker">Common questions</div><h2 class="section-title">A clear start, before the build.</h2>
+   <div class="faq-list">
+    <details class="faq-item"><summary>Can I choose just one service?</summary><p>Yes. You can ask about an individual service or discuss a wider combination based on your needs.</p></details>
+    <details class="faq-item"><summary>Will you recommend tools before starting?</summary><p>We first clarify the task and constraints, then discuss a suitable approach and tools before implementation.</p></details>
+    <details class="faq-item"><summary>Can you work with my existing systems?</summary><p>Where access and technical compatibility allow, we can review your current tools and shape the work around them.</p></details>
+    <details class="faq-item"><summary>Do you guarantee SEO rankings or business results?</summary><p>No. Search positions and business outcomes depend on multiple factors. Work is scoped around concrete improvements and transparent review rather than guaranteed outcomes.</p></details>
+   </div>
+  </section>
+  <section class="content-panel" id="contact">
+   <div class="section-kicker">Start a conversation</div>
+   <div class="contact-layout"><div><h2 class="section-title">Let’s make your next step clearer.</h2><p class="section-copy">Tell AMM what you want to improve. We can start with the challenge, review the options and agree on a practical next step.</p>
+    <div class="contact-points"><div class="contact-point"><i>↗</i><div><b>Business-first approach</b><span>Start with your goals and current process, not a one-size-fits-all package.</span></div></div><div class="contact-point"><i>◎</i><div><b>Clear scope before delivery</b><span>Discuss the need and expected work before moving into implementation.</span></div></div></div></div>
+    <div class="contact-actions"><h3>Tell us what you’re working on.</h3><p>Choose the contact option that works for you. Your email app will open with a message addressed to AMM.</p><a class="content-cta" href="mailto:ammdatasolutions229@gmail.com?subject=AMM%20Data%20Solutions%20Inquiry">Email AMM ↗</a><a class="content-cta secondary" href="https://wa.me/923494805519" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div>
+   </div>
+  </section>
+  <div class="site-footer"><span>AMM Data Solutions · Let’s Make Solutions</span><span><a href="#origin">Back to top ↑</a></span></div>
+ </main>
 <script>
 (function(){
 const services=[
@@ -311,7 +382,6 @@ function render(t){if(!last)last=t;var dt=Math.min((t-last)/1000,.1);last=t;if(!
 document.addEventListener('visibilitychange',function(){last=0;});
 requestAnimationFrame(render);
 })();
-</script>
 
 // Scroll-led reveal and chapter progress for the Option 3 preview; no hero/card geometry changes.
 (function(){
@@ -319,7 +389,7 @@ requestAnimationFrame(render);
   const fill=document.getElementById('chapterFill');
   const label=document.getElementById('chapterLabel');
   const panels=[...document.querySelectorAll('.content-panel')];
-  const names={origin:'01 / ORIGIN',systems:'02 / SERVICES',approach:'03 / APPROACH',contact:'04 / CONTACT'};
+  const names={origin:'01 / ORIGIN',systems:'02 / SERVICES',benefits:'03 / OUTCOMES',visibility:'04 / SEARCH',fit:'05 / WHO WE HELP',approach:'06 / APPROACH',faqs:'07 / FAQ',contact:'08 / CONTACT'};
   if(!panels.length)return;
   const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduced&&'IntersectionObserver' in window){
@@ -351,6 +421,8 @@ requestAnimationFrame(render);
   window.addEventListener('resize',updateScroll,{passive:true});
   updateScroll();
 })();
+
+</script>
 
 </body>
 </html>
