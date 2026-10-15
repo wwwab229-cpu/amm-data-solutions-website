@@ -102,7 +102,7 @@ export default function Home() {
         <div className="heroButtons"><a className="buttonPrimary" href="#capabilities">Explore our capabilities <span>↘</span></a><a className="buttonText" href="#contact">Discuss a project <span>↗</span></a></div>
         <div className="heroProof"><span><i/> Clear scope</span><span><i/> Practical delivery</span><span><i/> Pakistan + worldwide</span></div>
       </div>
-      <div className="heroScene" aria-label="A connected digital ecosystem around the AMM brand">
+      <div className="heroScene" aria-label="A connected digital ecosystem around the AMM brand" onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect(); const x = (event.clientX - rect.left) / rect.width - 0.5; const y = (event.clientY - rect.top) / rect.height - 0.5; event.currentTarget.style.setProperty("--core-x", (x * -14) + "px"); event.currentTarget.style.setProperty("--core-y", (y * -12) + "px"); event.currentTarget.style.setProperty("--node-x", (x * 8) + "px"); event.currentTarget.style.setProperty("--node-y", (y * 7) + "px"); }} onPointerLeave={(event) => { event.currentTarget.style.setProperty("--core-x", "0px"); event.currentTarget.style.setProperty("--core-y", "0px"); event.currentTarget.style.setProperty("--node-x", "0px"); event.currentTarget.style.setProperty("--node-y", "0px"); }}>
         <div className="sceneGrid"/><div className="sceneAura"/>
         <div className="sceneOrbit sceneOrbitA"/><div className="sceneOrbit sceneOrbitB"/><div className="sceneOrbit sceneOrbitC"/>
         <div className="sceneRing ringFront"/><div className="sceneRing ringBack"/>
