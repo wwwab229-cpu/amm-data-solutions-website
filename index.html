@@ -10,19 +10,19 @@
 <style>
 :root{--k:1;--cyan:#5de3f3;--ink:#020204}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;background:#020204}
+html,body{min-height:100%;overflow-x:hidden;overflow-y:auto;background:#020204;scroll-behavior:smooth}
 body{font-family:Poppins,Inter,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
-.stage{position:fixed;inset:0;overflow:hidden;background:#020204}
+.stage{position:fixed;inset:0;overflow:hidden;background:#020204;z-index:0;pointer-events:none}
 .bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,127,255,0) 38%,rgba(25,127,255,.042) 54%,rgba(25,127,255,.052) 68%,rgba(25,127,255,.030) 100%),#020204}
 .stars{position:absolute;left:0;top:0;width:1px;height:1px;border-radius:50%;background:#fff;pointer-events:none}
-.canvas{position:absolute;left:50%;top:0;width:1172px;height:657px;transform:translateX(-50%) scale(var(--k,1));transform-origin:50% 0}
+.canvas{position:absolute;left:50%;top:0;pointer-events:none;width:1172px;height:657px;transform:translateX(-50%) scale(var(--k,1));transform-origin:50% 0}
 .canvas>*{position:absolute}
 .stack{position:absolute;inset:0;z-index:300;pointer-events:none}
 .stack>*{position:absolute;pointer-events:auto}
 .navmenu{display:contents}
 .burger{display:none}
-.nav{left:247px;top:3px;width:678px;height:64px;border-radius:32px;z-index:400;background:rgba(255,255,255,.008);border:1px solid rgba(255,255,255,.105);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.nav{pointer-events:auto;left:247px;top:3px;width:678px;height:64px;border-radius:32px;z-index:400;background:rgba(255,255,255,.008);border:1px solid rgba(255,255,255,.105);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
 .mark{display:none}
 .wm{position:absolute;left:21px;top:0;white-space:nowrap}
 .wm .kick{position:absolute;left:1px;top:39px;font-size:5.2px;font-weight:600;letter-spacing:.12em;color:#ffc107;opacity:1;line-height:1}
@@ -54,7 +54,7 @@ a{text-decoration:none;color:inherit}
 .cta2 span{margin-top:0}
 .showcase{left:0;top:0;width:1172px;height:0}
 .ring{position:absolute;left:0;top:0;width:1172px;height:657px;z-index:5;perspective:891px;perspective-origin:586px 918px;transform-style:preserve-3d;pointer-events:none}
-.card{position:absolute;left:586px;top:616px;width:130px;height:300px;margin:-150px 0 0 -65px;border-radius:12px;overflow:hidden;background:#0d1117;box-shadow:0 24px 46px rgba(0,0,0,.6),0 3px 8px rgba(0,0,0,.5);backface-visibility:hidden;will-change:transform}
+.card{position:absolute;cursor:pointer;left:586px;top:616px;width:130px;height:300px;margin:-150px 0 0 -65px;border-radius:12px;overflow:hidden;background:#0d1117;box-shadow:0 24px 46px rgba(0,0,0,.6),0 3px 8px rgba(0,0,0,.5);backface-visibility:hidden;will-change:transform}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .card .edge{position:absolute;inset:0;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),inset 0 16px 30px rgba(255,255,255,.05);pointer-events:none}
 .card.broken img{display:none}
@@ -94,7 +94,7 @@ a{text-decoration:none;color:inherit}
 .chart-label{font-size:7px;font-weight:700}
 .chartline{position:absolute;left:10px;right:10px;top:35px;height:55px;border-bottom:1px solid #e6edf3;background:repeating-linear-gradient(to bottom,transparent 0 17px,#edf1f6 18px)}
 .chartline svg{width:100%;height:100%;overflow:visible}
-.wa{position:absolute;right:16px;bottom:24px;width:56px;height:56px;border-radius:50%;z-index:300;display:grid;place-items:center;background:linear-gradient(145deg,#10232e,#061018);border:1px solid rgba(109,222,239,.3);box-shadow:0 8px 28px rgba(0,0,0,.4);color:#8ff0f6}
+.wa{position:fixed;right:16px;bottom:24px;width:56px;height:56px;border-radius:50%;z-index:300;display:grid;place-items:center;background:linear-gradient(145deg,#10232e,#061018);border:1px solid rgba(109,222,239,.3);box-shadow:0 8px 28px rgba(0,0,0,.4);color:#8ff0f6}
 .wa svg{width:25px;height:25px}
 @media(max-width:940px){
  .canvas{left:0;width:100vw;transform:none;transform-origin:0 0}
@@ -172,6 +172,84 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 </div>
+
+<style>
+.site-content{position:relative;z-index:20;margin-top:100vh;color:#fff;padding:0 6vw 70px;pointer-events:auto}
+.content-wrap{max-width:1120px;margin:0 auto}
+.content-panel{border:1px solid rgba(120,220,245,.18);background:rgba(5,12,20,.78);backdrop-filter:blur(18px);border-radius:24px;padding:clamp(22px,4vw,48px);margin:0 0 24px;box-shadow:0 18px 60px rgba(0,0,0,.28)}
+.section-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#5de3f3;margin-bottom:12px}
+.section-title{font-size:clamp(26px,4vw,44px);line-height:1.12;letter-spacing:-.04em;font-weight:800;margin-bottom:14px}
+.section-copy{color:#c2cbd4;line-height:1.75;max-width:760px;font-size:14px}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px}
+.service-option{appearance:none;text-align:left;color:#fff;border:1px solid rgba(255,255,255,.12);background:linear-gradient(145deg,rgba(20,39,53,.82),rgba(5,10,17,.92));border-radius:16px;padding:22px;min-height:185px;cursor:pointer;transition:transform .28s,border-color .28s,background .28s;position:relative;overflow:hidden}
+.service-option:before{content:"";position:absolute;inset:auto -20% -55% 15%;height:130px;background:radial-gradient(ellipse,rgba(45,202,230,.18),transparent 68%);pointer-events:none}
+.service-option:hover,.service-option[aria-pressed="true"]{transform:translateY(-5px);border-color:rgba(93,227,243,.75);background:linear-gradient(145deg,rgba(15,57,71,.92),rgba(5,10,17,.96))}
+.service-num{font-size:10px;letter-spacing:.16em;color:#5de3f3}
+.service-option h3{font-size:17px;line-height:1.3;margin:16px 0 10px}
+.service-option p{font-size:12px;line-height:1.65;color:#bdc7d0}
+.service-detail{margin-top:16px;border:1px solid rgba(93,227,243,.24);border-radius:16px;padding:22px;background:rgba(7,20,29,.72);display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+.service-detail h3{font-size:22px;margin-bottom:8px}
+.service-detail p,.service-detail li{font-size:13px;line-height:1.7;color:#c4d0d8}
+.service-detail ul{padding-left:18px}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.process-step{padding:18px;border-left:2px solid #5de3f3;background:rgba(255,255,255,.035)}
+.process-step b{display:block;margin-bottom:8px}
+.process-step span{font-size:12px;line-height:1.6;color:#bec8d1}
+.content-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:22px;border-radius:12px;padding:13px 18px;background:linear-gradient(135deg,#55ddec,#087f9d);color:#031016;font-weight:700;font-size:13px}
+.site-footer{color:#9ba9b5;text-align:center;font-size:11px;padding:12px 0 8px}
+@media(max-width:720px){.site-content{padding:0 16px 36px}.service-grid{grid-template-columns:1fr 1fr;gap:10px}.service-option{padding:16px;min-height:175px}.service-option h3{font-size:14px}.service-detail{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.content-panel{border-radius:18px}}
+@media(max-width:420px){.service-grid{grid-template-columns:1fr}.service-option{min-height:unset}}
+</style>
+<main class="site-content" id="services">
+ <div class="content-wrap">
+  <section class="content-panel" id="origin">
+   <div class="section-kicker">AMM Data Solutions · Let’s Make Solutions</div>
+   <h2 class="section-title">We turn repetitive business work into smart, organized systems.</h2>
+   <p class="section-copy">AMM helps businesses bring their operations, digital presence and growth activities into a clearer, more connected direction. Choose a service to explore the kind of practical support that fits your goals.</p>
+  </section>
+  <section class="content-panel" id="systems">
+   <div class="section-kicker">Explore our services</div>
+   <h2 class="section-title">Choose what your business needs.</h2>
+   <p class="section-copy">Select a service card to view its focus areas. The visual language and cinematic background remain consistent throughout the experience.</p>
+   <div class="service-grid" role="group" aria-label="AMM services">
+    <button class="service-option" type="button" data-service="0" aria-pressed="true"><span class="service-num">01 / SYSTEMS</span><h3>AI Automation &amp; Business Systems</h3><p>Reduce repetitive steps and organize business workflows.</p></button>
+    <button class="service-option" type="button" data-service="1" aria-pressed="false"><span class="service-num">02 / INSIGHTS</span><h3>Data Analytics &amp; Reporting Solutions</h3><p>Turn spreadsheets and business data into useful reporting.</p></button>
+    <button class="service-option" type="button" data-service="2" aria-pressed="false"><span class="service-num">03 / DIGITAL</span><h3>Web &amp; E-commerce Solutions</h3><p>Create clear digital experiences for services and products.</p></button>
+    <button class="service-option" type="button" data-service="3" aria-pressed="false"><span class="service-num">04 / DISCOVERY</span><h3>Search Visibility &amp; SEO Solutions</h3><p>Improve technical foundations and search discoverability.</p></button>
+    <button class="service-option" type="button" data-service="4" aria-pressed="false"><span class="service-num">05 / GROWTH</span><h3>Digital Marketing &amp; Growth Systems</h3><p>Connect campaigns, customer journeys and follow-up.</p></button>
+    <button class="service-option" type="button" data-service="5" aria-pressed="false"><span class="service-num">06 / CREATIVE</span><h3>Creative &amp; Brand Solutions</h3><p>Build consistent visual communication for your brand.</p></button>
+   </div>
+   <div class="service-detail" aria-live="polite">
+    <div><div class="section-kicker" id="detailKicker">01 / SYSTEMS</div><h3 id="detailTitle">AI Automation &amp; Business Systems</h3><p id="detailText">Design practical workflows that help reduce repetitive tasks, organize inquiries and keep everyday operations moving.</p></div>
+    <div><div class="section-kicker">Possible focus areas</div><ul id="detailList"><li>Workflow and task automation</li><li>Lead follow-up and inquiry handling</li><li>Connected business processes</li></ul><a class="content-cta" id="serviceContact" href="mailto:ammdatasolutions229@gmail.com?subject=AMM%20Service%20Inquiry">Discuss this service ↗</a></div>
+   </div>
+  </section>
+  <section class="content-panel" id="approach">
+   <div class="section-kicker">How we work</div><h2 class="section-title">Clear steps. Practical delivery.</h2>
+   <p class="section-copy">We start with the business need, shape a suitable solution, then review the approach with you before moving into implementation.</p>
+   <div class="process-grid"><div class="process-step"><b>01 · Understand</b><span>Clarify the goal, current process and main bottleneck.</span></div><div class="process-step"><b>02 · Plan</b><span>Map a practical solution, scope and delivery approach.</span></div><div class="process-step"><b>03 · Build &amp; refine</b><span>Review the work together and refine the outcome against the agreed need.</span></div></div>
+  </section>
+  <section class="content-panel" id="contact"><div class="section-kicker">Start a conversation</div><h2 class="section-title">Let’s find the right solution.</h2><p class="section-copy">Tell us what you want to improve. We’ll help identify a sensible next step for your business.</p><a class="content-cta" href="mailto:ammdatasolutions229@gmail.com">Let’s talk with AMM ↗</a></section>
+  <div class="site-footer">AMM Data Solutions · Let’s Make Solutions</div>
+ </div>
+</main>
+<script>
+(function(){
+const services=[
+{n:"01 / SYSTEMS",title:"AI Automation & Business Systems",text:"Design practical workflows that help reduce repetitive tasks, organize inquiries and keep everyday operations moving.",list:["Workflow and task automation","Lead follow-up and inquiry handling","Connected business processes"]},
+{n:"02 / INSIGHTS",title:"Data Analytics & Reporting Solutions",text:"Make business data easier to understand with structured spreadsheets, dashboards and reporting workflows.",list:["Excel and Google Sheets workflows","Dashboards and KPI reporting","Clear, decision-ready summaries"]},
+{n:"03 / DIGITAL",title:"Web & E-commerce Solutions",text:"Build useful digital experiences that present your services or products clearly and guide visitors toward action.",list:["Business and service websites","E-commerce experience planning","Mobile-friendly page structure"]},
+{n:"04 / DISCOVERY",title:"Search Visibility & SEO Solutions",text:"Strengthen search foundations so customers can more easily discover your business through relevant search experiences.",list:["Google and technical SEO","Structured content foundations","AI search visibility (GEO/AEO)"]},
+{n:"05 / GROWTH",title:"Digital Marketing & Growth Systems",text:"Connect campaign activity with customer journeys, follow-up and useful performance tracking.",list:["Digital campaign support","Lead journey and follow-up planning","Performance reporting"]},
+{n:"06 / CREATIVE",title:"Creative & Brand Solutions",text:"Create consistent visual communication that helps your business explain its offer and present a coherent brand.",list:["Social media and ad creatives","Brand-aligned visual assets","Campaign content support"]}
+];
+const buttons=[...document.querySelectorAll(".service-option")];
+function selectService(i){const s=services[i];if(!s)return;buttons.forEach((b,j)=>b.setAttribute("aria-pressed",String(j===i)));document.getElementById("detailKicker").textContent=s.n;document.getElementById("detailTitle").textContent=s.title;document.getElementById("detailText").textContent=s.text;const ul=document.getElementById("detailList");ul.replaceChildren(...s.list.map(t=>{const li=document.createElement("li");li.textContent=t;return li;}));document.getElementById("serviceContact").href="mailto:ammdatasolutions229@gmail.com?subject="+encodeURIComponent("AMM service inquiry: "+s.title);}
+buttons.forEach((b)=>b.addEventListener("click",()=>selectService(Number(b.dataset.service))));
+document.querySelectorAll(".links a").forEach(a=>a.addEventListener("click",e=>{const target=document.querySelector(a.getAttribute("href"));if(target){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}}));
+})();
+</script>
+
 <a class="wa" href="https://wa.me/923494805519" aria-label="Contact AMM on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.1 7.4L3 20l.9-5a8.3 8.3 0 1 1 16.4-3.2Z"/><path d="M8.7 8.4c.2-.4.5-.5.8-.5h.4c.2 0 .3.1.4.4l.6 1.5c.1.2.1.4-.1.6l-.5.6c-.2.2-.1.4 0 .6.5.9 1.2 1.5 2.1 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1-.6 1.3-.4.4-1.1.6-1.7.5-1-.2-2.1-.7-3.1-1.5-1.4-1.2-2.3-2.7-2.5-3.7-.2-.8 0-1.5.4-1.9Z"/></svg></a>
 </div>
 <script>
