@@ -140,9 +140,34 @@ a{text-decoration:none;color:inherit}
  .wa{width:42px;height:42px}
 }
 @media(prefers-reduced-motion:reduce){.btn{transition:none}.links a{transition:none}}
+
+/* Option 3 preview: cinematic, scroll-led transitions. The original hero background and floating service ring stay intact. */
+.scroll-progress{position:fixed;inset:0 0 auto;height:2px;z-index:9999;background:rgba(255,255,255,.08);pointer-events:none}
+.scroll-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#ffc107,#5de3f3);box-shadow:0 0 12px rgba(93,227,243,.7);transform-origin:left center}
+.scroll-chapter{position:fixed;right:clamp(14px,3vw,38px);top:50%;z-index:80;display:flex;align-items:center;gap:10px;transform:translateY(-50%);color:rgba(225,240,248,.65);font-size:9px;letter-spacing:.16em;writing-mode:vertical-rl;pointer-events:none}
+.chapter-track{position:relative;width:1px;height:74px;background:rgba(255,255,255,.18);overflow:hidden}
+.chapter-track i{position:absolute;left:0;top:0;width:100%;height:0;background:#5de3f3;box-shadow:0 0 8px rgba(93,227,243,.8)}
+.site-content{isolation:isolate}
+.site-content:before{content:"";position:absolute;z-index:-1;left:0;right:0;top:-12vh;height:calc(100% + 12vh);pointer-events:none;background:radial-gradient(ellipse at 50% 12%,rgba(9,105,143,.13),transparent 42%),radial-gradient(ellipse at 10% 52%,rgba(12,67,101,.10),transparent 32%)}
+.content-panel{position:relative;isolation:isolate;overflow:hidden;transform-style:preserve-3d;border-color:rgba(120,220,245,.22);background:linear-gradient(135deg,rgba(8,20,32,.88),rgba(3,8,15,.84));box-shadow:0 22px 72px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.045);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1),filter .7s ease,border-color .35s}
+.content-panel:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at var(--glow-x,82%) var(--glow-y,0%),rgba(34,179,214,.13),transparent 42%),linear-gradient(115deg,rgba(255,255,255,.025),transparent 42%);opacity:.95}
+.content-panel:after{content:"";position:absolute;left:8%;right:8%;top:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(93,227,243,.42),transparent);opacity:.8}
+body.motion-ready .content-panel{opacity:0;transform:translateY(42px) rotateX(1.2deg) scale(.985);filter:blur(3px)}
+body.motion-ready .content-panel.is-visible{opacity:1;transform:translateY(0) rotateX(0) scale(1);filter:blur(0)}
+.content-panel#systems{background:linear-gradient(135deg,rgba(7,21,34,.94),rgba(4,9,18,.91))}
+.service-option{transform-style:preserve-3d;box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 10px 30px rgba(0,0,0,.14)}
+.service-option:hover,.service-option[aria-pressed="true"]{box-shadow:0 16px 38px rgba(0,0,0,.28),0 0 0 1px rgba(93,227,243,.06),inset 0 1px 0 rgba(255,255,255,.08)}
+.service-detail{background:linear-gradient(130deg,rgba(7,26,39,.9),rgba(4,10,18,.86));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.process-step{position:relative;overflow:hidden;border-left-color:#5de3f3;background:linear-gradient(110deg,rgba(93,227,243,.07),rgba(255,255,255,.018));}
+.process-step:after{content:"";position:absolute;top:0;left:0;width:2px;height:100%;background:linear-gradient(180deg,#ffc107,#5de3f3);opacity:.9}
+@media(max-width:720px){.scroll-chapter{display:none}.content-panel{transform:none}body.motion-ready .content-panel{transform:translateY(22px) scale(.99)}body.motion-ready .content-panel.is-visible{transform:none}}
+@media(prefers-reduced-motion:reduce){.content-panel,body.motion-ready .content-panel{transition:none;transform:none;filter:none;opacity:1}.scroll-progress span{box-shadow:none}}
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+<div class="scroll-chapter" aria-hidden="true"><span class="chapter-track"><i id="chapterFill"></i></span><span id="chapterLabel">01 / ORIGIN</span></div>
 <div class="stage" id="stage">
 <div class="bg"></div><div class="stars" id="stA"></div><div class="stars" id="stB"></div>
 <div class="canvas" id="canvas">
@@ -287,5 +312,45 @@ document.addEventListener('visibilitychange',function(){last=0;});
 requestAnimationFrame(render);
 })();
 </script>
+
+// Scroll-led reveal and chapter progress for the Option 3 preview; no hero/card geometry changes.
+(function(){
+  const bar=document.getElementById('scrollProgress');
+  const fill=document.getElementById('chapterFill');
+  const label=document.getElementById('chapterLabel');
+  const panels=[...document.querySelectorAll('.content-panel')];
+  const names={origin:'01 / ORIGIN',systems:'02 / SERVICES',approach:'03 / APPROACH',contact:'04 / CONTACT'};
+  if(!panels.length)return;
+  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced&&'IntersectionObserver' in window){
+    document.body.classList.add('motion-ready');
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          if(label)label.textContent=names[entry.target.id]||'AMM / DATA SOLUTIONS';
+        }
+      });
+    },{threshold:.14,rootMargin:'0px 0px -7% 0px'});
+    panels.forEach(panel=>io.observe(panel));
+  }else{
+    panels.forEach(panel=>panel.classList.add('is-visible'));
+  }
+  let scheduled=false;
+  function updateScroll(){
+    const doc=document.documentElement;
+    const max=Math.max(1,doc.scrollHeight-window.innerHeight);
+    const progress=Math.max(0,Math.min(1,window.scrollY/max));
+    if(bar)bar.style.width=(progress*100)+'%';
+    if(fill)fill.style.height=(progress*100)+'%';
+    scheduled=false;
+  }
+  window.addEventListener('scroll',()=>{
+    if(!scheduled){scheduled=true;window.requestAnimationFrame(updateScroll);}
+  },{passive:true});
+  window.addEventListener('resize',updateScroll,{passive:true});
+  updateScroll();
+})();
+
 </body>
 </html>
