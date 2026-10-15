@@ -1,428 +1,143 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AMM Data Solutions — Smart systems. Real business momentum.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f9fc">
+<meta name="description" content="AMM Data Solutions builds practical AI automation, business systems, data reporting, websites, SEO and digital growth solutions.">
+<title>AMM Data Solutions — Let's Make Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--k:1;--cyan:#5de3f3;--ink:#020204}
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{min-height:100%;overflow-x:hidden;overflow-y:auto;background:#020204;scroll-behavior:smooth}
-body{font-family:Poppins,Inter,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-.stage{position:fixed;inset:0;overflow:hidden;background:#020204;z-index:0;pointer-events:none}
-.bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,127,255,0) 38%,rgba(25,127,255,.042) 54%,rgba(25,127,255,.052) 68%,rgba(25,127,255,.030) 100%),#020204}
-.stars{position:absolute;left:0;top:0;width:1px;height:1px;border-radius:50%;background:#fff;pointer-events:none}
-.canvas{position:absolute;left:50%;top:0;pointer-events:none;width:1172px;height:657px;transform:translateX(-50%) scale(var(--k,1));transform-origin:50% 0}
-.canvas>*{position:absolute}
-.stack{position:absolute;inset:0;z-index:300;pointer-events:none}
-.stack>*{position:absolute;pointer-events:auto}
-.navmenu{display:contents}
-.burger{display:none}
-.nav{pointer-events:auto;left:247px;top:3px;width:678px;height:64px;border-radius:32px;z-index:400;background:rgba(255,255,255,.008);border:1px solid rgba(255,255,255,.105);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.mark{display:none}
-.wm{position:absolute;left:21px;top:0;white-space:nowrap}
-.wm .kick{position:absolute;left:1px;top:39px;font-size:5.2px;font-weight:600;letter-spacing:.12em;color:#ffc107;opacity:1;line-height:1}
-.wm .name{position:absolute;left:0;top:10px;transform-origin:0 50%;font-family:Poppins;font-weight:900;font-size:23px;line-height:1;letter-spacing:-.03em;color:#fff}
-.links{position:absolute;left:150px;top:0;height:62px;transform-origin:0 50%;display:flex;align-items:center;gap:24px}
-.links a{font-size:12.5px;font-weight:400;color:rgba(255,255,255,.92);white-space:nowrap;transition:opacity .25s}
-.links a:hover{opacity:.65}
-.btn{display:grid;place-items:center;color:#fff;position:relative;overflow:hidden;background:linear-gradient(to top,#9ad9ec 1px,#89dff0 2px,#79e0f1 3px,#61daef 4px,#3ec8e4 5px,#14a8c6 6px,#0596b3 7px,#038aa8 8px,#047796 9px,#006180 10px,#025066 12px,#0a4f5e 13px,#04465a 14px,#073746 16px,#0a2a37 18px,#0d212e 20px,#0f1824 24px,#0a121e 30px,#0a111d 34px,#0a111d 100%);box-shadow:inset 0 3px 3px -2px rgba(180,228,255,.10),inset 1px 0 0 rgba(255,255,255,.09),inset -1px 0 0 rgba(255,255,255,.09),var(--hair,0 1px 0 rgba(152,218,234,.38)),1px 0 0 rgba(152,218,234,.17),-1px 0 0 rgba(152,218,234,.17),0 0 8px rgba(60,190,235,.10),0 2px 5px -3px rgba(90,220,255,.45);transition:transform .25s,box-shadow .25s,filter .25s}
-.btn:before{content:"";position:absolute;left:22%;right:38%;top:.8px;height:1.9px;z-index:1;filter:blur(.55px);background:linear-gradient(90deg,rgba(120,225,255,0) 0%,rgba(120,225,255,.58) 34%,rgba(160,240,255,.74) 50%,rgba(120,225,255,.58) 66%,rgba(120,225,255,0) 100%)}
-.btn:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;background:linear-gradient(90deg,rgba(200,245,255,.70),rgba(200,245,255,0) 13px),linear-gradient(270deg,rgba(200,245,255,.70),rgba(200,245,255,0) 13px);-webkit-mask:linear-gradient(to top,#000 0,#000 6px,rgba(0,0,0,.40) 12px,rgba(0,0,0,.15) 18px,rgba(0,0,0,.09) 24px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 100%);mask:linear-gradient(to top,#000 0,#000 6px,rgba(0,0,0,.40) 12px,rgba(0,0,0,.15) 18px,rgba(0,0,0,.09) 24px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 100%)}
-.btn span{position:relative;z-index:2;display:block;line-height:1;text-shadow:0 1px 2px rgba(0,20,30,.5)}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.12);box-shadow:inset 0 1px 0 rgba(200,245,255,.6),inset 1px 0 0 rgba(170,225,255,.35),inset -1px 0 0 rgba(170,225,255,.35),0 6px 22px rgba(20,180,225,.55)}
-.nav .btn{position:absolute;left:530.7px;top:10.5px;width:125.5px;height:39.5px;border-radius:14px;font-size:14px;font-weight:500;letter-spacing:-.005em}
-.nav .btn span{margin-top:0}
-.badge{left:462px;top:95px;width:250px;height:39px;border-radius:12px;z-index:300;border:1px solid rgba(255,255,255,.115);background:linear-gradient(to top,rgba(190,225,255,.175) 0px,rgba(190,225,255,.128) 2px,rgba(190,225,255,.075) 4px,rgba(190,225,255,.026) 6px,rgba(255,255,255,.012) 9px,rgba(255,255,255,.012) 100%);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
-.badge i{position:absolute;left:4px;top:4px;width:29px;height:29px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(to top,#46afc8 0px,#35abc7 2px,#0b859d 4px,#026c84 6px,#004e66 8px,#053f58 10px,#012c3d 12px,#031a2a 14px,#061125 16px,#090f25 19px,#090c1c 23px,#060d16 29px);box-shadow:inset 1px 0 0 rgba(150,220,250,.40),inset -1px 0 0 rgba(150,220,250,.52),0 0 6px rgba(60,190,230,.20),0 3px 8px -5px rgba(90,220,255,.6)}
-.badge i svg{width:14px;height:16px;position:relative;top:-1px;left:0}
-.badge b{position:absolute;left:45px;transform-origin:0 50%;top:0;height:39px;display:flex;align-items:center;font-size:12px;font-weight:400;color:rgba(255,255,255,.94);white-space:nowrap;padding-top:1.5px}
-.h1{left:586px;transform:translateX(-50%);white-space:nowrap;line-height:1;font-family:Poppins;font-weight:900;font-size:54px;letter-spacing:-.004em;word-spacing:.175em;text-transform:uppercase;color:#fff;text-shadow:0 0 34px rgba(130,180,255,.22);z-index:300}
-#h1a{top:157px}
-#h1b{top:211px}
-.sub{left:586px;transform:translateX(-50%);white-space:nowrap;line-height:1;font-size:13.2px;color:#a9aeb5;z-index:300}
-#sub1{top:289px}
-#sub2{top:305px}
-.sub b{font-weight:600;color:#fff}
-.nb{white-space:nowrap}
-.cta2{left:526px;top:349px;width:121px;height:54.5px;--hair:0 0 0 transparent;border-radius:13px;font-size:17px;font-weight:500;letter-spacing:-.01em;z-index:300}
-.cta2:before{display:none}
-.cta2 span{margin-top:0}
-.showcase{left:0;top:0;width:1172px;height:0}
-.ring{position:absolute;left:0;top:0;width:1172px;height:657px;z-index:5;perspective:891px;perspective-origin:586px 918px;transform-style:preserve-3d;pointer-events:none}
-.card{position:absolute;cursor:pointer;left:586px;top:616px;width:130px;height:300px;margin:-150px 0 0 -65px;border-radius:12px;overflow:hidden;background:#0d1117;box-shadow:0 24px 46px rgba(0,0,0,.6),0 3px 8px rgba(0,0,0,.5);backface-visibility:hidden;will-change:transform}
-.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.card .edge{position:absolute;inset:0;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),inset 0 16px 30px rgba(255,255,255,.05);pointer-events:none}
-.card.broken img{display:none}
-.cv{position:absolute;left:0;right:0;padding:0 10px}
-.fill{position:absolute;inset:0}
-.ph{position:absolute;left:0;right:0;overflow:hidden;background:linear-gradient(155deg,#2b3b50,#131c28 60%,#1d1526)}
-.phf{top:0;bottom:0}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.dot{display:inline-block;width:4.5px;height:4.5px;background:#e5202f;margin-right:4px;transform:rotate(45deg) translateY(-1px)}
-.dot.sq{transform:none;width:6.5px;height:4.5px;border-radius:1px}
-.t-big{font-family:Poppins;font-weight:900;text-transform:uppercase;line-height:.96;letter-spacing:-.015em;white-space:nowrap;transform:scaleX(.875);transform-origin:left center}
-.t-serif{font-family:"Playfair Display",serif;line-height:1.02;letter-spacing:.01em;white-space:nowrap}
-.card-copy{position:absolute;inset:0;padding:18px 10px;color:#fff;background:linear-gradient(155deg,#121f2e,#080b13 72%)}
-.card-kicker{font-size:5px;letter-spacing:.14em;text-transform:uppercase;color:#a9c6d3}
-.card-title{font-size:14px;font-weight:900;line-height:1.05;text-transform:uppercase;margin-top:9px}
-.card-title em{font-family:"Playfair Display",serif;font-weight:600;text-transform:none;font-size:19px}
-.card-rule{height:1px;background:rgba(255,255,255,.25);margin:13px 0}
-.card-small{font-size:6px;line-height:1.8;color:#c2ccd4;letter-spacing:.04em}
-.card-chip{display:inline-block;border:1px solid rgba(109,222,239,.45);border-radius:9px;padding:4px 6px;font-size:5px;letter-spacing:.08em;color:#9aeefa;margin-top:10px}
-.browser{position:absolute;left:165px;top:558px;width:842px;height:calc(99px + var(--fill,0px));border-radius:28px 28px 0 0;z-index:100;overflow:hidden;background:#e7edf4;border:1px solid rgba(255,255,255,.22);box-shadow:0 -15px 65px rgba(0,0,0,.36),0 0 0 1px rgba(89,190,225,.09)}
-.browser-top{height:42px;background:#f7f9fc;display:flex;align-items:center;padding:0 17px;gap:6px;border-bottom:1px solid #d9e1ea}
-.browser-dot{width:6px;height:6px;border-radius:50%;background:#d0d8e2}
-.browser-url{height:19px;border-radius:6px;background:#e9eef4;margin-left:17px;flex:1;max-width:370px;color:#6f7b89;font-size:7px;padding:4px 9px}
-.page{position:absolute;left:7px;right:6px;top:42px;bottom:0;border-radius:10px 10px 0 0;background:#fff;color:#0d1b2b;overflow:hidden}
-.dash-nav{height:39px;border-bottom:1px solid #edf0f5;display:flex;align-items:center;padding:0 18px;gap:17px;font-size:7px;color:#6b7786}
-.dash-brand{font-weight:900;letter-spacing:.05em;color:#101d30;font-size:10px;margin-right:auto}
-.dash-pill{background:#e8faff;color:#087d98;border-radius:5px;padding:5px 8px;font-size:6px}
-.dash-content{padding:14px 18px;display:grid;grid-template-columns:1.35fr 1fr;gap:16px}
-.dash-eyebrow{font-size:6px;color:#078aa3;font-weight:700;letter-spacing:.14em}
-.dash-heading{font-size:18px;line-height:1.1;font-weight:800;letter-spacing:-.04em;margin-top:5px}
-.dash-desc{font-size:7px;color:#6b7786;margin-top:6px}
-.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}
-.metric{border:1px solid #e7edf3;border-radius:7px;padding:8px;background:#fff}
-.metric small{display:block;font-size:6px;color:#7a8795}
-.metric strong{display:block;font-size:12px;margin-top:4px}
-.chartbox{height:111px;border:1px solid #e6edf4;border-radius:8px;padding:10px;background:linear-gradient(180deg,#fff,#f8fcff);position:relative;overflow:hidden}
-.chart-label{font-size:7px;font-weight:700}
-.chartline{position:absolute;left:10px;right:10px;top:35px;height:55px;border-bottom:1px solid #e6edf3;background:repeating-linear-gradient(to bottom,transparent 0 17px,#edf1f6 18px)}
-.chartline svg{width:100%;height:100%;overflow:visible}
-.wa{position:fixed;right:16px;bottom:24px;width:56px;height:56px;border-radius:50%;z-index:300;display:grid;place-items:center;background:linear-gradient(145deg,#10232e,#061018);border:1px solid rgba(109,222,239,.3);box-shadow:0 8px 28px rgba(0,0,0,.4);color:#8ff0f6}
-.wa svg{width:25px;height:25px}
-@media(max-width:940px){
- .canvas{left:0;width:100vw;transform:none;transform-origin:0 0}
- .nav{left:24px;top:14px;width:calc(100% - 48px);height:58px;border-radius:28px}
- .mark{left:15px;top:17px}
- .wm{left:45px}
- .wm .kick{top:15px;font-size:5px}
- .wm .name{top:22px;font-size:18px}
- .links{display:none}
- .nav .btn{left:auto;right:12px;top:9px;width:113px;height:38px;font-size:11px}
- .badge{left:50%;top:96px;transform:translateX(-50%);width:250px}
- .h1{left:50%;font-size:clamp(27px,5.8vw,47px);word-spacing:.05em}
- #h1a{top:154px}
- #h1b{top:202px}
- .sub{left:50%;font-size:11px}
- #sub1{top:264px}
- #sub2{top:281px}
- .cta2{left:50%;transform:translateX(-50%);top:316px;width:121px;height:49px;font-size:15px}
- .cta2:hover{transform:translateX(-50%) translateY(-1px)}
- .ring{left:calc(50% - 586px);transform:scale(.84);transform-origin:586px 0}
- .browser{left:5%;width:90%;top:490px;height:calc(99px + var(--fill,0px));border-radius:20px 20px 0 0}
- .wa{width:46px;height:46px;right:14px;bottom:14px}
-}
-@media(max-width:600px){
- .nav{left:12px;width:calc(100% - 24px);top:10px;height:54px}
- .nav .btn{width:95px;height:35px;right:8px;font-size:10px}
- .wm .name{font-size:16px}
- .badge{top:82px;transform:translateX(-50%) scale(.88)}
- .h1{font-size:clamp(24px,6.2vw,36px);letter-spacing:-.04em}
- #h1a{top:140px}
- #h1b{top:181px}
- .sub{font-size:9px}
- #sub1{top:231px}
- #sub2{top:246px}
- .cta2{top:280px}
- .ring{transform:scale(.7);transform-origin:586px 0}
- .browser{top:440px;left:3%;width:94%;height:calc(99px + var(--fill,0px));}
- .dash-content{padding:10px 12px;gap:8px}
- .dash-nav{padding:0 12px;gap:8px}
- .dash-brand{font-size:8px}
- .dash-heading{font-size:14px}
- .metric strong{font-size:10px}
- .wa{width:42px;height:42px}
-}
-@media(prefers-reduced-motion:reduce){.btn{transition:none}.links a{transition:none}}
-
-/* Option 3 preview: cinematic, scroll-led transitions. The original hero background and floating service ring stay intact. */
-.scroll-progress{position:fixed;inset:0 0 auto;height:2px;z-index:9999;background:rgba(255,255,255,.08);pointer-events:none}
-.scroll-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#ffc107,#5de3f3);box-shadow:0 0 12px rgba(93,227,243,.7);transform-origin:left center}
-.scroll-chapter{position:fixed;right:clamp(14px,3vw,38px);top:50%;z-index:80;display:flex;align-items:center;gap:10px;transform:translateY(-50%);color:rgba(225,240,248,.65);font-size:9px;letter-spacing:.16em;writing-mode:vertical-rl;pointer-events:none}
-.chapter-track{position:relative;width:1px;height:74px;background:rgba(255,255,255,.18);overflow:hidden}
-.chapter-track i{position:absolute;left:0;top:0;width:100%;height:0;background:#5de3f3;box-shadow:0 0 8px rgba(93,227,243,.8)}
-.site-content{isolation:isolate}
-.site-content:before{content:"";position:absolute;z-index:-1;left:0;right:0;top:-12vh;height:calc(100% + 12vh);pointer-events:none;background:radial-gradient(ellipse at 50% 12%,rgba(9,105,143,.13),transparent 42%),radial-gradient(ellipse at 10% 52%,rgba(12,67,101,.10),transparent 32%)}
-.content-panel{position:relative;isolation:isolate;overflow:hidden;transform-style:preserve-3d;border-color:rgba(120,220,245,.22);background:linear-gradient(135deg,rgba(8,20,32,.88),rgba(3,8,15,.84));box-shadow:0 22px 72px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.045);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1),filter .7s ease,border-color .35s}
-.content-panel:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at var(--glow-x,82%) var(--glow-y,0%),rgba(34,179,214,.13),transparent 42%),linear-gradient(115deg,rgba(255,255,255,.025),transparent 42%);opacity:.95}
-.content-panel:after{content:"";position:absolute;left:8%;right:8%;top:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(93,227,243,.42),transparent);opacity:.8}
-body.motion-ready .content-panel{opacity:0;transform:translateY(42px) rotateX(1.2deg) scale(.985);filter:blur(3px)}
-body.motion-ready .content-panel.is-visible{opacity:1;transform:translateY(0) rotateX(0) scale(1);filter:blur(0)}
-.content-panel#systems{background:linear-gradient(135deg,rgba(7,21,34,.94),rgba(4,9,18,.91))}
-.service-option{transform-style:preserve-3d;box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 10px 30px rgba(0,0,0,.14)}
-.service-option:hover,.service-option[aria-pressed="true"]{box-shadow:0 16px 38px rgba(0,0,0,.28),0 0 0 1px rgba(93,227,243,.06),inset 0 1px 0 rgba(255,255,255,.08)}
-.service-detail{background:linear-gradient(130deg,rgba(7,26,39,.9),rgba(4,10,18,.86));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
-.process-step{position:relative;overflow:hidden;border-left-color:#5de3f3;background:linear-gradient(110deg,rgba(93,227,243,.07),rgba(255,255,255,.018));}
-.process-step:after{content:"";position:absolute;top:0;left:0;width:2px;height:100%;background:linear-gradient(180deg,#ffc107,#5de3f3);opacity:.9}
-@media(max-width:720px){.scroll-chapter{display:none}.content-panel{transform:none}body.motion-ready .content-panel{transform:translateY(22px) scale(.99)}body.motion-ready .content-panel.is-visible{transform:none}}
-@media(prefers-reduced-motion:reduce){.content-panel,body.motion-ready .content-panel{transition:none;transform:none;filter:none;opacity:1}.scroll-progress span{box-shadow:none}}
-
+:root{--ink:#111a2b;--muted:#647187;--blue:#245eea;--blue2:#4c82ff;--yellow:#ffc107;--line:#e3e9f2;--paper:#f7f9fc;--white:#fff;--shadow:0 22px 65px rgba(27,51,91,.10);--radius:24px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.55;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:#d9e5ff;color:#10234b}
+.wrap{width:min(1160px,calc(100% - 44px));margin-inline:auto}.topbar{position:sticky;top:0;z-index:50;padding:14px 0;background:rgba(247,249,252,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(220,228,240,.75)}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:11px;min-width:max-content}.brand-mark{font:800 31px/1 Manrope,sans-serif;letter-spacing:-2px;position:relative;color:#101828}.brand-mark:after{content:"";position:absolute;width:14px;height:4px;background:var(--yellow);left:17px;bottom:1px;border-radius:3px}.brand-sub{font-size:10px;letter-spacing:.18em;font-weight:700;color:#627086;margin-top:4px}.navlinks{display:flex;align-items:center;gap:27px;color:#46536a;font-size:13px;font-weight:600}.navlinks a:hover{color:var(--blue)}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:13px;padding:13px 18px;background:var(--blue);color:white;font-weight:700;font-size:13px;box-shadow:0 8px 20px rgba(36,94,234,.18);transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}.button:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(36,94,234,.24);background:#174bd0}.button.ghost{background:white;border-color:#dce4f0;color:var(--ink);box-shadow:none}.button.ghost:hover{border-color:#b7c9f8;background:#fafdff}.menu-toggle{display:none;background:white;border:1px solid var(--line);border-radius:11px;padding:9px 11px;color:var(--ink)}
+.hero{position:relative;isolation:isolate;padding:78px 0 55px;overflow:hidden;background:radial-gradient(ellipse at 75% 18%,rgba(91,142,255,.12),transparent 36%),linear-gradient(180deg,#fbfcff,#f5f8fd)}.hero:before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(rgba(60,91,142,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(60,91,142,.045) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 95%)}.hero:after{content:"";position:absolute;z-index:-1;width:580px;height:580px;right:-180px;top:-250px;border:1px solid rgba(75,124,241,.12);border-radius:50%;box-shadow:0 0 0 42px rgba(75,124,241,.025),0 0 0 88px rgba(75,124,241,.02)}.hero-grid{display:grid;grid-template-columns:1fr .95fr;align-items:center;gap:42px}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #dce6fa;background:rgba(255,255,255,.78);padding:7px 11px;border-radius:100px;color:#38527d;font-size:11px;font-weight:700;letter-spacing:.06em}.eyebrow-dot{width:7px;height:7px;background:#26b88a;border-radius:50%;box-shadow:0 0 0 4px rgba(38,184,138,.12)}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif;letter-spacing:-.045em}h1{font-size:clamp(43px,5.4vw,70px);line-height:1.04;margin:23px 0 20px;font-weight:800;max-width:660px}h1 .accent{color:var(--blue);position:relative;white-space:nowrap}h1 .accent:after{content:"";position:absolute;height:7px;left:2px;right:0;bottom:-5px;background:var(--yellow);border-radius:9px;z-index:-1;opacity:.9}.hero-copy{max-width:550px;font-size:17px;color:#5c687c;line-height:1.75;margin-bottom:27px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.trust-line{display:flex;align-items:center;gap:11px;color:#78849a;font-size:11px;margin-top:25px}.trust-line strong{color:#34435e}.tiny-check{display:grid;place-items:center;width:22px;height:22px;border-radius:7px;background:#e5f8f0;color:#14976d;font-weight:800}
+.scene{position:relative;min-height:430px;display:grid;place-items:center;perspective:1000px}.orbit{position:absolute;width:365px;height:365px;border:1px solid rgba(64,108,220,.17);border-radius:50%;transform:rotateX(62deg) rotateZ(-22deg);animation:orbit 26s linear infinite}.orbit.two{width:290px;height:290px;border-color:rgba(64,108,220,.22);animation-direction:reverse;animation-duration:32s}.orbit:before,.orbit:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 7px rgba(255,193,7,.13);top:10%;left:18%}.orbit:after{top:auto;left:auto;right:12%;bottom:19%;width:7px;height:7px;background:var(--blue);box-shadow:0 0 0 6px rgba(36,94,234,.12)}@keyframes orbit{to{transform:rotateX(62deg) rotateZ(338deg)}}.core{position:relative;width:205px;height:205px;border-radius:34px;background:linear-gradient(145deg,#fff,#edf3ff);border:1px solid #dbe5f8;box-shadow:0 30px 80px rgba(49,88,168,.16),inset 0 1px 0 white;display:grid;place-items:center;transform:rotate(-5deg)}.core:before{content:"";position:absolute;inset:12px;border:1px solid rgba(64,108,220,.14);border-radius:26px}.core-logo{font:800 58px/1 Manrope;letter-spacing:-5px;color:#101828;position:relative}.core-logo:after{content:"";position:absolute;bottom:0;left:32px;width:25px;height:6px;background:var(--yellow);border-radius:5px}.core-label{position:absolute;bottom:32px;font-size:9px;letter-spacing:.2em;font-weight:800;color:#65738c}.float-card{position:absolute;z-index:2;display:flex;align-items:center;gap:11px;padding:13px 15px;border:1px solid rgba(218,227,242,.95);border-radius:16px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:0 16px 36px rgba(36,58,100,.10);animation:float 6s ease-in-out infinite}.float-card .symbol{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#edf3ff;color:var(--blue);font-weight:800;font-size:17px}.float-card b{display:block;font:700 12px Manrope;letter-spacing:-.02em}.float-card small{display:block;color:#778399;font-size:10px;margin-top:2px}.fc1{top:35px;left:0}.fc2{top:102px;right:-4px;animation-delay:-2s}.fc3{bottom:52px;left:7px;animation-delay:-3.4s}.fc4{bottom:18px;right:4px;animation-delay:-1.4s}.fc2 .symbol{background:#fff7db;color:#a77800}.fc3 .symbol{background:#e5f8f0;color:#148960}.fc4 .symbol{background:#f3eaff;color:#7a45d5}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}.scroll-cue{display:flex;justify-content:center;margin-top:12px;color:#8793a8;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.scroll-cue span{margin-right:8px;color:var(--blue)}
+.section{padding:76px 0}.section.white{background:white}.section.dark{background:#111a2b;color:white;position:relative;overflow:hidden}.section.dark:before{content:"";position:absolute;width:540px;height:540px;border:1px solid rgba(119,158,255,.13);border-radius:50%;right:-170px;top:-260px;box-shadow:0 0 0 55px rgba(119,158,255,.025),0 0 0 110px rgba(119,158,255,.02);pointer-events:none}.section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:30px}.section-label{font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}.dark .section-label{color:#91adff}.section h2{font-size:clamp(30px,3.8vw,45px);line-height:1.12;margin-bottom:12px;font-weight:800}.section-intro{max-width:570px;color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:0}.dark .section-intro{color:#a9b5c9}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service-card{position:relative;min-height:230px;border:1px solid var(--line);border-radius:20px;padding:23px;background:linear-gradient(145deg,#fff,#fbfcff);overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;cursor:pointer;text-align:left;color:inherit}.service-card:before{content:"";position:absolute;width:145px;height:145px;border-radius:50%;right:-70px;top:-70px;background:rgba(73,121,244,.06);transition:transform .35s}.service-card:hover,.service-card[aria-pressed=true]{transform:translateY(-5px);border-color:#bdcdf5;box-shadow:0 18px 38px rgba(35,66,123,.09)}.service-card:hover:before,.service-card[aria-pressed=true]:before{transform:scale(1.6)}.service-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px;position:relative}.service-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:#edf3ff;color:var(--blue);font:700 19px Manrope}.service-no{font-size:10px;color:#8b96a9;font-weight:800;letter-spacing:.12em}.service-card h3{font-size:18px;line-height:1.3;margin-bottom:9px;position:relative}.service-card p{font-size:12px;color:var(--muted);line-height:1.7;margin:0;position:relative}.service-arrow{position:absolute;right:22px;bottom:21px;color:var(--blue);font-size:17px;opacity:0;transform:translate(-4px,4px);transition:.2s}.service-card:hover .service-arrow,.service-card[aria-pressed=true] .service-arrow{opacity:1;transform:none}.service-detail{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:27px;margin-top:16px;border-radius:20px;background:#f0f5ff;border:1px solid #dbe6fb;align-items:center}.detail-label{font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;margin-bottom:9px}.service-detail h3{font-size:24px;margin-bottom:9px}.service-detail p{font-size:13px;color:#647187;line-height:1.8;margin:0}.detail-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;list-style:none;padding:0;margin:0 0 20px}.detail-list li{font-size:12px;color:#3f4d64;display:flex;gap:8px;align-items:start}.detail-list li:before{content:"✓";color:#148960;font-weight:800}.mini-link{font-size:12px;font-weight:800;color:var(--blue)}
+.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}.outcome{border:1px solid #e4eaf3;border-radius:20px;padding:23px;background:white}.outcome-num{font:800 30px Manrope;letter-spacing:-.06em;color:#cbd8f7}.outcome h3{font-size:17px;margin:13px 0 8px}.outcome p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
+.seo-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;align-items:start}.seo-points{display:grid;gap:11px}.seo-point{display:grid;grid-template-columns:42px 1fr;gap:13px;padding:17px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);border-radius:16px}.seo-point .service-icon{width:40px;height:40px;background:rgba(117,154,255,.14);color:#a9c0ff}.seo-point h3{font-size:15px;margin:0 0 4px}.seo-point p{font-size:12px;color:#a9b5c9;line-height:1.7;margin:0}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.process-step{padding:23px 22px;border-top:2px solid #c7d6fb;background:linear-gradient(180deg,#f8faff,#fff);border-radius:0 0 18px 18px}.process-step span{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.15em}.process-step h3{font-size:19px;margin:13px 0 8px}.process-step p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
+.audience{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.audience-card{border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:23px;background:rgba(255,255,255,.045)}.audience-card small{font-size:10px;letter-spacing:.13em;color:#9eb6ff;font-weight:800}.audience-card h3{font-size:18px;margin:14px 0 8px}.audience-card p{font-size:12px;color:#a9b5c9;line-height:1.8;margin:0}
+.faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:42px}.faq-list{display:grid;gap:9px}.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 17px}.faq-item summary{cursor:pointer;list-style:none;padding:17px 28px 17px 0;font-size:13px;font-weight:700;position:relative}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary:after{content:"+";position:absolute;right:0;color:var(--blue);font-size:20px;top:12px;font-weight:400}.faq-item[open] summary:after{content:"−"}.faq-item p{font-size:12px;line-height:1.8;color:var(--muted);margin:0;padding:0 0 17px}
+.contact-box{display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center;padding:42px;border-radius:28px;background:linear-gradient(120deg,#eaf1ff,#fff 68%);border:1px solid #dbe5f8;position:relative;overflow:hidden}.contact-box:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-100px;bottom:-180px;border:1px solid rgba(36,94,234,.2);box-shadow:0 0 0 30px rgba(36,94,234,.03),0 0 0 60px rgba(36,94,234,.025)}.contact-box h2{font-size:clamp(30px,4vw,44px);line-height:1.12;margin-bottom:13px}.contact-box p{color:var(--muted);font-size:14px;line-height:1.8;max-width:540px;margin:0}.contact-actions{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}.contact-actions .button{width:100%}.footer{padding:28px 0 34px;background:#fff;border-top:1px solid var(--line)}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-note{font-size:11px;color:#7a879a}.footer-links{display:flex;gap:19px;font-size:11px;color:#5e6a7e}.footer-links a:hover{color:var(--blue)}.wa-float{position:fixed;z-index:40;right:20px;bottom:20px;width:52px;height:52px;border-radius:18px;background:#14243d;color:white;display:grid;place-items:center;box-shadow:0 10px 28px rgba(14,35,65,.22);border:1px solid rgba(255,255,255,.2);transition:transform .2s}.wa-float:hover{transform:translateY(-3px)}.wa-float svg{width:23px;height:23px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}.progress{position:fixed;z-index:100;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--blue2));box-shadow:0 0 12px rgba(76,130,255,.2)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr 1fr;gap:20px}.scene{transform:scale(.9);transform-origin:center}.navlinks{gap:16px}.service-grid{grid-template-columns:repeat(2,1fr)}.seo-layout{gap:25px}.contact-box{padding:32px}}
+@media(max-width:680px){.wrap{width:min(100% - 30px,520px)}.topbar{padding:10px 0}.brand-mark{font-size:28px}.brand-sub{font-size:9px}.navlinks{display:none;position:absolute;top:67px;left:15px;right:15px;padding:16px;background:white;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px}.nav>.button{display:none}.menu-toggle{display:block}.hero{padding:52px 0 35px}.hero-grid{grid-template-columns:1fr;gap:6px}.hero-copy{font-size:15px}.hero h1{font-size:clamp(42px,11vw,58px)}.scene{min-height:350px;transform:scale(.86);margin:-3px -22px -15px}.orbit{width:320px;height:320px}.orbit.two{width:250px;height:250px}.core{width:170px;height:170px}.core-logo{font-size:50px}.fc1{left:2px;top:24px}.fc2{right:0;top:80px}.fc3{left:0;bottom:35px}.fc4{right:0;bottom:7px}.float-card{padding:10px 11px;gap:8px}.float-card .symbol{width:31px;height:31px;font-size:14px}.float-card b{font-size:11px}.float-card small{font-size:9px}.scroll-cue{margin-top:0}.section{padding:55px 0}.section-head{display:block}.section-head .section-intro{margin-top:12px}.service-grid{grid-template-columns:1fr;gap:10px}.service-card{min-height:0;padding:18px}.service-top{margin-bottom:15px}.service-card h3{font-size:17px}.service-arrow{opacity:1;transform:none}.service-detail{grid-template-columns:1fr;padding:21px;gap:20px}.detail-list{grid-template-columns:1fr}.outcomes,.process,.audience{grid-template-columns:1fr}.seo-layout,.faq-grid{grid-template-columns:1fr;gap:23px}.contact-box{grid-template-columns:1fr;padding:25px;gap:23px}.contact-box h2{font-size:34px}.footer-inner{align-items:flex-start;flex-direction:column;gap:12px}.footer-links{flex-wrap:wrap}.wa-float{right:13px;bottom:13px;width:47px;height:47px;border-radius:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
-<div class="scroll-chapter" aria-hidden="true"><span class="chapter-track"><i id="chapterFill"></i></span><span id="chapterLabel">01 / ORIGIN</span></div>
-<div class="stage" id="stage">
-<div class="bg"></div><div class="stars" id="stA"></div><div class="stars" id="stB"></div>
-<div class="canvas" id="canvas">
-<div class="stack">
-<nav class="nav" aria-label="Main navigation">
-<svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="sw" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#8ef4ff"/><stop offset=".5" stop-color="#35d8ff"/><stop offset="1" stop-color="#0a86d8"/></linearGradient><linearGradient id="sw2" x1="40" y1="10" x2="10" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#a6f7ff"/><stop offset="1" stop-color="#0f9ae0" stop-opacity=".25"/></linearGradient></defs><g transform="rotate(-32 24 24)"><ellipse cx="24" cy="24" rx="18.5" ry="9.6" stroke="url(#sw2)" stroke-width="3.1" stroke-linecap="round" stroke-dasharray="58 30" stroke-dashoffset="14" fill="none"/><circle cx="41.4" cy="20.6" r="3.1" fill="#bff6ff"/></g><circle cx="24" cy="24" r="6.6" fill="url(#sw)"/><circle cx="24" cy="24" r="2.6" fill="#fff"/></svg>
-<div class="wm"><span class="name" id="wmName">AMM</span><span class="kick">DATA SOLUTIONS</span></div>
-<div class="links"><a href="#origin">Origin</a><a href="#approach">Learn how</a><a href="#systems">Core systems</a><a href="#services">Services</a><a href="#contact">Support</a></div>
-<a class="btn" href="mailto:ammdatasolutions229@gmail.com"><span id="ctaLabel">Let's talk</span></a>
-</nav>
-<div class="badge" aria-label="Smart systems for growing businesses"><i><svg viewBox="5 1 14 22" preserveAspectRatio="none" fill="rgba(16,112,152,.72)" stroke="rgba(190,236,255,.6)" stroke-width="1.6" stroke-linejoin="round"><path d="M13.9 1.6 5.5 13.6a.7.7 0 0 0 .6 1.1h4.2l-1 7.7a.7.7 0 0 0 1.25.55l8.3-12.1a.7.7 0 0 0-.6-1.1h-4.2l1-7.7a.7.7 0 0 0-1.25-.55Z"/></svg></i><b id="badgeTxt">Systems that move business forward</b></div>
-<div class="h1" id="h1a">SMARTER WORKFLOWS</div>
-<div class="h1" id="h1b">REAL BUSINESS GROWTH.</div>
-<div class="sub" id="sub1">AI automation, data, websites, SEO &amp; <span class="nb">digital growth</span></div>
-<div class="sub" id="sub2">Practical systems for businesses ready to move forward.</div>
-<a class="btn cta2" href="mailto:ammdatasolutions229@gmail.com"><span id="vpLabel">Let’s talk</span></a>
-</div>
-<div class="showcase"><div class="ring" id="ring"></div></div>
-<div class="browser" id="browser">
-<div class="browser-top"><i class="browser-dot"></i><i class="browser-dot"></i><i class="browser-dot"></i><div class="browser-url">amm / business systems</div></div>
-<div class="page">
-<div class="dash-nav"><span class="dash-brand">AMM / DATA SOLUTIONS</span><span>Automation</span><span>Data</span><span>Search visibility</span><span class="dash-pill">LET’S BUILD</span></div>
-<div class="dash-content">
-<div><div class="dash-eyebrow">AMM DATA SOLUTIONS / SERVICE OVERVIEW</div><div class="dash-heading">Six services.<br>One connected direction.</div><div class="dash-desc">Practical automation, digital systems and visibility for growing businesses.</div><div class="metric-grid"><div class="metric"><small>Automation</small><strong>AI systems</strong></div><div class="metric"><small>Search</small><strong>SEO + GEO</strong></div><div class="metric"><small>Growth</small><strong>Digital</strong></div></div></div>
-<div class="chartbox"><div class="chart-label">Connected business systems <span style="float:right;color:#078aa3">AMM</span></div><div class="chartline"><svg viewBox="0 0 280 80" preserveAspectRatio="none"><defs><linearGradient id="chartfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#30c7df" stop-opacity=".28"/><stop offset="1" stop-color="#30c7df" stop-opacity="0"/></linearGradient></defs><path d="M0 66 C25 61 30 45 53 50 S83 60 105 38 S140 48 158 29 S192 43 213 19 S252 31 280 5 L280 80 L0 80Z" fill="url(#chartfill)"/><path d="M0 66 C25 61 30 45 53 50 S83 60 105 38 S140 48 158 29 S192 43 213 19 S252 31 280 5" fill="none" stroke="#13a8c2" stroke-width="2.2"/></svg></div></div>
-</div>
-</div>
-</div>
-</div>
-
-<style>
-.site-content{position:relative;z-index:20;margin-top:100vh;color:#fff;padding:0 6vw 70px;pointer-events:auto;scroll-margin-top:24px}
-.content-wrap{max-width:1120px;margin:0 auto}
-.content-panel{border:1px solid rgba(120,220,245,.18);background:rgba(5,12,20,.78);backdrop-filter:blur(18px);border-radius:24px;padding:clamp(22px,4vw,48px);margin:0 0 24px;box-shadow:0 18px 60px rgba(0,0,0,.28);scroll-margin-top:22px}
-.section-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#5de3f3;margin-bottom:12px}
-.section-title{font-size:clamp(26px,4vw,44px);line-height:1.12;letter-spacing:-.04em;font-weight:800;margin-bottom:14px}
-.section-copy{color:#c2cbd4;line-height:1.75;max-width:760px;font-size:14px}
-.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px}
-.service-option{appearance:none;text-align:left;color:#fff;border:1px solid rgba(255,255,255,.12);background:linear-gradient(145deg,rgba(20,39,53,.82),rgba(5,10,17,.92));border-radius:16px;padding:22px;min-height:185px;cursor:pointer;transition:transform .28s,border-color .28s,background .28s;position:relative;overflow:hidden}
-.service-option:before{content:"";position:absolute;inset:auto -20% -55% 15%;height:130px;background:radial-gradient(ellipse,rgba(45,202,230,.18),transparent 68%);pointer-events:none}
-.service-option:hover,.service-option[aria-pressed="true"]{transform:translateY(-5px);border-color:rgba(93,227,243,.75);background:linear-gradient(145deg,rgba(15,57,71,.92),rgba(5,10,17,.96))}
-.service-num{font-size:10px;letter-spacing:.16em;color:#5de3f3}
-.service-option h3{font-size:17px;line-height:1.3;margin:16px 0 10px}
-.service-option p{font-size:12px;line-height:1.65;color:#bdc7d0}
-.service-detail{margin-top:16px;border:1px solid rgba(93,227,243,.24);border-radius:16px;padding:22px;background:rgba(7,20,29,.72);display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
-.service-detail h3{font-size:22px;margin-bottom:8px}
-.service-detail p,.service-detail li{font-size:13px;line-height:1.7;color:#c4d0d8}
-.service-detail ul{padding-left:18px}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.process-step{padding:18px;border-left:2px solid #5de3f3;background:rgba(255,255,255,.035)}
-.process-step b{display:block;margin-bottom:8px}
-.process-step span{font-size:12px;line-height:1.6;color:#bec8d1}
-.content-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:22px;border-radius:12px;padding:13px 18px;background:linear-gradient(135deg,#55ddec,#087f9d);color:#031016;font-weight:700;font-size:13px}
-.site-footer{color:#9ba9b5;text-align:center;font-size:11px;padding:12px 0 8px}
-@media(max-width:720px){.site-content{padding:0 16px 36px}.service-grid{grid-template-columns:1fr 1fr;gap:10px}.service-option{padding:16px;min-height:175px}.service-option h3{font-size:14px}.service-detail{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.content-panel{border-radius:18px}}
-@media(max-width:420px){.service-grid{grid-template-columns:1fr}.service-option{min-height:unset}}
-
-.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
-.info-card{min-height:170px;border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:22px;background:linear-gradient(145deg,rgba(18,39,54,.72),rgba(4,10,18,.8));position:relative;overflow:hidden}
-.info-card:before{content:"";position:absolute;left:-20%;right:-20%;bottom:-55%;height:140px;background:radial-gradient(ellipse,rgba(93,227,243,.13),transparent 68%);pointer-events:none}
-.info-index{font-size:10px;letter-spacing:.16em;color:#ffc107}
-.info-card h3{font-size:17px;line-height:1.3;margin:17px 0 9px}
-.info-card p{font-size:12px;line-height:1.7;color:#bdc7d0}
-.capability-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
-.capability{border:1px solid rgba(93,227,243,.15);background:rgba(255,255,255,.025);border-radius:12px;padding:14px 16px;color:#d8e2e9;font-size:12px;line-height:1.6}
-.capability strong{display:block;color:#fff;font-size:13px;margin-bottom:4px}
-.faq-list{display:grid;gap:10px;margin-top:22px}
-.faq-item{border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(255,255,255,.025);padding:16px 18px}
-.faq-item summary{cursor:pointer;font-weight:600;font-size:13px;color:#fff}
-.faq-item p{font-size:12px;line-height:1.75;color:#bdc7d0;margin-top:10px;max-width:820px}
-.contact-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}
-.contact-points{display:grid;gap:10px;margin-top:18px}
-.contact-point{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px;background:rgba(255,255,255,.025)}
-.contact-point i{font-style:normal;color:#5de3f3;font-size:14px}
-.contact-point b{display:block;font-size:12px;margin-bottom:3px}
-.contact-point span{display:block;color:#bdc7d0;font-size:11px;line-height:1.6}
-.contact-actions{border:1px solid rgba(93,227,243,.2);border-radius:16px;padding:22px;background:linear-gradient(145deg,rgba(12,38,52,.65),rgba(4,10,18,.8))}
-.contact-actions h3{font-size:19px;line-height:1.35;margin-bottom:8px}
-.contact-actions p{font-size:12px;line-height:1.7;color:#bdc7d0}
-.content-cta.secondary{background:transparent;border:1px solid rgba(93,227,243,.42);color:#d9faff;margin-left:8px}
-.site-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px 2px 8px;text-align:left}
-.site-footer a{color:#d9faff}
-@media(max-width:720px){.info-grid{grid-template-columns:1fr}.info-card{min-height:unset}.capability-list{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr}.site-footer{justify-content:center;text-align:center}}
-
-</style>
-<main class="site-content" id="services">
- <div class="content-wrap">
-  <section class="content-panel" id="origin">
-   <div class="section-kicker">AMM Data Solutions · Let’s Make Solutions</div>
-   <h2 class="section-title">We turn repetitive business work into smart, organized systems.</h2>
-   <p class="section-copy">AMM helps businesses bring their operations, digital presence and growth activities into a clearer, more connected direction. Choose a service to explore the kind of practical support that fits your goals.</p>
-  </section>
-  <section class="content-panel" id="systems">
-   <div class="section-kicker">Explore our services</div>
-   <h2 class="section-title">Choose what your business needs.</h2>
-   <p class="section-copy">Select a service card to view its focus areas. The visual language and cinematic background remain consistent throughout the experience.</p>
-   <div class="service-grid" role="group" aria-label="AMM services">
-    <button class="service-option" type="button" data-service="0" aria-pressed="true"><span class="service-num">01 / SYSTEMS</span><h3>AI Automation &amp; Business Systems</h3><p>Reduce repetitive steps and organize business workflows.</p></button>
-    <button class="service-option" type="button" data-service="1" aria-pressed="false"><span class="service-num">02 / INSIGHTS</span><h3>Data Analytics &amp; Reporting Solutions</h3><p>Turn spreadsheets and business data into useful reporting.</p></button>
-    <button class="service-option" type="button" data-service="2" aria-pressed="false"><span class="service-num">03 / DIGITAL</span><h3>Web &amp; E-commerce Solutions</h3><p>Create clear digital experiences for services and products.</p></button>
-    <button class="service-option" type="button" data-service="3" aria-pressed="false"><span class="service-num">04 / DISCOVERY</span><h3>Search Visibility &amp; SEO Solutions</h3><p>Improve technical foundations and search discoverability.</p></button>
-    <button class="service-option" type="button" data-service="4" aria-pressed="false"><span class="service-num">05 / GROWTH</span><h3>Digital Marketing &amp; Growth Systems</h3><p>Connect campaigns, customer journeys and follow-up.</p></button>
-    <button class="service-option" type="button" data-service="5" aria-pressed="false"><span class="service-num">06 / CREATIVE</span><h3>Creative &amp; Brand Solutions</h3><p>Build consistent visual communication for your brand.</p></button>
-   </div>
-   <div class="service-detail" aria-live="polite">
-    <div><div class="section-kicker" id="detailKicker">01 / SYSTEMS</div><h3 id="detailTitle">AI Automation &amp; Business Systems</h3><p id="detailText">Design practical workflows that help reduce repetitive tasks, organize inquiries and keep everyday operations moving.</p></div>
-    <div><div class="section-kicker">Possible focus areas</div><ul id="detailList"><li>Workflow and task automation</li><li>Lead follow-up and inquiry handling</li><li>Connected business processes</li></ul><a class="content-cta" id="serviceContact" href="mailto:ammdatasolutions229@gmail.com?subject=AMM%20Service%20Inquiry">Discuss this service ↗</a></div>
-   </div>
-  </section>
-  <section class="content-panel" id="approach">
-   <div class="section-kicker">How we work</div><h2 class="section-title">Clear steps. Practical delivery.</h2>
-   <p class="section-copy">We start with the business need, shape a suitable solution, then review the approach with you before moving into implementation.</p>
-   <div class="process-grid"><div class="process-step"><b>01 · Understand</b><span>Clarify the goal, current process and main bottleneck.</span></div><div class="process-step"><b>02 · Plan</b><span>Map a practical solution, scope and delivery approach.</span></div><div class="process-step"><b>03 · Build &amp; refine</b><span>Review the work together and refine the outcome against the agreed need.</span></div></div>
-  </section>
-
-  <section class="content-panel" id="benefits">
-   <div class="section-kicker">Designed for real work</div><h2 class="section-title">Useful systems, not extra complexity.</h2>
-   <p class="section-copy">AMM focuses on practical improvements that fit the way your business operates — connecting the right tools, simplifying repeat tasks and making digital work easier to manage.</p>
-   <div class="info-grid">
-    <article class="info-card"><span class="info-index">01 / CLARITY</span><h3>Less manual repetition</h3><p>Identify repeatable tasks and create more consistent workflows for everyday operations.</p></article>
-    <article class="info-card"><span class="info-index">02 / CONNECTION</span><h3>Better-connected tools</h3><p>Bring forms, spreadsheets, customer inquiries and reporting into a more organized process where appropriate.</p></article>
-    <article class="info-card"><span class="info-index">03 / VISIBILITY</span><h3>Clearer digital presence</h3><p>Strengthen your website, search foundations and customer-facing creative across key touchpoints.</p></article>
-   </div>
-  </section>
-  <section class="content-panel" id="visibility">
-   <div class="section-kicker">Search visibility</div><h2 class="section-title">Help customers discover your business.</h2>
-   <p class="section-copy">Search work starts with a strong website foundation, then improves how your pages are understood by search engines and AI-powered discovery experiences. Results depend on competition, site condition and ongoing work; no rankings are guaranteed.</p>
-   <div class="capability-list">
-    <div class="capability"><strong>Google SEO</strong>Technical checks, page structure, titles, metadata and on-page improvements.</div>
-    <div class="capability"><strong>Technical SEO</strong>Indexing, crawlability, internal links, mobile usability and structured data checks.</div>
-    <div class="capability"><strong>AI search visibility</strong>Clear, useful content designed to be understandable across evolving AI-assisted search experiences.</div>
-    <div class="capability"><strong>SEO reporting</strong>Track relevant search visibility and identify practical next steps as data becomes available.</div>
-   </div><a class="content-cta" href="mailto:ammdatasolutions229@gmail.com?subject=Search%20Visibility%20Inquiry">Discuss SEO &amp; AI search ↗</a>
-  </section>
-  <section class="content-panel" id="fit">
-   <div class="section-kicker">Who we support</div><h2 class="section-title">Solutions shaped around your stage of growth.</h2>
-   <p class="section-copy">AMM works toward practical digital and operational improvements for businesses that want to get more organized, improve customer touchpoints or build a stronger online presence.</p>
-   <div class="info-grid">
-    <article class="info-card"><span class="info-index">SMALL BUSINESS</span><h3>Organize everyday operations</h3><p>Reduce avoidable manual work and create repeatable processes.</p></article>
-    <article class="info-card"><span class="info-index">STARTUPS &amp; AGENCIES</span><h3>Build a reliable foundation</h3><p>Connect digital touchpoints, reporting and workflows as needs grow.</p></article>
-    <article class="info-card"><span class="info-index">E-COMMERCE &amp; SERVICES</span><h3>Improve customer journeys</h3><p>Support discovery, inquiries, marketing and consistent brand communication.</p></article>
-   </div>
-  </section>
-  <section class="content-panel" id="faqs">
-   <div class="section-kicker">Common questions</div><h2 class="section-title">A clear start, before the build.</h2>
-   <div class="faq-list">
-    <details class="faq-item"><summary>Can I choose just one service?</summary><p>Yes. You can ask about an individual service or discuss a wider combination based on your needs.</p></details>
-    <details class="faq-item"><summary>Will you recommend tools before starting?</summary><p>We first clarify the task and constraints, then discuss a suitable approach and tools before implementation.</p></details>
-    <details class="faq-item"><summary>Can you work with my existing systems?</summary><p>Where access and technical compatibility allow, we can review your current tools and shape the work around them.</p></details>
-    <details class="faq-item"><summary>Do you guarantee SEO rankings or business results?</summary><p>No. Search positions and business outcomes depend on multiple factors. Work is scoped around concrete improvements and transparent review rather than guaranteed outcomes.</p></details>
-   </div>
-  </section>
-  <section class="content-panel" id="contact">
-   <div class="section-kicker">Start a conversation</div>
-   <div class="contact-layout"><div><h2 class="section-title">Let’s make your next step clearer.</h2><p class="section-copy">Tell AMM what you want to improve. We can start with the challenge, review the options and agree on a practical next step.</p>
-    <div class="contact-points"><div class="contact-point"><i>↗</i><div><b>Business-first approach</b><span>Start with your goals and current process, not a one-size-fits-all package.</span></div></div><div class="contact-point"><i>◎</i><div><b>Clear scope before delivery</b><span>Discuss the need and expected work before moving into implementation.</span></div></div></div></div>
-    <div class="contact-actions"><h3>Tell us what you’re working on.</h3><p>Choose the contact option that works for you. Your email app will open with a message addressed to AMM.</p><a class="content-cta" href="mailto:ammdatasolutions229@gmail.com?subject=AMM%20Data%20Solutions%20Inquiry">Email AMM ↗</a><a class="content-cta secondary" href="https://wa.me/923494805519" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></div>
-   </div>
-  </section>
-  <div class="site-footer"><span>AMM Data Solutions · Let’s Make Solutions</span><span><a href="#origin">Back to top ↑</a></span></div>
- </main>
+<div class="progress" id="progress"></div>
+<header class="topbar">
+ <div class="wrap nav">
+  <a class="brand" href="#top" aria-label="AMM Data Solutions home"><span class="brand-mark">AMM</span><span class="brand-sub">DATA SOLUTIONS</span></a>
+  <nav class="navlinks" id="navlinks" aria-label="Main navigation"><a href="#services">Services</a><a href="#approach">How we work</a><a href="#search">SEO & AI search</a><a href="#about">Who we help</a></nav>
+  <a class="button" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+ </div>
+</header>
+<main id="top">
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div class="hero-copy-block reveal">
+   <div class="eyebrow"><span class="eyebrow-dot"></span> SMART SYSTEMS FOR GROWING BUSINESSES</div>
+   <h1>Make work simpler.<br>Make growth <span class="accent">smarter.</span></h1>
+   <p class="hero-copy">We turn repetitive business work into smart, organized and automated systems — connecting your operations, data and digital presence.</p>
+   <div class="hero-actions"><a class="button" href="#services">Explore our services <span>↘</span></a><a class="button ghost" href="#approach">How we work</a></div>
+   <div class="trust-line"><span class="tiny-check">✓</span><span><strong>Practical by design.</strong> Clear scope before implementation.</span></div>
+  </div>
+  <div class="scene reveal" aria-label="Illustration of connected business systems">
+   <div class="orbit"></div><div class="orbit two"></div>
+   <div class="core"><span class="core-logo">AMM</span><span class="core-label">CONNECTED SYSTEMS</span></div>
+   <div class="float-card fc1"><span class="symbol">↗</span><span><b>AI automation</b><small>Less repetitive work</small></span></div>
+   <div class="float-card fc2"><span class="symbol">⌕</span><span><b>Search visibility</b><small>Google + AI discovery</small></span></div>
+   <div class="float-card fc3"><span class="symbol">▥</span><span><b>Data & reporting</b><small>Clearer decisions</small></span></div>
+   <div class="float-card fc4"><span class="symbol">◎</span><span><b>Digital growth</b><small>Connected touchpoints</small></span></div>
+  </div>
+ </div>
+ <div class="scroll-cue"><span>↓</span> A clearer way to work</div>
+</section>
+<section class="section white" id="services">
+ <div class="wrap">
+  <div class="section-head reveal"><div><div class="section-label">What we do</div><h2>Six services. One connected direction.</h2></div><p class="section-intro">Choose one focused service or combine areas around a practical business goal. Start with the problem; shape the solution from there.</p></div>
+  <div class="service-grid reveal" role="group" aria-label="AMM services">
+   <button class="service-card" type="button" data-service="0" aria-pressed="true"><div class="service-top"><span class="service-icon">⌘</span><span class="service-no">01 / SYSTEMS</span></div><h3>AI Automation & Business Systems</h3><p>Connect repeatable tasks, inquiries and workflows into more organized operations.</p><span class="service-arrow">↗</span></button>
+   <button class="service-card" type="button" data-service="1" aria-pressed="false"><div class="service-top"><span class="service-icon">▥</span><span class="service-no">02 / INSIGHTS</span></div><h3>Data Analytics & Reporting</h3><p>Make spreadsheets, business metrics and reports easier to use and understand.</p><span class="service-arrow">↗</span></button>
+   <button class="service-card" type="button" data-service="2" aria-pressed="false"><div class="service-top"><span class="service-icon">⌘</span><span class="service-no">03 / DIGITAL</span></div><h3>Web & E-commerce Solutions</h3><p>Build clear, responsive digital experiences for services, products and customers.</p><span class="service-arrow">↗</span></button>
+   <button class="service-card" type="button" data-service="3" aria-pressed="false"><div class="service-top"><span class="service-icon">⌕</span><span class="service-no">04 / DISCOVERY</span></div><h3>Search Visibility & SEO</h3><p>Strengthen technical foundations and help useful content become discoverable.</p><span class="service-arrow">↗</span></button>
+   <button class="service-card" type="button" data-service="4" aria-pressed="false"><div class="service-top"><span class="service-icon">↗</span><span class="service-no">05 / GROWTH</span></div><h3>Digital Marketing & Growth</h3><p>Bring campaigns, customer journeys, follow-up and performance tracking together.</p><span class="service-arrow">↗</span></button>
+   <button class="service-card" type="button" data-service="5" aria-pressed="false"><div class="service-top"><span class="service-icon">✳</span><span class="service-no">06 / CREATIVE</span></div><h3>Creative & Brand Solutions</h3><p>Communicate your offer with consistent visual assets and brand-aligned creative.</p><span class="service-arrow">↗</span></button>
+  </div>
+  <div class="service-detail reveal" aria-live="polite"><div><div class="detail-label" id="detailLabel">01 / SYSTEMS</div><h3 id="detailTitle">AI Automation & Business Systems</h3><p id="detailText">Design practical workflows that help reduce repetitive tasks, organize inquiries and keep everyday operations moving.</p></div><div><ul class="detail-list" id="detailList"><li>Workflow and task automation</li><li>Lead follow-up and inquiry handling</li><li>Connected business processes</li></ul><a class="mini-link" id="detailLink" href="mailto:ammdatasolutions229@gmail.com?subject=AMM%20service%20inquiry">Discuss this service ↗</a></div></div>
+ </div>
+</section>
+<section class="section" id="approach">
+ <div class="wrap">
+  <div class="section-head reveal"><div><div class="section-label">The approach</div><h2>Less guesswork. Clear next steps.</h2></div><p class="section-intro">Good systems start by understanding the work, not by adding tools. We keep the process understandable from the first conversation.</p></div>
+  <div class="process reveal"><article class="process-step"><span>STEP 01</span><h3>Understand</h3><p>Clarify your goal, existing process and the task or obstacle that needs attention.</p></article><article class="process-step"><span>STEP 02</span><h3>Plan</h3><p>Agree on a suitable solution, practical scope, tools and what delivery should include.</p></article><article class="process-step"><span>STEP 03</span><h3>Build & refine</h3><p>Develop the agreed work, review it together and refine against the intended need.</p></article></div>
+ </div>
+</section>
+<section class="section white">
+ <div class="wrap">
+  <div class="section-head reveal"><div><div class="section-label">Why AMM</div><h2>Useful improvements, without extra complexity.</h2></div><p class="section-intro">The goal is to make everyday digital work more organized and manageable — with solutions shaped around your actual needs.</p></div>
+  <div class="outcomes reveal"><article class="outcome"><div class="outcome-num">01</div><h3>Reduce manual repetition</h3><p>Identify repeatable tasks and make routine work more consistent where automation fits.</p></article><article class="outcome"><div class="outcome-num">02</div><h3>Connect the moving parts</h3><p>Bring customer inquiries, forms, spreadsheets and reporting into a clearer process where possible.</p></article><article class="outcome"><div class="outcome-num">03</div><h3>Improve digital clarity</h3><p>Align website, search presence and customer-facing creative around a clearer message.</p></article></div>
+ </div>
+</section>
+<section class="section dark" id="search">
+ <div class="wrap seo-layout">
+  <div class="reveal"><div class="section-label">Search visibility</div><h2>Be easier to find — and understand.</h2><p class="section-intro">We improve the foundations that help search engines and AI-assisted discovery experiences interpret your business. Search positions and business outcomes depend on many factors; no rankings are guaranteed.</p><div style="margin-top:24px"><a class="button" href="mailto:ammdatasolutions229@gmail.com?subject=SEO%20and%20AI%20search%20inquiry">Discuss SEO & AI search ↗</a></div></div>
+  <div class="seo-points reveal"><article class="seo-point"><span class="service-icon">G</span><div><h3>Google SEO</h3><p>Page titles, metadata, useful page structure and on-page improvements.</p></div></article><article class="seo-point"><span class="service-icon">⌁</span><div><h3>Technical SEO</h3><p>Indexing, crawlability, internal links, mobile usability and structured data checks.</p></div></article><article class="seo-point"><span class="service-icon">AI</span><div><h3>AI search visibility</h3><p>Clear, well-structured content for evolving AI-assisted search and answer experiences.</p></div></article><article class="seo-point"><span class="service-icon">↗</span><div><h3>Measurement & next steps</h3><p>Review available search data and prioritize improvements based on evidence.</p></div></article></div>
+ </div>
+</section>
+<section class="section" id="about">
+ <div class="wrap">
+  <div class="section-head reveal"><div><div class="section-label">Who we support</div><h2>Built around the stage you're at.</h2></div><p class="section-intro">Practical digital and operational support for teams that want to get more organized, improve customer touchpoints or grow their online presence.</p></div>
+  <div class="audience reveal" style="color:var(--ink)"><article class="audience-card" style="background:white;border-color:var(--line)"><small style="color:var(--blue)">SMALL BUSINESSES</small><h3>Organize everyday work</h3><p style="color:var(--muted)">Simplify repeat tasks, inquiries and the digital basics of running a business.</p></article><article class="audience-card" style="background:white;border-color:var(--line)"><small style="color:var(--blue)">STARTUPS & AGENCIES</small><h3>Build a reliable foundation</h3><p style="color:var(--muted)">Connect workflows, reporting and digital touchpoints as needs evolve.</p></article><article class="audience-card" style="background:white;border-color:var(--line)"><small style="color:var(--blue)">E-COMMERCE & SERVICES</small><h3>Improve customer journeys</h3><p style="color:var(--muted)">Support discovery, marketing, customer inquiries and consistent brand communication.</p></article></div>
+ </div>
+</section>
+<section class="section white" id="faq">
+ <div class="wrap faq-grid">
+  <div class="reveal"><div class="section-label">FAQs</div><h2 style="font-size:clamp(30px,3.8vw,43px);line-height:1.12">A clear start, before the build.</h2><p class="section-intro">A few practical answers to help you decide where to begin.</p></div>
+  <div class="faq-list reveal"><details class="faq-item"><summary>Can I choose just one service?</summary><p>Yes. You can ask about an individual service or discuss a combination based on your needs.</p></details><details class="faq-item"><summary>Will you recommend tools before starting?</summary><p>We first clarify the task and constraints, then discuss a suitable approach and tools before implementation.</p></details><details class="faq-item"><summary>Can you work with my existing systems?</summary><p>Where access and technical compatibility allow, we can review your current tools and shape the work around them.</p></details><details class="faq-item"><summary>Do you guarantee SEO rankings?</summary><p>No. Search results depend on competition, site condition, changes to search systems and many other factors. We focus on scoped improvements and transparent review.</p></details></div>
+ </div>
+</section>
+<section class="section" id="contact">
+ <div class="wrap"><div class="contact-box reveal"><div><div class="section-label">Start a conversation</div><h2>Let's make your next step clearer.</h2><p>Tell us what you want to improve. We'll start with the challenge, explore suitable options and agree on a practical next step.</p></div><div class="contact-actions"><a class="button" href="mailto:ammdatasolutions229@gmail.com?subject=AMM%20Data%20Solutions%20inquiry">Email AMM ↗</a><a class="button ghost" href="https://wa.me/923494805519" target="_blank" rel="noopener noreferrer">Message on WhatsApp ↗</a></div></div></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#top"><span class="brand-mark">AMM</span><span class="brand-sub">DATA SOLUTIONS</span></a><span class="footer-note">Let's Make Solutions · Practical systems for growing businesses</span><div class="footer-links"><a href="#services">Services</a><a href="#search">SEO & AI search</a><a href="#contact">Contact</a><span>© <span id="year"></span> AMM</span></div></div></footer>
+<a class="wa-float" href="https://wa.me/923494805519" target="_blank" rel="noopener noreferrer" aria-label="Contact AMM on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.1 7.4L3 20l.9-5a8.3 8.3 0 1 1 16.4-3.2Z"/><path d="M8.7 8.4c.2-.4.5-.5.8-.5h.4c.2 0 .3.1.4.4l.6 1.5c.1.2.1.4-.1.6l-.5.6c-.2.2-.1.4 0 .6.5.9 1.2 1.5 2.1 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1-.6 1.3-.4.4-1.1.6-1.7.5-1-.2-2.1-.7-3.1-1.5-1.4-1.2-2.3-2.7-2.5-3.7-.2-.8 0-1.5.4-1.9Z"/></svg></a>
 <script>
 (function(){
-const services=[
-{n:"01 / SYSTEMS",title:"AI Automation & Business Systems",text:"Design practical workflows that help reduce repetitive tasks, organize inquiries and keep everyday operations moving.",list:["Workflow and task automation","Lead follow-up and inquiry handling","Connected business processes"]},
-{n:"02 / INSIGHTS",title:"Data Analytics & Reporting Solutions",text:"Make business data easier to understand with structured spreadsheets, dashboards and reporting workflows.",list:["Excel and Google Sheets workflows","Dashboards and KPI reporting","Clear, decision-ready summaries"]},
-{n:"03 / DIGITAL",title:"Web & E-commerce Solutions",text:"Build useful digital experiences that present your services or products clearly and guide visitors toward action.",list:["Business and service websites","E-commerce experience planning","Mobile-friendly page structure"]},
-{n:"04 / DISCOVERY",title:"Search Visibility & SEO Solutions",text:"Strengthen search foundations so customers can more easily discover your business through relevant search experiences.",list:["Google and technical SEO","Structured content foundations","AI search visibility (GEO/AEO)"]},
-{n:"05 / GROWTH",title:"Digital Marketing & Growth Systems",text:"Connect campaign activity with customer journeys, follow-up and useful performance tracking.",list:["Digital campaign support","Lead journey and follow-up planning","Performance reporting"]},
-{n:"06 / CREATIVE",title:"Creative & Brand Solutions",text:"Create consistent visual communication that helps your business explain its offer and present a coherent brand.",list:["Social media and ad creatives","Brand-aligned visual assets","Campaign content support"]}
+const serviceData=[
+{label:"01 / SYSTEMS",title:"AI Automation & Business Systems",text:"Design practical workflows that help reduce repetitive tasks, organize inquiries and keep everyday operations moving.",list:["Workflow and task automation","Lead follow-up and inquiry handling","Connected business processes"]},
+{label:"02 / INSIGHTS",title:"Data Analytics & Reporting",text:"Make business data easier to use through structured spreadsheets, dashboards and reporting workflows.",list:["Excel and Google Sheets workflows","Dashboards and KPI reporting","Decision-ready summaries"]},
+{label:"03 / DIGITAL",title:"Web & E-commerce Solutions",text:"Build useful digital experiences that present services or products clearly and guide visitors toward action.",list:["Business and service websites","E-commerce experience planning","Mobile-friendly page structure"]},
+{label:"04 / DISCOVERY",title:"Search Visibility & SEO",text:"Strengthen search foundations so customers can more easily discover your business through relevant search experiences.",list:["Google and technical SEO","Structured content foundations","AI search visibility (GEO/AEO)"]},
+{label:"05 / GROWTH",title:"Digital Marketing & Growth",text:"Connect campaign activity with customer journeys, follow-up and useful performance tracking.",list:["Digital campaign support","Lead journey and follow-up planning","Performance reporting"]},
+{label:"06 / CREATIVE",title:"Creative & Brand Solutions",text:"Create consistent visual communication that helps your business explain its offer and present a coherent brand.",list:["Social media and ad creatives","Brand-aligned visual assets","Campaign content support"]}
 ];
-const buttons=[...document.querySelectorAll(".service-option")];
-function selectService(i){const s=services[i];if(!s)return;buttons.forEach((b,j)=>b.setAttribute("aria-pressed",String(j===i)));document.getElementById("detailKicker").textContent=s.n;document.getElementById("detailTitle").textContent=s.title;document.getElementById("detailText").textContent=s.text;const ul=document.getElementById("detailList");ul.replaceChildren(...s.list.map(t=>{const li=document.createElement("li");li.textContent=t;return li;}));document.getElementById("serviceContact").href="mailto:ammdatasolutions229@gmail.com?subject="+encodeURIComponent("AMM service inquiry: "+s.title);}
-buttons.forEach((b)=>b.addEventListener("click",()=>selectService(Number(b.dataset.service))));
-document.querySelectorAll(".links a").forEach(a=>a.addEventListener("click",e=>{const target=document.querySelector(a.getAttribute("href"));if(target){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}}));
+const cards=[...document.querySelectorAll(".service-card")];
+cards.forEach((card,i)=>card.addEventListener("click",()=>{
+ const d=serviceData[i];cards.forEach((c,j)=>c.setAttribute("aria-pressed",String(i===j)));
+ document.getElementById("detailLabel").textContent=d.label;
+ document.getElementById("detailTitle").textContent=d.title;
+ document.getElementById("detailText").textContent=d.text;
+ const list=document.getElementById("detailList");list.replaceChildren(...d.list.map(t=>{const li=document.createElement("li");li.textContent=t;return li;}));
+ document.getElementById("detailLink").href="mailto:ammdatasolutions229@gmail.com?subject="+encodeURIComponent("AMM service inquiry: "+d.title);
+}));
+const toggle=document.getElementById("menuToggle"),nav=document.getElementById("navlinks");
+toggle.addEventListener("click",()=>{const open=nav.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));toggle.setAttribute("aria-label",open?"Close navigation":"Open navigation");toggle.textContent=open?"✕":"☰";});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}));
+document.getElementById("year").textContent=new Date().getFullYear();
+const bar=document.getElementById("progress");let ticking=false;
+function update(){const doc=document.documentElement;const max=Math.max(1,doc.scrollHeight-innerHeight);bar.style.width=(scrollY/max*100)+"%";ticking=false;}
+addEventListener("scroll",()=>{if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});addEventListener("resize",update,{passive:true});update();
+const reveals=[...document.querySelectorAll(".reveal")];const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if("IntersectionObserver" in window&&!reduced){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target);}}),{threshold:.12});reveals.forEach(e=>io.observe(e));}else reveals.forEach(e=>e.classList.add("visible"));
 })();
 </script>
-
-<a class="wa" href="https://wa.me/923494805519" aria-label="Contact AMM on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.3 11.8a8.3 8.3 0 0 1-12.1 7.4L3 20l.9-5a8.3 8.3 0 1 1 16.4-3.2Z"/><path d="M8.7 8.4c.2-.4.5-.5.8-.5h.4c.2 0 .3.1.4.4l.6 1.5c.1.2.1.4-.1.6l-.5.6c-.2.2-.1.4 0 .6.5.9 1.2 1.5 2.1 1.9.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1-.6 1.3-.4.4-1.1.6-1.7.5-1-.2-2.1-.7-3.1-1.5-1.4-1.2-2.3-2.7-2.5-3.7-.2-.8 0-1.5.4-1.9Z"/></svg></a>
-</div>
-<script>
-(function(){
-'use strict';
-var W=1172,H=657,stage=document.getElementById('stage'),canvas=document.getElementById('canvas'),ring=document.getElementById('ring');
-function fit(){var vw=window.innerWidth,vh=window.innerHeight,k;if(vw<=940){k=1;canvas.style.width=vw+'px';canvas.style.height='657px';canvas.style.setProperty('--k',1);canvas.style.transform='none';canvas.style.left='0';}else{k=Math.min(vw/W,vh/560);canvas.style.width=W+'px';canvas.style.setProperty('--k',k);canvas.style.transform='translateX(-50%) scale('+k+')';canvas.style.left='50%';}stage.style.setProperty('--k',k);}
-function stars(id,count,blur,min,max){var el=document.getElementById(id),shadows=[];for(var i=0;i<count;i++){var x=(Math.random()*100).toFixed(2),y=(Math.random()*100).toFixed(2),a=(min+Math.random()*(max-min)).toFixed(2);shadows.push(x+'vw '+y+'vh '+blur+'px 0 rgba(255,255,255,'+a+')');}el.style.boxShadow=shadows.join(',');}
-stars('stA',150,0,.05,.30);stars('stB',18,1.2,.35,.70);fit();window.addEventListener('resize',fit,{passive:true});
-var SHOTS=[
-{url:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85',v:'automation'},
-{url:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=85',v:'data'},
-{url:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=85',v:'web'},
-{url:'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=700&q=85',v:'seo'},
-{url:'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=700&q=85',v:'creative'},
-{url:'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=85',v:'growth'},
-{url:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85',v:'automation'},
-{url:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=85',v:'data'},
-{url:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=85',v:'web'},
-{url:'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=700&q=85',v:'seo'}
-];
-function creative(d){var im='<img alt="" src="'+d.url+'">';var cfg={
-automation:{k:'AI AUTOMATION / 01',a:'Automate',b:'the repeatable.',bg:'#071722',accent:'#5de3f3',copy:'CONNECTED WORKFLOWS · SMART FOLLOW-UP'},
-data:{k:'DATA & INSIGHTS / 02',a:'Make data',b:'make sense.',bg:'#111b2c',accent:'#8db7ff',copy:'DASHBOARDS · REPORTING · CLARITY'},
-web:{k:'WEB & E-COMMERCE / 03',a:'Built to',b:'move forward.',bg:'#17211f',accent:'#a9e6c5',copy:'WEBSITES · DIGITAL EXPERIENCES'},
-seo:{k:'SEARCH VISIBILITY / 04',a:'Be easier',b:'to discover.',bg:'#151323',accent:'#c8b5ff',copy:'GOOGLE SEO · AI SEARCH OPTIMIZATION'},
-creative:{k:'CREATIVE & BRAND / 05',a:'Make your',b:'brand matter.',bg:'#24131d',accent:'#ffb6cf',copy:'CAMPAIGNS · VISUALS · CONTENT'},
-growth:{k:'DIGITAL GROWTH / 06',a:'Turn plans',b:'into action.',bg:'#1b1c10',accent:'#e7d878',copy:'MARKETING · LEAD JOURNEYS · PERFORMANCE'}
-};var x=cfg[d.v]||cfg.automation;return '<div class="fill" style="background:'+x.bg+';color:#fff"><div class="cv" style="top:18px;font-size:4px;letter-spacing:.14em;color:#b5c4cf">'+x.k+'</div><div class="cv t-big" style="top:38px;font-size:14px">'+x.a+'</div><div class="cv t-serif" style="top:53px;font-size:19px;color:'+x.accent+'">'+x.b+'</div><div class="ph" style="top:89px;bottom:0">'+im+'<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,8,14,.04),rgba(3,8,14,.78))"></div></div><div class="cv" style="bottom:14px;font-size:4.3px;letter-spacing:.07em;color:#fff">'+x.copy+'</div></div>';}
-var cards=[],N=37,R=891,step=360/N,phase=-2;
-for(var i=0;i<N;i++){let card=document.createElement('div');card.className='card';card.innerHTML=creative(SHOTS[i%SHOTS.length])+'<div class="edge"></div>';var imgs=card.querySelectorAll('img');imgs.forEach(function(img){img.addEventListener('error',function(){card.classList.add('broken');});});ring.appendChild(card);cards.push(card);card.setAttribute('role','button');card.setAttribute('tabindex','0');card.setAttribute('aria-label','Explore '+SHOTS[i%SHOTS.length].v+' service');var serviceIndex=({automation:0,data:1,web:2,seo:3,creative:5,growth:4})[SHOTS[i%SHOTS.length].v]||0;function openCardService(){var serviceButton=document.querySelector('.service-option[data-service="'+serviceIndex+'"]');if(serviceButton){serviceButton.click();document.getElementById('systems').scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});}}card.addEventListener('click',openCardService);card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCardService();}});}
-var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,last=0;
-function render(t){if(!last)last=t;var dt=Math.min((t-last)/1000,.1);last=t;if(!reduced)phase-=1.9*dt;for(var i=0;i<cards.length;i++){var a=((i*step+phase+540)%360+360)%360-180,el=cards[i];if(Math.abs(a)>42){el.style.visibility='hidden';continue;}el.style.visibility='visible';var r=a*Math.PI/180,c=Math.cos(r);el.style.transform='translate3d('+(R*Math.sin(r))+'px,0,'+(R*(1-c))+'px) rotateY('+(-a)+'deg)';el.style.filter='brightness('+(0.84+0.5*(1/c-1))+')';}requestAnimationFrame(render);}
-document.addEventListener('visibilitychange',function(){last=0;});
-requestAnimationFrame(render);
-})();
-
-// Scroll-led reveal and chapter progress for the Option 3 preview; no hero/card geometry changes.
-(function(){
-  const bar=document.getElementById('scrollProgress');
-  const fill=document.getElementById('chapterFill');
-  const label=document.getElementById('chapterLabel');
-  const panels=[...document.querySelectorAll('.content-panel')];
-  const names={origin:'01 / ORIGIN',systems:'02 / SERVICES',benefits:'03 / OUTCOMES',visibility:'04 / SEARCH',fit:'05 / WHO WE HELP',approach:'06 / APPROACH',faqs:'07 / FAQ',contact:'08 / CONTACT'};
-  if(!panels.length)return;
-  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduced&&'IntersectionObserver' in window){
-    document.body.classList.add('motion-ready');
-    const io=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          if(label)label.textContent=names[entry.target.id]||'AMM / DATA SOLUTIONS';
-        }
-      });
-    },{threshold:.14,rootMargin:'0px 0px -7% 0px'});
-    panels.forEach(panel=>io.observe(panel));
-  }else{
-    panels.forEach(panel=>panel.classList.add('is-visible'));
-  }
-  let scheduled=false;
-  function updateScroll(){
-    const doc=document.documentElement;
-    const max=Math.max(1,doc.scrollHeight-window.innerHeight);
-    const progress=Math.max(0,Math.min(1,window.scrollY/max));
-    if(bar)bar.style.width=(progress*100)+'%';
-    if(fill)fill.style.height=(progress*100)+'%';
-    scheduled=false;
-  }
-  window.addEventListener('scroll',()=>{
-    if(!scheduled){scheduled=true;window.requestAnimationFrame(updateScroll);}
-  },{passive:true});
-  window.addEventListener('resize',updateScroll,{passive:true});
-  updateScroll();
-})();
-
-</script>
-
 </body>
 </html>
