@@ -174,9 +174,9 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <style>
-.site-content{position:relative;z-index:20;margin-top:100vh;color:#fff;padding:0 6vw 70px;pointer-events:auto}
+.site-content{position:relative;z-index:20;margin-top:100vh;color:#fff;padding:0 6vw 70px;pointer-events:auto;scroll-margin-top:24px}
 .content-wrap{max-width:1120px;margin:0 auto}
-.content-panel{border:1px solid rgba(120,220,245,.18);background:rgba(5,12,20,.78);backdrop-filter:blur(18px);border-radius:24px;padding:clamp(22px,4vw,48px);margin:0 0 24px;box-shadow:0 18px 60px rgba(0,0,0,.28)}
+.content-panel{border:1px solid rgba(120,220,245,.18);background:rgba(5,12,20,.78);backdrop-filter:blur(18px);border-radius:24px;padding:clamp(22px,4vw,48px);margin:0 0 24px;box-shadow:0 18px 60px rgba(0,0,0,.28);scroll-margin-top:22px}
 .section-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#5de3f3;margin-bottom:12px}
 .section-title{font-size:clamp(26px,4vw,44px);line-height:1.12;letter-spacing:-.04em;font-weight:800;margin-bottom:14px}
 .section-copy{color:#c2cbd4;line-height:1.75;max-width:760px;font-size:14px}
@@ -280,7 +280,7 @@ creative:{k:'CREATIVE & BRAND / 05',a:'Make your',b:'brand matter.',bg:'#24131d'
 growth:{k:'DIGITAL GROWTH / 06',a:'Turn plans',b:'into action.',bg:'#1b1c10',accent:'#e7d878',copy:'MARKETING · LEAD JOURNEYS · PERFORMANCE'}
 };var x=cfg[d.v]||cfg.automation;return '<div class="fill" style="background:'+x.bg+';color:#fff"><div class="cv" style="top:18px;font-size:4px;letter-spacing:.14em;color:#b5c4cf">'+x.k+'</div><div class="cv t-big" style="top:38px;font-size:14px">'+x.a+'</div><div class="cv t-serif" style="top:53px;font-size:19px;color:'+x.accent+'">'+x.b+'</div><div class="ph" style="top:89px;bottom:0">'+im+'<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,8,14,.04),rgba(3,8,14,.78))"></div></div><div class="cv" style="bottom:14px;font-size:4.3px;letter-spacing:.07em;color:#fff">'+x.copy+'</div></div>';}
 var cards=[],N=37,R=891,step=360/N,phase=-2;
-for(var i=0;i<N;i++){let card=document.createElement('div');card.className='card';card.innerHTML=creative(SHOTS[i%SHOTS.length])+'<div class="edge"></div>';var imgs=card.querySelectorAll('img');imgs.forEach(function(img){img.addEventListener('error',function(){card.classList.add('broken');});});ring.appendChild(card);cards.push(card);}
+for(var i=0;i<N;i++){let card=document.createElement('div');card.className='card';card.innerHTML=creative(SHOTS[i%SHOTS.length])+'<div class="edge"></div>';var imgs=card.querySelectorAll('img');imgs.forEach(function(img){img.addEventListener('error',function(){card.classList.add('broken');});});ring.appendChild(card);cards.push(card);card.setAttribute('role','button');card.setAttribute('tabindex','0');card.setAttribute('aria-label','Explore '+SHOTS[i%SHOTS.length].v+' service');var serviceIndex=({automation:0,data:1,web:2,seo:3,creative:5,growth:4})[SHOTS[i%SHOTS.length].v]||0;function openCardService(){var serviceButton=document.querySelector('.service-option[data-service="'+serviceIndex+'"]');if(serviceButton){serviceButton.click();document.getElementById('systems').scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});}}card.addEventListener('click',openCardService);card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCardService();}});}
 var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,last=0;
 function render(t){if(!last)last=t;var dt=Math.min((t-last)/1000,.1);last=t;if(!reduced)phase-=1.9*dt;for(var i=0;i<cards.length;i++){var a=((i*step+phase+540)%360+360)%360-180,el=cards[i];if(Math.abs(a)>42){el.style.visibility='hidden';continue;}el.style.visibility='visible';var r=a*Math.PI/180,c=Math.cos(r);el.style.transform='translate3d('+(R*Math.sin(r))+'px,0,'+(R*(1-c))+'px) rotateY('+(-a)+'deg)';el.style.filter='brightness('+(0.84+0.5*(1/c-1))+')';}requestAnimationFrame(render);}
 document.addEventListener('visibilitychange',function(){last=0;});
