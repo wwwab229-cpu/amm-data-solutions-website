@@ -38,11 +38,21 @@ function ServiceVisual({ type }: { type: string }) {
 export default function Home() {
   const [openFaq,setOpenFaq]=useState<number|null>(null);
   const [contactOpen,setContactOpen]=useState(false);
+  const [mobileNavOpen,setMobileNavOpen]=useState(false);
   return <main>
-    <nav className="nav" aria-label="Main navigation">
+    <a className="skipLink" href="#services">Skip to capabilities</a>
+    <nav className={`nav${mobileNavOpen ? " navOpen" : ""}`} aria-label="Main navigation">
       <Brand />
-      <div className="navlinks"><a href="#services">Capabilities</a><a href="#how">Our approach</a><a href="#about">About AMM</a></div>
-      <button className="navcta" type="button" onClick={()=>setContactOpen(true)}>Discuss a project <span>↗</span></button>
+      <div className={`navlinks${mobileNavOpen ? " navlinksOpen" : ""}`} id="primary-navigation">
+        <a href="#services" onClick={()=>setMobileNavOpen(false)}>Capabilities</a>
+        <a href="#how" onClick={()=>setMobileNavOpen(false)}>Our approach</a>
+        <a href="#about" onClick={()=>setMobileNavOpen(false)}>About AMM</a>
+        <a className="mobileNavContact" href="#contact" onClick={()=>setMobileNavOpen(false)}>Contact AMM <span>↗</span></a>
+      </div>
+      <div className="navActions">
+        <button className="navcta" type="button" onClick={()=>{setMobileNavOpen(false);setContactOpen(true)}}>Discuss a project <span>↗</span></button>
+        <button className="mobileMenuToggle" type="button" aria-expanded={mobileNavOpen} aria-controls="primary-navigation" aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"} onClick={()=>setMobileNavOpen(!mobileNavOpen)}><span/><span/><span/></button>
+      </div>
     </nav>
     <section className="hero heroPremium">
       <div className="heroPremiumInner">
