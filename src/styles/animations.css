@@ -1,0 +1,16 @@
+@media (prefers-reduced-motion: no-preference) {
+  .hero__copy, .hero__visual, .service-card { animation: rise-in 700ms cubic-bezier(.2,.75,.25,1) both; }
+  .hero__visual { animation-delay: 100ms; }
+  .service-card:nth-child(2) { animation-delay: 70ms; }
+  .service-card:nth-child(3) { animation-delay: 140ms; }
+  .service-card:nth-child(4) { animation-delay: 210ms; }
+  .service-card:nth-child(5) { animation-delay: 280ms; }
+  .service-card:nth-child(6) { animation-delay: 350ms; }
+  .visual-orbit--one { animation: orbit-turn 24s linear infinite; }
+  .visual-orbit--two { animation: orbit-turn 32s linear infinite reverse; }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes orbit-turn { to { transform: rotate(360deg); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
