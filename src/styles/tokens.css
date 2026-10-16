@@ -1,9 +1,9 @@
 :root {
-  --color-ink: #111827;
-  --color-muted: #566176;
-  --color-paper: #f7f9fc;
+  --color-ink: #151b26;
+  --color-muted: #596579;
+  --color-paper: #f1f3f6;
   --color-surface: #ffffff;
-  --color-line: rgba(17, 24, 39, 0.12);
+  --color-line: rgba(25, 38, 58, 0.12);
   --color-blue: #2563eb;
   --color-blue-dark: #102b59;
   --color-yellow: #ffc107;
