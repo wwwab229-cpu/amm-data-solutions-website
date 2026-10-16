@@ -1,0 +1,5 @@
+import { heroContent } from "@/content/site-content";
+
+export function Hero() {
+  return <section className="hero section-shell" aria-labelledby="hero-title"><div className="hero__copy"><p className="eyebrow">{heroContent.eyebrow}</p><h1 id="hero-title">{heroContent.title}</h1><p className="hero__description">{heroContent.description}</p><div className="hero__actions"><a className="button" href="#contact">{heroContent.primaryAction} <span aria-hidden="true">↗</span></a><a className="button button--quiet" href="#services">{heroContent.secondaryAction}</a></div></div><div className="hero__visual" aria-label="Abstract connected systems visual" role="img"><div className="visual-orbit visual-orbit--one" /><div className="visual-orbit visual-orbit--two" /><div className="visual-core"><span>AMM</span><small>CONNECTED SYSTEMS</small></div><span className="visual-node visual-node--one">AI</span><span className="visual-node visual-node--two">DATA</span><span className="visual-node visual-node--three">GROWTH</span></div></section>;
+}
