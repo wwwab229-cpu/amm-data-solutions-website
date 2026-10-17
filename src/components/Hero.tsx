@@ -10,7 +10,7 @@ export function Hero() {
         <div className="hero__copy">
           <p className="eyebrow hero__eyebrow">LET’S MAKE SOLUTIONS</p>
           <div className="hero-brand-intro" aria-label="AMM Data Solutions">
-            <img className="hero-brand-intro__logo" src="/amm-logo.svg" alt="AMM Data Solutions" />
+            <span className="hero-brand-intro__wordmark" aria-label="AMM Data Solutions"><b>A<span>M</span>M</b><small>DATA SOLUTIONS</small></span>
           </div>
           <p className="hero__kicker">SMARTER SYSTEMS. LESS MANUAL WORK.</p>
           <h1 id="hero-title">Make your business <span>work smarter.</span></h1>
@@ -27,7 +27,7 @@ export function Hero() {
           <div className="hero-visual__halo hero-visual__halo--inner" />
           <div className="hero-visual__track hero-visual__track--one" />
           <div className="hero-visual__track hero-visual__track--two" />
-          <div className="hero-visual__core"><img src="/amm-logo.svg" alt="" /><span>CONNECTED SYSTEMS</span></div>
+          <div className="hero-visual__core"><strong className="hero-visual__wordmark">A<span>M</span>M</strong><span>CONNECTED SYSTEMS</span></div>
           <span className="hero-visual__node hero-visual__node--ai">✳ <b>AI</b></span>
           <span className="hero-visual__node hero-visual__node--data">⌘ <b>DATA</b></span>
           <span className="hero-visual__node hero-visual__node--growth">↗ <b>GROWTH</b></span>
